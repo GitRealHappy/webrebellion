@@ -2,7 +2,7 @@
   <div class="container header-container">
     <div class="site-branding">
       <a class="site-title" href="{{ '/' | relative_url }}">
-        LIVING INTERNET ALLIANCE
+        WEB DEV REBELLION
       </a>
     </div>
 
@@ -10,12 +10,12 @@
       <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
         <span class="hamburger"></span>
       </button>
-      <div class="nav-links">
-        {% for item in site.nav %}
-          <a class="page-link {% if page.url == item.url %}active{% endif %}" href="{{ item.url | relative_url }}" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">{{ item.title }}</a>
-        {% endfor %}
-      </div>
     </nav>
+    <div class="nav-links">
+      {% for item in site.nav %}
+        <a class="page-link {% if page.url == item.url %}active{% endif %}" href="{{ item.url | relative_url }}" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">{{ item.title }}</a>
+      {% endfor %}
+    </div>
   </div>
 </header>
 

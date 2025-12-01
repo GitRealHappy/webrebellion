@@ -5,7 +5,7 @@
   --color-earth-brown: #5C3829;
   --color-midnight: #040105;
   --color-fire-orange: #E67328;
-  --color-white: #FFFFFF;
+  --color-white: #ede8ed;
   --color-off-white: #F0F0F0;
   --color-text-muted: #AAAAAA;
 
@@ -95,6 +95,7 @@ main {
   font-weight: 900;
   font-size: 1.2rem;
   letter-spacing: 1px;
+  margin-right: var(--spacing-md);
   text-transform: uppercase;
 }
 
@@ -102,23 +103,45 @@ main {
   position: relative;
 }
 
-.site-nav .nav-links {
+.nav-links {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
 }
 
-.site-nav a.page-link {
-  font-size: 0.9rem;
+.nav-links a.page-link {
+  font-size: 0.85rem;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-off-white);
-  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 3px;
+  padding: 0.4rem 0.8rem;
+  margin: 0;
+  transition: all 0.2s ease;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.15);
 }
 
-.site-nav a.page-link:hover,
-.site-nav a.page-link.active {
+.nav-links a.page-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(70, 59, 106, 0.8), 0 0 24px rgba(70, 59, 106, 0.4);
+}
+
+.nav-links a.page-link.active {
+  background: var(--color-fire-orange);
+  border: 1px solid rgba(255, 255, 255, 1);
+  color: var(--color-white);
   opacity: 1;
-  border-bottom: 2px solid var(--color-fire-orange);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.15);
+}
+
+.nav-links a.page-link.active:hover {
+  box-shadow: 0 0 12px rgba(70, 59, 106, 0.8), 0 0 24px rgba(70, 59, 106, 0.4);
 }
 
 /* Hamburger Menu Styling */
@@ -381,21 +404,37 @@ main {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .site-nav .nav-links {
+  .site-header {
+    position: relative;
+    overflow: visible;
+  }
+  
+  .header-container {
+    position: relative;
+  }
+  
+  .nav-links {
     display: none; /* Hidden by default */
     flex-direction: column;
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    left: calc(-1 * var(--spacing-md));
+    right: calc(-1 * var(--spacing-md));
     background: var(--color-midnight);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: var(--spacing-sm);
   }
   
-  .site-nav .nav-links.open {
+  .nav-links.open {
     display: flex; /* Shown when toggled */
+  }
+  
+  .nav-links a.page-link {
+    width: 100%;
+    text-align: center;
   }
 
   .menu-toggle {

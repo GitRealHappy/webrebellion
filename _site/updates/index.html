@@ -43,30 +43,30 @@
   <div class="container header-container">
     <div class="site-branding">
       <a class="site-title" href="/">
-        LIVING INTERNET ALLIANCE
+        WEB DEV REBELLION
       </a>
     </div>
 
     <nav class="site-nav">
-      <button class="menu-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
         <span class="hamburger"></span>
       </button>
-      <div class="nav-links">
-        
-          <a class="page-link " href="/dashboard/">Dashboard</a>
-        
-          <a class="page-link " href="/curriculum/">Curriculum</a>
-        
-          <a class="page-link " href="/prompts/">Prompt Library</a>
-        
-          <a class="page-link active" href="/updates/">Updates</a>
-        
-          <a class="page-link " href="/resources/">Resources</a>
-        
-          <a class="page-link " href="/faq/">FAQ</a>
-        
-      </div>
     </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link active" href="/updates/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Updates</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
   </div>
 </header>
 
