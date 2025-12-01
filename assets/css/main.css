@@ -98,6 +98,10 @@ main {
   text-transform: uppercase;
 }
 
+.site-nav {
+  position: relative;
+}
+
 .site-nav .nav-links {
   display: flex;
   gap: var(--spacing-md);
@@ -148,6 +152,26 @@ main {
 
 .hamburger::before { top: -8px; }
 .hamburger::after { bottom: -8px; }
+
+.menu-toggle.active .hamburger {
+  background-color: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active .hamburger::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  transition: all 0.3s ease;
+}
 
 /* Footer */
 .site-footer {
