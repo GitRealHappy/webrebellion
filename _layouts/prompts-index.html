@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<header class="page-header">
+  <h1 class="page-title">{{ page.title | escape }}</h1>
+  <p class="page-intro">{{ page.description }}</p>
+</header>
+
+<section class="prompts-controls">
+  <div class="filter-group">
+    <label for="category-filter">Filter by:</label>
+    <select id="category-filter">
+      <option value="all">All Categories</option>
+      <option value="jekyll">Jekyll</option>
+      <option value="design">Design</option>
+      <option value="layout">Layout</option>
+      <option value="debugging">Debugging</option>
+    </select>
+  </div>
+</section>
+
+<div class="prompts-grid" id="prompts-grid">
+  {% for prompt in site.prompts %}
+  <article class="prompt-card" 
+           data-category="{{ prompt.category | downcase }}"
+           data-tags="{{ prompt.tags | join: ',' }}"
+           data-id="{{ prompt.slug }}">
+    <div class="card-image">
+      <img src="{{ prompt.image | relative_url }}" alt="{{ prompt.title }}">
+    </div>
+    <div class="card-content">
+      <div class="card-meta">
+        <span class="badge category">{{ prompt.category }}</span>
+        <span class="badge difficulty">{{ prompt.difficulty }}</span>
+      </div>
+      <h3>{{ prompt.title }}</h3>
+      <!-- Hidden data for modal -->
+      <div class="prompt-data hidden" aria-hidden="true">
+        <div class="prompt-body">{{ prompt.content }}</div>
+        <div class="prompt-desc">{{ prompt.excerpt }}</div>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+
+{% include modal.html %}
+
+<script src="{{ '/assets/js/prompts.js' | relative_url }}"></script>
+

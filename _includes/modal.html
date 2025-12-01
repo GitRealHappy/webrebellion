@@ -1,0 +1,27 @@
+<div id="prompt-modal" class="modal" aria-hidden="true">
+  <div class="modal-overlay" tabindex="-1" data-close="modal"></div>
+  <div class="modal-container" role="dialog" aria-modal="true">
+    <button class="modal-close" aria-label="Close modal" data-close="modal">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title">Prompt Title</h2>
+      <div class="modal-meta">
+        <span id="modal-category" class="badge">Category</span>
+        <span id="modal-tags" class="tags"></span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-image-wrapper">
+        <img id="modal-image" src="" alt="Prompt preview">
+      </div>
+      <div id="modal-desc" class="modal-description"></div>
+      
+      <div class="modal-code-section">
+        <button id="copy-btn" class="btn-copy">Copy Prompt</button>
+        <pre><code id="modal-code"></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
