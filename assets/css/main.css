@@ -290,6 +290,22 @@ main {
   border-color: var(--color-royal-indigo);
 }
 
+.prompt-preview {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none !important;
+}
+
 .badge {
   display: inline-block;
   padding: 2px 8px;

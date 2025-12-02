@@ -35,6 +35,9 @@ layout: default
         <span class="badge difficulty">{{ prompt.difficulty }}</span>
       </div>
       <h3>{{ prompt.title }}</h3>
+      <p class="prompt-preview">
+        {{ prompt.excerpt | strip_html | truncate: 140 }}
+      </p>
       <!-- Hidden data for modal -->
       <div class="prompt-data hidden" aria-hidden="true">
         <div class="prompt-body">{{ prompt.content }}</div>
