@@ -3,7 +3,7 @@ title: "Layout Refinement & Cleanup"
 category: "Layout"
 difficulty: "Intermediate"
 image: "/assets/images/prompts/layout-refine.png"
-tags: ["css", "grid", "flexbox"]
+tags: ["css", "grid", "flexbox", "coming-soon"]
 layout: prompt
 ---
 

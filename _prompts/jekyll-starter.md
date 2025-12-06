@@ -3,7 +3,7 @@ title: "Jekyll 4-Page Starter Site"
 category: "Jekyll"
 difficulty: "Beginner"
 image: "/assets/images/prompts/jekyll-starter.png"
-tags: ["jekyll", "starter", "agent-mode"]
+tags: ["jekyll", "starter", "agent-mode", "coming-soon"]
 layout: prompt
 ---
 

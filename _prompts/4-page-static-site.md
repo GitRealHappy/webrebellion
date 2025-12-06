@@ -2,7 +2,7 @@
 title: "4-Page Static Site Generator"
 category: "HTML/CSS"
 difficulty: "Beginner"
-image: "/assets/images/prompts/4-page-static.png"
+image: "/assets/images/prompt-previews/preview2.png"
 tags: ["html", "css", "static-site", "beginner"]
 layout: prompt
 ---

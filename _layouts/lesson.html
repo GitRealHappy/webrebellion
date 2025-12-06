@@ -30,6 +30,8 @@ layout: default
           <span class="nav-btn disabled">First Lesson</span>
         {% endif %}
 
+        <a href="{{ '/curriculum/' | relative_url }}" class="nav-btn index">Lesson Index</a>
+
         {% if next_index < lessons.size %}
           {% assign next_lesson = lessons[next_index] %}
           <a href="{{ next_lesson.url | relative_url }}" class="nav-btn next">Next Lesson →</a>

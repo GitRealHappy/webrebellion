@@ -237,6 +237,37 @@ main {
   padding: var(--spacing-md);
 }
 
+/* Prompt Card Image Styling */
+.card-image {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.prompt-preview-container {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.prompt-preview-label {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.prompt-preview-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+}
+
 /* Lesson Styles */
 .lesson-meta {
   font-size: 0.85rem;
@@ -284,10 +315,25 @@ main {
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .prompt-card:hover {
   border-color: var(--color-royal-indigo);
+}
+
+/* Coming Soon Cards */
+.prompt-card.coming-soon {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+  filter: grayscale(0.8);
+}
+
+.prompt-card.coming-soon:hover {
+  border-color: rgba(255,255,255,0.05);
 }
 
 .prompt-preview {

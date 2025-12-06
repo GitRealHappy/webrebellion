@@ -763,19 +763,23 @@
 
     let typingIndex = 0;
     let isTyping = false;
+    let skipTyping = false;
 
     function resetTerminal() {
       terminalOutput.innerHTML = "";
       terminalInput.value = "";
-      terminalInputRow.classList.add("hidden");
+      // Start with input visible so users can type immediately
+      terminalInputRow.classList.remove("hidden");
+      terminalInput.focus();
       terminalCta.classList.add("hidden");
       terminalCta.innerHTML = "";
       typingIndex = 0;
+      skipTyping = false;
     }
 
     function typeNextLine() {
+      // If we're done, just focus input
       if (typingIndex >= introLines.length) {
-        terminalInputRow.classList.remove("hidden");
         terminalInput.focus();
         return;
       }
@@ -786,29 +790,39 @@
       if (line.class) {
         lineElem.classList.add(line.class);
       }
+      
+      terminalOutput.appendChild(lineElem);
+
+      // If user already submitted, skip typing animation
+      if (skipTyping) {
+        lineElem.textContent = line.text;
+        typingIndex++;
+        typeNextLine();
+        return;
+      }
 
       // Typewriter effect per line
       const text = line.text;
       let charIndex = 0;
 
       function typeChar() {
+        if (skipTyping) {
+           lineElem.textContent = text;
+           typingIndex++;
+           typeNextLine();
+           return;
+        }
+        
         lineElem.textContent = text.slice(0, charIndex);
         if (charIndex < text.length) {
           charIndex++;
           setTimeout(typeChar, 12); // speed per char
         } else {
-          // Add blinking cursor to last line when it's the final prompt
-          if (typingIndex === introLines.length - 1) {
-            const cursorSpan = document.createElement("span");
-            cursorSpan.classList.add("cursor");
-            lineElem.appendChild(cursorSpan);
-          }
           typingIndex++;
           setTimeout(typeNextLine, 120); // delay between lines
         }
       }
-
-      terminalOutput.appendChild(lineElem);
+      
       terminalOutput.scrollTop = terminalOutput.scrollHeight;
       typeChar();
     }
@@ -822,6 +836,9 @@
     function handleInputSubmit(value) {
       const answer = value.trim().toLowerCase();
       if (!answer) return;
+
+      // Skip remaining animation
+      skipTyping = true;
 
       // Echo the input in the terminal
       const echoLine = document.createElement("div");

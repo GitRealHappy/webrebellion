@@ -5,7 +5,8 @@ permalink: /resources/
 ---
 
 ## Official Tools
-*   **VS Code**: The editor of choice.
+*   **VS Code**: The classic editor of choice.
+*   **Cursor**: The modern editor of choice.
 *   **GitHub Desktop**: Visual version control.
 
 ## Design Assets

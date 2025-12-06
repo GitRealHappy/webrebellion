@@ -6,12 +6,10 @@ permalink: /faq/
 
 ## Frequently Asked Questions
 
-### How do I access the lessons?
-Log in using the password provided in your welcome email.
+### We don't know what questions are frequently asked yet!
+Just ask Jesse :-)
 
 ### Can I share these prompts?
-These are for LIA members only. Please respect the guild.
+Is anybody going to stop you? (This is the rebellion.)
 
-### Where do I submit my work?
-Check the #assignments channel in the Discord.
 
