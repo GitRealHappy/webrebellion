@@ -462,3 +462,34 @@ main {
   }
 }
 
+/* Lesson Content Styles */
+.lesson-block {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+pre {
+  background: #000;
+  padding: var(--spacing-md);
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: var(--spacing-md) 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  background: rgba(0,0,0,0.3);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  color: #e0e0e0;
+}
