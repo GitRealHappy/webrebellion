@@ -368,6 +368,21 @@
       padding: 10px 22px;
     }
 
+    .payment-options-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .payment-option {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 12px;
@@ -382,6 +397,10 @@
       }
       .sales-section .headline {
         font-size: 24px;
+      }
+      .payment-options-grid {
+        flex-direction: column;
+        gap: 24px;
       }
     }
   </style>
@@ -425,6 +444,11 @@
 
   <!-- Sales page -->
   <main id="sales-page" class="hidden">
+    <div class="sale-announcement" id="holiday-countdown-banner" style="margin-bottom: 30px;">
+      <h2 style="margin-bottom: 8px;">Holiday Sale Ends In:</h2>
+      <div class="countdown-timer-display" style="font-size: 24px; font-weight: bold; margin-bottom: 8px; font-family: 'SF Mono', monospace; color: var(--text);"></div>
+      <p style="font-size: 14px; margin: 0; color: var(--muted);">40% OFF until Dec 26th @ Midnight PST</p>
+    </div>
     <section class="sales-section">
       <h1 class="main-title">Web Design Rebellion</h1>
       <div class="headline">You could be building $1,000 client-ready websites on your Saturdays by February 2026.</div>
@@ -460,7 +484,7 @@
       <p><strong>You're dependent on developers who cost $2,000-$5,000 and take weeks to make adjustments.</strong> By the time they finish, the adjustments that you need done have changed again.</p>
       <p><strong>You're spreading yourself thin across 47 different tools.</strong></p>
       <p><strong>Your best creative energy goes to your job, not your projects.</strong> By the time you get home, you're exhausted. The thing you actually care about—your own work—gets whatever's left. Which is nothing.</p>
-      <p><strong>You've been told you need 6-12 months to learn web dev.</strong> So you haven't started. The barrier feels too high. You convince yourself it's not the right time.</p>
+      <p><strong>You're told you need 6-12 months to become a web developer.</strong> So you haven't started. The barrier feels too high. You convince yourself it's not the right time.</p>
       <p>Meanwhile, 6 months go by.</p>
       <p>And nothing changes.</p>
       <p>You're still stuck in the same cycle: great ideas, no execution. Dependent on platforms. Dependent on other people. Watching others launch while you're still planning.</p>
@@ -567,7 +591,7 @@
       <p>Since participants get lifetime access to the community, you'll see new people join every time the program runs.</p>
 
       <p><strong>🌐 Living Internet Alliance Access</strong></p>
-      <p>Gain access to complementary and paid courses on sales, copywriting, creative writing, podcasting, and other skills that multiply your value in the emerging creator economy.</p>
+      <p>Gain access to complementary training sessions on sales, copywriting, creative writing, podcasting, and other skills that multiply your value in the emerging creator economy.</p>
       <p>This is an ecosystem of learning. Web dev is just one of the starting points.</p>
 
       <p><strong>🎟️ Special Access: Creator Economy Convention Ticket (50% Off)</strong></p>
@@ -660,41 +684,61 @@
         Choose your payment option below. Once you complete payment, you'll receive access details via email.
       </p>
       
-      <div style="margin-top: 24px;">
-        <h3 style="font-size: 15px; color: var(--text); margin-bottom: 12px; font-weight: 500;">Option 1: Pay in Full</h3>
-        <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">
-          <span class="sales-highlight">$1,500</span> (one-time payment)
-        </p>
-        <div id="full-payment-container" style="margin-bottom: 32px;">
-          <stripe-buy-button
-            buy-button-id="buy_btn_1SXZfS4zBgvudDjiPCi9Z60i"
-            publishable-key="pk_live_51Rw6gO4zBgvudDjiihpZ55ED8u101W9LtCc2ED4QhxSergenfWJUC73eOzsYqz58esTSn0sFMBFGB2mn11ZiKzQA00G9wl2sew">
-          </stripe-buy-button>
+            <div class="sale-announcement" style="margin-bottom: 30px;">
+        <h2 style="margin-bottom: 8px;">Holiday Sale Ends In:</h2>
+        <div class="countdown-timer-display" style="font-size: 24px; font-weight: bold; margin-bottom: 8px; font-family: 'SF Mono', monospace; color: var(--text);"></div>
+        <p style="font-size: 14px; margin: 0; color: var(--muted);">40% OFF until Dec 26th @ Midnight PST</p>
+      </div>
+      <div class="payment-options-grid">
+        <div class="payment-option">
+          <h3 style="font-size: 15px; color: var(--text); margin-bottom: 12px; font-weight: 500;">Option 1: Pay in Full</h3>
+          <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">
+            <span style="text-decoration: line-through; opacity: 0.7; margin-right: 8px;">$1,500</span><span class="sales-highlight">$900</span> (one-time payment)
+          </p>
+          <div id="full-payment-container" style="margin-bottom: 32px;">
+            <stripe-buy-button
+              buy-button-id="buy_btn_1ScgFeIyguPpY1p94Mk3SBps"
+              publishable-key="pk_live_51SOknAIyguPpY1p92uzDMwRlCyACtTKxjIYhAr5ztfJpXm54Zqza7fsHIBhm0v4LvIaLONeqidUxjL0FAX1VpETP00SRPjZX8u">
+            </stripe-buy-button>
+            
+          </div>
+        </div>
+
+        <div class="payment-option">
+          <h3 style="font-size: 15px; color: var(--text); margin-bottom: 12px; font-weight: 500;">Option 2: Pay in Two Installments</h3>
+          <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">
+            <span style="text-decoration: line-through; opacity: 0.7; margin-right: 8px;">$775</span><span class="sales-highlight">$465</span> now, 
+            <span style="text-decoration: line-through; opacity: 0.7; margin-right: 8px;">$775</span><span class="sales-highlight">$465</span> before the third class
+            <br>
+            <span style="font-size: 13px; color: var(--muted);">(Total: <span style="text-decoration: line-through; opacity: 0.7;">$1,550</span> $930)</span>
+          </p>
+          <div id="installment-payment-container" style="margin-bottom: 32px;">
+            <stripe-buy-button
+              buy-button-id="buy_btn_1ScgI1IyguPpY1p9zyzieHLy"
+              publishable-key="pk_live_51SOknAIyguPpY1p92uzDMwRlCyACtTKxjIYhAr5ztfJpXm54Zqza7fsHIBhm0v4LvIaLONeqidUxjL0FAX1VpETP00SRPjZX8u">
+            </stripe-buy-button>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div style="margin-top: 24px;">
-        <h3 style="font-size: 15px; color: var(--text); margin-bottom: 12px; font-weight: 500;">Option 2: Pay in Two Installments</h3>
-        <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">
-          <span class="sales-highlight">$775</span> now, 
-          <span class="sales-highlight">$775</span> before the third class
-          <br>
-          <span style="font-size: 13px; color: var(--muted);">(Total: $1,550)</span>
+    <section class="sales-section" style="display: flex; align-items: flex-start; gap: 28px; margin-top: 36px;">
+      <img 
+        src="./assets/images/jessejamescarver.jpeg" 
+        alt="Jesse James Carver headshot" 
+        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--accent); box-shadow: 0 2px 18px rgba(0,0,0,0.25);"
+      />
+      <div>
+        <h2 style="margin-top: 0;">Who am I to guide the rebellion?</h2>
+        <p style="font-size: 17px;">
+          I'm Jesse James Carver, the wood carver behind OAKMOSS, and the founder of <a href="https://thelivinginternet.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">The Living Internet Alliance</a>. You can see one of my websites in action and learn all about me at 
+          <a href="http://www.oakmoss.ca" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">http://www.oakmoss.ca</a>
         </p>
-        <div id="installment-payment-container" style="margin-bottom: 32px;">
-          <stripe-buy-button
-            buy-button-id="buy_btn_1SXZmp4zBgvudDjiU6PGOXOw"
-            publishable-key="pk_live_51Rw6gO4zBgvudDjiihpZ55ED8u101W9LtCc2ED4QhxSergenfWJUC73eOzsYqz58esTSn0sFMBFGB2mn11ZiKzQA00G9wl2sew">
-          </stripe-buy-button>
-        </div>
       </div>
-
-      <p style="margin-top: 32px; font-size: 14px; color: var(--muted);">
-        This is your moment to build the skill that gives you sovereignty in the digital world.
-        Let's begin your rebellion.
-      </p>
     </section>
   </main>
+
+  
 
   <script>
     const terminalOverlay = document.getElementById("terminal-overlay");
@@ -980,7 +1024,32 @@
     // Start on load
     window.addEventListener("load", () => {
       startIntro();
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
     });
+
+    // Holiday Countdown
+    function updateCountdown() {
+      const targetDate = new Date("2025-12-26T00:00:00-08:00").getTime(); // PST
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const timerEls = document.querySelectorAll(".countdown-timer-display");
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timerEls.forEach(timerEl => {
+        if (distance < 0) {
+          timerEl.innerHTML = "SALE ENDED";
+        } else {
+          timerEl.innerHTML =
+            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        }
+      });
+    }
   </script>
 </body>
 </html>
