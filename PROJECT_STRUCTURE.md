@@ -16,7 +16,6 @@ This is a **Jekyll-based** static site designed for the "Web Design Rebellion" c
     *   `prompt.html`: Layout for the prompt library entries (`_prompts`).
     *   `prompts-index.html`: Layout for the main prompt library page.
     *   `page.html`: Standard page layout.
-    *   `updates.html`: Layout for the updates/blog section.
 
 *   **`_includes/`**: Reusable HTML snippets.
     *   `login-guard.html`: Critical component that checks for `localStorage` access tokens and redirects unauthorized users.
@@ -25,7 +24,6 @@ This is a **Jekyll-based** static site designed for the "Web Design Rebellion" c
 
 *   **`_lessons/`**: Collection containing course modules/lessons.
 *   **`_prompts/`**: Collection containing AI prompts for the library.
-*   **`_posts/`**: Standard Jekyll blog posts (used for Updates).
 *   **`assets/`**: Static assets (CSS, JS, Images).
 
 ### Key Pages

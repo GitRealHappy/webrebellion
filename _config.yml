@@ -40,11 +40,6 @@ defaults:
       type: "prompts"
     values:
       layout: "prompt"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
 
 # Navigation
 nav:
@@ -54,8 +49,6 @@ nav:
     url: "/curriculum/"
   - title: "Prompt Library"
     url: "/prompts/"
-  - title: "Updates"
-    url: "/updates/"
   - title: "Resources"
     url: "/resources/"
   - title: "FAQ"
