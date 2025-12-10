@@ -65,6 +65,11 @@
       padding: 8px 12px;
       background: linear-gradient(to bottom, #3a1322, #240c17);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: grab;
+    }
+
+    .terminal-header:active {
+      cursor: grabbing;
     }
 
     .traffic-lights {
@@ -693,6 +698,7 @@
 
   <script>
     const terminalOverlay = document.getElementById("terminal-overlay");
+    const terminalHeader = terminalOverlay.querySelector(".terminal-header");
     const terminalOutput = document.getElementById("terminal-output");
     const terminalInputRow = document.getElementById("terminal-input-row");
     const terminalInput = document.getElementById("terminal-input");
@@ -921,6 +927,54 @@
         terminalOverlay.classList.remove("fade-out");
         startIntro();
       }, 400);
+    });
+
+    // Drag functionality
+    let isDragging = false;
+    let dragStartX, dragStartY, initialLeft, initialTop;
+
+    terminalHeader.addEventListener("mousedown", (e) => {
+      if (e.button !== 0) return; // Only left click
+      isDragging = true;
+      
+      // Get current geometry
+      const rect = terminalOverlay.getBoundingClientRect();
+      
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+      
+      // Switch to absolute positioning
+      terminalOverlay.style.position = "absolute";
+      terminalOverlay.style.margin = "0";
+      terminalOverlay.style.left = rect.left + "px";
+      terminalOverlay.style.top = rect.top + "px";
+      
+      // Remove transform so it doesn't offset our calculations
+      terminalOverlay.style.transform = "none";
+      
+      // Disable transition for smooth dragging
+      terminalOverlay.style.transition = "none";
+      
+      initialLeft = rect.left;
+      initialTop = rect.top;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      e.preventDefault(); // prevent selection
+      
+      const dx = e.clientX - dragStartX;
+      const dy = e.clientY - dragStartY;
+      
+      terminalOverlay.style.left = (initialLeft + dx) + "px";
+      terminalOverlay.style.top = (initialTop + dy) + "px";
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (!isDragging) return;
+      isDragging = false;
+      // Restore transition for fade-out
+      terminalOverlay.style.transition = ""; 
     });
 
     // Start on load
