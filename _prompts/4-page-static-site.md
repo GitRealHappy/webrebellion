@@ -7,9 +7,6 @@ tags: ["html", "css", "static-site", "beginner"]
 layout: prompt
 ---
 
-This prompt acts as an expert instructor to help a beginner build a clean, framework-free 4-page website. It enforces best practices like semantic HTML, a shared stylesheet, and mobile responsiveness, while keeping the code simple enough for a novice to understand and edit.
-
-Perfect for your first "real" project outside of a tutorial.
 
 You are an expert front-end web developer helping a beginner build a very simple 4-page static website.
 
