@@ -3,15 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <title>Web Design Rebellion</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webrebellion.com/" />
+  <meta property="og:title" content="Web Design Rebellion" />
+  <meta property="og:description" content="Learn web design through the Web Design Rebellion course." />
+  <meta property="og:image" content="https://webrebellion.com/assets/images/rebellion-image.jpeg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://webrebellion.com/" />
+  <meta name="twitter:title" content="Web Design Rebellion" />
+  <meta name="twitter:description" content="Learn web design through the Web Design Rebellion course." />
+  <meta name="twitter:image" content="https://webrebellion.com/assets/images/rebellion-image.jpeg" />
+
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <style>
     :root {
-      --bg: #2e0f1b;        /* dark pastel burgundy */
-      --bg-alt: #2b0f1c;    /* slightly lighter burgundy */
-      --text: #f7f3e8;      /* eggshell white */
-      --accent: #17a149;    /* soft terminal-ish green */
+      --bg: #2e0f1b;
+      --bg-alt: #2b0f1c;
+      --text: #f7f3e8;
+      --accent: #17a149;
       --muted: #c9bfb0;
+      --mono: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     }
 
     * {
@@ -20,27 +36,72 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
                    "Segoe UI", sans-serif;
-      background: radial-gradient(circle at center, #2a101e 0%, var(--bg) 55%, #12040a 100%);
+      background: var(--bg);
       color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      overflow-x: hidden;
     }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
 
-    /* Terminal overlay */
+    /* ========================================
+       PARALLAX BACKGROUND LAYERS
+    ======================================== */
+    .parallax-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300vw;
+      height: 100vh;
+      pointer-events: none;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 0;
+    }
 
+    .parallax-far {
+      background: 
+        radial-gradient(ellipse 80% 50% at 10% 40%, rgba(70, 20, 40, 0.8) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 50% 60%, rgba(30, 60, 50, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 50% at 90% 30%, rgba(50, 20, 60, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at center, #2a101e 0%, var(--bg) 55%, #12040a 100%);
+    }
+
+    .parallax-mid {
+      background: 
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 100px,
+          rgba(255, 255, 255, 0.015) 100px,
+          rgba(255, 255, 255, 0.015) 101px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 100px,
+          rgba(255, 255, 255, 0.015) 100px,
+          rgba(255, 255, 255, 0.015) 101px
+        );
+      opacity: 0.5;
+    }
+
+    /* ========================================
+       TERMINAL OVERLAY
+    ======================================== */
     #terminal-overlay {
-      width: 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 32px);
       max-width: 780px;
       background: var(--bg-alt);
       border-radius: 10px;
@@ -48,14 +109,14 @@
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
       overflow: hidden;
       opacity: 1;
-      transform: translateY(0);
       transition: opacity 0.6s ease, transform 0.6s ease;
-      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-family: var(--mono);
+      z-index: 1000;
     }
 
     #terminal-overlay.fade-out {
       opacity: 0;
-      transform: translateY(15px) scale(0.98);
+      transform: translate(-50%, -50%) translateY(15px) scale(0.98);
       pointer-events: none;
     }
 
@@ -86,17 +147,9 @@
       box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.6);
     }
 
-    .traffic-light.red {
-      background: #ff5f57;
-    }
-
-    .traffic-light.yellow {
-      background: #febc2e;
-    }
-
-    .traffic-light.green {
-      background: #28c840;
-    }
+    .traffic-light.red { background: #ff5f57; }
+    .traffic-light.yellow { background: #febc2e; }
+    .traffic-light.green { background: #28c840; }
 
     .terminal-title {
       flex: 1;
@@ -109,12 +162,7 @@
 
     .terminal-body {
       padding: 16px 18px 18px;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0.03) 0,
-          rgba(255, 255, 255, 0.0) 2px
-        );
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.0) 2px);
       background-size: 100% 3px;
       position: relative;
       min-height: 220px;
@@ -127,28 +175,12 @@
       min-height: 140px;
     }
 
-    .terminal-line.system {
-      color: var(--muted);
-    }
-
-    .terminal-line.accent {
-      color: var(--accent);
-    }
-
-    .terminal-line.prompt {
-      margin-top: 6px;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 8px;
-      background: var(--accent);
-      margin-left: 2px;
-      animation: blink 1s steps(1) infinite;
-    }
+    .terminal-line.system { color: var(--muted); }
+    .terminal-line.accent { color: var(--accent); }
+    .terminal-line.prompt { margin-top: 6px; }
 
     @keyframes blink {
-      0%, 49%   { opacity: 1; }
+      0%, 49% { opacity: 1; }
       50%, 100% { opacity: 0; }
     }
 
@@ -176,56 +208,24 @@
       color: rgba(247, 243, 232, 0.4);
     }
 
-    #terminal-cta {
-      margin-top: 18px;
-    }
-
-    #terminal-cta p {
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(247, 243, 232, 0.5);
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 500;
-      background: transparent;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      background: rgba(247, 243, 232, 0.05);
-      box-shadow: 0 0 18px rgba(124, 227, 198, 0.25);
-      transform: translateY(-1px);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-
-    /* Declined screen */
-
+    /* ========================================
+       DECLINED SCREEN
+    ======================================== */
     #declined-screen {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
       font-size: 14px;
       max-width: 420px;
-      margin: 0 auto;
       opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.5s ease;
+      z-index: 1000;
     }
 
     #declined-screen.visible {
       opacity: 1;
-      transform: translateY(0);
     }
 
     #declined-screen span.freedom-link {
@@ -234,109 +234,158 @@
       cursor: pointer;
     }
 
-    /* Sales page */
-
+    /* ========================================
+       SLIDES CONTAINER
+    ======================================== */
     #sales-page {
-      max-width: 640px;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      margin: 60px auto;
+      height: 100%;
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: opacity 0.7s ease;
+      z-index: 10;
     }
 
     #sales-page.visible {
       opacity: 1;
+    }
+
+    .slides-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ========================================
+       INDIVIDUAL SLIDES
+    ======================================== */
+    .slide {
+      flex: 0 0 100vw;
+      width: 100vw;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 24px 100px;
+      overflow-y: auto;
+    }
+
+    .slide-inner {
+      max-width: 640px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+    }
+
+    .slide.active .slide-inner {
+      opacity: 1;
       transform: translateY(0);
     }
 
-    .sales-section {
-      margin-bottom: 40px;
-    }
-
-    .sales-section h1,
-    .sales-section h2,
-    .sales-section h3 {
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 19px;
+    /* Terminal-style headers */
+    .slide-header {
+      font-family: var(--mono);
+      font-size: 13px;
       color: var(--accent);
-      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      opacity: 0.9;
     }
 
-    .sales-section h1.main-title {
-      font-size: 20px;
-      letter-spacing: 0.16em;
+    .slide-header::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: 10px;
+      animation: blink 1s steps(1) infinite;
     }
 
-    .sales-section .headline {
-      font-size: 32px;
+    /* Slide content typography */
+    .slide h1 {
+      font-size: 14px;
       font-weight: 600;
-      margin-bottom: 6px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .slide .headline {
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 20px;
       color: var(--text);
     }
 
-    .sales-section p {
+    .slide p {
       font-size: 18px;
       line-height: 1.7;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
-    .sales-section ul {
+    .slide p:last-child {
+      margin-bottom: 0;
+    }
+
+    .slide p.lead {
+      font-size: 21px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .slide p.small {
+      font-size: 15px;
+    }
+
+    .slide strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .slide ul {
       list-style: none;
       padding-left: 0;
-      margin: 12px 0;
+      margin: 16px 0;
     }
 
-    .sales-section ul li {
+    .slide ul li {
       font-size: 18px;
       line-height: 1.7;
       color: var(--muted);
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       position: relative;
-      padding-left: 18px;
+      padding-left: 20px;
     }
 
-    .sales-section ul li::before {
+    .slide ul li::before {
       content: ">";
       position: absolute;
       left: 0;
       color: var(--accent);
-      opacity: 0.9;
+      font-family: var(--mono);
     }
 
-    .sales-tagline {
-      font-size: 21px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 8px;
+    .slide a {
+      color: var(--accent);
+      text-decoration: underline;
     }
 
-    .sales-subtagline {
-      font-size: 16px;
-      color: var(--muted);
+    /* Special slide styles */
+    .slide.slide-cta {
+      text-align: center;
     }
 
-    .sales-cta-top {
-      margin: 16px 0 32px;
-    }
-
-    .sales-cta-top .btn {
-      font-size: 14px;
-      padding: 10px 22px;
-    }
-
-    .sales-highlight {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .sales-callout {
-      border-left: 2px solid rgba(247, 243, 232, 0.25);
-      padding-left: 14px;
-      margin: 14px 0;
+    .slide.slide-cta .slide-inner {
+      max-width: 800px;
     }
 
     .sale-announcement {
@@ -350,29 +399,27 @@
 
     .sale-announcement h2 {
       color: var(--accent);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin: 0;
+      margin: 0 0 8px;
     }
 
-    .final-cta {
-      margin-top: 36px;
-      text-align: left;
-    }
-
-    .final-cta .btn {
-      margin-top: 12px;
-      font-size: 14px;
-      padding: 10px 22px;
+    .countdown-timer-display {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: var(--mono);
+      color: var(--text);
+      margin-bottom: 8px;
     }
 
     .payment-options-grid {
       display: flex;
       flex-direction: row;
-      gap: 32px;
+      gap: 24px;
       margin-top: 24px;
+      text-align: left;
     }
 
     .payment-option {
@@ -380,32 +427,205 @@
       background: rgba(255, 255, 255, 0.03);
       padding: 24px;
       border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+    .payment-option h3 {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .payment-option p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .sales-highlight {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* Author slide */
+    .author-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      text-align: left;
+    }
+
+    .author-section img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--accent);
+      box-shadow: 0 2px 18px rgba(0,0,0,0.25);
+    }
+
+    /* ========================================
+       NAVIGATION
+    ======================================== */
+    .slide-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 16px 24px;
+      background: linear-gradient(to top, rgba(18, 4, 10, 0.95) 0%, rgba(18, 4, 10, 0.8) 60%, transparent 100%);
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .slide-nav.visible {
+      opacity: 1;
+    }
+
+    .nav-arrow {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-arrow:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(23, 161, 73, 0.3);
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .progress-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .progress-dot:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .progress-dot.active {
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .progress-dot.visited {
+      background: rgba(23, 161, 73, 0.5);
+    }
+
+    .slide-counter {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      min-width: 60px;
+      text-align: center;
+    }
+
+    /* ========================================
+       RESPONSIVE
+    ======================================== */
     @media (max-width: 768px) {
-      body {
-        padding: 12px;
-        align-items: flex-start;
+      .slide {
+        padding: 40px 20px 90px;
       }
-      #sales-page {
-        margin: 24px auto 32px;
-      }
-      .sales-section p,
-      .sales-section ul li {
+
+      .slide p {
         font-size: 16px;
       }
-      .sales-section .headline {
-        font-size: 24px;
+
+      .slide ul li {
+        font-size: 16px;
       }
+
+      .slide .headline {
+        font-size: clamp(22px, 6vw, 28px);
+      }
+
       .payment-options-grid {
         flex-direction: column;
-        gap: 24px;
       }
+
+      .nav-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+      }
+
+      .progress-dot {
+        width: 6px;
+        height: 6px;
+      }
+
+      .author-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .progress-container {
+        display: none;
+      }
+
+      .slide-counter {
+        font-size: 14px;
+      }
+    }
+
+    /* Smooth momentum scrolling for iOS */
+    .slide {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent text selection during swipe */
+    .slides-track {
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Visual feedback during swipe */
+    .slides-track.swiping {
+      transition: none;
     }
   </style>
 </head>
 <body>
+
+  <!-- Parallax background layers -->
+  <div class="parallax-layer parallax-far" id="parallax-far"></div>
+  <div class="parallax-layer parallax-mid" id="parallax-mid"></div>
 
   <!-- Terminal intro -->
   <div id="terminal-overlay">
@@ -442,314 +662,352 @@
     </p>
   </div>
 
-  <!-- Sales page -->
+  <!-- Sales page - Horizontal slides -->
   <main id="sales-page" class="hidden">
-    <div class="sale-announcement" id="holiday-countdown-banner" style="margin-bottom: 30px;">
-      <h2 style="margin-bottom: 8px;">Holiday Sale Ends In:</h2>
-      <div class="countdown-timer-display" style="font-size: 24px; font-weight: bold; margin-bottom: 8px; font-family: 'SF Mono', monospace; color: var(--text);"></div>
-      <p style="font-size: 14px; margin: 0; color: var(--muted);">40% OFF until Dec 26th @ Midnight PST</p>
+    <div class="slides-track" id="slides-track">
+
+      <!-- Slide 1: Hook -->
+      <section class="slide" data-slide="0">
+        <div class="slide-inner">
+          <div class="slide-header">> init rebellion</div>
+          <h1>Web Design Rebellion</h1>
+          <div class="headline">You could be building $1,000 client-ready websites on your Saturdays by March 2026.</div>
+          <p class="lead">Whether you're a business owner, a creator launching digital products, or an employee building a side hustle—this is the skill that gives you back your time, your money, and your freedom.</p>
+        </div>
+      </section>
+
+      <!-- Slide 2: Fellow Seeker -->
+      <section class="slide" data-slide="1">
+        <div class="slide-inner">
+          <div class="slide-header">> transmission_01</div>
+          <p class="lead">Fellow seeker,</p>
+          <p>You already know the internet is shifting under our feet. AI can write code. Tools are faster. Barriers to entry are dissolving.</p>
+          <p>And yet, most people are still either building websites the slow, expensive, outdated way—or signing up for endless "new" AI tools that promise to "do everything for you."</p>
+        </div>
+      </section>
+
+      <!-- Slide 3: What most people do -->
+      <section class="slide" data-slide="2">
+        <div class="slide-header">> error_log</div>
+        <div class="slide-inner">
+          <p>They hand their autonomy to drag-and-drop builders.</p>
+          <p>They pay monthly subscriptions for platforms they don't need.</p>
+          <p>They build bloated and slow WordPress sites.</p>
+          <p>They stay stuck in the belief that becoming an independent builder is too hard.</p>
+        </div>
+      </section>
+
+      <!-- Slide 4: The Discovery -->
+      <section class="slide" data-slide="3">
+        <div class="slide-inner">
+          <div class="slide-header">> discovery.exe</div>
+          <p>Meanwhile, a small number of people have quietly stepped out of that system and discovered something shocking:</p>
+          <p class="lead"><strong>Building professional websites is now faster than it has ever been… and wildly more profitable for those who know how to wield these tools.</strong></p>
+        </div>
+      </section>
+
+      <!-- Slide 5: You can join -->
+      <section class="slide" data-slide="4">
+        <div class="slide-inner">
+          <div class="slide-header">> access: granted</div>
+          <div class="headline">You can become one of them.</div>
+          <p class="lead">I'm going to show you how.</p>
+        </div>
+      </section>
+
+      <!-- Slide 6: The Problem Part 1 -->
+      <section class="slide" data-slide="5">
+        <div class="slide-inner">
+          <div class="slide-header">> diagnostic --walls</div>
+          <p class="lead">You're a creator. Someone with real ideas and real potential.</p>
+          <p>But every time you try to launch something, you hit the same walls:</p>
+          <ul>
+            <li>Overpaying for platforms that promise simplicity but deliver bloat</li>
+            <li>Dependent on developers who cost $2,000-$5,000 and take weeks</li>
+            <li>Spreading yourself thin across 47 different tools</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 7: The Problem Part 2 -->
+      <section class="slide" data-slide="6">
+        <div class="slide-inner">
+          <div class="slide-header">> diagnostic --traps</div>
+          <p>Or maybe:</p>
+          <ul>
+            <li>Your best creative energy goes to your job, not your projects</li>
+            <li>You think you need 6-12 months to become an "actual" web developer</li>
+          </ul>
+          <p>Meanwhile, 6 months go by. And nothing changes.</p>
+        </div>
+      </section>
+
+      <!-- Slide 8: Stuck in the cycle -->
+      <section class="slide" data-slide="7">
+        <div class="slide-inner">
+          <div class="slide-header">> time_elapsed: 180d</div>
+          <p class="lead">You're still stuck in the same cycle:</p>
+          <p>Great ideas, no execution. Dependent on platforms. Dependent on other people. Watching others launch while you're still planning.</p>
+          <p><strong>Here's the truth no one tells you:</strong></p>
+          <p>Web development in 2026 is not what it was in 2016. The tools have changed. The speed has changed. The barrier to entry has collapsed.</p>
+        </div>
+      </section>
+
+      <!-- Slide 9: The realization -->
+      <section class="slide" data-slide="8">
+        <div class="slide-inner">
+          <div class="slide-header">> revelation.log</div>
+          <p>I built my first client-ready website in a weekend. I created systems to make the process even faster. I guided others through the same transformation.</p>
+          <p class="lead">And I realized something powerful: <strong>99% of people still have no idea how fast and how simple it has become.</strong></p>
+        </div>
+      </section>
+
+      <!-- Slide 10: What you actually need -->
+      <section class="slide" data-slide="9">
+        <div class="slide-inner">
+          <div class="slide-header">> requirements.txt</div>
+          <p>You don't need to become a "real" developer.</p>
+          <p class="lead">You need to understand the fundamentals (basic HTML and CSS) and know how to wield AI with precision.</p>
+          <p>This course exists to give you that power.</p>
+        </div>
+      </section>
+
+      <!-- Slide 11: My story -->
+      <section class="slide" data-slide="10">
+        <div class="slide-inner">
+          <div class="slide-header">> origin_story</div>
+          <p class="lead">Three years ago, I was exactly where you are.</p>
+          <p>I had offers ready. Products ready. Ideas I knew could work. But I couldn't get them live fast enough.</p>
+          <p>I was paying $500/year for a WordPress site that took me three days to update. I was dependent on platforms that controlled my entire digital presence.</p>
+          <p><strong>I felt trapped.</strong></p>
+        </div>
+      </section>
+
+      <!-- Slide 12: Old way vs New way -->
+      <section class="slide" data-slide="11">
+        <div class="slide-inner">
+          <div class="slide-header">> diff old new</div>
+          <p>Then I discovered something that changed everything:</p>
+          <p class="lead"><strong>Real web development had become radically simpler—but no one was teaching it the new way.</strong></p>
+          <p><strong>The old way:</strong> Spend 6-12 months in a coding bootcamp learning computer science theory, frameworks, and languages you'll never use.</p>
+          <p><strong>The new way:</strong> Learn the fundamentals. Use AI tools to write code 10x faster. Ship in a weekend. Iterate based on real feedback.</p>
+        </div>
+      </section>
+
+      <!-- Slide 13: What I achieved -->
+      <section class="slide" data-slide="12">
+        <div class="slide-inner">
+          <div class="slide-header">> results.log</div>
+          <p>I taught myself this approach. Built my first client-ready site in a weekend. Landed my first three clients within a month. Spent next to nothing on overhead.</p>
+          <p class="lead">But more importantly: <strong>I took back control.</strong></p>
+          <p>No more waiting on developers. No outrageous platform fees. No more being stuck because I couldn't execute my own vision.</p>
+          <p>I could build what I wanted, when I wanted, and launch it the same day. <strong>That's the power I want to give you.</strong></p>
+        </div>
+      </section>
+
+      <!-- Slide 14: The Method Overview -->
+      <section class="slide" data-slide="13">
+        <div class="slide-inner">
+          <div class="slide-header">> protocol --init</div>
+          <div class="headline">The Rebellion Method</div>
+          <p class="lead">Fundamentals + AI Leverage + Speed to Market</p>
+          <p>This isn't a traditional coding bootcamp. And it's not an "AI will do everything for you" fantasy course.</p>
+          <p>It's a hybrid approach that gives you the best of both worlds.</p>
+        </div>
+      </section>
+
+      <!-- Slide 15: The 5 Steps -->
+      <section class="slide" data-slide="14">
+        <div class="slide-inner">
+          <div class="slide-header">> protocol --steps</div>
+          <ul>
+            <li><strong>Step 1:</strong> Understand the Fundamentals—enough to be dangerous</li>
+            <li><strong>Step 2:</strong> Master Skillful Prompting with AI tools</li>
+            <li><strong>Step 3:</strong> Know Your Infrastructure—shell, hosting, domains</li>
+            <li><strong>Step 4:</strong> Build and Launch Fast—ship in a weekend</li>
+            <li><strong>Step 5:</strong> Get Your First Clients or launch your product</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 16: What You'll Achieve -->
+      <section class="slide" data-slide="15">
+        <div class="slide-inner">
+          <div class="slide-header">> forecast.md</div>
+          <div class="headline">What You'll Actually Achieve</div>
+          <p>By the end of 6 weeks, you'll be capable of building client-level websites and launching your own digital products.</p>
+          <p><strong>Within 6 months:</strong></p>
+          <ul>
+            <li><strong>Freelancer path:</strong> 3-6 client websites, $3,000-$6,000 in income</li>
+            <li><strong>Creator path:</strong> Launch your own digital product with a magnetic brand</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 17: Milestones -->
+      <section class="slide" data-slide="16">
+        <div class="slide-inner">
+          <div class="slide-header">> milestones.json</div>
+          <ul>
+            <li><strong>By Week 2:</strong> Building "fun stuff"—proof of concept, quick wins</li>
+            <li><strong>By Week 4:</strong> Capable of building client-ready work</li>
+            <li><strong>By Week 6:</strong> Portfolio-ready with 1-2 projects</li>
+            <li><strong>By Month 6:</strong> $3K-$6K from freelancing or your own product</li>
+          </ul>
+          <p class="lead" style="margin-top: 24px;">Greater confidence. Belief in your unique goals. Freedom from the "job security" mentality.</p>
+        </div>
+      </section>
+
+      <!-- Slide 18: What You Get -->
+      <section class="slide" data-slide="17">
+        <div class="slide-inner">
+          <div class="slide-header">> package_contents</div>
+          <div class="headline">What You Get</div>
+          <ul>
+            <li><strong>4 Live Group Calls</strong> — Fridays at 7pm PST, starting Jan 23rd, 2026</li>
+            <li><strong>Lifetime Curriculum Access</strong> — recordings, prompts, resources</li>
+            <li><strong>1 Personalized 1-on-1 Call</strong> — address your specific challenges</li>
+            <li><strong>Private Community Chat</strong> — peer support and connection</li>
+            <li><strong>Living Internet Alliance Access</strong> — sales, copywriting, more</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 19: More of what you get -->
+      <section class="slide" data-slide="18">
+        <div class="slide-inner">
+          <div class="slide-header">> package_contents --continued</div>
+          <ul>
+            <li><strong>Creator Economy Convention Coupon</strong> — 50% off ($500 savings)</li>
+            <li><strong>Proprietary Prompt Library</strong> — the exact prompts I use</li>
+            <li><strong>Training on Professional Tooling</strong> — learn to use Cursor Pro (requires $20/mo subscription)</li>
+          </ul>
+          <p class="small" style="margin-top: 24px;">This isn't just a course. It's an ecosystem designed to take you from frustrated creator to independent builder.</p>
+        </div>
+      </section>
+
+      <!-- Slide 20: Who am I -->
+      <section class="slide" data-slide="19">
+        <div class="slide-inner">
+          <div class="slide-header">> whoami</div>
+          <div class="author-section">
+            <img src="./assets/images/jessejamescarver.jpeg" alt="Jesse James Carver headshot" />
+            <div>
+              <div class="headline" style="font-size: 22px;">Who am I to guide the rebellion?</div>
+              <p>I'm Jesse James Carver, the wood carver behind OAKMOSS, and founder of <a href="https://thelivinginternet.com" target="_blank" rel="noopener">The Living Internet Alliance</a>.</p>
+              <p>See my work at <a href="http://www.oakmoss.ca" target="_blank" rel="noopener">oakmoss.ca</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 21: The Investment -->
+      <section class="slide" data-slide="20">
+        <div class="slide-inner">
+          <div class="slide-header">> pricing.json</div>
+          <div class="headline">The Investment</div>
+          <p><span style="text-decoration: line-through; opacity: 0.6;">$1,500</span> <span class="sales-highlight">$900 USD</span></p>
+          <p class="small">40% off until December 26th</p>
+          <ul>
+            <li>Course curriculum ($1,500 value)</li>
+            <li>50% off convention tickets ($500 discount)</li>
+            <li>1-on-1 personalized call ($500 value)</li>
+            <li>Lifetime access + community + prompt library</li>
+          </ul>
+          <p><strong>Total value: $2,500+</strong> for a $900 investment.</p>
+        </div>
+      </section>
+
+      <!-- Slide 22: The Guarantee -->
+      <section class="slide" data-slide="21">
+        <div class="slide-inner">
+          <div class="slide-header">> warranty.txt</div>
+          <div class="headline">The Rebellion Guarantee</div>
+          <p><strong>Through Class 2:</strong> If you don't feel you're on your way to a high-value skill—100% refund. No questions.</p>
+          <p><strong>Through Class 3:</strong> If you're still not confident after a 1-on-1 call to address your concerns—full refund.</p>
+          <p class="small"><strong>Only condition:</strong> You must attend the classes.</p>
+          <p>You're basically test-driving a skill that could change your life.</p>
+        </div>
+      </section>
+
+      <!-- Slide 23: Is this for you? -->
+      <section class="slide" data-slide="22">
+        <div class="slide-inner">
+          <div class="slide-header">> compatibility_check</div>
+          <p><strong>This is for you if:</strong></p>
+          <ul>
+            <li>You want to control your online presence</li>
+            <li>You want a monetizable skill you can use immediately</li>
+            <li>You're tired of being dependent on platforms</li>
+            <li>You have evenings/weekends to dedicate to learning</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 24: Not for you if -->
+      <section class="slide" data-slide="23">
+        <div class="slide-inner">
+          <div class="slide-header">> compatibility_check --not</div>
+          <p><strong>This is NOT for you if:</strong></p>
+          <ul>
+            <li>You want endless tutorials instead of real results</li>
+            <li>You expect perfection before deployment</li>
+            <li>You're looking for a "get rich quick" scheme</li>
+            <li>You won't show up to the live calls</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 25: Final CTA -->
+      <section class="slide slide-cta" data-slide="24">
+        <div class="slide-inner">
+          <div class="slide-header">> checkout --now</div>
+          <div class="headline">We Begin Friday, January 23rd, 2026</div>
+          <p>7pm PST every Friday for four weeks. Six weeks total. A community of rebels.</p>
+          <p class="lead">Your ideas deserve to see the light of day.</p>
+          
+          <div class="sale-announcement" style="margin: 30px 0;">
+            <h2>Holiday Sale Ends In:</h2>
+            <div class="countdown-timer-display"></div>
+            <p style="font-size: 14px; margin: 0; color: var(--muted);">40% OFF until Dec 26th @ Midnight PST</p>
+          </div>
+
+          <div class="payment-options-grid">
+            <div class="payment-option">
+              <h3>Option 1: Pay in Full</h3>
+              <p><span style="text-decoration: line-through; opacity: 0.7;">$1,500</span> <span class="sales-highlight">$900</span> (one-time)</p>
+              <stripe-buy-button
+                buy-button-id="buy_btn_1ScgFeIyguPpY1p94Mk3SBps"
+                publishable-key="pk_live_51SOknAIyguPpY1p92uzDMwRlCyACtTKxjIYhAr5ztfJpXm54Zqza7fsHIBhm0v4LvIaLONeqidUxjL0FAX1VpETP00SRPjZX8u">
+              </stripe-buy-button>
+            </div>
+            <div class="payment-option">
+              <h3>Option 2: Two Installments</h3>
+              <p><span style="text-decoration: line-through; opacity: 0.7;">$775</span> <span class="sales-highlight">$465</span> now + <span class="sales-highlight">$465</span> later</p>
+              <stripe-buy-button
+                buy-button-id="buy_btn_1ScgI1IyguPpY1p9zyzieHLy"
+                publishable-key="pk_live_51SOknAIyguPpY1p92uzDMwRlCyACtTKxjIYhAr5ztfJpXm54Zqza7fsHIBhm0v4LvIaLONeqidUxjL0FAX1VpETP00SRPjZX8u">
+              </stripe-buy-button>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
-    <section class="sales-section">
-      <h1 class="main-title">Web Design Rebellion</h1>
-      <div class="headline">You could be building $1,000 client-ready websites on your Saturdays by March 2026.</div>
-      <p class="sales-tagline">
-        Whether you're a business owner who's ready to take control of your own digital presence, a creator who's ready to launch your own digital product, or an employee who wants to build your own side hustle, this is the skill that gives you back your time, your money, and your freedom.
-      </p>
-      <p class="sales-subtagline">
-        Fellow seeker,
-      </p>
-      <p>
-        You already know the internet is shifting under our feet.
-        AI can write code. Tools are faster. Barriers to entry are dissolving.
-        And yet, most people are still either building websites the slow, expensive, outdated way, or they're signing up for free trials on the endless "new" AI tools that promise to "do everything for you."
-      </p>
-      <p>
-        They hand their autonomy to drag-and-drop builders, pay monthly subscriptions for platforms they don’t need,
-       build bloated and slow Wordpress sites, and stay stuck in the belief that becoming an independent builder is too hard.
-      </p>
-      <p>
-        Meanwhile, a small number of people have quietly stepped out of that system and discovered something shocking:
-        Building professional websites is now faster than it has ever been… and wildly more profitable for those who
-        know how to wield these tools.
-      </p>
-      <p>You can become one of them.</p>
-      <p>I'm going to show you how.</p>
-    </section>
-
-    <section class="sales-section">
-      <h2>The Problem You're Living With</h2>
-      <p>You're a creator. Someone with real ideas and real potential.</p>
-      <p>But every time you try to launch something, you hit the same walls.</p>
-      <p><strong>Maybe you're:</strong></p>
-
-      <ul>
-        <li>Overpaying for platforms that promise simplicity but deliver bloat.</li>
-        <li>Dependent on developers who cost $2,000-$5,000 and take weeks to make adjustments.</li>
-        <li>Spreading yourself thin across 47 different tools.</li>
-      </ul>
-      <p><strong>Or maybe:</strong></p>
-      <ul>
-        <li>Your best creative energy goes to your job, not your projects.</li>
-        <li>You think you need 6-12 months to become an "actual" web developer.</li>
-      </ul>
-      <p>Meanwhile, 6 months go by.</p>
-      <p>And nothing changes.</p>
-      <p>You're still stuck in the same cycle: great ideas, no execution. Dependent on platforms. Dependent on other people. Watching others launch while you're still planning.</p>
-      <p><strong>Here's the truth no one tells you:</strong></p>
-      <p>Web development in 2026 is not what it was in 2016.</p>
-      <p>The tools have changed. The speed has changed. The barrier to entry has collapsed.</p>
-      <p>I built my first client-ready website in a weekend. I created systems to make the process even faster. I guided others through the same transformation.</p>
-      <p>And I realized something powerful: <strong>99% of people still have no idea how fast and how simple it has become.</strong></p>
-      <p>You don't need to become a "real" developer.</p>
-      <p>You need to understand the fundamentals (basic HTML and CSS) and know how to wield AI with precision.</p>
-      <p>This course exists to give you that power.</p>
-    </section>
-
-    <section class="sales-section">
-      <h2>How I Went From Frustrated Creator to Independent Builder (And How You Can Too)</h2>
-      <p>Three years ago, I was exactly where you are.</p>
-      <p>I had offers ready. Products ready. Ideas I knew could work.</p>
-      <p>But I couldn't get them live fast enough.</p>
-      <p>I was paying $500/year for a WordPress site that took me three days to update. I was dependent on platforms that controlled my entire digital presence.</p>
-      <p>I felt trapped.</p>
-      <p>Then I discovered something that changed everything: <strong>Real web development had become radically simpler—but no one was teaching it the new way.</strong></p>
-      <p>The old way: Spend 6-12 months in a coding bootcamp learning computer science theory, frameworks, and languages you'll never use.</p>
-      <p>The new way: Learn the fundamentals so you understand what's happening under the hood. Then use AI tools to write code 10x faster. Ship in a weekend. Iterate based on real feedback.</p>
-      <p>I taught myself this approach. Built my first client-ready site in a weekend. Landed my first three clients within a month. Spent next to nothing on overhead.</p>
-      <p>But more importantly: <strong>I took back control.</strong></p>
-      <p>No more waiting on developers. No outrageous platform fees. No more being stuck because I couldn't execute my own vision.</p>
-      <p>I could build what I wanted, when I wanted, and launch it the same day.</p>
-      <p>That's the power I want to give you.</p>
-    </section>
-
-    <section class="sales-section">
-      <h2>The Rebellion Method: Fundamentals + AI Leverage + Speed to Market</h2>
-      <p>This isn't a traditional coding bootcamp. And it's not an "AI will do everything for you" fantasy course.</p>
-      <p>It's a hybrid approach that gives you the best of both worlds:</p>
-      
-      <p><strong>Step 1: Understand the Fundamentals</strong></p>
-      <p>You'll learn the core principles of web development: HTML, CSS, JavaScript basics, how websites actually work.</p>
-      <p>Not to become a computer scientist. But to understand enough to be dangerous.</p>
-      <p>This is your insurance policy against obsolescence. When AI tools change (and they will), you'll adapt. You won't be dependent on any single platform or tool.</p>
-
-      <p><strong>Step 2: Master Skillful Prompting</strong></p>
-      <p>You'll learn how to use AI tools (Cursor Pro with access to GPT, Claude, Gemini, Grok) to write code 10x - 100x faster.</p>
-      <p>But you're not just copy-pasting AI output. You understand what it's doing and why. You can debug when it breaks. You can customize every pixel when you need something specific.</p>
-
-      <p><strong>Step 3: Know Your Infrastructure</strong></p>
-      <p>You'll understand your local directory system, shell commands, web hosting, domain management.</p>
-      <p>These are the "root level" skills that put you in control of your computer and your projects. No more platform dependency. No more being locked into someone else's ecosystem.</p>
-
-      <p><strong>Step 4: Build and Launch Fast</strong></p>
-      <p>You'll ship your first website in a weekend. Get it live. Get feedback. Iterate.</p>
-      <p>This is how real builders work. Not perfect, but shipped.</p>
-
-      <p><strong>Step 5: Get Your First Clients (or Launch Your Product)</strong></p>
-      <p>With your portfolio and the support of the community, you'll land your first 3-6 clients.</p>
-      <p>Or launch your own digital product.</p>
-      <p>Either way, you're making money within weeks of finishing the course.</p>
-    </section>
-
-    <section class="sales-section">
-      <h2>What You'll Actually Achieve</h2>
-      <p>By the end of 6 weeks, you'll be capable of building client-level websites and launching your own digital products.</p>
-      <p><strong>Within 6 months, you could:</strong></p>
-      <p><strong>Path A (Freelancer):</strong> Build 3-6 client websites and earn <strong>$3,000-$6,000</strong> in freelance income</p>
-      <p><strong>Path B (Creator/Entrepreneur):</strong> Build or drastically improve your own digital product, and have the power to create a magnetic brand that makes sales.</p>
-      
-      <p><strong>Milestone outcomes:</strong></p>
-      <ul>
-        <li><strong>By Class 2 (Week 2):</strong> Building "fun stuff"—proof of concept, quick wins, momentum</li>
-        <li><strong>By Class 4 (Week 4):</strong> Capable of building client-ready work</li>
-        <li><strong>By Week 6:</strong> Portfolio-ready with 1-2 projects, ready to land first clients</li>
-      </ul>
-
-      <p><strong>Reasonable goal:</strong></p>
-      <ul>
-        <li><strong>By Month 6:</strong> $3K-$6K in freelance income OR $3K-$6K+ from your own digital product</li>
-      </ul>
-
-      <p>But the deeper outcome is this:</p>
-      <p><strong>Greater confidence in your independence.</strong></p>
-      <p><strong>Belief that you can pursue your unique goals.</strong></p>
-      <p><strong>Freedom from the "job security" mentality.</strong></p>
-      <p>You'll stop waiting for permission. You'll start building on your own terms.</p>
-    </section>
-
-    <section class="sales-section">
-      <h2>What You Get: The Complete Web Dev Rebellion Resources</h2>
-      <p>This isn't just a course. It's an ecosystem designed to take you from frustrated creator to independent builder.</p>
-
-      <p><strong>🔥 4 Live Group Calls (6-Week Intensive)</strong></p>
-      <p>Structure. Accountability. Community connection.</p>
-      <p>You're not learning alone—you're learning alongside other rebels with the same values. Fridays at 7pm PST, starting January 2nd, 2026.</p>
-
-      <p><strong>📚 Lifetime Curriculum Access</strong></p>
-      <p>Recorded sessions, continuously evolving library of super-prompts, and curated third-party resources.</p>
-      <p>Rewatch. Reference. Learn at your own pace. Your access to the resources never expires.</p>
-
-      <p><strong>🎯 1 Personalized 1-on-1 Guidance Call</strong></p>
-      <p>I work with you on your specific challenges and goals. This happens after the 4 group calls, before the end of the 6 weeks.</p>
-      <p>This removes the "Will this work for ME?" doubt. You get personalized attention to address your unique challenges and interests.</p>
-
-      <p><strong>💬 Private Community Chat</strong></p>
-      <p>Access to classmates, peer support, shared learning, and ongoing connection.</p>
-      <p>You're not alone in your ambition. You'll have a tribe of people who understand what you're building and why it matters.</p>
-      <p>Since participants get lifetime access to the community, you'll see new people join every time the program runs.</p>
-
-      <p><strong>🌐 Living Internet Alliance Access</strong></p>
-      <p>Gain access to complementary training sessions on sales, copywriting, creative writing, podcasting, and other skills that multiply your value in the emerging creator economy.</p>
-      <p>This is an ecosystem of learning. Web dev is just one of the starting points.</p>
-
-      <p><strong>🎟️ Special Access: Creator Economy Convention Ticket (50% Off)</strong></p>
-      <p>Normally $1,000.  General Admission tickets are packed with $2,450 of value. Web Rebellion participants get it for $500.</p>
-      <p>Three days with industry leaders like Dan Koe. Network, learn, get inspired.</p>
-
-      <p><strong>⚡ Proprietary Prompt Library (Ever-Evolving)</strong></p>
-      <p>Access to AI prompts specifically designed for the Rebellion Method.</p>
-      <p>Saves you hours of trial-and-error. These are the exact prompts I use in my own work.</p>
-
-      <p><strong>🛠️ Professional Tooling (Cursor Pro Required)</strong></p>
-      <p>You'll register for Cursor Pro ($20/month) with access to 6+ LLM models (GPT, Claude, Gemini, Grok, Codex, Sonnet & Opus).</p>
-      <p>This is what professionals use. You're learning with professional-grade tools from day one.</p>
-    </section>
-
-    <section class="sales-section" style="display: flex; align-items: flex-start; gap: 28px; margin-top: 36px;">
-      <img 
-        src="./assets/images/jessejamescarver.jpeg" 
-        alt="Jesse James Carver headshot" 
-        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--accent); box-shadow: 0 2px 18px rgba(0,0,0,0.25);"
-      />
-      <div>
-        <h2 style="margin-top: 0;">Who am I to guide the rebellion?</h2>
-        <p style="font-size: 17px;">
-          I'm Jesse James Carver, the wood carver behind OAKMOSS, and the founder of <a href="https://thelivinginternet.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">The Living Internet Alliance</a>. You can see one of my websites in action and learn all about me at 
-          <a href="http://www.oakmoss.ca" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">http://www.oakmoss.ca</a>
-        </p>
-      </div>
-    </section>
-
-
-    <section class="sales-section">
-      <h2>The Investment</h2>
-      <div id="pricing-container">
-        <p>
-          <span style="text-decoration: line-through; opacity: 0.6;">$1,500</span> <span class="sales-highlight">$900 USD</span> (40% off until December 26th for an extended holiday season sale)
-        </p>
-        <p><strong>Total value you're getting:</strong></p>
-        <ul>
-            <li>Course curriculum: $900 ($1,500 value)</li>
-            <li>Promo code for 50% off convention tickets: ($500 discount!)</li>
-            <li>Lifetime curriculum access: Priceless</li>
-            <li>1-on-1 personalized call: $500 value</li>
-            <li>Community access: Priceless</li>
-            <li>Prompt library: Priceless</li>
-        </ul>
-        <p><strong>Total up-front value: $2,500+</strong> for a $900 investment.</p>
-        <p>
-          This skill easily pays for itself with your first 3 clients.
-          Your first $500 website can become a portfolio piece, and can be built in a single weekend.
-        </p>
-        <p>
-          If you want to transition out of your 9-5, build your own online projects, and command a useful skill in the AI era…
-          this is the fastest path.
-        </p>
-      </div>
-    </section>
-
-    <section class="sales-section">
-      <h2>The Rebellion Guarantee: Your Success or Your Money Back</h2>
-      <p>I only want people in this program who feel the power of what they're learning.</p>
-      <p><strong>Here's my guarantee:</strong></p>
-      <p><strong>Through Class 2:</strong> If you don't genuinely feel you're on your way to having a high-value freelance skill, I'll refund you 100%. No questions. No friction. No hard feelings.</p>
-      <p><strong>Through Class 3:</strong> If you complete all classes and don’t feel like you’re getting value, you get a personalized 1-on-1 call with me to address your specific concerns or areas of difficulty. If after that call you're still not confident in the value of this, you’ll receive a full refund.</p>
-      <p><strong>The only condition:</strong> You must actually attend the classes. (This filters for serious students and ensures you get the full value.)</p>
-      <p><strong>Pre-launch cancellation:</strong> If you register but want to cancel before January 2nd, 50% refund.</p>
-      <p>You're basically test-driving a skill that could change your life.</p>
-    </section>
-
-    <section class="sales-section">
-      <h2>Is This Right for You?</h2>
-      <p><strong>This is for you if:</strong></p>
-      <ul>
-        <li>You want to control your online presence</li>
-        <li>You want a monetizable skill you can use immediately</li>
-        <li>You're tired of being dependent on platforms</li>
-        <li>You want to ship fast</li>
-        <li>You want to build real things with your own hands</li>
-        <li>You want a lightweight, high-income freelancer identity</li>
-        <li>You have the patience to learn a new skill that might feel overwhelming at first</li>
-        <li>You're comfortable using a Mac and basic computer functions</li>
-        <li>You have evenings/weekends to dedicate to learning</li>
-      </ul>
-
-      <p><strong>This is NOT for you if:</strong></p>
-      <ul>
-        <li>You want to spend six months learning full-stack development</li>
-        <li>You're addicted to overcomplication</li>
-        <li>You want endless tutorials instead of real results</li>
-        <li>You expect perfection before deployment</li>
-        <li>You aren't willing to ship your first site and move on</li>
-        <li>You're looking for a "get rich quick" scheme</li>
-        <li>You won't show up to the live calls</li>
-      </ul>
-    </section>
-
-    <section class="sales-section final-cta" id="next-step">
-      <h2>We Begin Friday, January 23rd, 2026 @ 7pm PST</h2>
-      <p>7pm PST every Friday for the first four weeks.</p>
-      <p>Six weeks. Four live calls. A community of rebels. And the skill that gives you back your time, your money, and your freedom.</p>
-      <p>You've waited long enough.</p>
-      <p>Your ideas deserve to see the light of day.</p>
-      <p>Your creative vision doesn't have to wait 6 more months.</p>
-      <p class="headline">Join the Rebellion.</p>
-      <p>
-        Choose your payment option below. Once you complete payment, you'll receive access details via email.
-      </p>
-      
-            <div class="sale-announcement" style="margin-bottom: 30px;">
-        <h2 style="margin-bottom: 8px;">Holiday Sale Ends In:</h2>
-        <div class="countdown-timer-display" style="font-size: 24px; font-weight: bold; margin-bottom: 8px; font-family: 'SF Mono', monospace; color: var(--text);"></div>
-        <p style="font-size: 14px; margin: 0; color: var(--muted);">40% OFF until Dec 26th @ Midnight PST</p>
-      </div>
-      <div class="payment-options-grid">
-        <div class="payment-option">
-          <h3 style="font-size: 15px; color: var(--text); margin-bottom: 12px; font-weight: 500;">Option 1: Pay in Full</h3>
-          <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">
-            <span style="text-decoration: line-through; opacity: 0.7; margin-right: 8px;">$1,500</span><span class="sales-highlight">$900</span> (one-time payment)
-          </p>
-          <div id="full-payment-container" style="margin-bottom: 32px;">
-            <stripe-buy-button
-              buy-button-id="buy_btn_1ScgFeIyguPpY1p94Mk3SBps"
-              publishable-key="pk_live_51SOknAIyguPpY1p92uzDMwRlCyACtTKxjIYhAr5ztfJpXm54Zqza7fsHIBhm0v4LvIaLONeqidUxjL0FAX1VpETP00SRPjZX8u">
-            </stripe-buy-button>
-            
-          </div>
-        </div>
-
-        <div class="payment-option">
-          <h3 style="font-size: 15px; color: var(--text); margin-bottom: 12px; font-weight: 500;">Option 2: Pay in Two Installments</h3>
-          <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">
-            <span style="text-decoration: line-through; opacity: 0.7; margin-right: 8px;">$775</span><span class="sales-highlight">$465</span> now, 
-            <span style="text-decoration: line-through; opacity: 0.7; margin-right: 8px;">$775</span><span class="sales-highlight">$465</span> before the third class
-            <br>
-            <span style="font-size: 13px; color: var(--muted);">(Total: <span style="text-decoration: line-through; opacity: 0.7;">$1,550</span> $930)</span>
-          </p>
-          <div id="installment-payment-container" style="margin-bottom: 32px;">
-            <stripe-buy-button
-              buy-button-id="buy_btn_1ScgI1IyguPpY1p9zyzieHLy"
-              publishable-key="pk_live_51SOknAIyguPpY1p92uzDMwRlCyACtTKxjIYhAr5ztfJpXm54Zqza7fsHIBhm0v4LvIaLONeqidUxjL0FAX1VpETP00SRPjZX8u">
-            </stripe-buy-button>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  
+  <!-- Navigation -->
+  <nav class="slide-nav hidden" id="slide-nav">
+    <button class="nav-arrow nav-prev" id="nav-prev" aria-label="Previous slide">&#8592;</button>
+    <div class="progress-container" id="progress-container"></div>
+    <div class="slide-counter" id="slide-counter">1 / 25</div>
+    <button class="nav-arrow nav-next" id="nav-next" aria-label="Next slide">&#8594;</button>
+  </nav>
 
   <script>
+    // ========================================
+    // TERMINAL LOGIC (unchanged from original)
+    // ========================================
     const terminalOverlay = document.getElementById("terminal-overlay");
     const terminalHeader = terminalOverlay.querySelector(".terminal-header");
     const terminalOutput = document.getElementById("terminal-output");
@@ -759,26 +1017,15 @@
     const declinedScreen = document.getElementById("declined-screen");
     const declinedFreedomLink = declinedScreen.querySelector(".freedom-link");
     const salesPage = document.getElementById("sales-page");
+    const slideNav = document.getElementById("slide-nav");
 
     const introLines = [
       { text: "booting rebellion protocol...", class: "system" },
-      {
-        text: "scanning: centralized platforms, ad-driven feeds, rented digital land...",
-        class: "system"
-      },
+      { text: "scanning: centralized platforms, ad-driven feeds, rented digital land...", class: "system" },
       { text: "", class: "" },
-      {
-        text: "> You are a renter. You must become an owner.",
-        class: "accent"
-      },
-      {
-        text: "> Reprogram your income and take back your online real estate.",
-        class: "accent"
-      },
-      {
-        text: "> Make money without a job. Build high-leverage skills for the future.",
-        class: "accent"
-      },
+      { text: "> You are a renter. You must become an owner.", class: "accent" },
+      { text: "> Reprogram your income and take back your online real estate.", class: "accent" },
+      { text: "> Make money without a job. Build high-leverage skills for the future.", class: "accent" },
       { text: "", class: "" },
       { text: "_initializing sequence_", class: "system" },
       { text: "", class: "" },
@@ -787,13 +1034,11 @@
     ];
 
     let typingIndex = 0;
-    let isTyping = false;
     let skipTyping = false;
 
     function resetTerminal() {
       terminalOutput.innerHTML = "";
       terminalInput.value = "";
-      // Start with input visible so users can type immediately
       terminalInputRow.classList.remove("hidden");
       terminalInput.focus();
       terminalCta.classList.add("hidden");
@@ -803,7 +1048,6 @@
     }
 
     function typeNextLine() {
-      // If we're done, just focus input
       if (typingIndex >= introLines.length) {
         terminalInput.focus();
         return;
@@ -812,13 +1056,9 @@
       const line = introLines[typingIndex];
       const lineElem = document.createElement("div");
       lineElem.classList.add("terminal-line");
-      if (line.class) {
-        lineElem.classList.add(line.class);
-      }
-      
+      if (line.class) lineElem.classList.add(line.class);
       terminalOutput.appendChild(lineElem);
 
-      // If user already submitted, skip typing animation
       if (skipTyping) {
         lineElem.textContent = line.text;
         typingIndex++;
@@ -826,51 +1066,43 @@
         return;
       }
 
-      // Typewriter effect per line
       const text = line.text;
       let charIndex = 0;
 
       function typeChar() {
         if (skipTyping) {
-           lineElem.textContent = text;
-           typingIndex++;
-           typeNextLine();
-           return;
+          lineElem.textContent = text;
+          typingIndex++;
+          typeNextLine();
+          return;
         }
-        
         lineElem.textContent = text.slice(0, charIndex);
         if (charIndex < text.length) {
           charIndex++;
-          setTimeout(typeChar, 12); // speed per char
+          setTimeout(typeChar, 12);
         } else {
           typingIndex++;
-          setTimeout(typeNextLine, 120); // delay between lines
+          setTimeout(typeNextLine, 120);
         }
       }
-      
       terminalOutput.scrollTop = terminalOutput.scrollHeight;
       typeChar();
     }
 
     function startIntro() {
       resetTerminal();
-      isTyping = true;
       typeNextLine();
     }
 
     function handleInputSubmit(value) {
       const answer = value.trim().toLowerCase();
       if (!answer) return;
-
-      // Skip remaining animation
       skipTyping = true;
 
-      // Echo the input in the terminal
       const echoLine = document.createElement("div");
       echoLine.classList.add("terminal-line");
       echoLine.textContent = "> " + answer;
       terminalOutput.appendChild(echoLine);
-
       terminalInputRow.classList.add("hidden");
 
       if (answer === "yes" || answer === "y") {
@@ -897,18 +1129,9 @@
       const line2 = document.createElement("div");
       line2.classList.add("terminal-line", "system");
       line2.textContent = "Loading: Web Design Rebellion…";
-
-      const line3 = document.createElement("div");
-      line3.classList.add("terminal-line");
-      line3.textContent =
-        "The way out of 9–5 work for creatives who see that adaptability is the new job security.";
-
       terminalOutput.appendChild(line1);
       terminalOutput.appendChild(line2);
-      terminalOutput.appendChild(document.createElement("br"));
-      terminalOutput.appendChild(line3);
 
-      // Transition directly to sales page after a brief delay
       setTimeout(() => {
         transitionToSales();
       }, 1200);
@@ -920,24 +1143,17 @@
       line.style.color = "var(--accent)";
       line.textContent = "> Welcome, Rebel";
       terminalOutput.appendChild(line);
-
-      // Grant access token so login-guard doesn't block them
       localStorage.setItem('lia_rebel_access', 'true');
-
       setTimeout(() => {
-        // Redirect to the new dashboard location
         window.location.href = "/dashboard/";
       }, 1000);
     }
 
     function handleNo() {
-      // fade out terminal
       terminalOverlay.classList.add("fade-out");
       setTimeout(() => {
         terminalOverlay.classList.add("hidden");
-        // show declined screen
         declinedScreen.classList.remove("hidden");
-        // trigger fade-in
         requestAnimationFrame(() => {
           declinedScreen.classList.add("visible");
         });
@@ -945,21 +1161,18 @@
     }
 
     function transitionToSales() {
-      // fade out terminal, fade in sales page
       terminalOverlay.classList.add("fade-out");
       setTimeout(() => {
         terminalOverlay.classList.add("hidden");
         salesPage.classList.remove("hidden");
-        // trigger transition
+        slideNav.classList.remove("hidden");
         requestAnimationFrame(() => {
           salesPage.classList.add("visible");
+          slideNav.classList.add("visible");
         });
-        // allow page scroll
-        document.body.style.alignItems = "flex-start";
+        initSlides();
       }, 600);
     }
-
-    // Event listeners
 
     terminalInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
@@ -969,77 +1182,190 @@
     });
 
     declinedFreedomLink.addEventListener("click", () => {
-      // hide declined screen
       declinedScreen.classList.remove("visible");
       setTimeout(() => {
         declinedScreen.classList.add("hidden");
-        // show terminal again and restart intro
         terminalOverlay.classList.remove("hidden");
-        // force reflow for transition
         void terminalOverlay.offsetWidth;
         terminalOverlay.classList.remove("fade-out");
         startIntro();
       }, 400);
     });
 
-    // Drag functionality
-    let isDragging = false;
-    let dragStartX, dragStartY, initialLeft, initialTop;
+    // ========================================
+    // SLIDES NAVIGATION
+    // ========================================
+    const slidesTrack = document.getElementById("slides-track");
+    const parallaxFar = document.getElementById("parallax-far");
+    const parallaxMid = document.getElementById("parallax-mid");
+    const navPrev = document.getElementById("nav-prev");
+    const navNext = document.getElementById("nav-next");
+    const progressContainer = document.getElementById("progress-container");
+    const slideCounter = document.getElementById("slide-counter");
 
-    terminalHeader.addEventListener("mousedown", (e) => {
-      if (e.button !== 0) return; // Only left click
-      isDragging = true;
+    let currentSlide = 0;
+    let totalSlides = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function initSlides() {
+      const slides = slidesTrack.querySelectorAll(".slide");
+      totalSlides = slides.length;
       
-      // Get current geometry
-      const rect = terminalOverlay.getBoundingClientRect();
-      
-      dragStartX = e.clientX;
-      dragStartY = e.clientY;
-      
-      // Switch to absolute positioning
-      terminalOverlay.style.position = "absolute";
-      terminalOverlay.style.margin = "0";
-      terminalOverlay.style.left = rect.left + "px";
-      terminalOverlay.style.top = rect.top + "px";
-      
-      // Remove transform so it doesn't offset our calculations
-      terminalOverlay.style.transform = "none";
-      
-      // Disable transition for smooth dragging
-      terminalOverlay.style.transition = "none";
-      
-      initialLeft = rect.left;
-      initialTop = rect.top;
+      // Create progress dots
+      progressContainer.innerHTML = "";
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("progress-dot");
+        if (i === 0) dot.classList.add("active");
+        dot.dataset.slide = i;
+        dot.addEventListener("click", () => goToSlide(i));
+        progressContainer.appendChild(dot);
+      }
+
+      // Set first slide as active
+      slides[0].classList.add("active");
+
+      updateSlidePosition();
+      updateNavButtons();
+    }
+
+    function goToSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+      currentSlide = index;
+      updateSlidePosition();
+      updateNavButtons();
+      updateProgressDots();
+      updateActiveSlide();
+      updateParallax();
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+
+    function updateSlidePosition() {
+      const offset = currentSlide * -100;
+      slidesTrack.style.transform = `translateX(${offset}vw)`;
+    }
+
+    function updateNavButtons() {
+      navPrev.disabled = currentSlide === 0;
+      navNext.disabled = currentSlide === totalSlides - 1;
+      slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+    }
+
+    function updateProgressDots() {
+      const dots = progressContainer.querySelectorAll(".progress-dot");
+      dots.forEach((dot, i) => {
+        dot.classList.remove("active");
+        if (i < currentSlide) {
+          dot.classList.add("visited");
+        }
+        if (i === currentSlide) {
+          dot.classList.add("active");
+        }
+      });
+    }
+
+    function updateActiveSlide() {
+      const slides = slidesTrack.querySelectorAll(".slide");
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === currentSlide) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function updateParallax() {
+      const offset = currentSlide * 100;
+      parallaxFar.style.transform = `translateX(-${offset * 0.15}vw)`;
+      parallaxMid.style.transform = `translateX(-${offset * 0.4}vw)`;
+    }
+
+    // Navigation event listeners
+    navPrev.addEventListener("click", prevSlide);
+    navNext.addEventListener("click", nextSlide);
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (salesPage.classList.contains("visible")) {
+        if (e.key === "ArrowRight" || e.key === " ") {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          prevSlide();
+        }
+      }
     });
 
-    document.addEventListener("mousemove", (e) => {
-      if (!isDragging) return;
-      e.preventDefault(); // prevent selection
+    // Touch/swipe support with visual feedback
+    let isSwiping = false;
+
+    slidesTrack.addEventListener("touchstart", (e) => {
+      touchStartX = e.touches[0].clientX;
+      isSwiping = true;
+      slidesTrack.classList.add("swiping");
+    }, { passive: true });
+
+    slidesTrack.addEventListener("touchmove", (e) => {
+      if (!isSwiping) return;
+      const currentX = e.touches[0].clientX;
+      const diff = touchStartX - currentX;
+      const baseOffset = currentSlide * -100;
+      const dragOffset = (diff / window.innerWidth) * -100;
       
-      const dx = e.clientX - dragStartX;
-      const dy = e.clientY - dragStartY;
+      // Limit drag at edges
+      let newOffset = baseOffset + dragOffset;
+      if (currentSlide === 0 && dragOffset > 0) {
+        newOffset = baseOffset + (dragOffset * 0.3);
+      }
+      if (currentSlide === totalSlides - 1 && dragOffset < 0) {
+        newOffset = baseOffset + (dragOffset * 0.3);
+      }
       
-      terminalOverlay.style.left = (initialLeft + dx) + "px";
-      terminalOverlay.style.top = (initialTop + dy) + "px";
-    });
+      slidesTrack.style.transform = `translateX(${newOffset}vw)`;
+    }, { passive: true });
 
-    document.addEventListener("mouseup", () => {
-      if (!isDragging) return;
-      isDragging = false;
-      // Restore transition for fade-out
-      terminalOverlay.style.transition = ""; 
-    });
+    slidesTrack.addEventListener("touchend", (e) => {
+      if (!isSwiping) return;
+      isSwiping = false;
+      slidesTrack.classList.remove("swiping");
+      touchEndX = e.changedTouches[0].clientX;
+      handleSwipe();
+    }, { passive: true });
 
-    // Start on load
-    window.addEventListener("load", () => {
-      startIntro();
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-    });
+    function handleSwipe() {
+      const diff = touchStartX - touchEndX;
+      const threshold = 50;
+      
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      } else {
+        // Snap back if swipe wasn't far enough
+        updateSlidePosition();
+      }
+    }
 
-    // Holiday Countdown
+    // ========================================
+    // COUNTDOWN TIMER
+    // ========================================
     function updateCountdown() {
-      const targetDate = new Date("2025-12-26T00:00:00-08:00").getTime(); // PST
+      const targetDate = new Date("2025-12-26T00:00:00-08:00").getTime();
       const now = new Date().getTime();
       const distance = targetDate - now;
 
@@ -1054,11 +1380,19 @@
         if (distance < 0) {
           timerEl.innerHTML = "SALE ENDED";
         } else {
-          timerEl.innerHTML =
-            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+          timerEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
       });
     }
+
+    // ========================================
+    // INIT
+    // ========================================
+    window.addEventListener("load", () => {
+      startIntro();
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    });
   </script>
 </body>
 </html>
