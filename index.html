@@ -469,32 +469,6 @@
       max-width: 800px;
     }
 
-    .sale-announcement {
-      background: rgba(124, 227, 198, 0.1);
-      border: 1px solid var(--accent);
-      border-radius: 6px;
-      padding: 16px 20px;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-
-    .sale-announcement h2 {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin: 0 0 8px;
-    }
-
-    .countdown-timer-display {
-      font-size: 24px;
-      font-weight: bold;
-      font-family: var(--mono);
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
     .payment-options-grid {
       display: flex;
       flex-direction: row;
@@ -522,11 +496,6 @@
       font-size: 14px;
       color: var(--muted);
       margin-bottom: 16px;
-    }
-
-    .sales-highlight {
-      color: var(--text);
-      font-weight: 600;
     }
 
     /* Author slide */
@@ -997,10 +966,9 @@
         <div class="slide-inner">
           <div class="slide-header">> pricing.json</div>
           <div class="headline">The Investment</div>
-          <p><span style="text-decoration: line-through; opacity: 0.6;">$1,500</span> <span class="sales-highlight">$900 USD</span></p>
-          <p class="small">40% off until December 26th</p>
+          <p class="lead"><strong>$900 USD</strong></p>
           <ul>
-            <li>Course curriculum ($1,500 value)</li>
+            <li>Course curriculum</li>
             <li>50% off convention tickets ($500 discount)</li>
             <li>1-on-1 personalized call ($500 value)</li>
             <li>Lifetime access + community + prompt library</li>
@@ -1058,16 +1026,10 @@
           <p>7pm PST every Friday for four weeks. Six weeks total. A community of rebels.</p>
           <p class="lead">Your ideas deserve to see the light of day.</p>
           
-          <div class="sale-announcement" style="margin: 30px 0;">
-            <h2>Holiday Sale Ends In:</h2>
-            <div class="countdown-timer-display"></div>
-            <p style="font-size: 14px; margin: 0; color: var(--muted);">40% OFF until Dec 26th @ Midnight PST</p>
-          </div>
-
           <div class="payment-options-grid">
             <div class="payment-option">
               <h3>Option 1: Pay in Full</h3>
-              <p><span style="text-decoration: line-through; opacity: 0.7;">$1,500</span> <span class="sales-highlight">$900</span> (one-time)</p>
+              <p><strong>$900</strong> (one-time)</p>
               <stripe-buy-button
                 buy-button-id="buy_btn_1ScgFeIyguPpY1p94Mk3SBps"
                 publishable-key="pk_live_51SOknAIyguPpY1p92uzDMwRlCyACtTKxjIYhAr5ztfJpXm54Zqza7fsHIBhm0v4LvIaLONeqidUxjL0FAX1VpETP00SRPjZX8u">
@@ -1075,7 +1037,7 @@
             </div>
             <div class="payment-option">
               <h3>Option 2: Two Installments</h3>
-              <p><span style="text-decoration: line-through; opacity: 0.7;">$775</span> <span class="sales-highlight">$465</span> now + <span class="sales-highlight">$465</span> later</p>
+              <p><strong>$465</strong> now + <strong>$465</strong> later</p>
               <stripe-buy-button
                 buy-button-id="buy_btn_1ScgI1IyguPpY1p9zyzieHLy"
                 publishable-key="pk_live_51SOknAIyguPpY1p92uzDMwRlCyACtTKxjIYhAr5ztfJpXm54Zqza7fsHIBhm0v4LvIaLONeqidUxjL0FAX1VpETP00SRPjZX8u">
@@ -1517,36 +1479,10 @@
     }, { passive: false });
 
     // ========================================
-    // COUNTDOWN TIMER
-    // ========================================
-    function updateCountdown() {
-      const targetDate = new Date("2025-12-26T00:00:00-08:00").getTime();
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      const timerEls = document.querySelectorAll(".countdown-timer-display");
-      
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      timerEls.forEach(timerEl => {
-        if (distance < 0) {
-          timerEl.innerHTML = "SALE ENDED";
-        } else {
-          timerEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-      });
-    }
-
-    // ========================================
     // INIT
     // ========================================
     window.addEventListener("load", () => {
       startIntro();
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
     });
   </script>
 </body>
