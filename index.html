@@ -20,6 +20,9 @@
   <meta name="twitter:image" content="https://webrebellion.com/assets/images/rebellion-image.jpeg" />
 
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #2e0f1b;
@@ -50,6 +53,59 @@
 
     .hidden {
       display: none !important;
+    }
+
+    /* ========================================
+       SITE HEADER
+    ======================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 44px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      z-index: 2000;
+      padding: 0 16px;
+    }
+
+    .site-header-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .site-header-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: #fdffff;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .site-header-subtitle:hover {
+      color: #7dd3fc;
+    }
+
+    @media (max-width: 520px) {
+      .site-header {
+        flex-direction: column;
+        height: auto;
+        padding: 8px 16px;
+        gap: 4px;
+      }
+
+      .site-header-title,
+      .site-header-subtitle {
+        font-size: 9px;
+      }
     }
 
     /* ========================================
@@ -191,8 +247,15 @@
       font-size: 13px;
     }
 
-    #terminal-input-row span {
+    #terminal-input-row > span:first-child {
       margin-right: 6px;
+    }
+
+    .input-wrapper {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      flex: 1;
     }
 
     #terminal-input {
@@ -201,11 +264,29 @@
       outline: none;
       color: var(--text);
       font: inherit;
-      flex: 1;
+      width: 100%;
+      caret-color: transparent;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
     }
 
-    #terminal-input::placeholder {
-      color: rgba(247, 243, 232, 0.4);
+    /* Hidden text mirror to measure input width */
+    .input-mirror {
+      visibility: hidden;
+      white-space: pre;
+      font: inherit;
+    }
+
+    /* Custom terminal cursor - always visible */
+    .terminal-cursor {
+      display: inline-block;
+      width: 10px;
+      height: 1.2em;
+      background: var(--accent);
+      animation: blink 1s steps(1) infinite;
+      vertical-align: text-bottom;
     }
 
     /* ========================================
@@ -239,10 +320,10 @@
     ======================================== */
     #sales-page {
       position: fixed;
-      top: 0;
+      top: 44px;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: calc(100% - 44px);
       opacity: 0;
       transition: opacity 0.7s ease;
       z-index: 10;
@@ -623,6 +704,12 @@
 </head>
 <body>
 
+  <!-- Site Header -->
+  <header class="site-header">
+    <span class="site-header-title">The Web Dev Rebellion</span>
+    <a href="http://www.thelivinginternet.com" target="_blank" rel="noopener" class="site-header-subtitle">By The Living Internet Alliance</a>
+  </header>
+
   <!-- Parallax background layers -->
   <div class="parallax-layer parallax-far" id="parallax-far"></div>
   <div class="parallax-layer parallax-mid" id="parallax-mid"></div>
@@ -642,13 +729,16 @@
 
       <div id="terminal-input-row" class="hidden">
         <span>&gt;</span>
-        <input
-          id="terminal-input"
-          type="text"
-          autocomplete="off"
-          spellcheck="false"
-          placeholder="yes or no"
-        />
+        <div class="input-wrapper">
+          <span class="input-mirror" id="input-mirror"></span><span class="terminal-cursor" id="terminal-cursor"></span>
+          <input
+            id="terminal-input"
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder=""
+          />
+        </div>
       </div>
 
       <div id="terminal-cta" class="hidden"></div>
@@ -672,7 +762,8 @@
           <div class="slide-header">> init rebellion</div>
           <h1>Web Design Rebellion</h1>
           <div class="headline">You could be building $1,000 client-ready websites on your Saturdays by March 2026.</div>
-          <p class="lead">Whether you're a business owner, a creator launching digital products, or an employee building a side hustle—this is the skill that gives you back your time, your money, and your freedom.</p>
+          <p class="lead">This course is for you if you want to learn a skill that you can use to build your own online presence, launch your own digital products, or build a side hustle.</p>
+          <p>However, it isn't just a course. It's a community of fellow super-learners who are developing not just a skillset but a mindset and greater agency and adaptability in the face of change.</p>
         </div>
       </section>
 
@@ -682,7 +773,7 @@
           <div class="slide-header">> transmission_01</div>
           <p class="lead">Fellow seeker,</p>
           <p>You already know the internet is shifting under our feet. AI can write code. Tools are faster. Barriers to entry are dissolving.</p>
-          <p>And yet, most people are still either building websites the slow, expensive, outdated way—or signing up for endless "new" AI tools that promise to "do everything for you."</p>
+          <p>And yet, most people are still either building websites the slow, expensive, outdated way,or signing up for endless "new" AI tools that promise to "do everything for you."</p>
         </div>
       </section>
 
@@ -693,7 +784,7 @@
           <p>They hand their autonomy to drag-and-drop builders.</p>
           <p>They pay monthly subscriptions for platforms they don't need.</p>
           <p>They build bloated and slow WordPress sites.</p>
-          <p>They stay stuck in the belief that becoming an independent builder is too hard.</p>
+          <p>They believe the gatekeeper lies that building great websites is still only for "real" developers.</p>
         </div>
       </section>
 
@@ -758,7 +849,7 @@
         <div class="slide-inner">
           <div class="slide-header">> revelation.log</div>
           <p>I built my first client-ready website in a weekend. I created systems to make the process even faster. I guided others through the same transformation.</p>
-          <p class="lead">And I realized something powerful: <strong>99% of people still have no idea how fast and how simple it has become.</strong></p>
+          <p class="lead">And I realized something powerful: <strong>99.9% of people still have no idea how fast and how simple it has become.</strong></p>
         </div>
       </section>
 
@@ -940,6 +1031,7 @@
             <li>You want a monetizable skill you can use immediately</li>
             <li>You're tired of being dependent on platforms</li>
             <li>You have evenings/weekends to dedicate to learning</li>
+            <li>You want to work your own hours, on your own terms</li>
           </ul>
         </div>
       </section>
@@ -952,7 +1044,7 @@
           <ul>
             <li>You want endless tutorials instead of real results</li>
             <li>You expect perfection before deployment</li>
-            <li>You're looking for a "get rich quick" scheme</li>
+            <li>You're looking to "get rich quick"...</li>
             <li>You won't show up to the live calls</li>
           </ul>
         </div>
@@ -1013,11 +1105,20 @@
     const terminalOutput = document.getElementById("terminal-output");
     const terminalInputRow = document.getElementById("terminal-input-row");
     const terminalInput = document.getElementById("terminal-input");
+    const inputMirror = document.getElementById("input-mirror");
     const terminalCta = document.getElementById("terminal-cta");
     const declinedScreen = document.getElementById("declined-screen");
     const declinedFreedomLink = declinedScreen.querySelector(".freedom-link");
     const salesPage = document.getElementById("sales-page");
     const slideNav = document.getElementById("slide-nav");
+
+    // Sync input text to mirror for cursor positioning
+    function updateInputMirror() {
+      // Use the input value, or a zero-width space if empty to maintain cursor position
+      inputMirror.textContent = terminalInput.value || '';
+    }
+
+    terminalInput.addEventListener("input", updateInputMirror);
 
     const introLines = [
       { text: "booting rebellion protocol...", class: "system" },
@@ -1039,6 +1140,7 @@
     function resetTerminal() {
       terminalOutput.innerHTML = "";
       terminalInput.value = "";
+      inputMirror.textContent = "";
       terminalInputRow.classList.remove("hidden");
       terminalInput.focus();
       terminalCta.classList.add("hidden");
@@ -1178,6 +1280,24 @@
       if (e.key === "Enter") {
         e.preventDefault();
         handleInputSubmit(terminalInput.value);
+      }
+    });
+
+    // Keep terminal input focused when terminal is visible
+    // Redirect any typing to the terminal input
+    document.addEventListener("click", (e) => {
+      if (!terminalOverlay.classList.contains("hidden") && !terminalInputRow.classList.contains("hidden")) {
+        terminalInput.focus();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      // If terminal is visible and input row is shown, ensure input is focused
+      if (!terminalOverlay.classList.contains("hidden") && !terminalInputRow.classList.contains("hidden")) {
+        // Don't interfere with special keys, but focus for printable characters
+        if (!e.ctrlKey && !e.metaKey && !e.altKey && e.key !== "Tab") {
+          terminalInput.focus();
+        }
       }
     });
 
@@ -1360,6 +1480,41 @@
         updateSlidePosition();
       }
     }
+
+    // Scroll/wheel navigation with stickiness
+    let scrollAccumulator = 0;
+    const scrollThreshold = 80; // Amount of scroll needed to trigger slide change
+    let isScrollCooldown = false;
+    const scrollCooldownTime = 600; // Cooldown in ms to prevent rapid scrolling
+
+    document.addEventListener("wheel", (e) => {
+      if (!salesPage.classList.contains("visible")) return;
+      
+      e.preventDefault();
+      
+      if (isScrollCooldown) return;
+
+      // Accumulate scroll delta (use deltaY for vertical scroll, deltaX for horizontal)
+      // Most users scroll vertically, so we use deltaY primarily
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      scrollAccumulator += delta;
+
+      // Check if we've crossed the threshold
+      if (Math.abs(scrollAccumulator) >= scrollThreshold) {
+        if (scrollAccumulator > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+        
+        // Reset accumulator and start cooldown
+        scrollAccumulator = 0;
+        isScrollCooldown = true;
+        setTimeout(() => {
+          isScrollCooldown = false;
+        }, scrollCooldownTime);
+      }
+    }, { passive: false });
 
     // ========================================
     // COUNTDOWN TIMER
