@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Command Line Basics | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-02-05-command-line-basics/">
+  <meta property="og:title" content="Command Line Basics | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-02-05-command-line-basics/">
+  <meta property="twitter:title" content="Command Line Basics | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-02-05-command-line-basics/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 2: Computer & Environment Setup</span>
+      <span class="time-estimate">⏱ 45 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Command Line Basics</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="master-your-machine-navigate-and-control">Master Your Machine: Navigate and Control</h3>
+
+  <p>Forget the hacker movie tropes. The command line interface (CLI) is your direct link to the computer’s core functions. It’s where you’ll run programs, manage files, and execute powerful commands – efficiently.</p>
+
+  <p>Yes, it has its own language, but the commands you’ll use 95% of the time are simple and become second nature quickly. This isn’t optional; it’s essential for a developer.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="what-youll-conquer">What You’ll Conquer</h3>
+
+  <ul>
+    <li><strong>Opening the Terminal:</strong> Your gateway to the CLI.</li>
+    <li><strong>Navigation:</strong> Move through directories (folders) like a pro.</li>
+    <li><strong>File &amp; Directory Manipulation:</strong> Create, rename, move, and delete files and folders directly.</li>
+    <li><strong>Launching Programs:</strong> Open files and applications from the command line.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-terminal-toolkit">Your Terminal Toolkit</h3>
+
+  <ul>
+    <li><strong>Linux:</strong> Search for “Terminal” or press <code class="language-plaintext highlighter-rouge">Ctrl + Alt + T</code>.</li>
+    <li><strong>macOS:</strong> Use Spotlight (<code class="language-plaintext highlighter-rouge">Cmd + Space</code>) and search for “Terminal”, or find it in <code class="language-plaintext highlighter-rouge">Applications &gt; Utilities</code>.</li>
+  </ul>
+
+  <p>You’ll see a prompt – usually ending in <code class="language-plaintext highlighter-rouge">$</code> or <code class="language-plaintext highlighter-rouge">%</code>. This is where you type commands.</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">whoami</span>
+</code></pre></div>  </div>
+
+  <p>(Type this and press Enter) This will show your username. Simple, effective.</p>
+
+  <p><strong>Tip:</strong> Commands are often shown with the prompt, like <code class="language-plaintext highlighter-rouge">$ command</code>. <strong>Don’t type the <code class="language-plaintext highlighter-rouge">$</code></strong>.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="work-like-a-rebel-efficiency-hacks">Work Like a Rebel: Efficiency Hacks</h3>
+
+  <ol>
+    <li><strong>Smart Copy/Paste:</strong> Use <code class="language-plaintext highlighter-rouge">Ctrl + Shift + C</code> (Cmd + C on Mac) to copy and <code class="language-plaintext highlighter-rouge">Ctrl + Shift + V</code> (Cmd + V on Mac) to paste <em>inside</em> the terminal.</li>
+    <li><strong>Tab Completion:</strong> <strong>This is critical.</strong> Start typing a command or path, hit <code class="language-plaintext highlighter-rouge">Tab</code>, and the CLI will autocomplete if there’s only one option, or show you the possibilities if there are multiple. This saves massive amounts of typing and prevents errors.
+      <ul>
+        <li>Example: <code class="language-plaintext highlighter-rouge">cd Doc</code> + <code class="language-plaintext highlighter-rouge">Tab</code> might show <code class="language-plaintext highlighter-rouge">Documents/</code> and <code class="language-plaintext highlighter-rouge">Downloads/</code>. Type <code class="language-plaintext highlighter-rouge">cd Docu</code> + <code class="language-plaintext highlighter-rouge">Tab</code> and it will complete <code class="language-plaintext highlighter-rouge">Documents/</code>.</li>
+      </ul>
+    </li>
+    <li><strong>Current Directory Shortcut (<code class="language-plaintext highlighter-rouge">.</code>):</strong> Use <code class="language-plaintext highlighter-rouge">cursor .</code> (assuming Cursor is installed and in your PATH) to open the current directory and all its files in Cursor. It’s a massive time-saver for project management.</li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="essential-commands-to-practice">Essential Commands to Practice</h3>
+
+  <p>Start by creating a basic web project structure.</p>
+
+  <ol>
+    <li><strong>Create a project directory:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>my-first-site
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Move into it:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>my-first-site
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Create essential files:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>index.html style.css script.js
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Create an image folder:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>images
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Check your work:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span>
+</code></pre></div>      </div>
+      <p>(Lists the contents of the current directory)</p>
+    </li>
+  </ol>
+
+  <p>This simple sequence is the foundation for most web projects. Practice it until it’s muscle memory.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="knowledge-check">Knowledge Check</h3>
+
+  <ul>
+    <li>What is the command line?</li>
+    <li>How do you open the command line on your computer?</li>
+    <li>How can you navigate to a particular directory?</li>
+    <li>What does <code class="language-plaintext highlighter-rouge">cd ..</code> do?</li>
+    <li>How do you display the name of the current directory?</li>
+    <li>How do you display the contents of the current directory?</li>
+    <li>How do you create a new directory?</li>
+    <li>How do you create a new file?</li>
+    <li>How do you destroy a directory or file?</li>
+    <li>How do you rename a directory or file?</li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-02-04-text-editors/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-03-01-intro-to-git/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

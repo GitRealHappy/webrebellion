@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Installations | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-02-03-installations/">
+  <meta property="og:title" content="Installations | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-02-03-installations/">
+  <meta property="twitter:title" content="Installations | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-02-03-installations/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 2: Computer & Environment Setup</span>
+      <span class="time-estimate">⏱ 45 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Installations</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="your-dev-environment-ship-ready">Your Dev Environment: Ship-Ready</h3>
+
+  <p>If you’re on macOS, Ubuntu, or an official Ubuntu flavor, and have Google Chrome installed, you can likely skip the heavy lifting. Otherwise, let’s build your battle station.</p>
+
+  <p><strong>The Goal:</strong> A robust development environment that lets you build and ship fast. We use tools that mirror professional workflows.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="choosing-your-weapon-operating-system-setup">Choosing Your Weapon: Operating System Setup</h3>
+
+  <p>We support environments built for development.</p>
+
+  <ul>
+    <li><strong>macOS:</strong> Unix-based and great for development. A few installs and you’re ready.</li>
+    <li><strong>Linux (Ubuntu Recommended):</strong> Free, powerful, and the standard for many tools. We guide you through Ubuntu.</li>
+  </ul>
+
+  <h4 id="windows-users-your-path">Windows Users: Your Path</h4>
+
+  <p>Windows isn’t natively supported for our core tools. You need a Linux layer:</p>
+
+  <ul>
+    <li><strong>Virtual Machine (Recommended):</strong> Run Ubuntu inside Windows. Easiest, safest way to start.</li>
+    <li><strong>Dual-Boot:</strong> Install Ubuntu alongside Windows. Native performance, but requires disk partitioning. Proceed with care.</li>
+    <li><strong>WSL2 (Advanced):</strong> Linux environment within Windows. Powerful, but can be complex for beginners.</li>
+  </ul>
+
+  <p><em>Chromebooks:</em> Built-in Linux support is viable. Details follow.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="why-google-chrome">Why Google Chrome?</h3>
+
+  <p>It’s the de facto browser standard, with powerful developer tools essential for inspecting, debugging, and testing your sites. Our instructions and examples are based on Chrome.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-assignment">Your Assignment</h3>
+
+  <ol>
+    <li><strong>Environment Setup (if needed):</strong>
+      <ul>
+        <li><strong>Virtual Machine:</strong> Easiest. Get Ubuntu running within Windows/macOS.</li>
+        <li><strong>Dual-Boot:</strong> Install Ubuntu alongside your existing OS.</li>
+        <li><strong>ChromeOS/Flex:</strong> For Chromebooks.</li>
+        <li><strong>WSL2:</strong> For advanced Windows users.
+<em>(Follow the specific guides for your chosen setup.)</em></li>
+      </ul>
+    </li>
+    <li><strong>Browser Setup:</strong> Install Google Chrome. Our documentation and examples assume you’re using it.</li>
+  </ol>
+
+  <p><strong>Unsupported:</strong> We don’t support Raspberry Pi or other niche devices. Stick to standard desktops/laptops.</p>
+
+  <p><strong>Focus:</strong> Get your environment configured correctly. This smooths the path for all subsequent learning. If you’re not on macOS or Ubuntu, choose ONE setup option and follow it precisely.</p>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-02-02-installation-overview/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-02-04-text-editors/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

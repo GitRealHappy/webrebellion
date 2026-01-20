@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Setting up Git | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-03-02-setting-up-git/">
+  <meta property="og:title" content="Setting up Git | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-03-02-setting-up-git/">
+  <meta property="twitter:title" content="Setting up Git | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-03-02-setting-up-git/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 3: Git & Version Control</span>
+      <span class="time-estimate">⏱ 30 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Setting up Git</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="your-digital-id-git--github-configuration">Your Digital ID: Git &amp; GitHub Configuration</h3>
+
+  <ul>
+    <li><strong>Git:</strong> The local version control system. It tracks changes on your machine.</li>
+    <li><strong>GitHub:</strong> The remote hosting service. Stores your Git repositories online for backup and collaboration.</li>
+  </ul>
+
+  <p>They sound similar, but they’re distinct. We use GitHub because it’s the standard.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="step-1-install-git">Step 1: Install Git</h3>
+
+  <p>Ensure you have a recent version.</p>
+
+  <h4 id="linux-ubuntu">Linux (Ubuntu)</h4>
+
+  <ol>
+    <li><strong>Update System:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt upgrade
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Install Git:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>git
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Verify Version:</strong> Check if it’s 2.28 or higher:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--version</span>
+</code></pre></div>      </div>
+      <p><em>(If too old, add the PPA: <code class="language-plaintext highlighter-rouge">sudo add-apt-repository ppa:git-core/ppa</code>, then <code class="language-plaintext highlighter-rouge">sudo apt update &amp;&amp; sudo apt install git</code>)</em></p>
+    </li>
+  </ol>
+
+  <h4 id="macos">macOS</h4>
+
+  <ol>
+    <li><strong>Install Homebrew:</strong> If you don’t have it, open Terminal and run:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div>      </div>
+      <p><em>(Follow any on-screen prompts, especially for adding Homebrew to your PATH on Apple Silicon).</em></p>
+    </li>
+    <li><strong>Install Git:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Verify Version:</strong> Open a <strong>new</strong> terminal window and run:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--version</span>
+</code></pre></div>      </div>
+      <p><em>(Ensure it’s 2.28+)</em></p>
+    </li>
+  </ol>
+
+  <p><em>(Troubleshooting: Run <code class="language-plaintext highlighter-rouge">brew doctor</code> and follow its instructions if you hit errors.)</em></p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="step-2-configure-your-identity">Step 2: Configure Your Identity</h3>
+
+  <p>Git needs to know who you are for your commits.</p>
+
+  <ol>
+    <li><strong>GitHub Account:</strong> Create one at <a href="https://github.com/">GitHub.com</a>.
+      <ul>
+        <li><strong>Privacy:</strong> In GitHub settings &gt; Emails, enable <strong>“Keep my email addresses private”</strong> and <strong>“Block command line email from appearing on public contributions”</strong>. Use the provided private email address for Git configuration.</li>
+      </ul>
+    </li>
+    <li><strong>Configure Git:</strong> Open your terminal and run these commands, replacing placeholders with <strong>your actual name and private GitHub email</strong>:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"your_private_github_email@users.noreply.github.com"</span>
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Set Default Branch:</strong> Ensure new local repositories default to <code class="language-plaintext highlighter-rouge">main</code>:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> init.defaultBranch main
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Configure Pull Behavior:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> pull.rebase <span class="nb">false</span>
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Verify Configuration:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--get</span> user.name
+git config <span class="nt">--get</span> user.email
+</code></pre></div>      </div>
+      <p><em>(Output should match your name and private email)</em></p>
+    </li>
+  </ol>
+
+  <h4 id="macos-specific-ignore-dsstore-files">macOS Specific: Ignore <code class="language-plaintext highlighter-rouge">.DS_Store</code> files</h4>
+
+  <p>Prevent these system files from cluttering your Git history:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> .DS_Store <span class="o">&gt;&gt;</span> ~/.gitignore_global
+git config <span class="nt">--global</span> core.excludesfile ~/.gitignore_global
+</code></pre></div>  </div>
+</div>
+
+<div class="lesson-block">
+  <h3 id="step-3-ssh-key-for-secure-access">Step 3: SSH Key for Secure Access</h3>
+
+  <p>This lets you interact with GitHub without passwords.</p>
+
+  <ol>
+    <li><strong>Check for Existing Key:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> ~/.ssh/id_ed25519.pub
+</code></pre></div>      </div>
+      <p><em>(If you see a file path, you likely have a key. If you get “No such file…”, proceed to create one.)</em></p>
+    </li>
+    <li><strong>Create New SSH Key:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> ed25519
+</code></pre></div>      </div>
+      <ul>
+        <li>Press Enter to accept the default save location.</li>
+        <li>Enter a strong passphrase (recommended for security) or press Enter for no passphrase.</li>
+      </ul>
+    </li>
+    <li><strong>Copy Public Key:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_ed25519.pub
+</code></pre></div>      </div>
+      <ul>
+        <li>Copy the <em>entire</em> output (starts with <code class="language-plaintext highlighter-rouge">ssh-ed25519...</code>).</li>
+      </ul>
+    </li>
+    <li><strong>Add Key to GitHub:</strong>
+      <ul>
+        <li>Go to GitHub &gt; Settings &gt; SSH and GPG keys.</li>
+        <li>Click “New SSH Key”.</li>
+        <li>Paste your copied key into the “Key” field.</li>
+        <li>Give it a descriptive title (e.g., “My Laptop”).</li>
+        <li>Click “Add SSH Key”.</li>
+      </ul>
+    </li>
+    <li><strong>Test Connection:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-T</span> git@github.com
+</code></pre></div>      </div>
+      <ul>
+        <li>If prompted about authenticity, type <code class="language-plaintext highlighter-rouge">yes</code>.</li>
+        <li>You should see: <code class="language-plaintext highlighter-rouge">Hi YourUsername! You've successfully authenticated, but GitHub does not provide shell access.</code></li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="conclusion">Conclusion</h3>
+
+  <p><strong>You’ve set up your Git environment. This is a critical step. Well done, Rebel.</strong></p>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-03-01-intro-to-git/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-03-03-git-basics/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

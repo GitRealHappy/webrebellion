@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Asking For Help | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-01-05-asking-for-help/">
+  <meta property="og:title" content="Asking For Help | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-01-05-asking-for-help/">
+  <meta property="twitter:title" content="Asking For Help | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-01-05-asking-for-help/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 1: Introduction & Mindset</span>
+      <span class="time-estimate">⏱ 10 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Asking For Help</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="introduction">Introduction</h3>
+
+  <p>Effectively asking for help is a crucial skill for any developer, whether in an online community or the workplace. This lesson equips you with the techniques to ask well-formed, context-rich questions, maximizing the assistance you receive. Remember: “Help others help you!”</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="lesson-overview">Lesson Overview</h3>
+
+  <ul>
+    <li>Master techniques for asking effective programming questions.</li>
+    <li>Identify and avoid common pitfalls of “bad” questions.</li>
+    <li>Formulate questions that facilitate the best possible help.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="tips-for-getting-the-best-help-possible">Tips for Getting the Best Help Possible</h3>
+
+  <h4 id="always-provide-your-code-and-surrounding-context">Always Provide Your Code and Surrounding Context</h4>
+
+  <p>When asking for help, include your code, error messages, terminal output, and any other relevant details. Be specific, pinpointing the exact function, line number, or error. Providing comprehensive context drastically reduces the need for back-and-forth clarification, making it easier for others to assist you.</p>
+
+  <p>Without sufficient context, your problem remains unclear, leading to delayed or ineffective solutions and potential frustration for both you and those trying to help. If your question is purely conceptual, state that clearly.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="ask-about-the-problem-not-the-solution-itself">Ask About the Problem, Not the Solution Itself</h3>
+
+  <p>Avoid asking for direct solutions to assignments, such as: “How do I complete Step 5 of the Rock Paper Scissors Assignment?” The process of figuring out the approach is fundamental to learning.</p>
+
+  <p>A better question focuses on the problem:
+“Hey, I’m trying to return a string that displays the winner in Rock Paper Scissors, but I’m getting a syntax error on line 12. Here’s my code. Can you help me understand why this error is occurring?”</p>
+
+  <p>Sharing your attempts allows helpers to identify what hasn’t worked and build upon your current progress. If you’re completely unsure where to start, state that. Ask for guidance on where to begin or what resources to research. Sharing pseudo-code can also help clarify your thinking and identify potential misunderstandings.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="dont-take-asking-for-more-context-personally">Don’t Take Asking for More Context Personally</h3>
+
+  <p>Community helpers are volunteers who want to assist you. If they ask for more context, it’s because your initial question, while perhaps clear to you, isn’t sufficiently detailed for them to diagnose effectively. Experts know numerous potential causes for issues and need specifics to avoid sending you down the wrong path. Respect their time and judgment by providing the information they request. Remember, their help is voluntary.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="assignment">Assignment</h3>
+
+  <ol>
+    <li>Understand the principle of “Don’t ask to ask” by reviewing the provided resource.</li>
+    <li>Learn about the common “XY Problem” pitfall.</li>
+    <li>Bookmark the guide on “How to Ask Technical Questions” for future reference. It often helps resolve issues during the reading process itself.</li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="knowledge-check">Knowledge Check</h3>
+
+  <ul>
+    <li>What is the “XY Problem”?</li>
+    <li>What essential elements should your questions include to be effective?</li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-01-04-how-course-works/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-02-01-computer-basics/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

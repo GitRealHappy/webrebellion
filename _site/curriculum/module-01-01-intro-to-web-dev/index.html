@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Introduction to Web Development | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-01-01-intro-to-web-dev/">
+  <meta property="og:title" content="Introduction to Web Development | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-01-01-intro-to-web-dev/">
+  <meta property="twitter:title" content="Introduction to Web Development | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-01-01-intro-to-web-dev/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 1: Introduction & Mindset</span>
+      <span class="time-estimate">⏱ 15 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Introduction to Web Development</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="what-is-a-web-developer">What is a Web Developer?</h3>
+
+  <p>In short, web developers build and maintain websites.</p>
+
+  <p>Web developers often work for clients who need to establish an online presence. The work is typically project-focused and involves collaborating with a team to translate client needs into a functional product. Clients can range from tech companies to small businesses and organizations. The work may involve front-end, back-end, or full-stack development.</p>
+
+  <p>Web development is a strong career choice if you enjoy logical problem-solving, building tangible things, and experimenting with new technologies. Demand for web developers is high, offering good work-life balance and competitive salaries. It’s worth researching your local market to understand specific opportunities.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="lesson-overview">Lesson Overview</h3>
+
+  <p>This lesson provides a foundational understanding of:</p>
+
+  <ul>
+    <li>Different roles within web development.</li>
+    <li>Common client and employer types.</li>
+    <li>Essential tools used by developers.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="types-of-web-developers">Types of Web Developers</h3>
+
+  <p>We often categorize web development into front-end, back-end, and full-stack.</p>
+
+  <p>The <strong>front end</strong> encompasses everything the user sees and interacts with in their browser – the presentation, content, and user interface elements. Front-end developers use HTML, CSS, and JavaScript, along with their frameworks, to create effective content presentation and user experiences.</p>
+
+  <p>The <strong>back end</strong> comprises the server-side logic, data storage, and management that powers the website. Back-end developers use languages like Java, Python, Ruby, or JavaScript to handle data and ensure the front end has what it needs, a process that scales significantly with user traffic.</p>
+
+  <p><strong>Full-stack developers</strong> are proficient in both front-end and back-end development. This curriculum aims to equip you with full-stack capabilities.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="types-of-careers">Types of Careers</h3>
+
+  <p>Beyond the technical roles, consider the environments you might work in:</p>
+
+  <ul>
+    <li><strong>Large Tech Companies (e.g., Google, Meta):</strong> Offer high compensation and benefits but have rigorous hiring standards.</li>
+    <li><strong>Startups:</strong> Characterized by a fast-paced, sometimes chaotic environment. May offer lower initial salaries and longer hours but can provide equity and unique experiences.</li>
+    <li><strong>Freelancing:</strong> Provides autonomy and strong earning potential but requires self-management for finding clients, billing, and project delivery. Strong people skills are crucial.</li>
+    <li><strong>Web Consultancies:</strong> Offer a balance, focusing more on code and less on client acquisition than freelancing, with good pay and work-life balance.</li>
+    <li><strong>Established Companies:</strong> Need web developers but often operate with slower development cycles compared to tech-focused firms, offering stable work environments.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="tools-of-the-trade">Tools of the Trade</h3>
+
+  <p>These are fundamental tools you’ll use regularly:</p>
+
+  <ul>
+    <li>A reliable computer</li>
+    <li>Search Engines (e.g., Google)</li>
+    <li>A Text Editor</li>
+    <li>The Command Line Interface (CLI)</li>
+    <li>Online Developer Communities (e.g., Stack Overflow)</li>
+    <li>Version Control Systems (e.g., Git)</li>
+    <li>Code Hosting Platforms (e.g., GitHub)</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="motivation">Motivation</h3>
+
+  <p>Learning to code is a challenging but rewarding pursuit. Key attributes for success include a desire to build, a knack for problem-solving, and persistence. The industry values what you <strong>build</strong> over your path to getting there.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="why-the-rebellion">Why The Rebellion?</h3>
+
+  <p>This path is designed for rapid, hands-on learning. Unlike overly structured, isolated courses, The Rebellion immerses you in a realistic development environment from the start. We cover a broad spectrum of necessary skills, mirroring the demands of professional development. Our curriculum evolves through community contributions, ensuring it remains relevant and effective.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="conclusion">Conclusion</h3>
+
+  <p>You now have a clearer picture of what web developers do and the potential career paths. This introductory overview has provided a taste of the web development landscape. The subsequent “Foundations” course will delve into various topics, offering glimpses into each before deeper dives in later stages. You will build numerous projects and scripts to solidify your skills and prepare you for real-world development.</p>
+
+  <p>It will be challenging. It will be fun. It could be life-changing.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="assignment">Assignment</h3>
+
+  <ol>
+    <li>Explore the challenges of learning to code by reading: “Why Learning to Code is So Damn Hard.”</li>
+    <li>Understand the distinctions between front-end, back-end, and full-stack development.</li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="knowledge-check">Knowledge Check</h3>
+
+  <ul>
+    <li>What kind of web developer will The Rebellion train you to be?</li>
+    <li>What are the different types of careers you could have?</li>
+    <li>What are some of the fundamental tools you’ll be using?</li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+        
+        
+        
+        
+          <span class="nav-btn disabled">First Lesson</span>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-01-02-motivation-mindset/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

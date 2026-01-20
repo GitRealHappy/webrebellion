@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Inspecting HTML and CSS | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-06-03-inspecting-html-css/">
+  <meta property="og:title" content="Inspecting HTML and CSS | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-06-03-inspecting-html-css/">
+  <meta property="twitter:title" content="Inspecting HTML and CSS | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-06-03-inspecting-html-css/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 6: CSS Fundamentals</span>
+      <span class="time-estimate">⏱ 25 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Inspecting HTML and CSS</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="debug-like-a-pro-the-inspector-is-your-best-friend">Debug Like a Pro: The Inspector is Your Best Friend</h3>
+
+  <p>Frontend development is iterative. You build, you test, you tweak. The browser’s developer tools, specifically the <em>inspector</em>, are your essential toolkit for understanding and debugging your live code. Forget guessing; inspect and <em>know</em>.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="accessing-the-inspector">Accessing the Inspector</h3>
+
+  <ul>
+    <li><strong>Right-click</strong> any element on a webpage and select <strong>“Inspect”</strong>.</li>
+    <li>Or, press <strong>F12</strong>.</li>
+  </ul>
+
+  <p>Focus on the <strong>Elements</strong> and <strong>Styles</strong> panels for now.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="inspecting-elements-pinpointing-the-target">Inspecting Elements: Pinpointing the Target</h3>
+
+  <ol>
+    <li><strong>Elements Panel:</strong> Shows your page’s HTML structure like a tree. Click any element here to select it.</li>
+    <li><strong>Element Select Tool:</strong> (Look for an arrow icon, usually top-left in the inspector). Click this, then hover over any element on the <em>page itself</em>. This is often faster than digging through the Elements tree.</li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="understanding-styles-whats-actually-applied">Understanding Styles: What’s Actually Applied?</h3>
+
+  <p>Once an element is selected:</p>
+
+  <ul>
+    <li><strong>Styles Panel:</strong> This is gold. It lists all CSS rules currently affecting the selected element.
+      <ul>
+        <li><strong>Active Styles:</strong> These are applied.</li>
+        <li><strong>Strikethrough Styles:</strong> These are being overridden by a more specific or later rule. This is crucial for debugging conflicts!</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="testing-css-in-real-time-experiment-fearlessly">Testing CSS in Real-Time: Experiment Fearlessly</h3>
+
+  <p>The inspector isn’t just for looking; it’s for <em>doing</em>.</p>
+
+  <ol>
+    <li><strong>Edit Existing Properties:</strong> Click directly on a property value (e.g., <code class="language-plaintext highlighter-rouge">color: blue;</code>) and type in a new value (<code class="language-plaintext highlighter-rouge">color: red;</code>). The page updates instantly.</li>
+    <li><strong>Add New Properties:</strong> Click within a selector’s block (e.g., between <code class="language-plaintext highlighter-rouge">{</code> and <code class="language-plaintext highlighter-rouge">}</code>) and start typing a new property (<code class="language-plaintext highlighter-rouge">margin-top</code>). The inspector will offer suggestions.</li>
+    <li><strong>Try New Selectors:</strong> You can even add entirely new rules in the Styles panel to see how they’d affect the page.</li>
+  </ol>
+
+  <p><strong>Crucial Note:</strong> Changes made in the inspector are <strong>temporary</strong>. They disappear on page refresh. This is fantastic for rapid experimentation but remember to copy your successful tweaks back into your actual code files.</p>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-06-02-the-cascade/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-06-04-box-model/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

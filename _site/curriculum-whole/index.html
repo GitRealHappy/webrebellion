@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum-whole/">
+  <meta property="og:title" content="The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum-whole/">
+  <meta property="twitter:title" content="The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum-whole/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <div class="post-content">
+    <p>Chat Response
+Here are the rewritten articles, adapted for The Rebellion Method.</p>
+
+<p>—FILE: Introduction to Web Development.md—</p>
+<h1 id="introduction-to-the-web--the-rebellion">Introduction to the Web | The Rebellion</h1>
+
+<p><strong>What is a Web Developer?</strong></p>
+
+<p>In short, web developers build and maintain websites.</p>
+
+<p>Web developers often work for clients who need to establish an online presence. The work is typically project-focused and involves collaborating with a team to translate client needs into a functional product. Clients can range from tech companies to small businesses and organizations. The work may involve front-end, back-end, or full-stack development.</p>
+
+<p>Web development is a strong career choice if you enjoy logical problem-solving, building tangible things, and experimenting with new technologies. Demand for web developers is high, offering good work-life balance and competitive salaries. It’s worth researching your local market to understand specific opportunities.</p>
+
+<h3 id="lesson-overview">Lesson Overview</h3>
+
+<p>This lesson provides a foundational understanding of:</p>
+
+<ul>
+  <li>Different roles within web development.</li>
+  <li>Common client and employer types.</li>
+  <li>Essential tools used by developers.</li>
+</ul>
+
+<h3 id="types-of-web-developers">Types of Web Developers</h3>
+
+<p>We often categorize web development into front-end, back-end, and full-stack.</p>
+
+<p>The <strong>front end</strong> encompasses everything the user sees and interacts with in their browser – the presentation, content, and user interface elements. Front-end developers use HTML, CSS, and JavaScript, along with their frameworks, to create effective content presentation and user experiences.</p>
+
+<p>The <strong>back end</strong> comprises the server-side logic, data storage, and management that powers the website. Back-end developers use languages like Java, Python, Ruby, or JavaScript to handle data and ensure the front end has what it needs, a process that scales significantly with user traffic.</p>
+
+<p><strong>Full-stack developers</strong> are proficient in both front-end and back-end development. This curriculum aims to equip you with full-stack capabilities.</p>
+
+<h3 id="types-of-careers">Types of Careers</h3>
+
+<p>Beyond the technical roles, consider the environments you might work in:</p>
+
+<ul>
+  <li><strong>Large Tech Companies (e.g., Google, Meta):</strong> Offer high compensation and benefits but have rigorous hiring standards.</li>
+  <li><strong>Startups:</strong> Characterized by a fast-paced, sometimes chaotic environment. May offer lower initial salaries and longer hours but can provide equity and unique experiences.</li>
+  <li><strong>Freelancing:</strong> Provides autonomy and strong earning potential but requires self-management for finding clients, billing, and project delivery. Strong people skills are crucial.</li>
+  <li><strong>Web Consultancies:</strong> Offer a balance, focusing more on code and less on client acquisition than freelancing, with good pay and work-life balance.</li>
+  <li><strong>Established Companies:</strong> Need web developers but often operate with slower development cycles compared to tech-focused firms, offering stable work environments.</li>
+</ul>
+
+<h3 id="tools-of-the-trade">Tools of the Trade</h3>
+
+<p>These are fundamental tools you’ll use regularly:</p>
+
+<ul>
+  <li>A reliable computer</li>
+  <li>Search Engines (e.g., Google)</li>
+  <li>A Text Editor</li>
+  <li>The Command Line Interface (CLI)</li>
+  <li>Online Developer Communities (e.g., Stack Overflow)</li>
+  <li>Version Control Systems (e.g., Git)</li>
+  <li>Code Hosting Platforms (e.g., GitHub)</li>
+</ul>
+
+<h3 id="motivation">Motivation</h3>
+
+<p>Learning to code is a challenging but rewarding pursuit. Key attributes for success include a desire to build, a knack for problem-solving, and persistence. The industry values what you <strong>build</strong> over your path to getting there.</p>
+
+<h3 id="why-the-rebellion">Why The Rebellion?</h3>
+
+<p>This path is designed for rapid, hands-on learning. Unlike overly structured, isolated courses, The Rebellion immerses you in a realistic development environment from the start. We cover a broad spectrum of necessary skills, mirroring the demands of professional development. Our curriculum evolves through community contributions, ensuring it remains relevant and effective.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>You now have a clearer picture of what web developers do and the potential career paths. This introductory overview has provided a taste of the web development landscape. The subsequent “Foundations” course will delve into various topics, offering glimpses into each before deeper dives in later stages. You will build numerous projects and scripts to solidify your skills and prepare you for real-world development.</p>
+
+<p>It will be challenging. It will be fun. It could be life-changing.</p>
+
+<h3 id="assignment">Assignment</h3>
+
+<ol>
+  <li>Explore the challenges of learning to code by reading: “Why Learning to Code is So Damn Hard.”</li>
+  <li>Understand the distinctions between front-end, back-end, and full-stack development.</li>
+</ol>
+
+<h3 id="knowledge-check">Knowledge Check</h3>
+
+<ul>
+  <li>What kind of web developer will The Rebellion train you to be?</li>
+  <li>What are the different types of careers you could have?</li>
+  <li>What are some of the fundamental tools you’ll be using?</li>
+</ul>
+
+<p>—FILE: Motivation and Mindset.md—</p>
+<h1 id="motivation-and-mindset--the-rebellion">Motivation and Mindset | The Rebellion</h1>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>Learning to code is a journey that is both deeply rewarding and inherently challenging. Like mastering any valuable skill, it requires time, dedication, and consistent effort. We firmly believe that anyone can learn to program with the right mindset and commitment.</p>
+
+<p>This module focuses on cultivating effective learning habits and navigating the inevitable struggles you’ll encounter.</p>
+
+<h3 id="lesson-overview-1">Lesson Overview</h3>
+
+<ul>
+  <li>Adopt mindsets that foster healthy learning.</li>
+  <li>Develop strategies for approaching learning and overcoming challenges.</li>
+  <li>Identify and avoid common pitfalls in the learning process.</li>
+</ul>
+
+<h3 id="motivation-1">Motivation</h3>
+
+<p>Identify your core drivers for learning to code:</p>
+
+<ul>
+  <li>A desire for a fulfilling and well-compensated career?</li>
+  <li>Excitement about the creative possibilities of programming?</li>
+  <li>Determination to build any idea you conceive of?</li>
+  <li>Ambition to launch your own company?</li>
+</ul>
+
+<p>Whatever your reasons, hold onto them. Your motivation is the fuel that will propel you through this journey and keep your ultimate goals in sharp focus.</p>
+
+<h3 id="growth-mindset">Growth Mindset</h3>
+
+<p>Your mindset is critical to mastering any new skill, especially programming. A <strong>fixed mindset</strong> leads individuals to believe that their abilities are static; if they don’t grasp something immediately, they assume they never will.</p>
+
+<p>Conversely, a <strong>growth mindset</strong>, supported by extensive research, posits that intelligence and abilities can be developed through dedication and persistent effort. This means you <em>can</em> improve and acquire new talents. Embrace challenges as opportunities for growth. When you encounter difficult concepts or complex problems, remember that you may not understand them <em>yet</em>, but with persistence and grit, you will. Struggle is a natural part of the learning process and a sign of progress. Celebrate your tenacity in overcoming these hurdles. Reflect on your past successes – the completed projects, the concepts that once eluded you but are now clear – as proof of your capability.</p>
+
+<h3 id="the-learning-process">The Learning Process</h3>
+
+<p>Effective learning involves alternating between focused and diffuse modes of thinking. <strong>Focus mode</strong> is when you’re actively engaged in learning – reading, watching, or coding. <strong>Diffuse mode</strong> operates subconsciously during breaks or downtime (like exercising or sleeping), allowing your mind to make novel connections. Breakthroughs often occur in diffuse mode.</p>
+
+<p>To optimize learning:</p>
+<ol>
+  <li><strong>Understand:</strong> Grasp the core concepts.</li>
+  <li><strong>Practice:</strong> Apply your knowledge through coding exercises.</li>
+  <li><strong>Teach:</strong> Explain concepts to others to solidify your understanding and identify knowledge gaps. Engaging with our community to help others is an excellent way to practice this.</li>
+</ol>
+
+<h3 id="what-to-do-when-youre-stuck">What to Do When You’re Stuck</h3>
+
+<p>Getting stuck is inevitable. Here’s how to push through:</p>
+
+<ul>
+  <li><strong>Google It:</strong> Someone has likely faced the same problem. Effective searching is a key developer skill.</li>
+  <li><strong>Take a Break:</strong> Allow your diffuse mode to work on the problem. Step away and engage in a different activity.</li>
+  <li><strong>Ask for Help:</strong> Reach out to the Rebel Alliance HQ (our community chat). Come prepared with your research and a clear description of the problem.</li>
+</ul>
+
+<p><em>Refer to the problem-solving diagram: [Visual Aid Placeholder]</em></p>
+
+<h3 id="a-note-on-ai-code-generation">A Note on AI Code Generation</h3>
+
+<p>AI tools like ChatGPT and GitHub Copilot can be powerful aids, but relying on them too heavily can hinder fundamental learning.</p>
+
+<ol>
+  <li><strong>Understanding “Why”:</strong> Over-reliance can prevent you from learning <em>how</em> and <em>why</em> code works the way it does.</li>
+  <li><strong>Asking Questions:</strong> Developing the skill of asking precise questions is crucial. AI can shortcut this learning process.</li>
+  <li><strong>Explaining Code:</strong> In professional settings, you’ll need to articulate your code’s logic. Practicing asking questions in our community helps build this skill.</li>
+  <li><strong>Evaluating Output:</strong> Beginners often lack the experience to critically assess AI-generated code for correctness and quality.</li>
+  <li><strong>Prompt Engineering vs. Core Skills:</strong> While crafting effective prompts is a skill, foundational programming competence must come first.</li>
+  <li><strong>Problem-Solving:</strong> AI provides answers; humans guide you through the problem-solving process, fostering independence.</li>
+  <li><strong>Interview Preparedness:</strong> Interviews often prohibit AI tools, making fundamental skills and research abilities essential.</li>
+</ol>
+
+<p><strong>Recommendation:</strong> Use AI judiciously as a <em>supplement</em>, not a <em>replacement</em>, for core learning. Focus on understanding the underlying principles.</p>
+
+<h3 id="managing-your-study-time">Managing Your Study Time</h3>
+
+<p><strong>Consistency is key.</strong> Establish a regular study schedule, even if it’s just a short period each day. Avoid the trap of comparing your pace to others; everyone’s learning journey is unique.</p>
+
+<p>The Rebellion is self-paced. Don’t create artificial deadlines that lead to rushing. Focus on deep understanding. Research and problem-solving take time, and that’s where true learning happens. Avoid stress – relax and enjoy the process.</p>
+
+<h3 id="pitfalls-to-avoid">Pitfalls to Avoid</h3>
+
+<ul>
+  <li><strong>Procrastination:</strong> Use the Pomodoro Technique (25 min work, 5 min break) to maintain focus and make tasks less daunting.</li>
+  <li><strong>Not Taking Breaks:</strong> Regular breaks prevent burnout and improve productivity. Use them to rest and recharge.</li>
+  <li><strong>Digital Distractions:</strong> Turn off notifications and use website blockers during study times.</li>
+  <li><strong>Physical Distractions:</strong> Find a quiet study environment. Noise-canceling headphones or libraries can help.</li>
+  <li><strong>Rabbit Holes:</strong> Stick to the curriculum’s structure. It’s designed to build foundational knowledge logically. Detours can derail momentum.</li>
+  <li><strong>Comparing Yourself to Others:</strong> Focus on your own progress. Measure improvement against your past self, not others.</li>
+  <li><strong>Counterproductive Note-Taking:</strong> Prioritize understanding and research over extensive note compilation. Learn to effectively use documentation.</li>
+</ul>
+
+<h3 id="conclusion-1">Conclusion</h3>
+
+<p>Navigating the path of learning a new skill involves challenges. Heeding these principles will significantly enhance your learning experience and success within The Rebellion.</p>
+
+<h3 id="assignment-1">Assignment</h3>
+
+<ol>
+  <li>Read about cultivating a successful mindset.</li>
+  <li>Explore success stories within the Rebel Alliance HQ to gain inspiration.</li>
+  <li>Deepen your understanding of the growth mindset through provided resources on grit and the power of belief in improvement.</li>
+</ol>
+
+<h3 id="knowledge-check-1">Knowledge Check</h3>
+
+<ul>
+  <li>What is the core difference between a fixed and a growth mindset when facing programming challenges?</li>
+  <li>Describe the two mental modes involved in learning and how they differ.</li>
+  <li>What are the three primary strategies recommended for overcoming programming hurdles?</li>
+  <li>Why does The Rebellion advise against setting rigid self-imposed deadlines?</li>
+  <li>How is “grit” defined, and why is it vital for learning to code?</li>
+</ul>
+
+<p>—FILE: Join the Rebel Alliance.md—</p>
+<h1 id="join-the-rebel-alliance--the-rebellion">Join the Rebel Alliance | The Rebellion</h1>
+
+<h3 id="introduction-1">Introduction</h3>
+
+<p>Welcome to The Living Internet University. Collaboration and community are vital aspects of being a successful developer. We encourage you to actively participate in our online community, The Rebel Alliance HQ, to learn and grow alongside fellow rebels.</p>
+
+<p>Connect with us on our social channels and use #TheRebellion to share your progress and see what others are up to.</p>
+
+<h3 id="lesson-overview-2">Lesson Overview</h3>
+
+<ul>
+  <li>Understand how to join and engage with The Rebellion’s community.</li>
+  <li>Learn to ask clear, detailed questions.</li>
+  <li>Develop best practices for assisting fellow rebels.</li>
+</ul>
+
+<p>Learning web development is a significant undertaking. Engaging with The Rebel Alliance HQ can make this journey more enjoyable and effective. You’ll find experienced rebels willing to help, and assisting others is a powerful way to deepen your own understanding.</p>
+
+<p>When facing the “desert of despair” where your code seems insurmountable, our community offers an oasis of knowledge and support. Veterans are eager to share insights and help you overcome obstacles. Sharing your completed projects and celebrating your hard-won victories with a community that understands the effort involved is incredibly motivating.</p>
+
+<p>Your feedback on our lessons and projects is invaluable as we continuously improve the curriculum.</p>
+
+<h3 id="before-asking-for-help">Before Asking for Help</h3>
+
+<p>Projects are designed to challenge you. Remember, there’s always a community ready to assist. While you don’t need to solve every problem instantly, having a clear direction is crucial. Sometimes, the issue lies in your approach, not just your code.</p>
+
+<ul>
+  <li><strong>Pause and Breathe:</strong> Take a break from the problem.</li>
+  <li><strong>Break It Down:</strong> Deconstruct the issue into smaller, manageable pieces.</li>
+  <li><strong>Rubber Duck Debugging:</strong> Explain the problem aloud (even to an inanimate object) to clarify your thinking.</li>
+  <li><strong>Research:</strong> Use search engines effectively to find relevant information. Consult previous lessons for applicable tools.</li>
+</ul>
+
+<p>If these steps don’t yield a solution, it’s time to seek help from the Rebel Alliance.</p>
+
+<h3 id="asking-for-help">Asking for Help</h3>
+
+<p>Before posting in The Rebel Alliance HQ:</p>
+
+<ul>
+  <li><strong>Don’t Ask to Ask:</strong> Get straight to the point. This respects everyone’s time and encourages faster responses.</li>
+  <li><strong>Craft a Strong Question:</strong> Provide necessary context to help others help you effectively.</li>
+</ul>
+
+<p>Include the following in your questions:</p>
+
+<ul>
+  <li><strong>Problem:</strong> What do you believe the issue is?</li>
+  <li><strong>Goal:</strong> What do you want to achieve?</li>
+  <li><strong>Actual Outcome:</strong> What is happening instead?</li>
+  <li><strong>Steps Taken:</strong> How did you arrive at this point?</li>
+  <li><strong>Attempts:</strong> What have you already tried?</li>
+</ul>
+
+<p><strong>Screenshots:</strong> Useful for illustrating command-line output or visual errors. However, <strong>always include the corresponding code files.</strong> Drag and drop images in Discord or use screenshot shortcuts. If you need help with a web page’s appearance, provide a link to a live demo (e.g., using CodePen or GitHub Pages) or share the relevant code.</p>
+
+<p><strong>Discord Search:</strong> Before asking, use the Discord search function to see if your issue has already been addressed.</p>
+
+<h3 id="formatting-your-questions">Formatting Your Questions</h3>
+
+<p>Readable questions facilitate debugging:</p>
+
+<ul>
+  <li><strong>Command Line:</strong> Include both your input and the resulting error message.</li>
+  <li><strong>Code Snippets:</strong>
+    <ul>
+      <li>Single line: Use single backticks (<code class="language-plaintext highlighter-rouge">) around the code. </code>Your Code`</li>
+      <li>Multiple lines: Use triple backticks (```) on separate lines above and below the code block.</li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your Multiple Lines of Code
+</code></pre></div>    </div>
+    <ul>
+      <li>Code Highlighting: Add the language after the opening triple backticks for color.</li>
+    </ul>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Your</span> <span class="nx">Multiple</span> <span class="nx">Lines</span> <span class="k">of</span> <span class="nx">Colorful</span> <span class="nx">JavaScript</span> <span class="nx">Code</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="chat-features">Chat Features</h3>
+
+<ul>
+  <li>Use <code class="language-plaintext highlighter-rouge">/gif [term]</code> to share GIFs.</li>
+  <li>Type <code class="language-plaintext highlighter-rouge">/</code> to see available chat commands.</li>
+  <li>Show appreciation with <code class="language-plaintext highlighter-rouge">@username ++</code>.</li>
+  <li>Explore all the available channels.</li>
+</ul>
+
+<h3 id="how-to-help-others-solve-coding-problems">How to Help Others Solve Coding Problems</h3>
+
+<p>Effectively assisting fellow rebels demonstrates strong comprehension and reinforces your own learning.</p>
+
+<ol>
+  <li><strong>Guide, Don’t Just Answer:</strong> Instead of providing direct solutions (unless it’s a trivial typo), ask probing questions (“What have you tried?”, “What do you expect this to do?”) to foster their problem-solving skills.</li>
+  <li><strong>Be Certain:</strong> Only offer help when you are confident in the answer. Incorrect guidance can be detrimental.</li>
+  <li><strong>Avoid Interruption:</strong> If someone is already helping, let them continue to avoid confusing the learner.</li>
+  <li><strong>Commit Time:</strong> Ensure you have adequate time to help properly.</li>
+  <li><strong>Adjust Expectations:</strong> Understand the learner’s current knowledge level based on their progress in the curriculum.</li>
+  <li><strong>Seek Clarification:</strong> If a question is unclear, ask for more details. Link to resources on asking good questions if necessary.</li>
+  <li><strong>Request Live Code:</strong> For complex issues, ask the user to provide a REPL link (like CodePen) or a minimal, reproducible example.</li>
+  <li><strong>Don’t Answer Obvious Googleable Questions:</strong> Encourage self-sufficiency by prompting users to research their own problems. Use the <code class="language-plaintext highlighter-rouge">/search google</code> command.</li>
+  <li><strong>Don’t Answer Curriculum Questions (Directly):</strong> If the answer is in the curriculum, guide the learner to review the relevant section.</li>
+  <li><strong>Resolve Original Question First:</strong> Address the user’s stated problem before pointing out other potential issues.</li>
+  <li><strong>Encourage Debugging:</strong> Advise users to utilize debugging tools (<code class="language-plaintext highlighter-rouge">/debug</code> command) to inspect variable states.</li>
+  <li><strong>Suggest Stepping Back:</strong> If a user is stuck, recommend taking a break to get perspective.</li>
+  <li><strong>Identify Overwhelm:</strong> If a user seems out of their depth, suggest revisiting earlier curriculum sections.</li>
+  <li><strong>Admit Limitations:</strong> If a problem exceeds your knowledge, say so. It’s better than providing incorrect information.</li>
+  <li><strong>Be Patient:</strong> Understand that learning takes time and effort.</li>
+  <li><strong>Disengage if Frustrated:</strong> If a conversation becomes unproductive or stressful, politely step away.</li>
+</ol>
+
+<h3 id="assignment-2">Assignment</h3>
+
+<ol>
+  <li>Create a GitHub account – essential for the development workflow.</li>
+  <li>Join The Rebel Alliance HQ on Discord. Introduce yourself and explore the channels. Optionally, link your GitHub profile.</li>
+  <li>Review the community guidelines and FAQ. Observe server interactions before jumping in.</li>
+</ol>
+
+<h3 id="knowledge-check-2">Knowledge Check</h3>
+
+<ul>
+  <li>How do you join The Rebellion’s community chat?</li>
+  <li>What are the key components of a strong question?</li>
+  <li>What are effective strategies for helping others solve coding problems?</li>
+</ul>
+
+<p>—FILE: How This Course Will Work.md—</p>
+<h1 id="how-this-course-works--the-rebellion">How This Course Works | The Rebellion</h1>
+
+<h3 id="introduction-2">Introduction</h3>
+
+<p>The Living Internet University is an open-source initiative dedicated to providing the most effective resources for aspiring web developers, guiding you from zero to ship-ready.</p>
+
+<p>This unit introduces the fundamentals of the web, your computer, and the development environment. We’ll cover crucial concepts like Git and GitHub, and the basics of front-end technologies (HTML, CSS, JavaScript), with a glimpse into back-end principles.</p>
+
+<p>By the end of this foundational stage, you’ll understand the web’s mechanics, differentiate key technologies, and be able to build and style a basic, interactive webpage using the command line. This broad overview provides essential context before diving deeper.</p>
+
+<h3 id="lesson-overview-3">Lesson Overview</h3>
+
+<ul>
+  <li>Understand the structure and philosophy of The Rebellion curriculum.</li>
+  <li>Grasp how the foundational modules prepare you for building.</li>
+</ul>
+
+<h3 id="how-it-works">How It Works</h3>
+
+<p>The Rebellion curates the best existing resources on the internet to teach specific topics. Each module introduces a subject, provides context, and then directs you to external materials.</p>
+
+<p>Most modules include questions to check your understanding and exercises for practice. Crucially, we emphasize <strong>building projects</strong> to solidify your knowledge.</p>
+
+<p>Think of The Rebellion not as a traditional class, but as a snowball rolling downhill. You are the snowball. Information sticks as you progress. You’ll forget things, and that’s natural. Don’t worry if a project feels challenging; <strong>projects are not tests of memorization.</strong> They are practical application points where learned information resurfaces as you tackle problems, leveraging search engines and The Rebel Alliance for support.</p>
+
+<h3 id="a-note-about-tools">A Note About Tools</h3>
+
+<p>We often field questions about why certain languages or tools aren’t covered. The Rebellion’s goal isn’t to teach isolated skills but to instill the <em>principles</em> of web development and fundamentally change how you approach problems.</p>
+
+<p>Mastering the core concepts – problem-solving, asking effective questions, conducting research – is paramount. This foundational skill set makes learning new tools and languages straightforward. Once you grasp the underlying <em>why</em> and <em>how</em>, the specifics are usually a Google search away. Documentation becomes your primary resource, and The Rebellion equips you with the skills to confidently navigate it.</p>
+
+<p>The abilities you gain here are transferable and will serve as your base for continuous learning throughout your career. If you feel you need another course <em>like this</em> to learn a new language, you’ve likely missed the core message: self-sufficiency.</p>
+
+<h3 id="a-note-about-language">A Note About Language</h3>
+
+<p>This curriculum is delivered in English. While this fact is not meant to discourage non-native speakers, it prepares you for the reality of the global development landscape, where English is the predominant language for technical communication, documentation, and community interaction.</p>
+
+<p>If English is not your primary language, dedicate extra time to understanding unfamiliar terms. Seek out resources in your native language to clarify concepts. Using a translation dictionary can also be helpful. Developing the skill to find and utilize such tools online is, in itself, a valuable part of your journey.</p>
+
+<h3 id="what-comes-next">What Comes Next</h3>
+
+<p>Upon completing this foundational course, you should feel equipped with the essentials and eager to delve deeper. While we cover core topics comprehensively, they are just the beginning.</p>
+
+<p>The final module will offer a choice between Full Stack JavaScript and Full Stack Rails paths, building directly upon this foundation. Each path hones your skills for practical application.</p>
+
+<p>Everything in this curriculum is intentionally included and vital for your success. <strong>DO NOT SKIP ANYTHING!</strong> Each part builds upon the last; skipping sections creates knowledge gaps that impede your ability to solve problems and understand new material. Additional resources are supplementary unless explicitly stated otherwise.</p>
+
+<h3 id="assignment-3">Assignment</h3>
+
+<ol>
+  <li>Learn more about The Rebellion’s mission and philosophy.</li>
+  <li>Consult the frequently asked questions section for common queries.</li>
+</ol>
+
+<h3 id="knowledge-check-3">Knowledge Check</h3>
+
+<ul>
+  <li>What is The Rebellion?</li>
+  <li>Should you skip any part of The Rebellion or complete it out of order?</li>
+</ul>
+
+<p>—FILE: Asking For Help.md—</p>
+<h1 id="asking-for-help--the-rebellion">Asking For Help | The Rebellion</h1>
+
+<h3 id="introduction-3">Introduction</h3>
+
+<p>Effectively asking for help is a crucial skill for any developer, whether in an online community or the workplace. This lesson equips you with the techniques to ask well-formed, context-rich questions, maximizing the assistance you receive. Remember: “Help others help you!”</p>
+
+<h3 id="lesson-overview-4">Lesson Overview</h3>
+
+<ul>
+  <li>Master techniques for asking effective programming questions.</li>
+  <li>Identify and avoid common pitfalls of “bad” questions.</li>
+  <li>Formulate questions that facilitate the best possible help.</li>
+</ul>
+
+<h3 id="tips-for-getting-the-best-help-possible">Tips for Getting the Best Help Possible</h3>
+
+<h4 id="always-provide-your-code-and-surrounding-context">Always Provide Your Code and Surrounding Context</h4>
+
+<p>When asking for help, include your code, error messages, terminal output, and any other relevant details. Be specific, pinpointing the exact function, line number, or error. Providing comprehensive context drastically reduces the need for back-and-forth clarification, making it easier for others to assist you.</p>
+
+<p>Without sufficient context, your problem remains unclear, leading to delayed or ineffective solutions and potential frustration for both you and those trying to help. If your question is purely conceptual, state that clearly.</p>
+
+<h4 id="ask-about-the-problem-not-the-solution-itself">Ask About the Problem, Not the Solution Itself</h4>
+
+<p>Avoid asking for direct solutions to assignments, such as: “How do I complete Step 5 of the Rock Paper Scissors Assignment?” The process of figuring out the approach is fundamental to learning.</p>
+
+<p>A better question focuses on the problem:
+“Hey, I’m trying to return a string that displays the winner in Rock Paper Scissors, but I’m getting a syntax error on line 12. Here’s my code. Can you help me understand why this error is occurring?”</p>
+
+<p>Sharing your attempts allows helpers to identify what hasn’t worked and build upon your current progress. If you’re completely unsure where to start, state that. Ask for guidance on where to begin or what resources to research. Sharing pseudo-code can also help clarify your thinking and identify potential misunderstandings.</p>
+
+<h4 id="dont-take-asking-for-more-context-personally">Don’t Take Asking for More Context Personally</h4>
+
+<p>Community helpers are volunteers who want to assist you. If they ask for more context, it’s because your initial question, while perhaps clear to you, isn’t sufficiently detailed for them to diagnose effectively. Experts know numerous potential causes for issues and need specifics to avoid sending you down the wrong path. Respect their time and judgment by providing the information they request. Remember, their help is voluntary.</p>
+
+<h3 id="assignment-4">Assignment</h3>
+
+<ol>
+  <li>Understand the principle of “Don’t ask to ask” by reviewing the provided resource.</li>
+  <li>Learn about the common “XY Problem” pitfall.</li>
+  <li>Bookmark the guide on “How to Ask Technical Questions” for future reference. It often helps resolve issues during the reading process itself.</li>
+</ol>
+
+<h3 id="knowledge-check-4">Knowledge Check</h3>
+
+<ul>
+  <li>What is the “XY Problem”?</li>
+  <li>What essential elements should your questions include to be effective?</li>
+</ul>
+
+<p>—FILE: Computer Basics.md—</p>
+<h1 id="computer-basics--the-rebellion-method">Computer Basics | The Rebellion Method</h1>
+
+<p><strong>Get Your Digital Toolkit Ready</strong></p>
+
+<h2 id="why-this-matters">Why This Matters</h2>
+
+<p>Coding happens on a computer. Knowing how to wield your machine is foundational. This guide cuts through the noise to get you the essential computer knowledge you need to start building.</p>
+
+<h2 id="what-youll-master">What You’ll Master</h2>
+
+<ul>
+  <li><strong>Core Components:</strong> Understand the difference between hardware and software – the building blocks of your digital world.</li>
+  <li><strong>Visual Communication:</strong> Learn to capture screenshots – a crucial skill for documenting progress and sharing issues.</li>
+  <li><strong>Digital Security:</strong> Grasp the non-negotiable importance of strong passwords.</li>
+</ul>
+
+<hr />
+
+<h2 id="your-action-plan">Your Action Plan</h2>
+
+<p>We recommend resources that are clear, concise, and get straight to the point.</p>
+
+<ul>
+  <li><strong>What is a Computer?</strong>
+Grasping the fundamental hardware and software concepts.</li>
+  <li><strong>Understanding Operating Systems</strong>
+Knowing what an OS does and recognizing key examples.</li>
+  <li><strong>Understanding Applications</strong>
+Differentiating between system software and user-facing applications.</li>
+  <li><strong>Open vs. Closed Source Software</strong>
+A quick look at software philosophies.</li>
+  <li><strong>Taking Screenshots</strong>
+Mastering this essential visual tool.</li>
+  <li><strong>Creating Strong Passwords</strong>
+Your first line of defense in the digital realm.</li>
+</ul>
+
+<hr />
+
+<h2 id="quick-check">Quick Check</h2>
+
+<p>A brief review to solidify your understanding.</p>
+
+<ul>
+  <li>Is Windows an operating system or an application?</li>
+  <li>What’s the core difference between open source and closed source software?</li>
+  <li>When would a screenshot be your best friend?</li>
+  <li>Give an example of a weak and a strong password.</li>
+</ul>
+
+<p>—FILE: Installation Overview.md—</p>
+<h1 id="installation-overview--the-rebellion-method">Installation Overview | The Rebellion Method</h1>
+
+<p><strong>Your Dev Environment: Ship-Ready from Day One</strong></p>
+
+<h2 id="the-goal-build-ship-iterate">The Goal: Build. Ship. Iterate.</h2>
+
+<p>The first step to building anything real is having the right tools. We’re not about theoretical setups; we’re about a development environment that lets you write good code and ship it <strong>fast</strong>.</p>
+
+<p>Many learning platforms use in-browser editors. They’re fine for a quick start, but they don’t build real-world skills. We’re building the environment that mirrors professional workflows. This means installations.</p>
+
+<p>Yes, installing software, editors, and even operating systems can be a pain. Embrace the friction. This is an <strong>invaluable, real-world skill</strong> that separates builders from dabblers.</p>
+
+<h2 id="your-path-to-a-dev-environment">Your Path to a Dev Environment</h2>
+
+<p>We focus on environments that work. Deviations add complexity we don’t need.</p>
+
+<h3 id="recommended-macos-or-linux">Recommended: macOS or Linux</h3>
+
+<p>If you’re on a Mac, you’re already in a Unix-like environment – perfect. A few key installations and you’re set.</p>
+
+<p>If you’re not on a Mac, <strong>Linux is your best bet</strong>. It’s free, powerful, and the environment most tools are built for. We’ll guide you through Ubuntu, a battle-tested, user-friendly distribution.</p>
+
+<h3 id="windows-users-your-options">Windows Users: Your Options</h3>
+
+<p>Windows itself isn’t natively supported for the core development tools we’ll use. You need a Linux layer. Here are your paths:</p>
+
+<ul>
+  <li><strong>Virtual Machine (Recommended for Ease):</strong> Run a Linux environment (like Ubuntu) within a program on your Windows machine. It’s like having a separate computer inside your computer. Easy to set up, risk-free to remove if it’s not for you.</li>
+  <li><strong>Dual-Boot (Native Performance):</strong> Install Linux alongside Windows. You choose which OS to boot when your computer starts. Offers the best performance as Linux has full access to your hardware. Requires careful partitioning – take your time.</li>
+  <li><strong>WSL2 (Advanced):</strong> The Windows Subsystem for Linux lets you run a Linux environment directly within Windows. Powerful, but can be confusing for beginners due to the blurred lines between OSs.</li>
+</ul>
+
+<p><em>Chromebooks:</em> You may be able to leverage built-in Linux support. Details in the next step.</p>
+
+<hr />
+
+<h2 id="why-this-approach">Why This Approach?</h2>
+
+<ul>
+  <li><strong>Tested Environments:</strong> Our instructions are validated on macOS and Ubuntu. This minimizes troubleshooting time so you can focus on coding.</li>
+  <li><strong>Community Alignment:</strong> Using recommended tools makes it easier to get support from The Rebel Alliance.</li>
+  <li><strong>Tooling Native to Linux:</strong> Many critical development tools are built for or run best on Linux.</li>
+  <li><strong>Professional Standard:</strong> Most developers use Unix-based systems. Get acquainted now.</li>
+  <li><strong>Performance:</strong> Linux is lean. It uses fewer resources than Windows, making it ideal for powerful development, even on older hardware.</li>
+</ul>
+
+<hr />
+
+<h2 id="no-getting-around-it">No Getting Around It</h2>
+
+<p>We can only support specific environments. Native Windows is <strong>not</strong> supported for development. This isn’t a limitation; it’s a deliberate choice to ensure you have the smoothest path to shipping code. Stick to macOS, Ubuntu, or a Linux environment via VM/dual-boot/WSL2.</p>
+
+<p>The goal is to get you building and shipping, not wrestling with incompatible tools. Let’s get your environment ship-shape.</p>
+
+<p>—FILE: Installations.md—</p>
+<h1 id="installations--the-rebellion-method">Installations | The Rebellion Method</h1>
+
+<p><strong>Your Dev Environment: Ship-Ready</strong></p>
+
+<h2 id="get-set-up-the-rebellion-way">Get Set Up: The Rebellion Way</h2>
+
+<p>If you’re on macOS, Ubuntu, or an official Ubuntu flavor, and have Google Chrome installed, you can likely skip the heavy lifting. Otherwise, let’s build your battle station.</p>
+
+<p><strong>The Goal:</strong> A robust development environment that lets you build and ship fast. We use tools that mirror professional workflows.</p>
+
+<h2 id="choosing-your-weapon-operating-system-setup">Choosing Your Weapon: Operating System Setup</h2>
+
+<p>We support environments built for development.</p>
+
+<ul>
+  <li><strong>macOS:</strong> Unix-based and great for development. A few installs and you’re ready.</li>
+  <li><strong>Linux (Ubuntu Recommended):</strong> Free, powerful, and the standard for many tools. We guide you through Ubuntu.</li>
+</ul>
+
+<h3 id="windows-users-your-path"><strong>Windows Users: Your Path</strong></h3>
+
+<p>Windows isn’t natively supported for our core tools. You need a Linux layer:</p>
+
+<ul>
+  <li><strong>Virtual Machine (Recommended):</strong> Run Ubuntu inside Windows. Easiest, safest way to start.</li>
+  <li><strong>Dual-Boot:</strong> Install Ubuntu alongside Windows. Native performance, but requires disk partitioning. Proceed with care.</li>
+  <li><strong>WSL2 (Advanced):</strong> Linux environment within Windows. Powerful, but can be complex for beginners.</li>
+</ul>
+
+<p><em>Chromebooks:</em> Built-in Linux support is viable. Details follow.</p>
+
+<hr />
+
+<h2 id="why-google-chrome">Why Google Chrome?</h2>
+
+<p>It’s the de facto browser standard, with powerful developer tools essential for inspecting, debugging, and testing your sites. Our instructions and examples are based on Chrome.</p>
+
+<hr />
+
+<h2 id="your-assignment">Your Assignment</h2>
+
+<ol>
+  <li><strong>Environment Setup (if needed):</strong>
+    <ul>
+      <li><strong>Virtual Machine:</strong> Easiest. Get Ubuntu running within Windows/macOS.</li>
+      <li><strong>Dual-Boot:</strong> Install Ubuntu alongside your existing OS.</li>
+      <li><strong>ChromeOS/Flex:</strong> For Chromebooks.</li>
+      <li><strong>WSL2:</strong> For advanced Windows users.
+<em>(Follow the specific guides for your chosen setup.)</em></li>
+    </ul>
+  </li>
+  <li><strong>Browser Setup:</strong> Install Google Chrome. Our documentation and examples assume you’re using it.</li>
+</ol>
+
+<p><strong>Unsupported:</strong> We don’t support Raspberry Pi or other niche devices. Stick to standard desktops/laptops.</p>
+
+<p><strong>Focus:</strong> Get your environment configured correctly. This smooths the path for all subsequent learning. If you’re not on macOS or Ubuntu, choose ONE setup option and follow it precisely.</p>
+
+<p>—FILE: Text Editors.md—</p>
+<h1 id="text-editors--the-rebellion-method">Text Editors | The Rebellion Method</h1>
+
+<p><strong>Your Primary Weapon: The Code Editor</strong></p>
+
+<h2 id="code-like-a-pro-not-a-word-processor">Code Like a Pro, Not a Word Processor</h2>
+
+<p>You’ll spend more time in your text editor than almost anywhere else. A good one isn’t just for typing; it’s a force multiplier that helps you write cleaner, faster, error-free code.</p>
+
+<p><strong>Why not Microsoft Word?</strong> Word and similar “rich text” editors embed formatting information within your files. Code editors, on the other hand, handle <strong>plain text</strong> – exactly what computers need to read and execute your code. No hidden formatting, just pure instructions.</p>
+
+<h2 id="the-code-editor-advantage">The Code Editor Advantage</h2>
+
+<p>Think of code editors as specialized command centers. They are designed for developers and come packed with features that streamline your workflow:</p>
+
+<ul>
+  <li><strong>Syntax Highlighting:</strong> Makes code readable by coloring different elements.</li>
+  <li><strong>Real-time Error Checking (Linting):</strong> Catches syntax errors and style issues <em>as you type</em>.</li>
+  <li><strong>Auto-formatting:</strong> Keeps your code clean and consistent.</li>
+  <li><strong>Bracket/Brace Matching:</strong> Prevents those maddening “missing bracket” bugs.</li>
+  <li><strong>Extensibility:</strong> Tons of plugins and extensions to customize your environment.</li>
+</ul>
+
+<h2 id="your-tool-of-choice-vs-code">Your Tool of Choice: VS Code</h2>
+
+<p>We standardize on <strong>Visual Studio Code (VS Code)</strong>. It’s free, powerful, has excellent community support, and integrates seamlessly with essential tools like Git.</p>
+
+<p><strong>Why VS Code?</strong></p>
+<ul>
+  <li><strong>Free &amp; Cross-Platform:</strong> Works the same everywhere.</li>
+  <li><strong>Massive Extension Ecosystem:</strong> Tailor it to your needs.</li>
+  <li><strong>Industry Standard:</strong> Widely used by developers globally.</li>
+  <li><strong>Great Git Integration:</strong> Essential for version control.</li>
+</ul>
+
+<p><strong>Important:</strong> If you’re using a Virtual Machine for Linux, <strong>install VS Code <em>inside</em> the VM</strong>. This ensures your development environment is self-contained.</p>
+
+<h2 id="getting-vs-code-set-up">Getting VS Code Set Up</h2>
+
+<p>Follow the specific instructions for your operating system:</p>
+
+<p><em>(Note: The following instructions are simplified examples. Refer to the official VS Code documentation for the most current and detailed guidance for your specific OS.)</em></p>
+
+<h3 id="linux-ubuntudebian-based"><strong>Linux (Ubuntu/Debian-based)</strong></h3>
+
+<ol>
+  <li><strong>Download:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-O</span> code-latest.deb <span class="s1">'https://code.visualstudio.com/sha/download?build=stable&amp;os=linux-deb-x64'</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Install:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> ./code-latest.deb
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Clean up:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm </span>code-latest.deb
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Launch:</strong> From the terminal, type <code class="language-plaintext highlighter-rouge">code</code> or find it in your application menu.</li>
+</ol>
+
+<p><em>(Optional: Add Microsoft’s repository for automatic updates.)</em></p>
+
+<h3 id="macos"><strong>macOS</strong></h3>
+
+<ol>
+  <li><strong>Download:</strong> Get the universal installer from the <a href="https://code.visualstudio.com/download">VS Code website</a>.</li>
+  <li><strong>Install:</strong> Unzip the downloaded file and drag <code class="language-plaintext highlighter-rouge">Visual Studio Code.app</code> to your Applications folder.</li>
+  <li><strong>Clean up:</strong> Delete the downloaded zip file.</li>
+  <li><strong>Launch:</strong> From your Applications folder.</li>
+</ol>
+
+<h3 id="windows"><strong>Windows</strong></h3>
+
+<ol>
+  <li><strong>Download &amp; Install:</strong> Follow the standard Windows installation from the <a href="https://code.visualstudio.com/download">VS Code website</a>.</li>
+  <li><strong>Clean up:</strong> Delete the installer file.</li>
+  <li><strong>WSL2 Integration:</strong> If using WSL2, ensure you install the <strong>WSL extension</strong> within VS Code. Open a WSL2 terminal and run <code class="language-plaintext highlighter-rouge">code</code> to verify it launches correctly within your Linux environment.</li>
+</ol>
+
+<hr />
+
+<h2 id="your-mission">Your Mission</h2>
+
+<p>Familiarize yourself with VS Code. Watch a beginner tutorial focusing on its interface and core features. Don’t get bogged down; just get a feel for the tool.</p>
+
+<p><strong>AI Note:</strong> VS Code often comes with AI code completion features (like Copilot). While AI is powerful, we’ll address its role specifically. For now, disable any AI code completion features that might nudge you toward shortcuts without understanding. We build skills first.</p>
+
+<p>—FILE: Command Line Basics.md—</p>
+<h1 id="command-line-basics--the-rebellion-method">Command Line Basics | The Rebellion Method</h1>
+
+<p><strong>Master Your Machine: Navigate and Control</strong></p>
+
+<h2 id="why-the-command-line-its-your-command-center">Why the Command Line? It’s Your Command Center.</h2>
+
+<p>Forget the hacker movie tropes. The command line interface (CLI) is your direct link to the computer’s core functions. It’s where you’ll run programs, manage files, and execute powerful commands – efficiently.</p>
+
+<p>Yes, it has its own language, but the commands you’ll use 95% of the time are simple and become second nature quickly. This isn’t optional; it’s essential for a developer.</p>
+
+<h2 id="what-youll-conquer">What You’ll Conquer</h2>
+
+<ul>
+  <li><strong>Opening the Terminal:</strong> Your gateway to the CLI.</li>
+  <li><strong>Navigation:</strong> Move through directories (folders) like a pro.</li>
+  <li><strong>File &amp; Directory Manipulation:</strong> Create, rename, move, and delete files and folders directly.</li>
+  <li><strong>Launching Programs:</strong> Open files and applications from the command line.</li>
+</ul>
+
+<hr />
+
+<h2 id="your-terminal-toolkit">Your Terminal Toolkit</h2>
+
+<ul>
+  <li><strong>Linux:</strong> Search for “Terminal” or press <code class="language-plaintext highlighter-rouge">Ctrl + Alt + T</code>.</li>
+  <li><strong>macOS:</strong> Use Spotlight (<code class="language-plaintext highlighter-rouge">Cmd + Space</code>) and search for “Terminal”, or find it in <code class="language-plaintext highlighter-rouge">Applications &gt; Utilities</code>.</li>
+</ul>
+
+<p>You’ll see a prompt – usually ending in <code class="language-plaintext highlighter-rouge">$</code> or <code class="language-plaintext highlighter-rouge">%</code>. This is where you type commands.</p>
+
+<p><code class="language-plaintext highlighter-rouge">$ whoami</code> (Type this and press Enter)
+This will show your username. Simple, effective.</p>
+
+<p><strong>Tip:</strong> Commands are often shown with the prompt, like <code class="language-plaintext highlighter-rouge">$ command</code>. <strong>Don’t type the <code class="language-plaintext highlighter-rouge">$</code></strong>.</p>
+
+<hr />
+
+<h2 id="work-like-a-rebel-efficiency-hacks">Work Like a Rebel: Efficiency Hacks</h2>
+
+<ol>
+  <li><strong>Smart Copy/Paste:</strong> Use <code class="language-plaintext highlighter-rouge">Ctrl + Shift + C</code> (Cmd + C on Mac) to copy and <code class="language-plaintext highlighter-rouge">Ctrl + Shift + V</code> (Cmd + V on Mac) to paste <em>inside</em> the terminal.</li>
+  <li><strong>Tab Completion:</strong> <strong>This is critical.</strong> Start typing a command or path, hit <code class="language-plaintext highlighter-rouge">Tab</code>, and the CLI will autocomplete if there’s only one option, or show you the possibilities if there are multiple. This saves massive amounts of typing and prevents errors.
+    <ul>
+      <li>Example: <code class="language-plaintext highlighter-rouge">cd Doc</code> + <code class="language-plaintext highlighter-rouge">Tab</code> might show <code class="language-plaintext highlighter-rouge">Documents/</code> and <code class="language-plaintext highlighter-rouge">Downloads/</code>. Type <code class="language-plaintext highlighter-rouge">cd Docu</code> + <code class="language-plaintext highlighter-rouge">Tab</code> and it will complete <code class="language-plaintext highlighter-rouge">Documents/</code>.</li>
+    </ul>
+  </li>
+  <li><strong>Current Directory Shortcut (<code class="language-plaintext highlighter-rouge">.</code>):</strong> Use <code class="language-plaintext highlighter-rouge">code .</code> (assuming VS Code is installed and in your PATH) to open the current directory and all its files in VS Code. It’s a massive time-saver for project management.</li>
+</ol>
+
+<hr />
+
+<h2 id="essential-commands-to-practice">Essential Commands to Practice</h2>
+
+<p>Start by creating a basic web project structure.</p>
+
+<ol>
+  <li><strong>Create a project directory:</strong>
+<code class="language-plaintext highlighter-rouge">mkdir my-first-site</code></li>
+  <li><strong>Move into it:</strong>
+<code class="language-plaintext highlighter-rouge">cd my-first-site</code></li>
+  <li><strong>Create essential files:</strong>
+<code class="language-plaintext highlighter-rouge">touch index.html style.css script.js</code></li>
+  <li><strong>Create an image folder:</strong>
+<code class="language-plaintext highlighter-rouge">mkdir images</code></li>
+  <li><strong>Check your work:</strong>
+<code class="language-plaintext highlighter-rouge">ls</code> (Lists the contents of the current directory)</li>
+</ol>
+
+<p>This simple sequence is the foundation for most web projects. Practice it until it’s muscle memory.</p>
+
+<hr />
+
+<h2 id="knowledge-check-5">Knowledge Check</h2>
+
+<ul>
+  <li>What is the command line?</li>
+  <li>How do you open the command line on your computer?</li>
+  <li>How can you navigate to a particular directory?</li>
+  <li>What does <code class="language-plaintext highlighter-rouge">cd ..</code> do?</li>
+  <li>How do you display the name of the current directory?</li>
+  <li>How do you display the contents of the current directory?</li>
+  <li>How do you create a new directory?</li>
+  <li>How do you create a new file?</li>
+  <li>How do you destroy a directory or file?</li>
+  <li>How do you rename a directory or file?</li>
+</ul>
+
+<p>—FILE: Introduction to Git.md—</p>
+<h1 id="introduction-to-git--the-rebellion-method">Introduction to Git | The Rebellion Method</h1>
+
+<p><strong>Version Control: Your Project’s Time Machine</strong></p>
+
+<h2 id="git-the-ultimate-save-button">Git: The Ultimate Save Button</h2>
+
+<p>Imagine a “save” button for your entire project – not just one file, but all your files, at any point in time. That’s Git. It’s a <strong>version control system</strong> that tracks every change you make.</p>
+
+<p><strong>Why not just copy files?</strong>
+<code class="language-plaintext highlighter-rouge">MyProject-v1.doc</code>, <code class="language-plaintext highlighter-rouge">MyProject-v2-final.doc</code>, <code class="language-plaintext highlighter-rouge">MyProject-final-really.doc</code>… Sound familiar? This is chaotic and error-prone.</p>
+
+<p>Git records <strong>differences</strong> between saves (called “commits”) and maintains a complete <strong>history</strong>. This means:</p>
+<ul>
+  <li><strong>Effortless Rollbacks:</strong> Made a mistake? Revert to any previous state instantly.</li>
+  <li><strong>Project Evolution:</strong> See exactly how your project grew over time.</li>
+  <li><strong>Collaboration:</strong> Work with others seamlessly, merging changes without stepping on toes.</li>
+</ul>
+
+<h2 id="git-vs-github-know-the-difference">Git vs. GitHub: Know the Difference</h2>
+
+<ul>
+  <li><strong>Git:</strong> The <strong>tool</strong> itself. It runs on your local machine to manage versions.</li>
+  <li><strong>GitHub:</strong> A <strong>service</strong> (like Google Drive for code) that hosts your Git repositories online. It’s for backup, collaboration, and showcasing your work. We use GitHub because it’s the industry standard.</li>
+</ul>
+
+<hr />
+
+<h2 id="why-this-matters-now">Why This Matters Now</h2>
+
+<p>Mastering Git isn’t just about saving files. It’s foundational for:</p>
+
+<ul>
+  <li><strong>Independent Building:</strong> Track your own progress, revert mistakes, and learn from your project’s history.</li>
+  <li><strong>Teamwork:</strong> Essential for collaborative development in any professional setting.</li>
+  <li><strong>Portfolio:</strong> Your GitHub profile is your developer resume.</li>
+</ul>
+
+<hr />
+
+<h2 id="your-mission-1">Your Mission</h2>
+
+<ol>
+  <li><strong>Understand Version Control:</strong> Grasp the core concept of tracking changes over time.</li>
+  <li><strong>Git vs. Text Editor:</strong> Recognize that Git saves <em>changes</em> and <em>history</em>, not just static files.</li>
+  <li><strong>Individual &amp; Team Power:</strong> Understand <em>why</em> Git is indispensable for both solo projects and team collaboration.</li>
+</ol>
+
+<p>The next steps will get you hands-on with Git commands. This is where the real power unlocks.</p>
+
+<p>—FILE: Git Basics.md—</p>
+<h1 id="git-basics--the-rebellion-method">Git Basics | The Rebellion Method</h1>
+
+<p><strong>Workflow Essentials: Commit, Stage, Push</strong></p>
+
+<h2 id="your-essential-git-commands">Your Essential Git Commands</h2>
+
+<p>This is your core Git toolkit – the commands you’ll use 80% of the time. Master these, and you’ve got Git licked.</p>
+
+<h2 id="your-first-repository">Your First Repository</h2>
+
+<ol>
+  <li><strong>Create a GitHub Repo:</strong>
+    <ul>
+      <li>Go to GitHub. Create a new repository named <code class="language-plaintext highlighter-rouge">git-test</code>.</li>
+      <li><strong>Crucially:</strong> Enable “Add a README file”.</li>
+      <li>Click “Create repository”.</li>
+    </ul>
+  </li>
+  <li><strong>Get the SSH URL:</strong> On your new repo page, click the green “Code” button. Select <strong>SSH</strong>, then copy the URL (it looks like <code class="language-plaintext highlighter-rouge">git@github.com:YourUsername/git-test.git</code>).</li>
+  <li><strong>Local Setup:</strong>
+    <ul>
+      <li>Open your terminal.</li>
+      <li>Create a directory for all your projects: <code class="language-plaintext highlighter-rouge">mkdir repos</code></li>
+      <li>Navigate into it: <code class="language-plaintext highlighter-rouge">cd repos</code></li>
+    </ul>
+  </li>
+  <li><strong>Clone:</strong> Bring the repository to your machine:
+<code class="language-plaintext highlighter-rouge">git clone git@github.com:YourUsername/git-test.git</code>
+<em>(Replace <code class="language-plaintext highlighter-rouge">YourUsername</code> with your actual GitHub username)</em></li>
+  <li><strong>Verify:</strong> Navigate into the cloned directory (<code class="language-plaintext highlighter-rouge">cd git-test</code>) and run <code class="language-plaintext highlighter-rouge">git remote -v</code>. You should see your GitHub repository listed.</li>
+</ol>
+
+<h2 id="the-git-workflow-snapshots-of-your-code">The Git Workflow: Snapshots of Your Code</h2>
+
+<p>This is the cycle: <strong>Stage -&gt; Commit -&gt; Push</strong>.</p>
+
+<ol>
+  <li><strong>Create a File:</strong> Inside your <code class="language-plaintext highlighter-rouge">git-test</code> directory, create a file:
+<code class="language-plaintext highlighter-rouge">touch hello_world.txt</code></li>
+  <li><strong>Check Status:</strong> See what Git knows about your files:
+<code class="language-plaintext highlighter-rouge">git status</code>
+<em>(You’ll see <code class="language-plaintext highlighter-rouge">hello_world.txt</code> listed in red as “Untracked”)</em></li>
+  <li><strong>Stage Changes:</strong> Add the file to Git’s “waiting room” for the next commit:
+<code class="language-plaintext highlighter-rouge">git add hello_world.txt</code></li>
+  <li><strong>Check Status Again:</strong>
+<code class="language-plaintext highlighter-rouge">git status</code>
+<em>(<code class="language-plaintext highlighter-rouge">hello_world.txt</code> should now be green, listed under “Changes to be committed”)</em></li>
+  <li><strong>Commit:</strong> Take a snapshot. The <code class="language-plaintext highlighter-rouge">-m</code> flag adds a message describing the change:
+<code class="language-plaintext highlighter-rouge">git commit -m "Add hello_world.txt"</code>
+<em>(This saves the snapshot locally.)</em></li>
+  <li><strong>Check Log:</strong> View your commit history:
+<code class="language-plaintext highlighter-rouge">git log</code>
+<em>(You’ll see your commit listed.)</em></li>
+</ol>
+
+<h2 id="modify-and-re-commit">Modify and Re-Commit</h2>
+
+<ol>
+  <li><strong>Edit:</strong> Open <code class="language-plaintext highlighter-rouge">README.md</code> in VS Code (<code class="language-plaintext highlighter-rouge">code .</code> in the terminal, then open <code class="language-plaintext highlighter-rouge">README.md</code>). Add “Hello Rebellion!” and save.</li>
+  <li><strong>Check Status:</strong>
+<code class="language-plaintext highlighter-rouge">git status</code>
+<em>(<code class="language-plaintext highlighter-rouge">README.md</code> will be red, under “Changes not staged for commit”)</em></li>
+  <li><strong>Stage:</strong>
+<code class="language-plaintext highlighter-rouge">git add README.md</code></li>
+  <li><strong>Stage All:</strong> (A common shortcut)
+<code class="language-plaintext highlighter-rouge">git add .</code> <em>(Adds all modified/new files in the current directory and subdirectories)</em></li>
+  <li><strong>Check Status:</strong> Everything should be green.</li>
+  <li><strong>Commit:</strong>
+<code class="language-plaintext highlighter-rouge">git commit -m "Edit README.md and hello_world.txt"</code></li>
+</ol>
+
+<h2 id="ship-it-push-to-github">Ship It: Push to GitHub</h2>
+
+<ol>
+  <li><strong>Upload:</strong> Send your local commits to GitHub:
+<code class="language-plaintext highlighter-rouge">git push origin main</code>
+<em>(Assuming your default branch is <code class="language-plaintext highlighter-rouge">main</code>. If you get errors about authentication, double-check your SSH key setup.)</em></li>
+  <li><strong>Final Check:</strong> Run <code class="language-plaintext highlighter-rouge">git status</code>. It should say you’re up-to-date. Refresh your GitHub repo page – you’ll see your changes.</li>
+</ol>
+
+<p><strong>Rule:</strong> <strong>Never edit directly on GitHub.</strong> Always work locally, commit, and then push.</p>
+
+<hr />
+
+<h2 id="essential-commands-cheat-sheet">Essential Commands Cheat Sheet</h2>
+
+<ul>
+  <li><strong>Clone:</strong> <code class="language-plaintext highlighter-rouge">git clone [ssh_url]</code></li>
+  <li><strong>Status:</strong> <code class="language-plaintext highlighter-rouge">git status</code></li>
+  <li><strong>Add:</strong> <code class="language-plaintext highlighter-rouge">git add .</code> (stage all) or <code class="language-plaintext highlighter-rouge">git add [file]</code></li>
+  <li><strong>Commit:</strong> <code class="language-plaintext highlighter-rouge">git commit -m "Your descriptive message"</code></li>
+  <li><strong>Push:</strong> <code class="language-plaintext highlighter-rouge">git push origin main</code></li>
+  <li><strong>Log:</strong> <code class="language-plaintext highlighter-rouge">git log</code></li>
+  <li><strong>Remote:</strong> <code class="language-plaintext highlighter-rouge">git remote -v</code></li>
+</ul>
+
+<p>—FILE: Setting up Git.md—</p>
+<h1 id="setting-up-git--the-rebellion-method">Setting up Git | The Rebellion Method</h1>
+
+<p><strong>Your Digital ID: Git &amp; GitHub Configuration</strong></p>
+
+<h2 id="git--github-your-version-control-foundation">Git &amp; GitHub: Your Version Control Foundation</h2>
+
+<ul>
+  <li><strong>Git:</strong> The local version control system. It tracks changes on your machine.</li>
+  <li><strong>GitHub:</strong> The remote hosting service. Stores your Git repositories online for backup and collaboration.</li>
+</ul>
+
+<p>They sound similar, but they’re distinct. We use GitHub because it’s the standard.</p>
+
+<h2 id="step-1-install-git">Step 1: Install Git</h2>
+
+<p>Ensure you have a recent version.</p>
+
+<h3 id="linux-ubuntu"><strong>Linux (Ubuntu)</strong></h3>
+
+<ol>
+  <li><strong>Update System:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt upgrade
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Install Git:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>git
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Verify Version:</strong> Check if it’s 2.28 or higher:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--version</span>
+</code></pre></div>    </div>
+    <p><em>(If too old, add the PPA: <code class="language-plaintext highlighter-rouge">sudo add-apt-repository ppa:git-core/ppa</code>, then <code class="language-plaintext highlighter-rouge">sudo apt update &amp;&amp; sudo apt install git</code>)</em></p>
+  </li>
+</ol>
+
+<h3 id="macos-1"><strong>macOS</strong></h3>
+
+<ol>
+  <li><strong>Install Homebrew:</strong> If you don’t have it, open Terminal and run:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div>    </div>
+    <p><em>(Follow any on-screen prompts, especially for adding Homebrew to your PATH on Apple Silicon).</em></p>
+  </li>
+  <li><strong>Install Git:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>git
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Verify Version:</strong> Open a <strong>new</strong> terminal window and run:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--version</span>
+</code></pre></div>    </div>
+    <p><em>(Ensure it’s 2.28+)</em></p>
+
+    <p><em>(Troubleshooting: Run <code class="language-plaintext highlighter-rouge">brew doctor</code> and follow its instructions if you hit errors.)</em></p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="step-2-configure-your-identity">Step 2: Configure Your Identity</h2>
+
+<p>Git needs to know who you are for your commits.</p>
+
+<ol>
+  <li><strong>GitHub Account:</strong> Create one at <a href="https://github.com/">GitHub.com</a>.
+    <ul>
+      <li><strong>Privacy:</strong> In GitHub settings &gt; Emails, enable <strong>“Keep my email addresses private”</strong> and <strong>“Block command line email from appearing on public contributions”</strong>. Use the provided private email address for Git configuration.</li>
+    </ul>
+  </li>
+  <li><strong>Configure Git:</strong> Open your terminal and run these commands, replacing placeholders with <strong>your actual name and private GitHub email</strong>:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"your_private_github_email@users.noreply.github.com"</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Set Default Branch:</strong> Ensure new local repositories default to <code class="language-plaintext highlighter-rouge">main</code>:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> init.defaultBranch main
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Configure Pull Behavior:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> pull.rebase <span class="nb">false</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Verify Configuration:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--get</span> user.name
+git config <span class="nt">--get</span> user.email
+</code></pre></div>    </div>
+    <p><em>(Output should match your name and private email)</em></p>
+  </li>
+</ol>
+
+<h3 id="macos-specific-ignore-ds_store-files"><strong>macOS Specific:</strong> Ignore <code class="language-plaintext highlighter-rouge">.DS_Store</code> files</h3>
+
+<p>Prevent these system files from cluttering your Git history:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> .DS_Store <span class="o">&gt;&gt;</span> ~/.gitignore_global
+git config <span class="nt">--global</span> core.excludesfile ~/.gitignore_global
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="step-3-ssh-key-for-secure-access">Step 3: SSH Key for Secure Access</h2>
+
+<p>This lets you interact with GitHub without passwords.</p>
+
+<ol>
+  <li><strong>Check for Existing Key:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> ~/.ssh/id_ed25519.pub
+</code></pre></div>    </div>
+    <p><em>(If you see a file path, you likely have a key. If you get “No such file…”, proceed to create one.)</em></p>
+  </li>
+  <li><strong>Create New SSH Key:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-t</span> ed25519
+</code></pre></div>    </div>
+    <ul>
+      <li>Press Enter to accept the default save location.</li>
+      <li>Enter a strong passphrase (recommended for security) or press Enter for no passphrase.</li>
+    </ul>
+  </li>
+  <li><strong>Copy Public Key:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_ed25519.pub
+</code></pre></div>    </div>
+    <ul>
+      <li>Copy the <em>entire</em> output (starts with <code class="language-plaintext highlighter-rouge">ssh-ed25519...</code>).</li>
+    </ul>
+  </li>
+  <li><strong>Add Key to GitHub:</strong>
+    <ul>
+      <li>Go to GitHub &gt; Settings &gt; SSH and GPG keys.</li>
+      <li>Click “New SSH Key”.</li>
+      <li>Paste your copied key into the “Key” field.</li>
+      <li>Give it a descriptive title (e.g., “My Laptop”).</li>
+      <li>Click “Add SSH Key”.</li>
+    </ul>
+  </li>
+  <li><strong>Test Connection:</strong>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-T</span> git@github.com
+</code></pre></div>    </div>
+    <ul>
+      <li>If prompted about authenticity, type <code class="language-plaintext highlighter-rouge">yes</code>.</li>
+      <li>You should see: <code class="language-plaintext highlighter-rouge">Hi YourUsername! You’ve successfully authenticated, but GitHub does not provide shell access.</code></li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<p><strong>You’ve set up your Git environment. This is a critical step. Well done, Rebel.</strong></p>
+
+<p>—FILE: How Does the Web Work.md—</p>
+<h1 id="how-does-the-web-work--the-rebellion">How Does the Web Work? | The Rebellion</h1>
+
+<p><strong>Master the Fundamentals, Build with Confidence</strong></p>
+
+<h2 id="introduction-4">Introduction</h2>
+
+<p>Before you can build the web, you need to understand how it works. This isn’t about rote memorization; it’s about building a solid foundation so you can confidently navigate the digital landscape and speak the language of the web.</p>
+
+<h2 id="what-youll-master-1">What You’ll Master:</h2>
+
+<ul>
+  <li><strong>The Internet:</strong> What it is and how it moves data.</li>
+  <li><strong>Packets:</strong> The building blocks of online communication.</li>
+  <li><strong>Core Components:</strong> Web pages, servers, browsers, and search engines – demystified.</li>
+  <li><strong>Clients &amp; Servers:</strong> Understanding the fundamental interaction.</li>
+  <li><strong>IP Addresses &amp; DNS:</strong> How machines find each other.</li>
+  <li><strong>Routers &amp; ISPs:</strong> The infrastructure that makes it all possible.</li>
+</ul>
+
+<h2 id="your-mission-knowledge-check">Your Mission: Knowledge Check</h2>
+
+<p>Solidify your understanding by tackling these questions. If you’re unsure, dive back into the material. Remember, the goal is comprehension, not perfect recall.</p>
+
+<ul>
+  <li>What is a web server?</li>
+  <li>What is a network?</li>
+  <li>What is the internet?</li>
+  <li>What is an IP address?</li>
+  <li>What is a router?</li>
+  <li>What is an ISP?</li>
+  <li>What are packets and how are they used to transfer data?</li>
+  <li>What is a client?</li>
+  <li>What is a server?</li>
+  <li>What is a web page?</li>
+  <li>What is a web browser?</li>
+  <li>What is a search engine?</li>
+  <li>What is a DNS request?</li>
+  <li>Which browser are you currently using?</li>
+  <li>Describe, in your own words, the process of initiating a search on a search engine.</li>
+</ul>
+
+<p>—FILE: Introduction to HTML and CSS.md—</p>
+<h1 id="introduction-to-html-and-css--the-rebellion">Introduction to HTML and CSS | The Rebellion</h1>
+
+<p><strong>Build the Skeleton, Style the Soul</strong></p>
+
+<h2 id="introduction-5">Introduction</h2>
+
+<p>It’s time to build. This is where you learn the core languages of the web: HTML and CSS. With these, you’ll create the structure and the look of everything you see online.</p>
+
+<h2 id="what-youll-master-2">What You’ll Master:</h2>
+
+<ul>
+  <li><strong>HTML:</strong> The structure and content of your web pages.</li>
+  <li><strong>CSS:</strong> The styling, layout, and visual appeal.</li>
+  <li><strong>Synergy:</strong> How HTML and CSS work together seamlessly.</li>
+</ul>
+
+<h2 id="html-and-css-the-dynamic-duo">HTML and CSS: The Dynamic Duo</h2>
+
+<p>HTML provides the raw content – the text, the images, the links. CSS takes that raw content and makes it sing – positioning elements, adding color, choosing fonts, and creating a polished look.</p>
+
+<p>While some call them ‘programming languages,’ technically, they are <em>markup</em> and <em>styling</em> languages. They define <em>what</em> is on the page and <em>how</em> it looks, not the logic that makes it <em>do</em> things. That’s JavaScript’s domain, which you’ll conquer next. But for now, master HTML and CSS. They are your essential toolkit.</p>
+
+<h2 id="your-mission-knowledge-check-1">Your Mission: Knowledge Check</h2>
+
+<ul>
+  <li>What do HTML and CSS stand for?</li>
+  <li>Which language do you use for putting paragraphs of text on a webpage?</li>
+  <li>Which language do you use for changing the font and background color of an element?</li>
+  <li>What is the fundamental difference between HTML, CSS, and JavaScript?</li>
+</ul>
+
+<p>—FILE: Elements and Tags.md—</p>
+<h1 id="elements-and-tags--the-rebellion">Elements and Tags | The Rebellion</h1>
+
+<p><strong>The Building Blocks of Web Content</strong></p>
+
+<h2 id="introduction-6">Introduction</h2>
+
+<p>HTML is how we define the structure and content of every webpage – the paragraphs, the headings, the lists, the images, the links. This lesson breaks down the fundamental HTML elements and tags.</p>
+
+<h2 id="what-youll-master-3">What You’ll Master:</h2>
+
+<ul>
+  <li><strong>HTML Tags:</strong> The syntax that defines elements.</li>
+  <li><strong>HTML Elements:</strong> How tags wrap content to create meaningful structures.</li>
+</ul>
+
+<h2 id="elements-and-tags-structure-defined">Elements and Tags: Structure Defined</h2>
+
+<p>Think of HTML tags as containers for your content.</p>
+
+<ul>
+  <li><strong>Opening Tags:</strong> These signal the start of an element. They look like <code class="language-plaintext highlighter-rouge">&lt;tagname&gt;</code>, for instance <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code> for a paragraph.</li>
+  <li><strong>Closing Tags:</strong> These signal the end of an element. They look like <code class="language-plaintext highlighter-rouge">&lt;/tagname&gt;</code>, for instance <code class="language-plaintext highlighter-rouge">&lt;/p&gt;</code>.</li>
+  <li><strong>Content:</strong> Everything between the opening and closing tags is the content of that element.</li>
+</ul>
+
+<p>A complete paragraph element looks like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This is a paragraph.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;p&gt;</code>: The opening tag.</li>
+  <li><code class="language-plaintext highlighter-rouge">This is a paragraph.</code>: The content.</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;/p&gt;</code>: The closing tag.</li>
+</ul>
+
+<p>The browser uses these tags to understand and display your content. Using the right tags – known as <strong>semantic HTML</strong> – is crucial for search engine optimization and accessibility. It tells browsers and assistive technologies exactly what kind of content they’re dealing with.</p>
+
+<h2 id="void-elements-the-exceptions">Void Elements: The Exceptions</h2>
+
+<p>Some elements don’t wrap content and don’t need a closing tag. These are <strong>void elements</strong>, like <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code> (line break) or <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> (image). They stand alone. You might see them written with a trailing slash (e.g., <code class="language-plaintext highlighter-rouge">&lt;br /&gt;</code>), but modern HTML5 considers this unnecessary.</p>
+
+<h2 id="your-mission-knowledge-check-2">Your Mission: Knowledge Check</h2>
+
+<ul>
+  <li>What is an HTML tag?</li>
+  <li>What are the three essential parts of a standard HTML element?</li>
+  <li>What are void elements, and how do they differ from regular HTML elements?</li>
+</ul>
+
+<p>—FILE: HTML Boilerplate.md—</p>
+<h1 id="html-boilerplate--the-rebellion">HTML Boilerplate | The Rebellion</h1>
+
+<p><strong>The Essential Framework for Every Web Page</strong></p>
+
+<h2 id="introduction-7">Introduction</h2>
+
+<p>Every HTML document needs a consistent starting structure, or boilerplate. This lesson covers the essential components that form the backbone of any HTML file. Get this right, and you’re ready to build.</p>
+
+<h2 id="what-youll-master-4">What You’ll Master:</h2>
+
+<ul>
+  <li><strong>The Basic Structure:</strong> Essential elements for any HTML document.</li>
+  <li><strong>Viewing Your Work:</strong> How to open your HTML files in a browser.</li>
+</ul>
+
+<h2 id="creating-your-first-html-file">Creating Your First HTML File</h2>
+
+<ol>
+  <li>Create a folder for your project, name it <code class="language-plaintext highlighter-rouge">my-first-site</code>.</li>
+  <li>Inside, create a file named <code class="language-plaintext highlighter-rouge">index.html</code>. We use <code class="language-plaintext highlighter-rouge">index.html</code> as the default filename for the homepage of any website. Servers look for it automatically.</li>
+</ol>
+
+<h2 id="the-core-components">The Core Components:</h2>
+
+<h3 id="the-doctype-html-declaration"><strong>The <code class="language-plaintext highlighter-rouge">&lt;!DOCTYPE html&gt;</code> Declaration</strong></h3>
+
+<p>This is the very first line. It tells the browser that your document is using the latest standard: HTML5. Always use it.</p>
+
+<h3 id="the-html-element"><strong>The <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> Element</strong></h3>
+
+<p>This is the root element. Everything else lives inside it. We also add the <code class="language-plaintext highlighter-rouge">lang</code> attribute here to specify the document’s language (e.g., <code class="language-plaintext highlighter-rouge">lang="en"</code> for English), which is vital for accessibility, helping screen readers pronounce text correctly.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Content goes here --&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="the-head-element"><strong>The <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> Element</strong></h3>
+
+<p>This section contains meta-information about your page – things the browser needs but aren’t directly displayed to the user.</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">&lt;meta charset="UTF-8"&gt;</code>:</strong> Crucial for displaying special characters and various languages correctly. Always include this.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">&lt;title&gt;</code>:</strong> This is the text that appears in the browser tab. Give your page a clear, meaningful title.</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>My Awesome Webpage<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="c">&lt;!-- Body content goes here --&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="the-body-element"><strong>The <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> Element</strong></h3>
+
+<p>This is where all the visible content of your webpage goes: text, images, links, everything the user sees.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>My Awesome Webpage<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="c">&lt;!-- Your visible content here --&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><strong>Pro-Tip:</strong> In VS Code, type <code class="language-plaintext highlighter-rouge">!</code> and press Enter to auto-generate this boilerplate instantly. Use it, but also practice writing it manually to build muscle memory.</p>
+
+<h2 id="viewing-your-html-in-the-browser">Viewing Your HTML in the Browser</h2>
+
+<ul>
+  <li><strong>Drag and Drop:</strong> Drag your <code class="language-plaintext highlighter-rouge">index.html</code> file directly into your browser window.</li>
+  <li><strong>Double Click:</strong> Double-click the file in your file explorer.</li>
+  <li><strong>Terminal Command:</strong> Use <code class="language-plaintext highlighter-rouge">open index.html</code> (macOS) or <code class="language-plaintext highlighter-rouge">explorer.exe index.html</code> (WSL) in your terminal.</li>
+</ul>
+
+<p>Add an <code class="language-plaintext highlighter-rouge">&lt;h1&gt;Hello World!&lt;/h1&gt;</code> inside the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> section, save, and refresh your browser to see it appear.</p>
+
+<h2 id="your-mission-knowledge-check-3">Your Mission: Knowledge Check</h2>
+
+<ul>
+  <li>What is the purpose of the <code class="language-plaintext highlighter-rouge">&lt;!DOCTYPE html&gt;</code> declaration?</li>
+  <li>What is the fundamental role of the <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> element?</li>
+  <li>What kind of information goes inside the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> element, and what goes inside the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> element?</li>
+</ul>
+
+<p>—FILE: Working with Text.md—</p>
+<h1 id="working-with-text--the-rebellion">Working with Text | The Rebellion</h1>
+
+<p><strong>Crafting Content: Paragraphs, Headings, and Emphasis</strong></p>
+
+<h2 id="introduction-8">Introduction</h2>
+
+<p>Most of the web is text. This lesson covers the essential HTML elements for structuring and emphasizing textual content.</p>
+
+<h2 id="what-youll-master-5">What You’ll Master:</h2>
+
+<ul>
+  <li><strong>Paragraphs:</strong> Creating distinct blocks of text.</li>
+  <li><strong>Headings:</strong> Structuring your content hierarchy.</li>
+  <li><strong>Emphasis:</strong> Making text bold (<code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>) and italic (<code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>).</li>
+  <li><strong>Nesting:</strong> Understanding parent-child relationships.</li>
+  <li><strong>Comments:</strong> Leaving notes in your code.</li>
+</ul>
+
+<h2 id="essential-text-elements">Essential Text Elements:</h2>
+
+<h3 id="paragraphs-p"><strong>Paragraphs (<code class="language-plaintext highlighter-rouge">&lt;p&gt;</code>)</strong></h3>
+
+<p>Browsers ignore new lines in HTML. To create separate paragraphs, wrap your text in <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code> tags.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This is the first paragraph.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is the second paragraph.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h3 id="headings-h1-to-h6"><strong>Headings (<code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> to <code class="language-plaintext highlighter-rouge">&lt;h6&gt;</code>)</strong></h3>
+
+<p>Headings define the structure and importance of your content. <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> is the main heading, with <code class="language-plaintext highlighter-rouge">&lt;h6&gt;</code> being the least important. Use them logically to build a clear content hierarchy.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Main Page Title<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Section Title<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Subsection Title<span class="nt">&lt;/h3&gt;</span>
+</code></pre></div></div>
+
+<h3 id="bold-and-important-text-strong"><strong>Bold and Important Text (<code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>)</strong></h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code> to wrap text that is semantically <strong>important</strong>. This makes it bold and signals its significance to browsers and screen readers.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This is a normal paragraph, but <span class="nt">&lt;strong&gt;</span>this word is very important<span class="nt">&lt;/strong&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h3 id="italicized-and-emphasized-text-em"><strong>Italicized and Emphasized Text (<code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>)</strong></h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code> to add <em>emphasis</em> to text. This can affect screen reader tone and visually italicizes the text.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This is a normal sentence, but <span class="nt">&lt;em&gt;</span>this part is emphasized<span class="nt">&lt;/em&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h3 id="nesting-and-indentation"><strong>Nesting and Indentation</strong></h3>
+
+<p>Elements can be placed inside other elements. The outer element is the <strong>parent</strong>, and the inner ones are <strong>children</strong>. Sibling elements are at the same nesting level. Indentation makes this structure clear and readable – use it consistently (e.g., two spaces per level).</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;p&gt;</span>This is a paragraph (child of body).<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>This is another paragraph (sibling to the first).<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<h3 id="html-comments------"><strong>HTML Comments (<code class="language-plaintext highlighter-rouge">&lt;!-- --&gt;</code>)</strong></h3>
+
+<p>Comments are notes for humans; they are ignored by the browser. Use them to explain complex code or leave reminders.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- This is a comment. It won't show on the page. --&gt;</span>
+</code></pre></div></div>
+
+<p><strong>VS Code Shortcut:</strong> Use <code class="language-plaintext highlighter-rouge">Cmd + /</code> (Mac) or <code class="language-plaintext highlighter-rouge">Ctrl + /</code> (Windows/Linux) to quickly comment or uncomment lines.</p>
+
+<h2 id="your-mission-hands-on-practice">Your Mission: Hands-on Practice</h2>
+
+<p>Create a simple blog post structure using headings, paragraphs, and apply <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code> to various parts of the text. Use <code class="language-plaintext highlighter-rouge">Lorem ipsum</code> text for practice content.</p>
+
+<h2 id="your-mission-knowledge-check-4">Your Mission: Knowledge Check</h2>
+
+<ul>
+  <li>How do you create distinct paragraphs in HTML?</li>
+  <li>How do you create headings, and what is the significance of heading levels?</li>
+  <li>What is the difference between using <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>?</li>
+  <li>Explain the parent-child and sibling relationships between HTML elements.</li>
+  <li>How do you write a comment in HTML?</li>
+</ul>
+
+<p>—FILE: Lists.md—</p>
+<h1 id="lists--the-rebellion">Lists | The Rebellion</h1>
+
+<p><strong>Organize Information: Ordered and Unordered Lists</strong></p>
+
+<h2 id="introduction-9">Introduction</h2>
+
+<p>Lists are fundamental for presenting information clearly. This lesson covers how to create both unordered (bulleted) and ordered (numbered) lists in HTML.</p>
+
+<h2 id="what-youll-master-6">What You’ll Master:</h2>
+
+<ul>
+  <li><strong>Unordered Lists (<code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>):</strong> For items where order doesn’t matter.</li>
+  <li><strong>Ordered Lists (<code class="language-plaintext highlighter-rouge">&lt;ol&gt;</code>):</strong> For items where sequence is crucial.</li>
+  <li><strong>List Items (<code class="language-plaintext highlighter-rouge">&lt;li&gt;</code>):</strong> The building blocks for all lists.</li>
+</ul>
+
+<h2 id="creating-lists">Creating Lists:</h2>
+
+<h3 id="unordered-lists-ul"><strong>Unordered Lists (<code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>)</strong></h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code> for lists where the sequence of items is flexible (e.g., shopping lists, features). Each item is defined with <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Item 1: Bullet points<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Item 2<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Item 3<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<h3 id="ordered-lists-ol"><strong>Ordered Lists (<code class="language-plaintext highlighter-rouge">&lt;ol&gt;</code>)</strong></h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">&lt;ol&gt;</code> for lists where the order is important (e.g., instructions, rankings). Each item is still defined with <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code>, but the browser automatically numbers them.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>First step: Do this.<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Second step: Then do that.<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Third step: Finish up.<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+</code></pre></div></div>
+
+<h2 id="your-mission-build-your-lists">Your Mission: Build Your Lists</h2>
+
+<p>Create an HTML file and implement the following:</p>
+
+<ol>
+  <li>An unordered list of your favorite programming languages.</li>
+  <li>An ordered list of the steps to make your favorite beverage.</li>
+  <li>An unordered list of your top 3 go-to websites for learning.</li>
+  <li>An ordered list of reasons why building websites is awesome.</li>
+</ol>
+
+<h2 id="your-mission-knowledge-check-5">Your Mission: Knowledge Check</h2>
+
+<ul>
+  <li>What HTML element creates an unordered list?</li>
+  <li>What HTML element creates an ordered list?</li>
+  <li>What HTML element is used for individual items within <em>any</em> type of list?</li>
+</ul>
+
+<p>—FILE: Links and Images.md—</p>
+<h1 id="links-and-images--the-rebellion">Links and Images | The Rebellion</h1>
+
+<p><strong>Connect Your World: Navigating with Links, Enhancing with Images</strong></p>
+
+<h2 id="introduction-10">Introduction</h2>
+
+<p>Links are the connective tissue of the web. Images add visual appeal and convey information instantly. This lesson teaches you how to implement both effectively.</p>
+
+<h2 id="what-youll-master-7">What You’ll Master:</h2>
+
+<ul>
+  <li><strong>Links (<code class="language-plaintext highlighter-rouge">&lt;a&gt;</code>):</strong> Connecting to other pages and resources.</li>
+  <li><strong>Absolute vs. Relative Links:</strong> Navigating within your site and beyond.</li>
+  <li><strong>Images (<code class="language-plaintext highlighter-rouge">&lt;img&gt;</code>):</strong> Embedding visuals into your pages.</li>
+  <li><strong>Essential Attributes:</strong> <code class="language-plaintext highlighter-rouge">href</code>, <code class="language-plaintext highlighter-rouge">target</code>, <code class="language-plaintext highlighter-rouge">rel</code>, <code class="language-plaintext highlighter-rouge">src</code>, <code class="language-plaintext highlighter-rouge">alt</code>, <code class="language-plaintext highlighter-rouge">width</code>, <code class="language-plaintext highlighter-rouge">height</code>.</li>
+</ul>
+
+<h2 id="creating-links-a-element">Creating Links (<code class="language-plaintext highlighter-rouge">&lt;a&gt;</code> element):</h2>
+
+<p>Links are made using the <code class="language-plaintext highlighter-rouge">&lt;a&gt;</code> (anchor) element. The destination is specified using the <code class="language-plaintext highlighter-rouge">href</code> attribute.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://www.example.com"</span><span class="nt">&gt;</span>Visit Example.com<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">href</code>:</strong> The URL or file path the link points to.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">target="_blank"</code>:</strong> Opens the link in a new tab.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">rel="noopener noreferrer"</code>:</strong> <strong>Crucial for security</strong> when using <code class="language-plaintext highlighter-rouge">target="_blank"</code>. It prevents the new page from potentially manipulating your original page (tabnabbing). Always include this for safety.</li>
+</ul>
+
+<h3 id="absolute-vs-relative-links"><strong>Absolute vs. Relative Links</strong></h3>
+
+<ul>
+  <li><strong>Absolute Links:</strong> Full URLs, including the scheme (<code class="language-plaintext highlighter-rouge">https://</code>) and domain (e.g., <code class="language-plaintext highlighter-rouge">https://www.google.com</code>). Use these for external sites.</li>
+  <li>
+    <p><strong>Relative Links:</strong> Paths relative to your current file (e.g., <code class="language-plaintext highlighter-rouge">about.html</code>, <code class="language-plaintext highlighter-rouge">./pages/contact.html</code>, <code class="language-plaintext highlighter-rouge">../images/logo.png</code>). Use these for pages and assets within your own website.</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">./</code>: Current directory.</li>
+      <li><code class="language-plaintext highlighter-rouge">../</code>: Parent directory (one level up).</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="embedding-images-img-element">Embedding Images (<code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> element):</h2>
+
+<p>Images are added using the <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> element. It’s a <strong>void element</strong> (no closing tag needed).</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"path/to/your/image.jpg"</span> <span class="na">alt=</span><span class="s">"Description of the image"</span> <span class="na">width=</span><span class="s">"300"</span> <span class="na">height=</span><span class="s">"200"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">src</code>:</strong> The path (absolute or relative) to the image file.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">alt</code>:</strong> <strong>Essential!</strong> Provides alternative text for screen readers and if the image fails to load. Describe the image concisely.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">width</code> &amp; <code class="language-plaintext highlighter-rouge">height</code>:</strong> Specify dimensions to prevent layout shifts as the image loads. Use the image’s actual pixel dimensions.</li>
+</ul>
+
+<p><strong>Image Formats:</strong> Common web formats include JPEG, PNG, GIF, and SVG. Choose based on your needs (photos vs. graphics, transparency).</p>
+
+<p><strong>Important:</strong> Always use images you have the rights to use. Check licenses and provide attribution where required. Use Google’s “Usage rights: Creative Commons” filter when searching for images.</p>
+
+<h2 id="your-mission-build-a-multi-page-site">Your Mission: Build a Multi-Page Site</h2>
+
+<ol>
+  <li>Create a main <code class="language-plaintext highlighter-rouge">index.html</code> file. Add an <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> with your name.</li>
+  <li>Create an <code class="language-plaintext highlighter-rouge">about.html</code> file. Add an <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> with “About Me”.</li>
+  <li>In <code class="language-plaintext highlighter-rouge">index.html</code>, add a link to <code class="language-plaintext highlighter-rouge">about.html</code> using a relative path.</li>
+  <li>In <code class="language-plaintext highlighter-rouge">about.html</code>, add a link back to <code class="language-plaintext highlighter-rouge">index.html</code>.</li>
+  <li>Create an <code class="language-plaintext highlighter-rouge">images</code> folder. Download a suitable image (e.g., a picture of yourself or something relevant) and place it in the <code class="language-plaintext highlighter-rouge">images</code> folder as <code class="language-plaintext highlighter-rouge">profile.jpg</code>.</li>
+  <li>Add this image to your <code class="language-plaintext highlighter-rouge">index.html</code> file using an <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> tag, including <code class="language-plaintext highlighter-rouge">src</code>, <code class="language-plaintext highlighter-rouge">alt</code>, <code class="language-plaintext highlighter-rouge">width</code>, and <code class="language-plaintext highlighter-rouge">height</code> attributes.</li>
+  <li>Add a link to an external website (like The Rebellion’s main page) from your <code class="language-plaintext highlighter-rouge">index.html</code>, using <code class="language-plaintext highlighter-rouge">target="_blank"</code> and <code class="language-plaintext highlighter-rouge">rel="noopener noreferrer"</code>.</li>
+</ol>
+
+<h2 id="your-mission-knowledge-check-6">Your Mission: Knowledge Check</h2>
+
+<ul>
+  <li>What HTML element is used to create links?</li>
+  <li>What is the primary function of the <code class="language-plaintext highlighter-rouge">href</code> attribute?</li>
+  <li>What is the security purpose of <code class="language-plaintext highlighter-rouge">rel="noopener noreferrer"</code> when using <code class="language-plaintext highlighter-rouge">target="_blank"</code>?</li>
+  <li>Explain the difference between an absolute link and a relative link, providing examples.</li>
+  <li>Which element is used to display an image?</li>
+  <li>What are the two absolutely essential attributes for any <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> tag?</li>
+  <li>How do you navigate to a file in a parent directory using a relative path?</li>
+</ul>
+
+<p>—FILE: Commit Messages.md—</p>
+<h1 id="commit-messages--the-rebellion">Commit Messages | The Rebellion</h1>
+
+<h2 id="why-bother-with-commits">Why Bother with Commits?</h2>
+
+<p>Let’s cut to the chase: good commit messages matter because they’re a direct signal of your professionalism and clarity. When you’re shipping real projects, your Git history is part of your public-facing work.</p>
+
+<ul>
+  <li><strong>Employers look.</strong> A clean, descriptive commit history screams “I know what I’m doing.”</li>
+  <li><strong>You look back.</strong> Future You will thank Present You for remembering <em>why</em> a change was made.</li>
+  <li><strong>Collaboration is faster.</strong> If anyone else ever touches your code, good messages are the bedrock of understanding.</li>
+</ul>
+
+<h2 id="the-anatomy-of-a-good-commit">The Anatomy of a Good Commit</h2>
+
+<p>Forget the vague “fixed stuff.” A good commit message tells a story. It has two parts:</p>
+
+<ol>
+  <li><strong>Subject:</strong> A punchy, 72-character-max summary of the change. Think headline.
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Add responsive navigation to mobile view
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Body:</strong> (Optional, but highly recommended) Explain the <em>why</em>. What problem did this solve? How did your change address it? Separate this from the subject with a blank line.
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The previous navigation did not collapse correctly on screens smaller than 768px,
+leading to usability issues. This change implements a hamburger menu pattern
+that expands and collapses as expected.
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="when-to-commit-ship-ship-ship">When to Commit: Ship, Ship, Ship!</h2>
+
+<p>Think of commits as checkpoints. Every time you cross a meaningful milestone, capture it.</p>
+
+<ul>
+  <li>Got a feature working? Commit.</li>
+  <li>Fixed a stubborn bug? Commit.</li>
+  <li>Refactored a messy section? Commit.</li>
+</ul>
+
+<p>Make your commits granular. A history of small, focused commits is far more valuable than a few massive, cryptic ones. Commit often, push often, and keep that momentum going.</p>
+
+<h2 id="quick-tips">Quick Tips</h2>
+
+<ul>
+  <li><strong>Use active voice:</strong> “Implement feature”, not “Feature implemented”.</li>
+  <li><strong>Avoid “WIP” or “don’t commit”:</strong> If it’s in your repo, it’s potentially releasable.</li>
+  <li><strong>AI is your co-pilot:</strong> Use AI to help draft messages if you’re stuck, but <em>always</em> review and refine. Ensure it captures the <em>why</em>.</li>
+</ul>
+
+<p>—FILE: Intro to CSS.md—</p>
+<h1 id="intro-to-css--the-rebellion">Intro to CSS | The Rebellion</h1>
+
+<h2 id="style-your-sites-fast">Style Your Sites. Fast.</h2>
+
+<p>HTML gives your website structure. CSS gives it <em>style</em>. This is where web pages go from raw content to something visually engaging. We’ll focus on the core CSS concepts you need to make things look good, quickly and confidently.</p>
+
+<h2 id="what-youll-master-8">What You’ll Master:</h2>
+
+<ul>
+  <li><strong>Applying Styles:</strong> How to inject CSS into your HTML.</li>
+  <li><strong>Targeting Elements:</strong> Using classes and IDs to precisely control which elements get styled.</li>
+  <li><strong>Selectors:</strong> The powerful language you use to tell CSS <em>what</em> to style.</li>
+</ul>
+
+<h2 id="core-concepts-the-building-blocks">Core Concepts: The Building Blocks</h2>
+
+<p>CSS rules are simple: a <strong>selector</strong> points to an HTML element, and <strong>declarations</strong> (property-value pairs) dictate how it should look.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Selector */</span>
+<span class="nc">.my-element</span> <span class="p">{</span>
+  <span class="c">/* Declaration: Property: Value */</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">div</code>:</strong> A versatile block-level container. Often used to group elements for layout or styling.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">span</code>:</strong> An inline container, perfect for styling small pieces of text within a larger block.</li>
+</ul>
+
+<h3 id="selectors-pointing-to-your-pixels">Selectors: Pointing to Your Pixels</h3>
+
+<ul>
+  <li><strong>Universal Selector (<code class="language-plaintext highlighter-rouge">*</code>):</strong> Styles <em>everything</em>. Use sparingly.
+```css
+    <ul>
+      <li>{
+color: purple; /* Applies purple text to all elements */
+}
+```</li>
+    </ul>
+  </li>
+  <li><strong>Type Selectors:</strong> Target all elements of a specific type (e.g., <code class="language-plaintext highlighter-rouge">p</code>, <code class="language-plaintext highlighter-rouge">h1</code>, <code class="language-plaintext highlighter-rouge">div</code>).
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span> <span class="c">/* Adds a border to all divs */</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Class Selectors (<code class="language-plaintext highlighter-rouge">.</code>):</strong> The workhorse. Apply styles to any element with a specific class. You can use the same class on multiple elements.
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"warning-message"</span><span class="nt">&gt;</span>Something is wrong!<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>    </div>
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.warning-message</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+    <ul>
+      <li><strong>Pro-Tip:</strong> Class names cannot start with a number. Use hyphens for multi-word names (e.g., <code class="language-plaintext highlighter-rouge">alert-text</code>, not <code class="language-plaintext highlighter-rouge">alert text</code>).</li>
+    </ul>
+  </li>
+  <li><strong>ID Selectors (<code class="language-plaintext highlighter-rouge">#</code>):</strong> Target a <em>single, unique</em> element on the page. Use IDs sparingly and only when a class won’t suffice. IDs also cannot start with a number.
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"main-header"</span><span class="nt">&gt;</span>My Awesome Site<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>    </div>
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#main-header</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">navy</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Grouping Selectors (<code class="language-plaintext highlighter-rouge">,</code>):</strong> Apply the same styles to multiple selectors.
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.button</span><span class="o">,</span> <span class="nt">button</span><span class="o">,</span> <span class="nc">.submit-button</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Chaining Selectors:</strong> Target an element that matches <em>multiple</em> conditions.
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert urgent"</span><span class="nt">&gt;</span>System failure!<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>    </div>
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Targets only divs with BOTH 'alert' AND 'urgent' classes */</span>
+<span class="nt">div</span><span class="nc">.alert.urgent</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Descendant Combinator (space):</strong> Target an element that is <em>nested inside</em> another.
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;article&gt;</span>
+  <span class="nt">&lt;p&gt;</span>This paragraph is inside article.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/article&gt;</span>
+<span class="nt">&lt;p&gt;</span>This paragraph is not.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>    </div>
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Selects only paragraphs INSIDE an article */</span>
+<span class="nt">article</span> <span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">gray</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="essential-properties-to-ship-with">Essential Properties to Ship With</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">color</code>:</strong> Sets text color. (Accepts keywords, HEX, RGB, HSL values).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">background-color</code>:</strong> Sets the background of an element.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">font-family</code>:</strong> Specifies the typeface. List fallbacks: <code class="language-plaintext highlighter-rouge">font-family: Arial, sans-serif;</code></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">font-size</code>:</strong> Sets text size (e.g., <code class="language-plaintext highlighter-rouge">16px</code>, <code class="language-plaintext highlighter-rouge">1.2em</code>).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">font-weight</code>:</strong> Controls boldness (<code class="language-plaintext highlighter-rouge">bold</code>, <code class="language-plaintext highlighter-rouge">normal</code>, or numeric values like <code class="language-plaintext highlighter-rouge">700</code>).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">text-align</code>:</strong> Aligns text (<code class="language-plaintext highlighter-rouge">center</code>, <code class="language-plaintext highlighter-rouge">left</code>, <code class="language-plaintext highlighter-rouge">right</code>).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">height</code> / <code class="language-plaintext highlighter-rouge">width</code>:</strong> Sets dimensions for elements, especially images. Use <code class="language-plaintext highlighter-rouge">height: auto;</code> with a specific <code class="language-plaintext highlighter-rouge">width</code> to maintain aspect ratio.</li>
+</ul>
+
+<h3 id="adding-css-to-your-html-keep-it-clean">Adding CSS to Your HTML: Keep It Clean</h3>
+
+<ol>
+  <li><strong>External CSS (Recommended):</strong> The cleanest approach. Link a separate <code class="language-plaintext highlighter-rouge">.css</code> file in your HTML’s <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>.
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"styles.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div>    </div>
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* styles.css */</span>
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="nb">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+    <ul>
+      <li><strong>Why?</strong> Keeps HTML lean and CSS organized across multiple pages.</li>
+    </ul>
+  </li>
+  <li><strong>Internal CSS:</strong> Embed styles directly in the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> using <code class="language-plaintext highlighter-rouge">&lt;style&gt;</code> tags.
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div>    </div>
+    <ul>
+      <li><strong>Use Case:</strong> Unique styles for a single page. Less maintainable for larger sites.</li>
+    </ul>
+  </li>
+  <li><strong>Inline CSS:</strong> Apply styles directly to an HTML element using the <code class="language-plaintext highlighter-rouge">style</code> attribute.
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"color: red; font-weight: bold;"</span><span class="nt">&gt;</span>This is red and bold.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>    </div>
+    <ul>
+      <li><strong>Avoid:</strong> This is messy, hard to maintain, and overrides other styles. Use only as a last resort for single, isolated elements.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>—FILE: The Cascade.md—</p>
+<h1 id="the-cascade--the-rebellion">The Cascade | The Rebellion</h1>
+
+<h2 id="when-styles-collide-the-cascade-decides">When Styles Collide: The Cascade Decides</h2>
+
+<p>You wrote CSS. It <em>should</em> work. But sometimes, rules conflict. Why? The Cascade. It’s CSS’s built-in system for deciding which styles win when multiple rules target the same element. Browser defaults also play a role. Understanding the Cascade prevents CSS headaches.</p>
+
+<p>The Cascade primarily uses three factors to resolve conflicts:</p>
+
+<ol>
+  <li><strong>Specificity:</strong> How targeted is the selector?</li>
+  <li><strong>Inheritance:</strong> Do child elements inherit properties from parents?</li>
+  <li><strong>Rule Order:</strong> Which rule came last in the CSS?</li>
+</ol>
+
+<h3 id="specificity-the-tie-breaker">Specificity: The Tie-Breaker</h3>
+
+<p>More specific rules override less specific ones. Here’s the hierarchy:</p>
+
+<ol>
+  <li><strong>Inline Styles:</strong> Highest specificity (rarely the right choice for anything complex).</li>
+  <li><strong>ID Selectors (<code class="language-plaintext highlighter-rouge">#</code>):</strong> Very specific.</li>
+  <li><strong>Class Selectors (<code class="language-plaintext highlighter-rouge">.</code>), Attribute Selectors, Pseudo-classes:</strong> Medium specificity.</li>
+  <li><strong>Type Selectors (<code class="language-plaintext highlighter-rouge">p</code>, <code class="language-plaintext highlighter-rouge">div</code>), Universal Selector (<code class="language-plaintext highlighter-rouge">*</code>), Combinators (space, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">~</code>):</strong> Lowest specificity.</li>
+</ol>
+
+<ul>
+  <li><strong>Analogy:</strong> Think of it like a competition. An ID is a star athlete. A class is a strong team. A type selector is just a participant.</li>
+  <li><strong>Tie-breaker within a level:</strong> If two rules have the same highest specificity level (e.g., both use class selectors), the one with <em>more</em> selectors of that type wins. Rule <code class="language-plaintext highlighter-rouge">.main .content</code> is more specific than <code class="language-plaintext highlighter-rouge">.content</code>.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"main"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"content alert"</span><span class="nt">&gt;</span>This text is red.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Rule 1: Low specificity (type + class) */</span>
+<span class="nc">.content</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* Rule 2: Higher specificity (two classes) */</span>
+<span class="nc">.main</span> <span class="nc">.content</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+<p>Rule 2 wins because it uses more class selectors.</p>
+
+<p><strong>Important:</strong> Universal selectors (<code class="language-plaintext highlighter-rouge">*</code>) and combinators (spaces, <code class="language-plaintext highlighter-rouge">&gt;</code>) do <em>not</em> add to specificity.</p>
+
+<h3 id="inheritance-passing-down-styles">Inheritance: Passing Down Styles</h3>
+
+<p>Certain properties (like <code class="language-plaintext highlighter-rouge">color</code>, <code class="language-plaintext highlighter-rouge">font-family</code>, <code class="language-plaintext highlighter-rouge">font-size</code>) are <em>inherited</em> by child elements. If you set <code class="language-plaintext highlighter-rouge">color: blue;</code> on a <code class="language-plaintext highlighter-rouge">div</code>, all text inside that <code class="language-plaintext highlighter-rouge">div</code> will be blue <em>unless</em> a more specific rule overrides it.</p>
+
+<ul>
+  <li><strong>Check MDN:</strong> You can determine if a property is inherited in its documentation.</li>
+  <li><strong>Direct Targeting Wins:</strong> A rule directly targeting a child element (even with lower specificity) overrides inherited styles.</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"parent"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"child"</span><span class="nt">&gt;</span>This text is blue.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Rule 1: High specificity ID, but style is inherited */</span>
+<span class="nf">#parent</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* Rule 2: Lower specificity class, but directly targets the element */</span>
+<span class="nc">.child</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">.child</code> rule wins because it directly targets the <code class="language-plaintext highlighter-rouge">p</code> element.</p>
+
+<h3 id="rule-order-last-rule-wins">Rule Order: Last Rule Wins</h3>
+
+<p>If specificity and inheritance can’t decide, the rule that appears <em>last</em> in your CSS file wins. This is the final tie-breaker.</p>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.message</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.message</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="p">}</span> <span class="c">/* This one wins */</span>
+</code></pre></div></div>
+
+<p>When building, aim for clear specificity. Relying on the cascade order or inheritance alone can lead to complex, hard-to-debug CSS.</p>
+
+<p>—FILE: Inspecting HTML and CSS.md—</p>
+<h1 id="inspecting-html-and-css--the-rebellion">Inspecting HTML and CSS | The Rebellion</h1>
+
+<h2 id="debug-like-a-pro-the-inspector-is-your-best-friend">Debug Like a Pro: The Inspector is Your Best Friend</h2>
+
+<p>Frontend development is iterative. You build, you test, you tweak. The browser’s developer tools, specifically the <em>inspector</em>, are your essential toolkit for understanding and debugging your live code. Forget guessing; inspect and <em>know</em>.</p>
+
+<h2 id="accessing-the-inspector">Accessing the Inspector</h2>
+
+<ul>
+  <li><strong>Right-click</strong> any element on a webpage and select <strong>“Inspect”</strong>.</li>
+  <li>Or, press <strong>F12</strong>.</li>
+</ul>
+
+<p>Focus on the <strong>Elements</strong> and <strong>Styles</strong> panels for now.</p>
+
+<h3 id="inspecting-elements-pinpointing-the-target">Inspecting Elements: Pinpointing the Target</h3>
+
+<ol>
+  <li><strong>Elements Panel:</strong> Shows your page’s HTML structure like a tree. Click any element here to select it.</li>
+  <li><strong>Element Select Tool:</strong> (Look for an arrow icon, usually top-left in the inspector). Click this, then hover over any element on the <em>page itself</em>. This is often faster than digging through the Elements tree.</li>
+</ol>
+
+<h3 id="understanding-styles-whats-actually-applied">Understanding Styles: What’s Actually Applied?</h3>
+
+<p>Once an element is selected:</p>
+
+<ul>
+  <li><strong>Styles Panel:</strong> This is gold. It lists all CSS rules currently affecting the selected element.
+    <ul>
+      <li><strong>Active Styles:</strong> These are applied.</li>
+      <li><strong>Strikethrough Styles:</strong> These are being overridden by a more specific or later rule. This is crucial for debugging conflicts!</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="testing-css-in-real-time-experiment-fearlessly">Testing CSS in Real-Time: Experiment Fearlessly</h3>
+
+<p>The inspector isn’t just for looking; it’s for <em>doing</em>.</p>
+
+<ol>
+  <li><strong>Edit Existing Properties:</strong> Click directly on a property value (e.g., <code class="language-plaintext highlighter-rouge">color: blue;</code>) and type in a new value (<code class="language-plaintext highlighter-rouge">color: red;</code>). The page updates instantly.</li>
+  <li><strong>Add New Properties:</strong> Click within a selector’s block (e.g., between <code class="language-plaintext highlighter-rouge">{</code> and <code class="language-plaintext highlighter-rouge">}</code>) and start typing a new property (<code class="language-plaintext highlighter-rouge">margin-top</code>). The inspector will offer suggestions.</li>
+  <li><strong>Try New Selectors:</strong> You can even add entirely new rules in the Styles panel to see how they’d affect the page.</li>
+</ol>
+
+<p><strong>Crucial Note:</strong> Changes made in the inspector are <strong>temporary</strong>. They disappear on page refresh. This is fantastic for rapid experimentation but remember to copy your successful tweaks back into your actual code files.</p>
+
+<p>—FILE: The Box Model.md—</p>
+<h1 id="the-box-model--the-rebellion">The Box Model | The Rebellion</h1>
+
+<h2 id="every-element-is-a-box-master-them">Every Element is a Box. Master Them.</h2>
+
+<p>Understand this: <strong>every single HTML element is a rectangular box.</strong> Layout and positioning in CSS boil down to arranging these boxes. The Box Model is your fundamental concept for controlling their size and spacing.</p>
+
+<h3 id="the-anatomy-of-a-box">The Anatomy of a Box</h3>
+
+<p>From inside out, a box consists of:</p>
+
+<ol>
+  <li><strong>Content:</strong> The actual text, image, or other element data.</li>
+  <li><strong>Padding:</strong> Space <em>between</em> the content and the border. It adds space <em>inside</em> the box.</li>
+  <li><strong>Border:</strong> A line surrounding the padding and content.</li>
+  <li><strong>Margin:</strong> Space <em>outside</em> the border, separating this box from adjacent elements.</li>
+</ol>
+
+<p>Visualizing it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+---------------------+
+|       Margin        |
+|  +---------------+  |
+|  |    Padding    |  |
+|  |  +---------+  |  |
+|  |  | Content |  |  |
+|  |  +---------+  |  |
+|  +---------------+  |
++---------------------+
+</code></pre></div></div>
+
+<h3 id="key-properties">Key Properties</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">padding</code></strong>: Pushes content away from the border.
+    <ul>
+      <li>Example: <code class="language-plaintext highlighter-rouge">padding: 15px;</code> (applies to all sides)</li>
+      <li>Example: <code class="language-plaintext highlighter-rouge">padding: 10px 20px;</code> (10px top/bottom, 20px left/right)</li>
+    </ul>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">border</code></strong>: Adds a visible line. Requires width, style, and color.
+    <ul>
+      <li>Example: <code class="language-plaintext highlighter-rouge">border: 2px solid black;</code></li>
+    </ul>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">margin</code></strong>: Pushes the entire box away from other boxes.
+    <ul>
+      <li>Example: <code class="language-plaintext highlighter-rouge">margin: 10px;</code> (applies to all sides)</li>
+      <li>Example: <code class="language-plaintext highlighter-rouge">margin-top: 5px;</code> (specific side)</li>
+      <li><strong><code class="language-plaintext highlighter-rouge">margin: auto;</code></strong>: A powerful technique for horizontally centering block-level elements.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="box-sizing-controlling-the-box-calculation"><code class="language-plaintext highlighter-rouge">box-sizing</code>: Controlling the Box Calculation</h3>
+
+<p>By default (<code class="language-plaintext highlighter-rouge">box-sizing: content-box</code>), padding and border <em>add</em> to the element’s total width and height. This can be confusing.</p>
+
+<p>The alternative, and often preferred, method is <code class="language-plaintext highlighter-rouge">box-sizing: border-box;</code>. With this, padding and border are <em>included within</em> the element’s defined width and height.</p>
+
+<p><strong>Recommendation:</strong> Apply <code class="language-plaintext highlighter-rouge">box-sizing: border-box;</code> globally to simplify layout calculations.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Apply to all elements */</span>
+<span class="o">*,</span> <span class="o">*</span><span class="nd">::before</span><span class="o">,</span> <span class="o">*</span><span class="nd">::after</span> <span class="p">{</span>
+  <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="spacing-decisions">Spacing Decisions</h3>
+
+<ul>
+  <li><strong>More space <em>inside</em> an element (between content and border)?</strong> Use <code class="language-plaintext highlighter-rouge">padding</code>.</li>
+  <li><strong>More space <em>between</em> two separate elements?</strong> Use <code class="language-plaintext highlighter-rouge">margin</code>.</li>
+  <li><strong>Overlap elements?</strong> Negative margins can achieve this, but use with caution.</li>
+</ul>
+
+<p>Mastering the Box Model is non-negotiable for effective CSS layout.</p>
+
+<p>—FILE: Block and Inline.md—</p>
+<h1 id="block-and-inline--the-rebellion">Block and Inline | The Rebellion</h1>
+
+<h2 id="flow-control-block-vs-inline-elements">Flow Control: Block vs. Inline Elements</h2>
+
+<p>How do elements behave on the page by default? That’s determined by their <code class="language-plaintext highlighter-rouge">display</code> property: <strong>block</strong> or <strong>inline</strong>. Understanding this is key to predictable layout.</p>
+
+<h3 id="block-elements-full-width-new-lines">Block Elements: Full Width, New Lines</h3>
+
+<ul>
+  <li>Default <code class="language-plaintext highlighter-rouge">display: block;</code></li>
+  <li>Take up the <strong>full available width</strong>.</li>
+  <li>Always start on a <strong>new line</strong>.</li>
+  <li>
+    <p>Respect <code class="language-plaintext highlighter-rouge">width</code>, <code class="language-plaintext highlighter-rouge">height</code>, <code class="language-plaintext highlighter-rouge">margin</code>, and <code class="language-plaintext highlighter-rouge">padding</code> on all sides.</p>
+  </li>
+  <li><strong>Common Examples:</strong> <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code>-<code class="language-plaintext highlighter-rouge">&lt;h6&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;ol&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;section&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;article&gt;</code></li>
+</ul>
+
+<h3 id="inline-elements-in-the-flow">Inline Elements: In the Flow</h3>
+
+<ul>
+  <li>Default <code class="language-plaintext highlighter-rouge">display: inline;</code></li>
+  <li>Only take up <strong>as much width as their content needs</strong>.</li>
+  <li>Do <strong>not</strong> start on a new line; they flow alongside other inline elements.</li>
+  <li><code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> properties <strong>do not apply</strong>.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">margin</code> and <code class="language-plaintext highlighter-rouge">padding</code> only apply horizontally (left/right). Vertical <code class="language-plaintext highlighter-rouge">margin</code>/<code class="language-plaintext highlighter-rouge">padding</code> (top/bottom) are ignored or behave unexpectedly.</p>
+  </li>
+  <li><strong>Common Examples:</strong> <code class="language-plaintext highlighter-rouge">&lt;a&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> (note: images are a bit special, often treated like <code class="language-plaintext highlighter-rouge">inline-block</code>)</li>
+</ul>
+
+<h3 id="the-hybrid-inline-block">The Hybrid: Inline-Block</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">display: inline-block;</code></li>
+  <li>Behaves like an inline element in that it flows with text and doesn’t force a new line.</li>
+  <li>BUT, it behaves like a block element regarding <code class="language-plaintext highlighter-rouge">width</code>, <code class="language-plaintext highlighter-rouge">height</code>, <code class="language-plaintext highlighter-rouge">margin</code>, and <code class="language-plaintext highlighter-rouge">padding</code> on all sides.</li>
+  <li>A useful middle ground, but often flexbox (coming later) is a more powerful tool for complex layouts.</li>
+</ul>
+
+<h3 id="generic-containers-div-and-span">Generic Containers: <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code></h3>
+
+<p>These are your versatile, context-free boxes:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">&lt;div&gt;</code></strong>: A <strong>block-level</strong> container. Use it to group other elements for structural purposes, layout, or targeted styling. It <em>divides</em> your page.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">&lt;span&gt;</code></strong>: An <strong>inline-level</strong> container. Use it to apply styles to a small piece of text or an inline element without disrupting the flow. It’s a generic <em>span</em> of content.</li>
+</ul>
+
+<h3 id="normal-flow">Normal Flow</h3>
+
+<p>This is the default way elements are arranged on a page based on their HTML order and block/inline display types. We manipulate this flow with CSS, but understanding the default is the first step.</p>
+
+<p>—FILE: Project Recipes.md—</p>
+<h1 id="project-recipes--the-rebellion">Project: Recipes | The Rebellion</h1>
+
+<h2 id="ship-your-first-static-site">Ship Your First Static Site</h2>
+
+<p>It’s time to build. You’ve learned HTML; now prove it by creating a functional, multi-page static website. This project focuses purely on HTML structure – we’ll style it later.</p>
+
+<h3 id="project-setup-your-command-center">Project Setup: Your Command Center</h3>
+
+<ol>
+  <li><strong>Create Repo:</strong> On GitHub, make a new repository named <code class="language-plaintext highlighter-rouge">rebellion-recipes</code>.</li>
+  <li><strong>Clone Locally:</strong> <code class="language-plaintext highlighter-rouge">git clone git@github.com:YOUR_USERNAME/rebellion-recipes.git</code> into your <code class="language-plaintext highlighter-rouge">repos</code> directory. <code class="language-plaintext highlighter-rouge">cd</code> into it.</li>
+  <li><strong>README:</strong> Create a <code class="language-plaintext highlighter-rouge">README.md</code> file. Briefly describe the project – a collection of recipes. Commit this change.</li>
+</ol>
+
+<h3 id="commit-strategy-ship-early-ship-often">Commit Strategy: Ship Early, Ship Often</h3>
+
+<ul>
+  <li><strong>Atomic Commits:</strong> Each commit should represent a single, logical change.</li>
+  <li><strong>Descriptive Messages:</strong> Use the Subject/Body format we’ve practiced.</li>
+  <li><strong>Frequency:</strong> Commit after every meaningful step – adding a new page, structuring a recipe, adding links. Don’t wait until the end.</li>
+  <li><strong>Push:</strong> Regularly push your work to the <code class="language-plaintext highlighter-rouge">rebellion-recipes</code> repo.</li>
+</ul>
+
+<h3 id="assignment-build-the-recipe-site">Assignment: Build the Recipe Site</h3>
+
+<h4 id="iteration-1-the-homepage">Iteration 1: The Homepage</h4>
+
+<ol>
+  <li>Create <code class="language-plaintext highlighter-rouge">index.html</code> in the root of your <code class="language-plaintext highlighter-rouge">rebellion-recipes</code> directory.</li>
+  <li>Add the basic HTML boilerplate.</li>
+  <li>Add an <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> heading: “Rebellion Recipes”.</li>
+  <li>Commit.</li>
+</ol>
+
+<h4 id="iteration-2-your-first-recipe-page">Iteration 2: Your First Recipe Page</h4>
+
+<ol>
+  <li>Create a <code class="language-plaintext highlighter-rouge">recipes</code> directory inside <code class="language-plaintext highlighter-rouge">rebellion-recipes</code>.</li>
+  <li>Inside <code class="language-plaintext highlighter-rouge">recipes</code>, create an HTML file for a recipe (e.g., <code class="language-plaintext highlighter-rouge">lasagna.html</code>). Use boilerplate.</li>
+  <li>Add an <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> with the recipe’s name (e.g., “The Best Lasagna”).</li>
+  <li>In <code class="language-plaintext highlighter-rouge">index.html</code>, add a link to this recipe page:
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"recipes/lasagna.html"</span><span class="nt">&gt;</span>The Best Lasagna<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>On <code class="language-plaintext highlighter-rouge">lasagna.html</code>, add a “Home” link to navigate back:
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"../index.html"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Commit these changes.</li>
+</ol>
+
+<h4 id="iteration-3-recipe-content">Iteration 3: Recipe Content</h4>
+
+<p>Enhance your recipe page (<code class="language-plaintext highlighter-rouge">lasagna.html</code>) with:</p>
+
+<ol>
+  <li>An <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> for the recipe name.</li>
+  <li>An <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> tag for a picture of the dish.</li>
+  <li>An <code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code> heading: “Description”. Add a paragraph or two below it.</li>
+  <li>An <code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code> heading: “Ingredients”. Follow with an unordered list (<code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>) of ingredients.</li>
+  <li>An <code class="language-plaintext highlighter-rouge">&lt;h2&gt;</code> heading: “Steps”. Follow with an ordered list (<code class="language-plaintext highlighter-rouge">&lt;ol&gt;</code>) of cooking steps.</li>
+  <li>Commit.</li>
+</ol>
+
+<h4 id="iteration-4-expand-the-menu">Iteration 4: Expand the Menu</h4>
+
+<ol>
+  <li>Create <strong>two more</strong> recipe pages (e.g., <code class="language-plaintext highlighter-rouge">chili.html</code>, <code class="language-plaintext highlighter-rouge">cookies.html</code>) in the <code class="language-plaintext highlighter-rouge">recipes</code> directory, following the same structure as Iteration 3.</li>
+  <li>On <code class="language-plaintext highlighter-rouge">index.html</code>, add links to these new recipes.</li>
+  <li><strong>Improve Navigation:</strong> Wrap all recipe links on <code class="language-plaintext highlighter-rouge">index.html</code> in an unordered list (<code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>) for better structure:
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Rebellion Recipes<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"recipes/lasagna.html"</span><span class="nt">&gt;</span>The Best Lasagna<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"recipes/chili.html"</span><span class="nt">&gt;</span>Hearty Chili<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"recipes/cookies.html"</span><span class="nt">&gt;</span>Chocolate Chip Cookies<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Commit.</li>
+</ol>
+
+<h3 id="deploying-your-site-go-live">Deploying Your Site: Go Live!</h3>
+
+<p>Showcase your work. GitHub Pages lets you host static sites directly from your repository.</p>
+
+<ol>
+  <li><strong>Ensure <code class="language-plaintext highlighter-rouge">index.html</code> is in the root:</strong> Your main page <em>must</em> be named <code class="language-plaintext highlighter-rouge">index.html</code>.</li>
+  <li><strong>Go to GitHub Repo Settings:</strong> Navigate to your <code class="language-plaintext highlighter-rouge">rebellion-recipes</code> repository on GitHub, click “Settings”.</li>
+  <li><strong>Pages Settings:</strong> On the left sidebar, click “Pages”.</li>
+  <li><strong>Choose Branch:</strong> Under “Deploy from a branch,” select your <code class="language-plaintext highlighter-rouge">main</code> branch and click “Save”.</li>
+  <li><strong>Wait:</strong> It takes a few minutes (sometimes longer) for the site to become live at <code class="language-plaintext highlighter-rouge">https://your-username.github.io/rebellion-recipes/</code>.</li>
+</ol>
+
+<p><strong>Troubleshooting:</strong></p>
+<ul>
+  <li>Double-check <code class="language-plaintext highlighter-rouge">index.html</code> is in the root.</li>
+  <li>Ensure the correct branch (<code class="language-plaintext highlighter-rouge">main</code>) is selected.</li>
+  <li>If it doesn’t appear after an hour, try toggling the branch setting (save to ‘none’, then re-save to ‘main’).</li>
+</ul>
+
+<p><strong>Remember:</strong> This is about learning. Don’t compare your work to advanced examples. Focus on meeting the requirements and building your skills. If you’re stuck, ask for help in the Rebel Alliance channels!</p>
+
+
+  </div>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

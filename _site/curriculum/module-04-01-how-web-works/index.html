@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>How Does the Web Work? | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-04-01-how-web-works/">
+  <meta property="og:title" content="How Does the Web Work? | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-04-01-how-web-works/">
+  <meta property="twitter:title" content="How Does the Web Work? | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-04-01-how-web-works/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 4: Web Fundamentals</span>
+      <span class="time-estimate">⏱ 25 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">How Does the Web Work?</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="master-the-fundamentals-build-with-confidence">Master the Fundamentals, Build with Confidence</h3>
+
+  <p>Before you can build the web, you need to understand how it works. This isn’t about rote memorization; it’s about building a solid foundation so you can confidently navigate the digital landscape and speak the language of the web.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="what-youll-master">What You’ll Master</h3>
+
+  <ul>
+    <li><strong>The Internet:</strong> What it is and how it moves data.</li>
+    <li><strong>Packets:</strong> The building blocks of online communication.</li>
+    <li><strong>Core Components:</strong> Web pages, servers, browsers, and search engines – demystified.</li>
+    <li><strong>Clients &amp; Servers:</strong> Understanding the fundamental interaction.</li>
+    <li><strong>IP Addresses &amp; DNS:</strong> How machines find each other.</li>
+    <li><strong>Routers &amp; ISPs:</strong> The infrastructure that makes it all possible.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-mission-knowledge-check">Your Mission: Knowledge Check</h3>
+
+  <p>Solidify your understanding by tackling these questions. If you’re unsure, dive back into the material. Remember, the goal is comprehension, not perfect recall.</p>
+
+  <ul>
+    <li>What is a web server?</li>
+    <li>What is a network?</li>
+    <li>What is the internet?</li>
+    <li>What is an IP address?</li>
+    <li>What is a router?</li>
+    <li>What is an ISP?</li>
+    <li>What are packets and how are they used to transfer data?</li>
+    <li>What is a client?</li>
+    <li>What is a server?</li>
+    <li>What is a web page?</li>
+    <li>What is a web browser?</li>
+    <li>What is a search engine?</li>
+    <li>What is a DNS request?</li>
+    <li>Which browser are you currently using?</li>
+    <li>Describe, in your own words, the process of initiating a search on a search engine.</li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-03-04-commit-messages/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-04-02-intro-html-css/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

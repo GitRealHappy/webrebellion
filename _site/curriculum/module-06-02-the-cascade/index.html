@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Cascade | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-06-02-the-cascade/">
+  <meta property="og:title" content="The Cascade | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-06-02-the-cascade/">
+  <meta property="twitter:title" content="The Cascade | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-06-02-the-cascade/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 6: CSS Fundamentals</span>
+      <span class="time-estimate">⏱ 30 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">The Cascade</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="when-styles-collide-the-cascade-decides">When Styles Collide: The Cascade Decides</h3>
+
+  <p>You wrote CSS. It <em>should</em> work. But sometimes, rules conflict. Why? The Cascade. It’s CSS’s built-in system for deciding which styles win when multiple rules target the same element. Browser defaults also play a role. Understanding the Cascade prevents CSS headaches.</p>
+
+  <p>The Cascade primarily uses three factors to resolve conflicts:</p>
+
+  <ol>
+    <li><strong>Specificity:</strong> How targeted is the selector?</li>
+    <li><strong>Inheritance:</strong> Do child elements inherit properties from parents?</li>
+    <li><strong>Rule Order:</strong> Which rule came last in the CSS?</li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="specificity-the-tie-breaker">Specificity: The Tie-Breaker</h3>
+
+  <p>More specific rules override less specific ones. Here’s the hierarchy:</p>
+
+  <ol>
+    <li><strong>Inline Styles:</strong> Highest specificity (rarely the right choice for anything complex).</li>
+    <li><strong>ID Selectors (<code class="language-plaintext highlighter-rouge">#</code>):</strong> Very specific.</li>
+    <li><strong>Class Selectors (<code class="language-plaintext highlighter-rouge">.</code>), Attribute Selectors, Pseudo-classes:</strong> Medium specificity.</li>
+    <li><strong>Type Selectors (<code class="language-plaintext highlighter-rouge">p</code>, <code class="language-plaintext highlighter-rouge">div</code>), Universal Selector (<code class="language-plaintext highlighter-rouge">*</code>), Combinators (space, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">~</code>):</strong> Lowest specificity.</li>
+  </ol>
+
+  <ul>
+    <li><strong>Analogy:</strong> Think of it like a competition. An ID is a star athlete. A class is a strong team. A type selector is just a participant.</li>
+    <li><strong>Tie-breaker within a level:</strong> If two rules have the same highest specificity level (e.g., both use class selectors), the one with <em>more</em> selectors of that type wins. Rule <code class="language-plaintext highlighter-rouge">.main .content</code> is more specific than <code class="language-plaintext highlighter-rouge">.content</code>.</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"main"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"content alert"</span><span class="nt">&gt;</span>This text is red.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>  </div>
+
+  <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Rule 1: Low specificity (type + class) */</span>
+<span class="nc">.content</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* Rule 2: Higher specificity (two classes) */</span>
+<span class="nc">.main</span> <span class="nc">.content</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>  </div>
+  <p>Rule 2 wins because it uses more class selectors.</p>
+
+  <p><strong>Important:</strong> Universal selectors (<code class="language-plaintext highlighter-rouge">*</code>) and combinators (spaces, <code class="language-plaintext highlighter-rouge">&gt;</code>) do <em>not</em> add to specificity.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="inheritance-passing-down-styles">Inheritance: Passing Down Styles</h3>
+
+  <p>Certain properties (like <code class="language-plaintext highlighter-rouge">color</code>, <code class="language-plaintext highlighter-rouge">font-family</code>, <code class="language-plaintext highlighter-rouge">font-size</code>) are <em>inherited</em> by child elements. If you set <code class="language-plaintext highlighter-rouge">color: blue;</code> on a <code class="language-plaintext highlighter-rouge">div</code>, all text inside that <code class="language-plaintext highlighter-rouge">div</code> will be blue <em>unless</em> a more specific rule overrides it.</p>
+
+  <ul>
+    <li><strong>Check MDN:</strong> You can determine if a property is inherited in its documentation.</li>
+    <li><strong>Direct Targeting Wins:</strong> A rule directly targeting a child element (even with lower specificity) overrides inherited styles.</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"parent"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"child"</span><span class="nt">&gt;</span>This text is blue.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>  </div>
+
+  <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Rule 1: High specificity ID, but style is inherited */</span>
+<span class="nf">#parent</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* Rule 2: Lower specificity class, but directly targets the element */</span>
+<span class="nc">.child</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>  </div>
+  <p>The <code class="language-plaintext highlighter-rouge">.child</code> rule wins because it directly targets the <code class="language-plaintext highlighter-rouge">p</code> element.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="rule-order-last-rule-wins">Rule Order: Last Rule Wins</h3>
+
+  <p>If specificity and inheritance can’t decide, the rule that appears <em>last</em> in your CSS file wins. This is the final tie-breaker.</p>
+
+  <p><strong>Example:</strong></p>
+
+  <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.message</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.message</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="p">}</span> <span class="c">/* This one wins */</span>
+</code></pre></div>  </div>
+
+  <p>When building, aim for clear specificity. Relying on the cascade order or inheritance alone can lead to complex, hard-to-debug CSS.</p>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-06-01-intro-to-css/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-06-03-inspecting-html-css/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

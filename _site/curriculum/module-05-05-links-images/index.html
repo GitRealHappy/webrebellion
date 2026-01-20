@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Links and Images | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-05-05-links-images/">
+  <meta property="og:title" content="Links and Images | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-05-05-links-images/">
+  <meta property="twitter:title" content="Links and Images | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-05-05-links-images/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 5: HTML Essentials</span>
+      <span class="time-estimate">⏱ 35 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Links and Images</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="connect-your-world-navigating-with-links-enhancing-with-images">Connect Your World: Navigating with Links, Enhancing with Images</h3>
+
+  <p>Links are the connective tissue of the web. Images add visual appeal and convey information instantly. This lesson teaches you how to implement both effectively.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="what-youll-master">What You’ll Master</h3>
+
+  <ul>
+    <li><strong>Links (<code class="language-plaintext highlighter-rouge">&lt;a&gt;</code>):</strong> Connecting to other pages and resources.</li>
+    <li><strong>Absolute vs. Relative Links:</strong> Navigating within your site and beyond.</li>
+    <li><strong>Images (<code class="language-plaintext highlighter-rouge">&lt;img&gt;</code>):</strong> Embedding visuals into your pages.</li>
+    <li><strong>Essential Attributes:</strong> <code class="language-plaintext highlighter-rouge">href</code>, <code class="language-plaintext highlighter-rouge">target</code>, <code class="language-plaintext highlighter-rouge">rel</code>, <code class="language-plaintext highlighter-rouge">src</code>, <code class="language-plaintext highlighter-rouge">alt</code>, <code class="language-plaintext highlighter-rouge">width</code>, <code class="language-plaintext highlighter-rouge">height</code>.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="creating-links-a-element">Creating Links (<code class="language-plaintext highlighter-rouge">&lt;a&gt;</code> element)</h3>
+
+  <p>Links are made using the <code class="language-plaintext highlighter-rouge">&lt;a&gt;</code> (anchor) element. The destination is specified using the <code class="language-plaintext highlighter-rouge">href</code> attribute.</p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://www.example.com"</span><span class="nt">&gt;</span>Visit Example.com<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>  </div>
+
+  <ul>
+    <li><strong><code class="language-plaintext highlighter-rouge">href</code>:</strong> The URL or file path the link points to.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">target="_blank"</code>:</strong> Opens the link in a new tab.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">rel="noopener noreferrer"</code>:</strong> <strong>Crucial for security</strong> when using <code class="language-plaintext highlighter-rouge">target="_blank"</code>. It prevents the new page from potentially manipulating your original page (tabnabbing). Always include this for safety.</li>
+  </ul>
+
+  <h4 id="absolute-vs-relative-links">Absolute vs. Relative Links</h4>
+
+  <ul>
+    <li><strong>Absolute Links:</strong> Full URLs, including the scheme (<code class="language-plaintext highlighter-rouge">https://</code>) and domain (e.g., <code class="language-plaintext highlighter-rouge">https://www.google.com</code>). Use these for external sites.</li>
+    <li>
+      <p><strong>Relative Links:</strong> Paths relative to your current file (e.g., <code class="language-plaintext highlighter-rouge">about.html</code>, <code class="language-plaintext highlighter-rouge">./pages/contact.html</code>, <code class="language-plaintext highlighter-rouge">../images/logo.png</code>). Use these for pages and assets within your own website.</p>
+
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">./</code>: Current directory.</li>
+        <li><code class="language-plaintext highlighter-rouge">../</code>: Parent directory (one level up).</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="embedding-images-img-element">Embedding Images (<code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> element)</h3>
+
+  <p>Images are added using the <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> element. It’s a <strong>void element</strong> (no closing tag needed).</p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"path/to/your/image.jpg"</span> <span class="na">alt=</span><span class="s">"Description of the image"</span> <span class="na">width=</span><span class="s">"300"</span> <span class="na">height=</span><span class="s">"200"</span><span class="nt">&gt;</span>
+</code></pre></div>  </div>
+
+  <ul>
+    <li><strong><code class="language-plaintext highlighter-rouge">src</code>:</strong> The path (absolute or relative) to the image file.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">alt</code>:</strong> <strong>Essential!</strong> Provides alternative text for screen readers and if the image fails to load. Describe the image concisely.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">width</code> &amp; <code class="language-plaintext highlighter-rouge">height</code>:</strong> Specify dimensions to prevent layout shifts as the image loads. Use the image’s actual pixel dimensions.</li>
+  </ul>
+
+  <p><strong>Image Formats:</strong> Common web formats include JPEG, PNG, GIF, and SVG. Choose based on your needs (photos vs. graphics, transparency).</p>
+
+  <p><strong>Important:</strong> Always use images you have the rights to use. Check licenses and provide attribution where required. Use Google’s “Usage rights: Creative Commons” filter when searching for images.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-mission-build-a-multi-page-site">Your Mission: Build a Multi-Page Site</h3>
+
+  <ol>
+    <li>Create a main <code class="language-plaintext highlighter-rouge">index.html</code> file. Add an <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> with your name.</li>
+    <li>Create an <code class="language-plaintext highlighter-rouge">about.html</code> file. Add an <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> with “About Me”.</li>
+    <li>In <code class="language-plaintext highlighter-rouge">index.html</code>, add a link to <code class="language-plaintext highlighter-rouge">about.html</code> using a relative path.</li>
+    <li>In <code class="language-plaintext highlighter-rouge">about.html</code>, add a link back to <code class="language-plaintext highlighter-rouge">index.html</code>.</li>
+    <li>Create an <code class="language-plaintext highlighter-rouge">images</code> folder. Download a suitable image (e.g., a picture of yourself or something relevant) and place it in the <code class="language-plaintext highlighter-rouge">images</code> folder as <code class="language-plaintext highlighter-rouge">profile.jpg</code>.</li>
+    <li>Add this image to your <code class="language-plaintext highlighter-rouge">index.html</code> file using an <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> tag, including <code class="language-plaintext highlighter-rouge">src</code>, <code class="language-plaintext highlighter-rouge">alt</code>, <code class="language-plaintext highlighter-rouge">width</code>, and <code class="language-plaintext highlighter-rouge">height</code> attributes.</li>
+    <li>Add a link to an external website (like The Rebellion’s main page) from your <code class="language-plaintext highlighter-rouge">index.html</code>, using <code class="language-plaintext highlighter-rouge">target="_blank"</code> and <code class="language-plaintext highlighter-rouge">rel="noopener noreferrer"</code>.</li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-mission-knowledge-check">Your Mission: Knowledge Check</h3>
+
+  <ul>
+    <li>What HTML element is used to create links?</li>
+    <li>What is the primary function of the <code class="language-plaintext highlighter-rouge">href</code> attribute?</li>
+    <li>What is the security purpose of <code class="language-plaintext highlighter-rouge">rel="noopener noreferrer"</code> when using <code class="language-plaintext highlighter-rouge">target="_blank"</code>?</li>
+    <li>Explain the difference between an absolute link and a relative link, providing examples.</li>
+    <li>Which element is used to display an image?</li>
+    <li>What are the two absolutely essential attributes for any <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> tag?</li>
+    <li>How do you navigate to a file in a parent directory using a relative path?</li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-05-04-lists/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-06-01-intro-to-css/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Text Editors | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-02-04-text-editors/">
+  <meta property="og:title" content="Text Editors | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-02-04-text-editors/">
+  <meta property="twitter:title" content="Text Editors | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-02-04-text-editors/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 2: Computer & Environment Setup</span>
+      <span class="time-estimate">⏱ 30 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Text Editors</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="your-primary-weapon-the-code-editor">Your Primary Weapon: The Code Editor</h3>
+
+  <p>You’ll spend more time in your text editor than almost anywhere else. A good one isn’t just for typing; it’s a force multiplier that helps you write cleaner, faster, error-free code.</p>
+
+  <p><strong>Why not Microsoft Word?</strong> Word and similar “rich text” editors embed formatting information within your files. Code editors, on the other hand, handle <strong>plain text</strong> – exactly what computers need to read and execute your code. No hidden formatting, just pure instructions.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="the-code-editor-advantage">The Code Editor Advantage</h3>
+
+  <p>Think of code editors as specialized command centers. They are designed for developers and come packed with features that streamline your workflow:</p>
+
+  <ul>
+    <li><strong>Syntax Highlighting:</strong> Makes code readable by coloring different elements.</li>
+    <li><strong>Real-time Error Checking (Linting):</strong> Catches syntax errors and style issues <em>as you type</em>.</li>
+    <li><strong>Auto-formatting:</strong> Keeps your code clean and consistent.</li>
+    <li><strong>Bracket/Brace Matching:</strong> Prevents those maddening “missing bracket” bugs.</li>
+    <li><strong>Extensibility:</strong> Tons of plugins and extensions to customize your environment.</li>
+    <li><strong>AI Integration:</strong> Modern editors can leverage AI to accelerate your coding.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-tool-of-choice-cursor">Your Tool of Choice: Cursor</h3>
+
+  <p>We standardize on <strong>Cursor</strong> – an AI-native code editor that The Rebellion Method is built around. It’s based on VS Code, so it has all the same power and extensions, but with AI capabilities built right in.</p>
+
+  <p><strong>Why Cursor?</strong></p>
+  <ul>
+    <li><strong>AI-Native:</strong> Built from the ground up with AI assistance in mind.</li>
+    <li><strong>VS Code Foundation:</strong> All the extensions and features you’d expect from a modern editor.</li>
+    <li><strong>Skillful Prompting:</strong> Learn to direct AI to write code, explain concepts, and debug issues.</li>
+    <li><strong>Ship Faster:</strong> Once you understand the fundamentals, AI handles the manual labor.</li>
+    <li><strong>Great Git Integration:</strong> Essential for version control.</li>
+  </ul>
+
+  <p><strong>Important:</strong> If you’re using a Virtual Machine for Linux, <strong>install Cursor <em>inside</em> the VM</strong>. This ensures your development environment is self-contained.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="getting-cursor-set-up">Getting Cursor Set Up</h3>
+
+  <p>Download Cursor from <a href="https://cursor.com">cursor.com</a> and follow the installation instructions for your operating system.</p>
+
+  <h4 id="all-platforms">All Platforms</h4>
+
+  <ol>
+    <li><strong>Download:</strong> Visit <a href="https://cursor.com">cursor.com</a> and download the installer for your OS.</li>
+    <li><strong>Install:</strong> Run the installer and follow the prompts.</li>
+    <li><strong>Launch:</strong> Open Cursor from your applications.</li>
+    <li><strong>Sign In:</strong> Create a Cursor account or sign in to enable AI features.</li>
+  </ol>
+
+  <h4 id="setting-up-the-terminal-command">Setting Up the Terminal Command</h4>
+
+  <p>To open Cursor from the terminal (very useful!):</p>
+
+  <ol>
+    <li>Open Cursor.</li>
+    <li>Press <code class="language-plaintext highlighter-rouge">Cmd + Shift + P</code> (Mac) or <code class="language-plaintext highlighter-rouge">Ctrl + Shift + P</code> (Windows/Linux) to open the Command Palette.</li>
+    <li>Type “Shell Command: Install ‘cursor’ command in PATH” and select it.</li>
+    <li>Close and reopen your terminal.</li>
+    <li>Now you can type <code class="language-plaintext highlighter-rouge">cursor .</code> to open the current directory in Cursor.</li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-mission">Your Mission</h3>
+
+  <p>Familiarize yourself with Cursor. Explore its interface – it will feel familiar if you’ve used VS Code before. The key difference is the AI integration.</p>
+
+  <p><strong>Getting Started with AI in Cursor:</strong></p>
+  <ul>
+    <li>Press <code class="language-plaintext highlighter-rouge">Cmd + K</code> (Mac) or <code class="language-plaintext highlighter-rouge">Ctrl + K</code> (Windows/Linux) to open the AI prompt bar.</li>
+    <li>Try asking it to explain a concept or generate a simple code snippet.</li>
+    <li>Use <code class="language-plaintext highlighter-rouge">Cmd + L</code> (Mac) or <code class="language-plaintext highlighter-rouge">Ctrl + L</code> (Windows/Linux) to open the AI chat panel for longer conversations.</li>
+  </ul>
+
+  <p>Don’t worry about mastering AI prompting yet – we’ll build that skill throughout the curriculum. For now, just get comfortable with the editor itself.</p>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-02-03-installations/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-02-05-command-line-basics/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

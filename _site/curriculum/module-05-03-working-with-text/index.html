@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Working with Text | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-05-03-working-with-text/">
+  <meta property="og:title" content="Working with Text | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-05-03-working-with-text/">
+  <meta property="twitter:title" content="Working with Text | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-05-03-working-with-text/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 5: HTML Essentials</span>
+      <span class="time-estimate">⏱ 30 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Working with Text</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="crafting-content-paragraphs-headings-and-emphasis">Crafting Content: Paragraphs, Headings, and Emphasis</h3>
+
+  <p>Most of the web is text. This lesson covers the essential HTML elements for structuring and emphasizing textual content.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="what-youll-master">What You’ll Master</h3>
+
+  <ul>
+    <li><strong>Paragraphs:</strong> Creating distinct blocks of text.</li>
+    <li><strong>Headings:</strong> Structuring your content hierarchy.</li>
+    <li><strong>Emphasis:</strong> Making text bold (<code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>) and italic (<code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>).</li>
+    <li><strong>Nesting:</strong> Understanding parent-child relationships.</li>
+    <li><strong>Comments:</strong> Leaving notes in your code.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="essential-text-elements">Essential Text Elements</h3>
+
+  <h4 id="paragraphs-p">Paragraphs (<code class="language-plaintext highlighter-rouge">&lt;p&gt;</code>)</h4>
+
+  <p>Browsers ignore new lines in HTML. To create separate paragraphs, wrap your text in <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code> tags.</p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This is the first paragraph.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is the second paragraph.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>  </div>
+
+  <h4 id="headings-h1-to-h6">Headings (<code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> to <code class="language-plaintext highlighter-rouge">&lt;h6&gt;</code>)</h4>
+
+  <p>Headings define the structure and importance of your content. <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code> is the main heading, with <code class="language-plaintext highlighter-rouge">&lt;h6&gt;</code> being the least important. Use them logically to build a clear content hierarchy.</p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Main Page Title<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Section Title<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Subsection Title<span class="nt">&lt;/h3&gt;</span>
+</code></pre></div>  </div>
+
+  <h4 id="bold-and-important-text-strong">Bold and Important Text (<code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>)</h4>
+
+  <p>Use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code> to wrap text that is semantically <strong>important</strong>. This makes it bold and signals its significance to browsers and screen readers.</p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This is a normal paragraph, but <span class="nt">&lt;strong&gt;</span>this word is very important<span class="nt">&lt;/strong&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>  </div>
+
+  <h4 id="italicized-and-emphasized-text-em">Italicized and Emphasized Text (<code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>)</h4>
+
+  <p>Use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code> to add <em>emphasis</em> to text. This can affect screen reader tone and visually italicizes the text.</p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This is a normal sentence, but <span class="nt">&lt;em&gt;</span>this part is emphasized<span class="nt">&lt;/em&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>  </div>
+</div>
+
+<div class="lesson-block">
+  <h3 id="nesting-and-indentation">Nesting and Indentation</h3>
+
+  <p>Elements can be placed inside other elements. The outer element is the <strong>parent</strong>, and the inner ones are <strong>children</strong>. Sibling elements are at the same nesting level. Indentation makes this structure clear and readable – use it consistently (e.g., two spaces per level).</p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;p&gt;</span>This is a paragraph (child of body).<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>This is another paragraph (sibling to the first).<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>  </div>
+</div>
+
+<div class="lesson-block">
+  <h3 id="html-comments------">HTML Comments (<code class="language-plaintext highlighter-rouge">&lt;!-- --&gt;</code>)</h3>
+
+  <p>Comments are notes for humans; they are ignored by the browser. Use them to explain complex code or leave reminders.</p>
+
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- This is a comment. It won't show on the page. --&gt;</span>
+</code></pre></div>  </div>
+
+  <p><strong>Editor Shortcut:</strong> Use <code class="language-plaintext highlighter-rouge">Cmd + /</code> (Mac) or <code class="language-plaintext highlighter-rouge">Ctrl + /</code> (Windows/Linux) to quickly comment or uncomment lines.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-mission-hands-on-practice">Your Mission: Hands-on Practice</h3>
+
+  <p>Create a simple blog post structure using headings, paragraphs, and apply <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code> to various parts of the text. Use <code class="language-plaintext highlighter-rouge">Lorem ipsum</code> text for practice content.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-mission-knowledge-check">Your Mission: Knowledge Check</h3>
+
+  <ul>
+    <li>How do you create distinct paragraphs in HTML?</li>
+    <li>How do you create headings, and what is the significance of heading levels?</li>
+    <li>What is the difference between using <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>?</li>
+    <li>Explain the parent-child and sibling relationships between HTML elements.</li>
+    <li>How do you write a comment in HTML?</li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-05-02-html-boilerplate/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-05-04-lists/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

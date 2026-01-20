@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Intro to CSS | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-06-01-intro-to-css/">
+  <meta property="og:title" content="Intro to CSS | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-06-01-intro-to-css/">
+  <meta property="twitter:title" content="Intro to CSS | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-06-01-intro-to-css/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 6: CSS Fundamentals</span>
+      <span class="time-estimate">⏱ 40 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Intro to CSS</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="style-your-sites-fast">Style Your Sites. Fast.</h3>
+
+  <p>HTML gives your website structure. CSS gives it <em>style</em>. This is where web pages go from raw content to something visually engaging. We’ll focus on the core CSS concepts you need to make things look good, quickly and confidently.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="what-youll-master">What You’ll Master</h3>
+
+  <ul>
+    <li><strong>Applying Styles:</strong> How to inject CSS into your HTML.</li>
+    <li><strong>Targeting Elements:</strong> Using classes and IDs to precisely control which elements get styled.</li>
+    <li><strong>Selectors:</strong> The powerful language you use to tell CSS <em>what</em> to style.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="core-concepts-the-building-blocks">Core Concepts: The Building Blocks</h3>
+
+  <p>CSS rules are simple: a <strong>selector</strong> points to an HTML element, and <strong>declarations</strong> (property-value pairs) dictate how it should look.</p>
+
+  <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Selector */</span>
+<span class="nc">.my-element</span> <span class="p">{</span>
+  <span class="c">/* Declaration: Property: Value */</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">hotpink</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
+
+  <ul>
+    <li><strong><code class="language-plaintext highlighter-rouge">div</code>:</strong> A versatile block-level container. Often used to group elements for layout or styling.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">span</code>:</strong> An inline container, perfect for styling small pieces of text within a larger block.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="selectors-pointing-to-your-pixels">Selectors: Pointing to Your Pixels</h3>
+
+  <ul>
+    <li><strong>Universal Selector (<code class="language-plaintext highlighter-rouge">*</code>):</strong> Styles <em>everything</em>. Use sparingly.
+```css</li>
+    <li>
+      <p>{
+color: purple; /* Applies purple text to all elements */
+}
+```</p>
+    </li>
+    <li><strong>Type Selectors:</strong> Target all elements of a specific type (e.g., <code class="language-plaintext highlighter-rouge">p</code>, <code class="language-plaintext highlighter-rouge">h1</code>, <code class="language-plaintext highlighter-rouge">div</code>).
+      <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span> <span class="p">{</span>
+<span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span> <span class="c">/* Adds a border to all divs */</span>
+<span class="p">}</span>
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Class Selectors (<code class="language-plaintext highlighter-rouge">.</code>):</strong> The workhorse. Apply styles to any element with a specific class. You can use the same class on multiple elements.
+```html</li>
+  </ul>
+  <p class="warning-message">Something is wrong!</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```css
+.warning-message {
+  color: red;
+}
+</code></pre></div>  </div>
+  <ul>
+    <li>
+      <p><strong>Pro-Tip:</strong> Class names cannot start with a number. Use hyphens for multi-word names (e.g., <code class="language-plaintext highlighter-rouge">alert-text</code>, not <code class="language-plaintext highlighter-rouge">alert text</code>).</p>
+    </li>
+    <li>
+      <p><strong>ID Selectors (<code class="language-plaintext highlighter-rouge">#</code>):</strong> Target a <em>single, unique</em> element on the page. Use IDs sparingly and only when a class won’t suffice. IDs also cannot start with a number.
+```html</p>
+    </li>
+  </ul>
+  <div id="main-header">My Awesome Site</div>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```css
+#main-header {
+  background-color: navy;
+}
+</code></pre></div>  </div>
+
+  <ul>
+    <li><strong>Grouping Selectors (<code class="language-plaintext highlighter-rouge">,</code>):</strong> Apply the same styles to multiple selectors.
+      <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.button</span><span class="o">,</span> <span class="nt">button</span><span class="o">,</span> <span class="nc">.submit-button</span> <span class="p">{</span>
+<span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+<span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Chaining Selectors:</strong> Target an element that matches <em>multiple</em> conditions.
+```html</li>
+  </ul>
+  <div class="alert urgent">System failure!</div>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```css
+/* Targets only divs with BOTH 'alert' AND 'urgent' classes */
+div.alert.urgent {
+  font-weight: bold;
+}
+</code></pre></div>  </div>
+
+  <ul>
+    <li><strong>Descendant Combinator (space):</strong> Target an element that is <em>nested inside</em> another.
+```html</li>
+  </ul>
+  <article>
+  <p>This paragraph is inside article.</p>
+</article>
+  <p>This paragraph is not.</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```css
+/* Selects only paragraphs INSIDE an article */
+article p {
+  color: gray;
+}
+</code></pre></div>  </div>
+</div>
+
+<div class="lesson-block">
+  <h3 id="essential-properties-to-ship-with">Essential Properties to Ship With</h3>
+
+  <ul>
+    <li><strong><code class="language-plaintext highlighter-rouge">color</code>:</strong> Sets text color. (Accepts keywords, HEX, RGB, HSL values).</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">background-color</code>:</strong> Sets the background of an element.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">font-family</code>:</strong> Specifies the typeface. List fallbacks: <code class="language-plaintext highlighter-rouge">font-family: Arial, sans-serif;</code></li>
+    <li><strong><code class="language-plaintext highlighter-rouge">font-size</code>:</strong> Sets text size (e.g., <code class="language-plaintext highlighter-rouge">16px</code>, <code class="language-plaintext highlighter-rouge">1.2em</code>).</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">font-weight</code>:</strong> Controls boldness (<code class="language-plaintext highlighter-rouge">bold</code>, <code class="language-plaintext highlighter-rouge">normal</code>, or numeric values like <code class="language-plaintext highlighter-rouge">700</code>).</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">text-align</code>:</strong> Aligns text (<code class="language-plaintext highlighter-rouge">center</code>, <code class="language-plaintext highlighter-rouge">left</code>, <code class="language-plaintext highlighter-rouge">right</code>).</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">height</code> / <code class="language-plaintext highlighter-rouge">width</code>:</strong> Sets dimensions for elements, especially images. Use <code class="language-plaintext highlighter-rouge">height: auto;</code> with a specific <code class="language-plaintext highlighter-rouge">width</code> to maintain aspect ratio.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="adding-css-to-your-html-keep-it-clean">Adding CSS to Your HTML: Keep It Clean</h3>
+
+  <ol>
+    <li><strong>External CSS (Recommended):</strong> The cleanest approach. Link a separate <code class="language-plaintext highlighter-rouge">.css</code> file in your HTML’s <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>.
+```html
+<!-- index.html --></li>
+  </ol>
+  <head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```css
+/* styles.css */
+body {
+  font-family: sans-serif;
+}
+</code></pre></div>  </div>
+  <ul>
+    <li><strong>Why?</strong> Keeps HTML lean and CSS organized across multiple pages.</li>
+  </ul>
+
+  <ol>
+    <li><strong>Internal CSS:</strong> Embed styles directly in the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> using <code class="language-plaintext highlighter-rouge">&lt;style&gt;</code> tags.
+```html</li>
+  </ol>
+  <head>
+  <style>
+    h1 { color: blue; }
+  </style>
+</head>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  - **Use Case:** Unique styles for a single page. Less maintainable for larger sites.
+
+3. **Inline CSS:** Apply styles directly to an HTML element using the `style` attribute.
+```html
+&lt;p style="color: red; font-weight: bold;"&gt;This is red and bold.&lt;/p&gt;
+</code></pre></div>  </div>
+  <ul>
+    <li><strong>Avoid:</strong> This is messy, hard to maintain, and overrides other styles. Use only as a last resort for single, isolated elements.</li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-05-05-links-images/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-06-02-the-cascade/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

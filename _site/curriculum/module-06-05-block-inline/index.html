@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Block and Inline | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-06-05-block-inline/">
+  <meta property="og:title" content="Block and Inline | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-06-05-block-inline/">
+  <meta property="twitter:title" content="Block and Inline | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-06-05-block-inline/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 6: CSS Fundamentals</span>
+      <span class="time-estimate">⏱ 25 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Block and Inline</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="flow-control-block-vs-inline-elements">Flow Control: Block vs. Inline Elements</h3>
+
+  <p>How do elements behave on the page by default? That’s determined by their <code class="language-plaintext highlighter-rouge">display</code> property: <strong>block</strong> or <strong>inline</strong>. Understanding this is key to predictable layout.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="block-elements-full-width-new-lines">Block Elements: Full Width, New Lines</h3>
+
+  <ul>
+    <li>Default <code class="language-plaintext highlighter-rouge">display: block;</code></li>
+    <li>Take up the <strong>full available width</strong>.</li>
+    <li>Always start on a <strong>new line</strong>.</li>
+    <li>
+      <p>Respect <code class="language-plaintext highlighter-rouge">width</code>, <code class="language-plaintext highlighter-rouge">height</code>, <code class="language-plaintext highlighter-rouge">margin</code>, and <code class="language-plaintext highlighter-rouge">padding</code> on all sides.</p>
+    </li>
+    <li><strong>Common Examples:</strong> <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;h1&gt;</code>-<code class="language-plaintext highlighter-rouge">&lt;h6&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;ol&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;section&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;article&gt;</code></li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="inline-elements-in-the-flow">Inline Elements: In the Flow</h3>
+
+  <ul>
+    <li>Default <code class="language-plaintext highlighter-rouge">display: inline;</code></li>
+    <li>Only take up <strong>as much width as their content needs</strong>.</li>
+    <li>Do <strong>not</strong> start on a new line; they flow alongside other inline elements.</li>
+    <li><code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> properties <strong>do not apply</strong>.</li>
+    <li>
+      <p><code class="language-plaintext highlighter-rouge">margin</code> and <code class="language-plaintext highlighter-rouge">padding</code> only apply horizontally (left/right). Vertical <code class="language-plaintext highlighter-rouge">margin</code>/<code class="language-plaintext highlighter-rouge">padding</code> (top/bottom) are ignored or behave unexpectedly.</p>
+    </li>
+    <li><strong>Common Examples:</strong> <code class="language-plaintext highlighter-rouge">&lt;a&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> (note: images are a bit special, often treated like <code class="language-plaintext highlighter-rouge">inline-block</code>)</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="the-hybrid-inline-block">The Hybrid: Inline-Block</h3>
+
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">display: inline-block;</code></li>
+    <li>Behaves like an inline element in that it flows with text and doesn’t force a new line.</li>
+    <li>BUT, it behaves like a block element regarding <code class="language-plaintext highlighter-rouge">width</code>, <code class="language-plaintext highlighter-rouge">height</code>, <code class="language-plaintext highlighter-rouge">margin</code>, and <code class="language-plaintext highlighter-rouge">padding</code> on all sides.</li>
+    <li>A useful middle ground, but often flexbox (coming later) is a more powerful tool for complex layouts.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="generic-containers-div-and-span">Generic Containers: <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code></h3>
+
+  <p>These are your versatile, context-free boxes:</p>
+
+  <ul>
+    <li><strong><code class="language-plaintext highlighter-rouge">&lt;div&gt;</code></strong>: A <strong>block-level</strong> container. Use it to group other elements for structural purposes, layout, or targeted styling. It <em>divides</em> your page.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">&lt;span&gt;</code></strong>: An <strong>inline-level</strong> container. Use it to apply styles to a small piece of text or an inline element without disrupting the flow. It’s a generic <em>span</em> of content.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="normal-flow">Normal Flow</h3>
+
+  <p>This is the default way elements are arranged on a page based on their HTML order and block/inline display types. We manipulate this flow with CSS, but understanding the default is the first step.</p>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-06-04-box-model/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-07-01-project-recipes/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

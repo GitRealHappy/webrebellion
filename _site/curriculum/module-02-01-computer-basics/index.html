@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Computer Basics | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-02-01-computer-basics/">
+  <meta property="og:title" content="Computer Basics | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-02-01-computer-basics/">
+  <meta property="twitter:title" content="Computer Basics | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-02-01-computer-basics/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 2: Computer & Environment Setup</span>
+      <span class="time-estimate">⏱ 20 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Computer Basics</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="get-your-digital-toolkit-ready">Get Your Digital Toolkit Ready</h3>
+
+  <p>Coding happens on a computer. Knowing how to wield your machine is foundational. This guide cuts through the noise to get you the essential computer knowledge you need to start building.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="what-youll-master">What You’ll Master</h3>
+
+  <ul>
+    <li><strong>Core Components:</strong> Understand the difference between hardware and software – the building blocks of your digital world.</li>
+    <li><strong>Visual Communication:</strong> Learn to capture screenshots – a crucial skill for documenting progress and sharing issues.</li>
+    <li><strong>Digital Security:</strong> Grasp the non-negotiable importance of strong passwords.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-action-plan">Your Action Plan</h3>
+
+  <p>We recommend resources that are clear, concise, and get straight to the point.</p>
+
+  <ul>
+    <li><strong>What is a Computer?</strong>
+Grasping the fundamental hardware and software concepts.</li>
+    <li><strong>Understanding Operating Systems</strong>
+Knowing what an OS does and recognizing key examples.</li>
+    <li><strong>Understanding Applications</strong>
+Differentiating between system software and user-facing applications.</li>
+    <li><strong>Open vs. Closed Source Software</strong>
+A quick look at software philosophies.</li>
+    <li><strong>Taking Screenshots</strong>
+Mastering this essential visual tool.</li>
+    <li><strong>Creating Strong Passwords</strong>
+Your first line of defense in the digital realm.</li>
+  </ul>
+</div>
+
+<div class="lesson-block">
+  <h3 id="knowledge-check">Knowledge Check</h3>
+
+  <p>A brief review to solidify your understanding.</p>
+
+  <ul>
+    <li>Is Windows an operating system or an application?</li>
+    <li>What’s the core difference between different types of software licenses?</li>
+    <li>When would a screenshot be your best friend?</li>
+    <li>Give an example of a weak and a strong password.</li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-01-05-asking-for-help/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-02-02-installation-overview/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+

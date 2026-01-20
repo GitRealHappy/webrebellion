@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Git Basics | The Rebellion Resources</title>
+  <meta name="description" content="Resources portal for the Web Design Rebellion course.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/curriculum/module-03-03-git-basics/">
+  <meta property="og:title" content="Git Basics | The Rebellion Resources">
+  <meta property="og:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="og:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://localhost:4000/curriculum/module-03-03-git-basics/">
+  <meta property="twitter:title" content="Git Basics | The Rebellion Resources">
+  <meta property="twitter:description" content="Resources portal for the Web Design Rebellion course.">
+  <meta property="twitter:image" content="http://localhost:4000/assets/images/terminal-social-card.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/craft.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/curriculum/module-03-03-git-basics/">
+  <link rel="alternate" type="application/rss+xml" title="The Rebellion Resources" href="/feed.xml">
+</head>
+
+
+
+<body>
+  <script>
+  (function() {
+    // Check if we are on the login page
+    var currentPath = window.location.pathname;
+    // Handle baseurl if present, though we set it to "" in config.
+    var loginPath = "/login/";
+    
+    if (currentPath !== loginPath && currentPath !== loginPath + 'index.html') {
+      var access = localStorage.getItem('lia_rebel_access');
+      if (access !== 'true') {
+        window.location.href = loginPath;
+      }
+    }
+  })();
+</script>
+
+
+
+  <header class="site-header">
+  <div class="container header-container">
+    <div class="site-branding">
+      <a class="site-title" href="/">
+        WEB DEV REBELLION
+      </a>
+    </div>
+
+    <nav class="site-nav">
+      <button class="menu-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open')">
+        <span class="hamburger"></span>
+      </button>
+    </nav>
+    <div class="nav-links">
+      
+        <a class="page-link " href="/dashboard/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Dashboard</a>
+      
+        <a class="page-link " href="/curriculum/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Curriculum</a>
+      
+        <a class="page-link " href="/prompts/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Prompt Library</a>
+      
+        <a class="page-link " href="/resources/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">Resources</a>
+      
+        <a class="page-link " href="/faq/" onclick="document.querySelector('.menu-toggle').classList.remove('active'); document.querySelector('.nav-links').classList.remove('open')">FAQ</a>
+      
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="page-content" aria-label="Content">
+    <div class="container">
+      <article class="lesson h-entry" itemscope itemtype="http://schema.org/CreativeWork">
+
+  <header class="lesson-header">
+    <div class="lesson-meta">
+      <span class="module-label">Module 3: Git & Version Control</span>
+      <span class="time-estimate">⏱ 45 min</span>
+    </div>
+    <h1 class="lesson-title p-name" itemprop="headline">Git Basics</h1>
+  </header>
+
+  <div class="lesson-content e-content" itemprop="text">
+    <div class="lesson-block">
+  <h3 id="workflow-essentials-commit-stage-push">Workflow Essentials: Commit, Stage, Push</h3>
+
+  <p>This is your core Git toolkit – the commands you’ll use 80% of the time. Master these, and you’ve got Git licked.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="your-first-repository">Your First Repository</h3>
+
+  <ol>
+    <li><strong>Create a GitHub Repo:</strong>
+      <ul>
+        <li>Go to GitHub. Create a new repository named <code class="language-plaintext highlighter-rouge">git-test</code>.</li>
+        <li><strong>Crucially:</strong> Enable “Add a README file”.</li>
+        <li>Click “Create repository”.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Get the SSH URL:</strong> On your new repo page, click the green “Code” button. Select <strong>SSH</strong>, then copy the URL (it looks like <code class="language-plaintext highlighter-rouge">git@github.com:YourUsername/git-test.git</code>).</p>
+    </li>
+    <li><strong>Local Setup:</strong>
+      <ul>
+        <li>Open your terminal.</li>
+        <li>Create a directory for all your projects: <code class="language-plaintext highlighter-rouge">mkdir repos</code></li>
+        <li>Navigate into it: <code class="language-plaintext highlighter-rouge">cd repos</code></li>
+      </ul>
+    </li>
+    <li><strong>Clone:</strong> Bring the repository to your machine:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:YourUsername/git-test.git
+</code></pre></div>      </div>
+      <p><em>(Replace <code class="language-plaintext highlighter-rouge">YourUsername</code> with your actual GitHub username)</em></p>
+    </li>
+    <li><strong>Verify:</strong> Navigate into the cloned directory (<code class="language-plaintext highlighter-rouge">cd git-test</code>) and run <code class="language-plaintext highlighter-rouge">git remote -v</code>. You should see your GitHub repository listed.</li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="the-git-workflow-snapshots-of-your-code">The Git Workflow: Snapshots of Your Code</h3>
+
+  <p>This is the cycle: <strong>Stage -&gt; Commit -&gt; Push</strong>.</p>
+
+  <ol>
+    <li><strong>Create a File:</strong> Inside your <code class="language-plaintext highlighter-rouge">git-test</code> directory, create a file:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>hello_world.txt
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Check Status:</strong> See what Git knows about your files:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>      </div>
+      <p><em>(You’ll see <code class="language-plaintext highlighter-rouge">hello_world.txt</code> listed in red as “Untracked”)</em></p>
+    </li>
+    <li><strong>Stage Changes:</strong> Add the file to Git’s “waiting room” for the next commit:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add hello_world.txt
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Check Status Again:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>      </div>
+      <p><em>(<code class="language-plaintext highlighter-rouge">hello_world.txt</code> should now be green, listed under “Changes to be committed”)</em></p>
+    </li>
+    <li><strong>Commit:</strong> Take a snapshot. The <code class="language-plaintext highlighter-rouge">-m</code> flag adds a message describing the change:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Add hello_world.txt"</span>
+</code></pre></div>      </div>
+      <p><em>(This saves the snapshot locally.)</em></p>
+    </li>
+    <li><strong>Check Log:</strong> View your commit history:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log
+</code></pre></div>      </div>
+      <p><em>(You’ll see your commit listed.)</em></p>
+    </li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="modify-and-re-commit">Modify and Re-Commit</h3>
+
+  <ol>
+    <li>
+      <p><strong>Edit:</strong> Open <code class="language-plaintext highlighter-rouge">README.md</code> in Cursor (<code class="language-plaintext highlighter-rouge">cursor .</code> in the terminal, then open <code class="language-plaintext highlighter-rouge">README.md</code>). Add “Hello Rebellion!” and save.</p>
+    </li>
+    <li><strong>Check Status:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div>      </div>
+      <p><em>(<code class="language-plaintext highlighter-rouge">README.md</code> will be red, under “Changes not staged for commit”)</em></p>
+    </li>
+    <li><strong>Stage:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add README.md
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Stage All:</strong> (A common shortcut)
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+</code></pre></div>      </div>
+      <p><em>(Adds all modified/new files in the current directory and subdirectories)</em></p>
+    </li>
+    <li>
+      <p><strong>Check Status:</strong> Everything should be green.</p>
+    </li>
+    <li><strong>Commit:</strong>
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Edit README.md and hello_world.txt"</span>
+</code></pre></div>      </div>
+    </li>
+  </ol>
+</div>
+
+<div class="lesson-block">
+  <h3 id="ship-it-push-to-github">Ship It: Push to GitHub</h3>
+
+  <ol>
+    <li><strong>Upload:</strong> Send your local commits to GitHub:
+      <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin main
+</code></pre></div>      </div>
+      <p><em>(Assuming your default branch is <code class="language-plaintext highlighter-rouge">main</code>. If you get errors about authentication, double-check your SSH key setup.)</em></p>
+    </li>
+    <li><strong>Final Check:</strong> Run <code class="language-plaintext highlighter-rouge">git status</code>. It should say you’re up-to-date. Refresh your GitHub repo page – you’ll see your changes.</li>
+  </ol>
+
+  <p><strong>Rule:</strong> <strong>Never edit directly on GitHub.</strong> Always work locally, commit, and then push.</p>
+</div>
+
+<div class="lesson-block">
+  <h3 id="essential-commands-cheat-sheet">Essential Commands Cheat Sheet</h3>
+
+  <ul>
+    <li><strong>Clone:</strong> <code class="language-plaintext highlighter-rouge">git clone [ssh_url]</code></li>
+    <li><strong>Status:</strong> <code class="language-plaintext highlighter-rouge">git status</code></li>
+    <li><strong>Add:</strong> <code class="language-plaintext highlighter-rouge">git add .</code> (stage all) or <code class="language-plaintext highlighter-rouge">git add [file]</code></li>
+    <li><strong>Commit:</strong> <code class="language-plaintext highlighter-rouge">git commit -m "Your descriptive message"</code></li>
+    <li><strong>Push:</strong> <code class="language-plaintext highlighter-rouge">git push origin main</code></li>
+    <li><strong>Log:</strong> <code class="language-plaintext highlighter-rouge">git log</code></li>
+    <li><strong>Remote:</strong> <code class="language-plaintext highlighter-rouge">git remote -v</code></li>
+  </ul>
+</div>
+
+  </div>
+
+  <nav class="lesson-nav">
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+        
+        
+          
+          <a href="/curriculum/module-03-02-setting-up-git/" class="nav-btn prev">← Previous Lesson</a>
+        
+
+        <a href="/curriculum/" class="nav-btn index">Lesson Index</a>
+
+        
+          
+          <a href="/curriculum/module-03-04-commit-messages/" class="nav-btn next">Next Lesson →</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </nav>
+
+</article>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container">
+    <p class="copyright">
+      &copy; 2026 The Living Internet Alliance.
+    </p>
+    <p class="footer-tagline">Built for the Web Design Rebellion.</p>
+  </div>
+</footer>
+
+
+
+</body>
+
+</html>
+
