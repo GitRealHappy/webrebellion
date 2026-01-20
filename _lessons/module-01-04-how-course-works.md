@@ -10,7 +10,7 @@ layout: lesson
 <div class="lesson-block" markdown="1">
 ### Introduction
 
-The Living Internet University is dedicated to providing the most effective resources for aspiring web developers, guiding you from zero to ship-ready.
+The Living Internet University is dedicated to providing the most effective resources for aspiring creator/entrepreneurs, guiding you from zero to ship-ready.
 
 This unit introduces the fundamentals of the web, your computer, and the development environment. We'll cover crucial concepts like Git and GitHub, and the basics of front-end technologies (HTML, CSS, JavaScript), with a glimpse into back-end principles.
 
