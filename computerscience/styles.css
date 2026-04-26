@@ -4,6 +4,26 @@
    chrome-header, cylinder, buttons).
    ================================================================ */
 
+/* ------ Mobile notice banner ------ */
+
+.mobile-notice {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 200, 60, 0.12);
+  border-bottom: 1px solid rgba(255, 200, 60, 0.35);
+  color: #f5d06a;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: 0.55rem 1.25rem;
+}
+
+.mobile-notice-icon {
+  margin-right: 0.4em;
+  opacity: 0.8;
+}
+
 /* ------ Page shell ------ */
 
 .cs-page {
