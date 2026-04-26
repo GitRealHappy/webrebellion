@@ -3,6 +3,24 @@ window.STORE = {
   supportEmail: "hello@booleanmode.com",
   products: [
     {
+      id: "boolean-mode",
+      title: "Boolean Mode",
+      shortDescription: "A free field primer on thinking in true/false. The logic substrate beneath every prompt, every system, every rebellion.",
+      longDescription: "Boolean Mode is an introductory computer-science primer on thinking in true and false. Free, open, and the logic substrate underneath every prompt you will ever write.",
+      price: "$0",
+      videoUrl: null,
+      stripeUrl: "#",
+      externalUrl: "computerscience/index.html",
+      thumbnailLabel: "MOD-00 // BOOLEAN",
+      isTba: false,
+      isUnavailable: false,
+      features: [
+        "Free, open access",
+        "Core primer on boolean logic and truth tables",
+        "The conceptual floor under every other module"
+      ]
+    },
+    {
       id: "one-hour-web-designer",
       title: "The One-Hour Web-Designer",
       shortDescription: "Buy it once. It lives on your machine. No ongoing subscription, no direct guidance required. The barrier to entry is now so low that the system can carry you through it.",
@@ -24,9 +42,9 @@ window.STORE = {
     {
       id: "purpose-driven-value-creator",
       title: "The Purpose-Driven Value Creator",
-      shortDescription: "A prompt that prompts you. Lock in offer, proof, and narrative before you write a single line of code, so every page communicates your unique value proposition.",
+      shortDescription: "A prompt that prompts you. Lock in offer, proof, and narrative before you write a single line of code, so every page communicates your unique value proposition. This is a depth psychology speed round designed to catalyze your personal individuation, and amplify your ability to deliver value to the world.",
       longDescription: "A prompt that prompts you. Align your offer, proof, and narrative before you write a single line of code, so every page communicates your unique value proposition.",
-      price: "$47",
+      price: "$27",
       videoUrl: "https://www.youtube.com/embed/Mli0AExdcHM",
       stripeUrl: "https://buy.stripe.com/fZu00cdkg91R8R3g4n6oo0b",
       substackUrl: "https://substack.com/@unblockedcarver",
@@ -58,24 +76,6 @@ window.STORE = {
       ]
     },
     {
-      id: "boolean-mode",
-      title: "Boolean Mode",
-      shortDescription: "A free field primer on thinking in true/false. The logic substrate beneath every prompt, every system, every rebellion.",
-      longDescription: "Boolean Mode is an introductory computer-science primer on thinking in true and false. Free, open, and the logic substrate underneath every prompt you will ever write.",
-      price: "$0",
-      videoUrl: null,
-      stripeUrl: "#",
-      externalUrl: "computerscience/index.html",
-      thumbnailLabel: "MOD-04 // BOOLEAN",
-      isTba: false,
-      isUnavailable: false,
-      features: [
-        "Free, open access",
-        "Core primer on boolean logic and truth tables",
-        "The conceptual floor under every other module"
-      ]
-    },
-    {
       id: "tba-bundle-2",
       title: "Six Pack Labs",
       shortDescription: "Yet to be announced.",
@@ -83,7 +83,7 @@ window.STORE = {
       price: "$17",
       videoUrl: null,
       stripeUrl: "#",
-      thumbnailLabel: "MOD-05 // [LOCKED]",
+      thumbnailLabel: "MOD-04 // [LOCKED]",
       isTba: true,
       isUnavailable: true,
       features: ["Yet to be announced."]
@@ -96,7 +96,7 @@ window.STORE = {
       price: "$17",
       videoUrl: null,
       stripeUrl: "#",
-      thumbnailLabel: "MOD-06 // [LOCKED]",
+      thumbnailLabel: "MOD-05 // [LOCKED]",
       isTba: true,
       isUnavailable: true,
       features: ["Yet to be announced."]
