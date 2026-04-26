@@ -1,4 +1,4 @@
-# Boolean Mode — Static storefront
+# The Web Rebellion — Static storefront
 
 This project is a **small, static website** for showcasing and selling AI mega-prompt bundles. It uses plain HTML, CSS, and a thin layer of JavaScript to render the product catalog from a single data file. There is **no build step** and **no backend**; Stripe is linked via checkout URLs you configure in the data.
 

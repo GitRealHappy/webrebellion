@@ -1,17 +1,16 @@
 window.STORE = {
-  brandName: "Boolean Mode",
+  brandName: "The Web Rebellion",
   supportEmail: "hello@booleanmode.com",
   products: [
     {
       id: "one-hour-web-designer",
       title: "The One-Hour Web-Designer",
-      shortDescription: "A highly efficient prompt sequence that lets non-developers design, build, and deploy functional websites that look good on desktop and mobile, with no hosting fees.",
-      longDescription: "A highly efficient prompt sequence engineered for speed and clarity. Non-developers design, build, and deploy functional websites that look good on desktop and mobile. No hosting fees, no waiting weeks to ship. A subscription to Claude code or Cursor is recommended for maximal use of The One Hour Web Designer.",
- 
+      shortDescription: "A prompt sequence that compiles a deployable site in a single session. No frameworks to learn, no monthly hosting bills. You ship; you own.",
+      longDescription: "A highly efficient prompt sequence engineered for speed and clarity. Non-developers design, build, and deploy functional websites that look good on desktop and mobile. No hosting fees, no waiting weeks to ship. A subscription to Claude Code or Cursor is recommended for maximal use of The One Hour Web Designer.",
       price: "$47",
       videoUrl: "https://www.youtube.com/embed/vrLfiknqwbE?start=26",
       stripeUrl: "https://buy.stripe.com/5kQeV64NK0vl7MZ19t6oo0a",
-      thumbnailLabel: "The Front Page",
+      thumbnailLabel: "MOD-01 // BUILDER",
       isTba: false,
       isUnavailable: false,
       features: [
@@ -24,13 +23,13 @@ window.STORE = {
     {
       id: "purpose-driven-value-creator",
       title: "The Purpose-Driven Value Creator",
-      shortDescription: "Inner-Engineering: A Prompt that prompts YOU! Align offer, proof, and narrative so every page sells the same clear promise. Find the confidence to launch your first iteration.",
+      shortDescription: "A prompt that prompts you. Lock in offer, proof, and narrative before a single line of code — every page selling the same clear promise.",
       longDescription: "A prompt that prompts you. Align your offer, proof, and narrative so every page sells the same clear promise — before you write a single line of code.",
       price: "$47",
       videoUrl: "https://www.youtube.com/embed/Mli0AExdcHM",
       stripeUrl: "https://buy.stripe.com/fZu00cdkg91R8R3g4n6oo0b",
       substackUrl: "https://substack.com/@unblockedcarver",
-      thumbnailLabel: "The Editorial Desk",
+      thumbnailLabel: "MOD-02 // COMPASS",
       isTba: false,
       isUnavailable: true,
       features: [
@@ -43,12 +42,12 @@ window.STORE = {
     {
       id: "tao-of-prompt-ebook",
       title: "The Tao of Prompt (e-book)",
-      shortDescription: "A written field guide to thinking in sequences, constraints, revisions. Become a master of context creation.",
+      shortDescription: "Field manual for prompt sequences, constraints, and revision loops. The grammar of context, written down.",
       longDescription: "A written field guide to thinking in prompt sequences, constraints, and revision loops. Become fluent in the grammar of context.",
       price: "$27",
       videoUrl: "https://www.youtube.com/embed/ysz5S6PUM-U",
       stripeUrl: "https://buy.stripe.com/your-tao-ebook-link",
-      thumbnailLabel: "The Composing Room",
+      thumbnailLabel: "MOD-03 // CODEX",
       isTba: false,
       isUnavailable: true,
       features: [
@@ -58,17 +57,22 @@ window.STORE = {
       ]
     },
     {
-      id: "tba-bundle-1",
-      title: "A Product of Your Mind",
-      shortDescription: "Yet to be announced.",
-      longDescription: "Yet to be announced.",
-      price: "$17",
+      id: "boolean-mode",
+      title: "Boolean Mode",
+      shortDescription: "A free field primer on thinking in true/false. The logic substrate beneath every prompt, every system, every rebellion.",
+      longDescription: "Boolean Mode is an introductory computer-science primer on thinking in true and false. Free, open, and the logic substrate underneath every prompt you will ever write.",
+      price: "$0",
       videoUrl: null,
       stripeUrl: "#",
-      thumbnailLabel: "Hold Line",
-      isTba: true,
-      isUnavailable: true,
-      features: ["Yet to be announced."]
+      externalUrl: "computerscience/index.html",
+      thumbnailLabel: "MOD-04 // BOOLEAN",
+      isTba: false,
+      isUnavailable: false,
+      features: [
+        "Free, open access",
+        "Core primer on boolean logic and truth tables",
+        "The conceptual floor under every other module"
+      ]
     },
     {
       id: "tba-bundle-2",
@@ -78,7 +82,7 @@ window.STORE = {
       price: "$17",
       videoUrl: null,
       stripeUrl: "#",
-      thumbnailLabel: "Hold Line",
+      thumbnailLabel: "MOD-05 // [LOCKED]",
       isTba: true,
       isUnavailable: true,
       features: ["Yet to be announced."]
@@ -91,7 +95,7 @@ window.STORE = {
       price: "$17",
       videoUrl: null,
       stripeUrl: "#",
-      thumbnailLabel: "Hold Line",
+      thumbnailLabel: "MOD-06 // [LOCKED]",
       isTba: true,
       isUnavailable: true,
       features: ["Yet to be announced."]

@@ -16,21 +16,29 @@
 
   if (!product) {
     target.innerHTML = `
-      <div class="error-card">
-        <h1>Not found</h1>
-        <p>No product matches that slug. Return to the catalog.</p>
-        <a class="btn btn-primary" href="index.html#bundles">Back to catalog</a>
+      <div class="not-found">
+        <h2>Module not found.</h2>
+        <p>No subsystem matches that signature.</p>
+        <p style="margin-top:1.25rem;"><a class="btn-ghost" href="index.html#modules">← Return to catalog</a></p>
       </div>
     `;
     return;
   }
 
-  const featureMarkup = product.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join("");
+  const statusLabel = product.isUnavailable ? (product.isTba ? "Locked" : "Standby") : "Active";
+  const headOfflineClass = product.isUnavailable ? " is-offline" : "";
+
+  const idBlock = product.isTba
+    ? `<span class="id"><span class="text-blur-illegible" aria-hidden="true">${escapeHtml(product.thumbnailLabel)}</span><span class="sr-only">${escapeHtml(product.thumbnailLabel)}</span></span>`
+    : `<span class="id">${escapeHtml(product.thumbnailLabel)}</span>`;
+
+  const offlineBanner = product.isUnavailable
+    ? `<div class="offline-banner">// Subsystem offline ${product.substackUrl ? "// Notify on uplink" : "// Standby for transmission"}</div>`
+    : "";
 
   const titleBlock = product.isTba
-    ? `<span class="tba-banner">To be announced</span>
-       <h1><span class="text-blur-illegible" aria-hidden="true">${escapeHtml(product.title)}</span><span class="sr-only">${escapeHtml(product.title)}</span></h1>`
-    : `${product.isUnavailable ? '<span class="tba-banner">Currently unavailable</span>' : ""}<h1>${escapeHtml(product.title)}</h1>`;
+    ? `<h1 class="detail-title"><span class="text-blur-illegible" aria-hidden="true">${escapeHtml(product.title)}</span><span class="sr-only">${escapeHtml(product.title)}</span></h1>`
+    : `<h1 class="detail-title">${escapeHtml(product.title)}</h1>`;
 
   const mediaBlock = product.videoUrl
     ? `<div class="video-shell">
@@ -43,35 +51,34 @@
            allowfullscreen>
          </iframe>
        </div>`
-    : `<div class="video-shell">
-         <div class="video-placeholder" role="img" aria-label="Video not yet available">Film strip — TBA</div>
-       </div>`;
+    : `<div class="video-shell empty" role="img" aria-label="Video not yet available">// Transmission pending</div>`;
 
-  const stripeBtn = product.isUnavailable
+  const featureMarkup = product.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join("");
+
+  const ctaBlock = product.isUnavailable
     ? (product.substackUrl
-        ? `<div class="substack-cta">
-             <p>Available soon — subscribe to be the first to know when this drops.</p>
-             <a class="btn btn-primary" href="${escapeAttr(product.substackUrl)}" target="_blank" rel="noopener noreferrer">Subscribe on Substack</a>
-           </div>`
-        : `<span class="btn btn-primary btn-locked btn-locked-primary" role="button" aria-disabled="true">✕ Unavailable</span>`)
-    : `<a class="btn btn-primary" href="${escapeAttr(product.stripeUrl)}" target="_blank" rel="noopener noreferrer">Purchase Now</a>`;
+        ? `<a class="btn-primary spec-cta" href="${escapeAttr(product.substackUrl)}" target="_blank" rel="noopener noreferrer">Notify on uplink →</a>`
+        : `<span class="btn-locked spec-cta" role="button" aria-disabled="true">[ ${product.isTba ? "Encrypted" : "Standby"} ]</span>`)
+    : `<a class="btn-primary spec-cta" href="${escapeAttr(product.stripeUrl)}" target="_blank" rel="noopener noreferrer">Acquire module →</a>`;
 
   target.innerHTML = `
-    <div class="product-detail">
-      <div>
-        ${titleBlock}
-        <p class="hero-subtitle">${escapeHtml(product.longDescription)}</p>
+    <article class="product-detail">
+      <header class="detail-head${headOfflineClass}">
+        ${idBlock}
+        <span class="status"><span class="dot" aria-hidden="true"></span>${escapeHtml(statusLabel)}</span>
+      </header>
+      ${offlineBanner}
+      ${titleBlock}
+      <p class="detail-desc">${escapeHtml(product.longDescription)}</p>
+      <div class="detail-body">
         ${mediaBlock}
+        <aside class="spec-sheet">
+          <div class="spec-price">${escapeHtml(product.price)}</div>
+          <ul class="spec-features">${featureMarkup}</ul>
+          ${ctaBlock}
+        </aside>
       </div>
-      <aside class="detail-panel">
-        <p class="price">${escapeHtml(product.price)}</p>
-        <h2>Key features</h2>
-        <ul class="feature-list">${featureMarkup}</ul>
-        <div class="cta-row">
-          ${stripeBtn}
-        </div>
-      </aside>
-    </div>
+    </article>
   `;
 })();
 

@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boolean Mode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0d1a;
+      --surface: #12122a;
+      --surface-2: #181838;
+      --sidebar: #0a0a14;
+      --gold: #f4c842;
+      --gold-dim: #a88520;
+      --gold-faint: #3a3010;
+      --mint: #3cf0a0;
+      --mint-dim: #1a9a64;
+      --red: #e05c5c;
+      --text: #e8e6d9;
+      --text-dim: #8a8880;
+      --border: #2a2a4a;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-mono: 'Fira Code', 'Courier New', monospace;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+    }
+
+    .app {
+      display: grid;
+      grid-template-rows: 52px 1fr;
+      grid-template-columns: 230px 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    header {
+      grid-column: 1 / -1;
+      background: var(--sidebar);
+      border-bottom: 1px solid var(--gold-faint);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 16px;
+      position: relative;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim) 30%, var(--gold-dim) 70%, transparent);
+      opacity: 0.4;
+    }
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      font-weight: 600;
+    }
+    .tagline {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      margin-top: 1px;
+    }
+    .header-spacer {
+      flex: 1;
+    }
+    .header-bits {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--mint-dim);
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+    }
+
+    /* SIDEBAR */
+    aside {
+      background: var(--sidebar);
+      border-right: 1px solid var(--border);
+      padding: 22px 0 16px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .nav-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-dim);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0 22px 10px;
+    }
+    nav ul { list-style: none; }
+    nav ul li a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 22px;
+      text-decoration: none;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      font-weight: 400;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      border-left: 2px solid transparent;
+      cursor: pointer;
+    }
+    nav ul li a .nav-num {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--gold-dim);
+      min-width: 16px;
+    }
+    nav ul li a:hover {
+      color: var(--text);
+      background: rgba(244, 200, 66, 0.04);
+    }
+    nav ul li a.active {
+      color: var(--gold);
+      border-left-color: var(--gold);
+      background: rgba(244, 200, 66, 0.08);
+    }
+    nav ul li a.active .nav-num { color: var(--gold); }
+
+    .nav-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 14px 22px;
+    }
+    .sidebar-foot {
+      padding: 0 22px;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-top: auto;
+    }
+    .sidebar-foot .accent {
+      color: var(--gold-dim);
+    }
+
+    /* MAIN */
+    main {
+      overflow: hidden;
+      position: relative;
+      background: var(--bg);
+    }
+
+    .bg-binary {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.035;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--mint);
+      user-select: none;
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+    .section {
+      position: absolute;
+      inset: 0;
+      padding: 28px 36px 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .section.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .section-header {
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: var(--gold);
+      line-height: 1.15;
+      font-weight: 600;
+    }
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-top: 6px;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    .section-body {
+      flex: 1;
+      display: grid;
+      gap: 22px;
+      overflow: hidden;
+      min-height: 0;
+    }
+    .section-body.cols-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+    .section-body.cols-3-2 {
+      grid-template-columns: 1.4fr 1fr;
+    }
+
+    .content-col {
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 10px;
+      min-height: 0;
+    }
+    .content-col::-webkit-scrollbar { width: 4px; }
+    .content-col::-webkit-scrollbar-track { background: transparent; }
+    .content-col::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 2px;
+    }
+    .content-col::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
+
+    .intro-text {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 14px;
+      max-width: 580px;
+    }
+    .intro-text em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    /* PERSON META */
+    .person-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .person-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-dim);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .person-info .name {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .person-info .dates {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      margin-top: 1px;
+    }
+
+    /* ACCORDIONS */
+    .accordion {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+      background: var(--surface);
+    }
+    .accordion:hover { border-color: var(--gold-dim); }
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .accordion-header:hover {
+      background: rgba(244, 200, 66, 0.05);
+    }
+    .accordion.open {
+      border-color: var(--gold-dim);
+    }
+    .accordion.open .accordion-header {
+      background: rgba(244, 200, 66, 0.07);
+      border-bottom: 1px solid var(--border);
+    }
+    .accordion-icon {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--gold-dim);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .accordion.open .accordion-icon {
+      background: var(--gold);
+      color: var(--bg);
+    }
+    .accordion-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      flex: 1;
+    }
+    .accordion-badge {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-dim);
+      background: rgba(255,255,255,0.04);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    .accordion-chevron {
+      font-size: 0.55rem;
+      color: var(--text-dim);
+      transition: transform 0.25s;
+    }
+    .accordion.open .accordion-chevron { transform: rotate(180deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .accordion.open .accordion-body { max-height: 500px; }
+    .accordion-content {
+      padding: 12px 16px 14px;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-dim);
+    }
+    .accordion-content p + p { margin-top: 8px; }
+    .accordion-content em {
+      color: var(--text);
+      font-style: italic;
+    }
+    .accordion-content .quote {
+      border-left: 2px solid var(--gold-dim);
+      padding-left: 10px;
+      font-style: italic;
+      color: var(--text-dim);
+      margin: 10px 0;
+      font-size: 0.78rem;
+    }
+    .list-logic {
+      list-style: none;
+      margin: 8px 0;
+    }
+    .list-logic li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 3px 0;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .list-logic li .bullet {
+      font-family: var(--font-mono);
+      color: var(--mint);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+    .list-logic li strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.78em;
+      color: var(--mint);
+      background: rgba(60, 240, 160, 0.07);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* WIDGET PANELS */
+    .widget-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .widget-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      opacity: 0.5;
+    }
+    .widget-title {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .widget-desc {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.55;
+    }
+
+    /* BIT FLIPPER */
+    .bit-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .bit-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.02);
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bit-btn:hover {
+      border-color: var(--gold-dim);
+      color: var(--text);
+    }
+    .bit-btn.on {
+      background: rgba(244, 200, 66, 0.18);
+      border-color: var(--gold);
+      color: var(--gold);
+      box-shadow: 0 0 8px rgba(244, 200, 66, 0.25);
+    }
+    .bit-result {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.9;
+      background: rgba(0,0,0,0.25);
+      padding: 10px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    .bit-result .label {
+      display: inline-block;
+      width: 70px;
+      color: var(--text-dim);
+    }
+    .bit-result .val {
+      color: var(--mint);
+      font-size: 0.85rem;
+    }
+    .bit-result .val.gold { color: var(--gold); }
+
+    /* GATE SIMULATOR */
+    .gate-sim {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .gate-inputs {
+      display: flex;
+      gap: 10px;
+    }
+    .gate-toggle {
+      flex: 1;
+      padding: 12px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.02);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.18s;
+      user-select: none;
+    }
+    .gate-toggle:hover {
+      border-color: var(--gold-dim);
+    }
+    .gate-toggle .toggle-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .gate-toggle .toggle-val {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--red);
+    }
+    .gate-toggle.true {
+      border-color: var(--mint);
+      background: rgba(60, 240, 160, 0.12);
+      box-shadow: 0 0 8px rgba(60, 240, 160, 0.18);
+    }
+    .gate-toggle.true .toggle-val { color: var(--mint); }
+    .gate-toggle.true .toggle-label { color: var(--mint-dim); }
+
+    .gate-selector {
+      display: flex;
+      gap: 6px;
+    }
+    .gate-btn {
+      flex: 1;
+      padding: 8px 4px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .gate-btn:hover {
+      border-color: var(--gold-dim);
+      color: var(--text);
+    }
+    .gate-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(244, 200, 66, 0.12);
+    }
+
+    .gate-visual {
+      position: relative;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 0;
+    }
+    .gate-visual svg {
+      width: 100%;
+      height: 100%;
+      max-width: 280px;
+    }
+    .wire {
+      stroke: var(--text-dim);
+      stroke-width: 1.5;
+      fill: none;
+      transition: stroke 0.2s;
+    }
+    .wire.live {
+      stroke: var(--mint);
+      filter: drop-shadow(0 0 3px var(--mint));
+    }
+    .gate-shape {
+      stroke: var(--gold);
+      stroke-width: 1.5;
+      fill: rgba(244, 200, 66, 0.06);
+    }
+    .gate-shape.active {
+      fill: rgba(244, 200, 66, 0.18);
+    }
+    .gate-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      fill: var(--gold);
+    }
+    .pin-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      fill: var(--text-dim);
+    }
+
+    .gate-output {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      text-align: center;
+      transition: all 0.2s;
+      background: rgba(0,0,0,0.2);
+    }
+    .gate-output .out-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .gate-output .out-val {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--red);
+    }
+    .gate-output .out-eq {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+    .gate-output.true {
+      border-color: var(--mint);
+      background: rgba(60, 240, 160, 0.08);
+      box-shadow: 0 0 12px rgba(60, 240, 160, 0.15);
+    }
+    .gate-output.true .out-val { color: var(--mint); }
+
+    /* TRUTH TREE WIDGET */
+    .tree-select {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tree-option {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      background: rgba(255,255,255,0.02);
+      transition: all 0.15s;
+      text-align: left;
+      width: 100%;
+      font-family: var(--font-sans);
+      line-height: 1.45;
+    }
+    .tree-option:hover {
+      border-color: var(--gold-dim);
+      color: var(--text);
+    }
+    .tree-option.active {
+      border-color: var(--gold);
+      background: rgba(244, 200, 66, 0.1);
+      color: var(--gold);
+    }
+
+    .tree-display {
+      background: rgba(0,0,0,0.28);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+      min-height: 140px;
+      flex: 1;
+      overflow-y: auto;
+      max-height: 280px;
+    }
+    .tree-display::-webkit-scrollbar { width: 3px; }
+    .tree-display::-webkit-scrollbar-thumb { background: var(--border); }
+
+    .tree-question {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--gold-dim);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .tree-step {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 5px 0;
+      position: relative;
+      opacity: 0;
+      animation: stepIn 0.3s ease forwards;
+    }
+    .tree-step.indent-1 { padding-left: 18px; }
+    .tree-step.indent-2 { padding-left: 36px; }
+
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateX(-4px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      background: var(--surface);
+      margin-top: 1px;
+    }
+    .tree-step.premise .step-num {
+      border-color: var(--gold-dim);
+      color: var(--gold);
+    }
+    .tree-step.branch .step-num {
+      border-color: var(--mint-dim);
+      color: var(--mint);
+    }
+    .tree-step.contradiction .step-num {
+      border-color: var(--red);
+      color: var(--red);
+      background: rgba(224, 92, 92, 0.15);
+    }
+
+    .step-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .step-tag {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 1px;
+    }
+    .tree-step.branch .step-tag { color: var(--mint-dim); }
+    .tree-step.contradiction .step-tag { color: var(--red); }
+
+    .step-text {
+      font-size: 0.78rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .step-text code {
+      font-size: 0.85em;
+    }
+
+    .tree-result {
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 5px;
+      border-left: 3px solid;
+      font-size: 0.82rem;
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      opacity: 0;
+      animation: stepIn 0.4s ease forwards;
+    }
+    .tree-result.valid {
+      background: rgba(60, 240, 160, 0.08);
+      border-left-color: var(--mint);
+      color: var(--mint);
+    }
+    .tree-result.invalid {
+      background: rgba(224, 92, 92, 0.08);
+      border-left-color: var(--red);
+      color: var(--red);
+    }
+    .tree-result .result-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      opacity: 0.7;
+      margin-bottom: 2px;
+    }
+
+    /* PLACEHOLDER for upcoming widgets */
+    .widget-placeholder {
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 24px;
+      text-align: center;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: rgba(0,0,0,0.15);
+    }
+    .widget-placeholder .ph-title {
+      color: var(--gold-dim);
+      margin-bottom: 6px;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* CARROLL DIAGRAM (small) */
+    .carroll-diagram {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1px;
+      width: 110px;
+      height: 70px;
+      border: 1px solid var(--gold-dim);
+      border-radius: 3px;
+      overflow: hidden;
+      float: right;
+      margin: 0 0 8px 12px;
+      background: var(--border);
+    }
+    .cd-cell {
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-dim);
+    }
+    .cd-cell.filled {
+      background: rgba(244, 200, 66, 0.18);
+      color: var(--gold);
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 56px;
+      top: 18px;
+      bottom: 18px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold-dim) 0%, var(--mint-dim) 100%);
+      opacity: 0.5;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 0;
+      position: relative;
+      cursor: pointer;
+    }
+    .timeline-year {
+      width: 56px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--gold-dim);
+      text-align: right;
+      padding-right: 16px;
+      flex-shrink: 0;
+      padding-top: 14px;
+    }
+    .timeline-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--gold-dim);
+      flex-shrink: 0;
+      margin-top: 14px;
+      margin-left: -6px;
+      z-index: 1;
+      transition: all 0.2s;
+    }
+    .timeline-item:hover .timeline-dot,
+    .timeline-item.open .timeline-dot {
+      background: var(--gold);
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(244, 200, 66, 0.5);
+    }
+    .timeline-content {
+      flex: 1;
+      padding: 6px 16px 10px;
+      transition: background 0.2s;
+      border-radius: 4px;
+    }
+    .timeline-item:hover .timeline-content {
+      background: rgba(244, 200, 66, 0.03);
+    }
+    .timeline-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 4px 0;
+    }
+    .tl-person {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--mint-dim);
+      background: rgba(60, 240, 160, 0.08);
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .timeline-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .timeline-item.open .timeline-body { max-height: 250px; }
+    .timeline-body-inner {
+      padding: 4px 0 6px;
+      font-size: 0.78rem;
+      line-height: 1.65;
+      color: var(--text-dim);
+    }
+    .timeline-body-inner em {
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* CALLOUT */
+    .callout {
+      border: 1px solid var(--gold-dim);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      background: rgba(244, 200, 66, 0.04);
+      margin-bottom: 14px;
+    }
+    .callout p {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+    .callout p strong {
+      color: var(--gold);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* CHAIN VISUAL */
+    .chain-box {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      background: var(--surface);
+      margin-bottom: 12px;
+    }
+    .chain-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .chain-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+    .chain-row .who {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      min-width: 70px;
+      flex-shrink: 0;
+    }
+    .chain-row .who.gold { color: var(--gold); }
+    .chain-row .who.mint { color: var(--mint); }
+    .chain-arrow {
+      font-family: var(--font-mono);
+      color: var(--gold-dim);
+      margin-left: 24px;
+      font-size: 0.75rem;
+    }
+
+    /* QUOTE BOX */
+    .quote-box {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      padding: 12px 14px;
+      border: 1px dashed var(--border);
+      border-radius: 4px;
+    }
+    .quote-box .qb-label {
+      color: var(--gold-dim);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.62rem;
+    }
+    .quote-box em {
+      color: var(--text);
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section.active .section-header,
+    .section.active .section-body {
+      animation: fadeIn 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <div class="logo">Boolean Mode</div>
+        <div class="tagline">// from syllogisms to silicon</div>
+      </div>
+      <div class="header-spacer"></div>
+      <div class="header-bits">01001100 01001111 01000111 01001001 01000011</div>
+    </header>
+
+    <aside>
+      <div class="nav-label">// chapters</div>
+      <nav>
+        <ul>
+          <li><a href="#" data-section="s1" class="active"><span class="nav-num">01</span> The Three Insights</a></li>
+          <li><a href="#" data-section="s2"><span class="nav-num">02</span> George Boole</a></li>
+          <li><a href="#" data-section="s3"><span class="nav-num">03</span> Lewis Carroll</a></li>
+          <li><a href="#" data-section="s4"><span class="nav-num">04</span> Claude Shannon</a></li>
+          <li><a href="#" data-section="s5"><span class="nav-num">05</span> The Through-Line</a></li>
+        </ul>
+      </nav>
+      <hr class="nav-divider">
+      <div class="sidebar-foot">
+        Based on Bill Rapaport's<br>three Great Insights of CS.<br><br>
+        <span class="accent">Boole → Carroll → Shannon<br>→ every computer ever built.</span>
+      </div>
+    </aside>
+
+    <main>
+      <div class="bg-binary" id="bgBinary"></div>
+
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 1: The Three Insights
+      ════════════════════════════════════════════════════════════ -->
+      <section class="section active" id="s1">
+        <div class="section-header">
+          <div class="section-eyebrow">// great insights of computer science</div>
+          <h1 class="section-title">The Three Insights</h1>
+          <p class="section-subtitle">Every computer ever built rests on three conceptual discoveries — none of them required a machine. Just minds asking: <em>what is the absolute minimum needed to compute anything?</em></p>
+        </div>
+        <div class="section-body cols-2">
+          <div class="content-col">
+            <div class="accordion open" id="acc1a">
+              <div class="accordion-header" onclick="toggleAccordion('acc1a')">
+                <div class="accordion-icon">1</div>
+                <div class="accordion-title">Only two objects are needed</div>
+                <div class="accordion-badge">Boole · Shannon · Turing</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>All computable information can be represented using only <code>0</code> and <code>1</code> — or any bistable pair: on/off, magnetized/demagnetized, high voltage/low voltage.</p>
+                  <p>This is why computers can store text, images, music, and video using the same physical medium. <em>Two states is enough for everything.</em></p>
+                  <div class="quote">Leibniz saw it in 1703. Boole algebraized it in 1847. Shannon wired it into circuits in 1937.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc1b">
+              <div class="accordion-header" onclick="toggleAccordion('acc1b')">
+                <div class="accordion-icon">2</div>
+                <div class="accordion-title">Only five actions are needed</div>
+                <div class="accordion-badge">Alan Turing · 1936</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Turing proved that any algorithm — no matter how complex — can be expressed using only five primitive instructions on an imaginary tape machine:</p>
+                  <ul class="list-logic">
+                    <li><span class="bullet">→</span> move left one location</li>
+                    <li><span class="bullet">→</span> move right one location</li>
+                    <li><span class="bullet">→</span> read symbol at current location</li>
+                    <li><span class="bullet">→</span> print <code>0</code> at current location</li>
+                    <li><span class="bullet">→</span> print <code>1</code> at current location</li>
+                  </ul>
+                  <p>Modern CPUs execute billions of operations per second — but every one reduces to these five.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc1c">
+              <div class="accordion-header" onclick="toggleAccordion('acc1c')">
+                <div class="accordion-icon">3</div>
+                <div class="accordion-title">Only three ways to combine them</div>
+                <div class="accordion-badge">Böhm & Jacopini · 1966</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Complex programs are just simple instructions combined in three ways:</p>
+                  <ul class="list-logic">
+                    <li><span class="bullet">⟶</span> <strong>Sequence</strong> — first do this, then do that</li>
+                    <li><span class="bullet">⟶</span> <strong>Selection</strong> — IF such-and-such, THEN this, ELSE that</li>
+                    <li><span class="bullet">⟶</span> <strong>Repetition</strong> — WHILE such-and-such is true, DO this</li>
+                  </ul>
+                  <p>Every program ever written — from a calculator to an operating system to a neural network — is ultimately a combination of these three patterns.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="widget-panel">
+              <div class="widget-title">// interactive: flip the bits</div>
+              <p class="widget-desc">Click any bit to flip it. Watch how 8 switches encode 256 possible values — every ASCII character lives here.</p>
+              <div class="bit-row" id="bitRow"></div>
+              <div class="bit-result">
+                <div><span class="label">binary</span> <span class="val" id="bitBinary">00000000</span></div>
+                <div><span class="label">decimal</span> <span class="val gold" id="bitDecimal">0</span></div>
+                <div><span class="label">character</span> <span class="val" id="bitChar">NUL</span></div>
+              </div>
+              <p style="font-size: 0.7rem; color: var(--text-dim); font-family: var(--font-mono); line-height: 1.6;">Try: <span style="color: var(--mint)">01001000</span> = 'H' &nbsp; <span style="color: var(--mint)">01101001</span> = 'i'</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 2: George Boole
+      ════════════════════════════════════════════════════════════ -->
+      <section class="section" id="s2">
+        <div class="section-header">
+          <div class="section-eyebrow">// the algebraic foundation</div>
+          <h1 class="section-title">George Boole</h1>
+          <p class="section-subtitle">A self-taught mathematician who showed that logic — the art of correct reasoning — was secretly a branch of algebra. Every digital circuit in existence runs on his idea.</p>
+        </div>
+        <div class="section-body cols-2">
+          <div class="content-col">
+            <div class="person-meta">
+              <div class="person-avatar">B</div>
+              <div class="person-info">
+                <div class="name">George Boole</div>
+                <div class="dates">1815–1864 · Lincoln, England</div>
+              </div>
+            </div>
+
+            <p class="intro-text">In 1847, Boole published <em>The Mathematical Analysis of Logic</em> — a short book that changed everything. He showed that logical relationships could be expressed as algebraic equations, treating <code>1</code> as "the universe of things" and <code>0</code> as "nothing." His 1854 follow-up, <em>An Investigation of the Laws of Thought</em>, completed the system.</p>
+
+            <div class="accordion" id="acc2a">
+              <div class="accordion-header" onclick="toggleAccordion('acc2a')">
+                <div class="accordion-icon">?</div>
+                <div class="accordion-title">What's a syllogism — and why does it matter?</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>A syllogism is a two-premise argument: <em>"All men are mortal. Socrates is a man. Therefore Socrates is mortal."</em></p>
+                  <p>Boole showed this could be written as equations: eliminate the "middle term" (man), solve for the subject (Socrates). The steps are <em>mechanical</em> — no insight required, just symbol manipulation.</p>
+                  <div class="quote">"The mechanical nature of these steps is apparent." — Boole</div>
+                  <p>That mechanizability is the key: if logic is algebra, a machine can do it.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc2b">
+              <div class="accordion-header" onclick="toggleAccordion('acc2b')">
+                <div class="accordion-icon">→</div>
+                <div class="accordion-title">Boolean algebra → digital circuits</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Boole's algebra has three fundamental operations: <strong>AND</strong> (<code>·</code>), <strong>OR</strong> (<code>+</code>), <strong>NOT</strong> (<code>¬</code>). These correspond exactly to ways transistors can be wired together.</p>
+                  <p>AND gate: current flows only if <em>both</em> inputs are on. OR gate: current flows if <em>either</em> input is on. NOT gate: inverts the signal.</p>
+                  <p>Chain a few million of them together — that's a CPU.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc2c">
+              <div class="accordion-header" onclick="toggleAccordion('acc2c')">
+                <div class="accordion-icon">∴</div>
+                <div class="accordion-title">Why this was revolutionary</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>For 2,000 years, logic had been written in prose — Aristotle's syllogisms, medieval scholasticism. Boole turned it into <em>math</em>.</p>
+                  <p>Once logic was symbolic, deduction became calculation. And anything that can be calculated can — eventually — be calculated by a machine.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="widget-panel" id="gateWidget">
+              <div class="widget-title">// interactive: logic gate simulator</div>
+              <p class="widget-desc">Toggle inputs A and B. Pick a gate. Watch Boolean algebra flow through wires — the same pattern that lives inside every CPU.</p>
+              <div class="gate-sim">
+                <div class="gate-inputs">
+                  <div class="gate-toggle" id="gateA" onclick="toggleGateInput('A')">
+                    <div class="toggle-label">INPUT A</div>
+                    <div class="toggle-val" id="gateAVal">0</div>
+                  </div>
+                  <div class="gate-toggle" id="gateB" onclick="toggleGateInput('B')">
+                    <div class="toggle-label">INPUT B</div>
+                    <div class="toggle-val" id="gateBVal">0</div>
+                  </div>
+                </div>
+                <div class="gate-selector">
+                  <button class="gate-btn active" data-gate="AND" onclick="selectGate('AND')">AND</button>
+                  <button class="gate-btn" data-gate="OR" onclick="selectGate('OR')">OR</button>
+                  <button class="gate-btn" data-gate="XOR" onclick="selectGate('XOR')">XOR</button>
+                  <button class="gate-btn" data-gate="NOT" onclick="selectGate('NOT')">NOT&nbsp;A</button>
+                </div>
+                <div class="gate-visual">
+                  <svg viewBox="0 0 280 70" id="gateSvg" preserveAspectRatio="xMidYMid meet">
+                    <!-- Input wires -->
+                    <path id="wireA" class="wire" d="M 10 22 L 95 22"/>
+                    <path id="wireB" class="wire" d="M 10 48 L 95 48"/>
+                    <!-- Output wire -->
+                    <path id="wireOut" class="wire" d="M 175 35 L 270 35"/>
+                    <!-- Gate body (replaced by JS) -->
+                    <g id="gateBody"></g>
+                    <!-- Pin labels -->
+                    <text x="6" y="18" class="pin-label">A</text>
+                    <text x="6" y="44" class="pin-label">B</text>
+                    <text x="266" y="31" class="pin-label" text-anchor="end">Y</text>
+                  </svg>
+                </div>
+                <div class="gate-output" id="gateOutput">
+                  <div class="out-label">OUTPUT</div>
+                  <div class="out-val" id="gateOutVal">0</div>
+                  <div class="out-eq" id="gateOutEq">A AND B = 0 (FALSE)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 3: Lewis Carroll
+      ════════════════════════════════════════════════════════════ -->
+      <section class="section" id="s3">
+        <div class="section-header">
+          <div class="section-eyebrow">// the hidden pioneer</div>
+          <h1 class="section-title">Lewis Carroll's Hidden Legacy</h1>
+          <p class="section-subtitle">The author of <em>Alice in Wonderland</em> was Charles Dodgson — a Victorian mathematics lecturer who invented proof procedures still used in AI today. A century after his death.</p>
+        </div>
+        <div class="section-body cols-2">
+          <div class="content-col">
+            <div class="person-meta">
+              <div class="person-avatar">D</div>
+              <div class="person-info">
+                <div class="name">Charles Lutwidge Dodgson</div>
+                <div class="dates">1832–1898 · Christ Church, Oxford</div>
+              </div>
+            </div>
+
+            <p class="intro-text">Carroll absorbed Boole's framework and pushed it further — toward systematic <em>mechanical procedures</em> for verifying logical arguments. His reputation as a children's author meant his logic work was dismissed in his lifetime. Only in the 20th century did computing catch up to what he'd already found.</p>
+
+            <div class="accordion" id="acc3a">
+              <div class="accordion-header" onclick="toggleAccordion('acc3a')">
+                <div class="accordion-icon">▦</div>
+                <div class="accordion-title">Carroll Diagrams — scalable visual logic</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <div class="carroll-diagram">
+                    <div class="cd-cell filled">AB</div>
+                    <div class="cd-cell">A¬B</div>
+                    <div class="cd-cell">¬AB</div>
+                    <div class="cd-cell filled">¬A¬B</div>
+                  </div>
+                  <p>Carroll improved on Venn diagrams by making his grids <em>self-similar</em> — each cell can subdivide recursively into the same pattern. This makes them easy to extend to many variables.</p>
+                  <p>The self-similarity is algorithmically important: it mirrors how computers process nested conditions. Each cell represents a class of things; a filled cell means that class exists.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc3b">
+              <div class="accordion-header" onclick="toggleAccordion('acc3b')">
+                <div class="accordion-icon">⌥</div>
+                <div class="accordion-title">The Method of Trees — an early proof algorithm</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Carroll's most significant contribution: to prove a set of premises leads to a contradiction, <em>assume they're consistent</em>, then follow the logical branches until you hit an impossible state.</p>
+                  <p>This is identical to the "Semantic Tableaux" method published in 1955 by Dutch logician E.W. Beth — and to how modern SAT solvers work. Carroll was there in 1896.</p>
+                  <div class="quote">"The earliest modern use of a truth tree employed to reason efficiently in the logic of classes."</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc3c">
+              <div class="accordion-header" onclick="toggleAccordion('acc3c')">
+                <div class="accordion-icon">⊕</div>
+                <div class="accordion-title">Binary resolution — the core of automated deduction</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Carroll's inference rule, "underscoring": take two propositions, find a term that appears with opposite signs in each, and combine them into a new proposition without that term.</p>
+                  <p>This is <em>binary resolution</em> — the most important inference rule in automated theorem proving, foundational to AI logic programming and Prolog. Carroll had it 70 years early.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc3d">
+              <div class="accordion-header" onclick="toggleAccordion('acc3d')">
+                <div class="accordion-icon">≈</div>
+                <div class="accordion-title">Unit preference — proto-heuristic search</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>When building his proof trees, Carroll preferentially selected the simplest propositions first — those with the fewest terms. This prevents the search from going down unproductive branches.</p>
+                  <p>Modern AI search and theorem provers use exactly this strategy, now called <em>"unit preference."</em> Carroll was applying it by hand in the 1890s.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="widget-panel" id="treeWidget">
+              <div class="widget-title">// interactive: truth tree (Carroll's method)</div>
+              <p class="widget-desc">Carroll's trick: assume the claim, then deduce step-by-step. If you hit a contradiction, the original claim is impossible. If not — it stands.</p>
+              <div class="tree-select">
+                <button class="tree-option active" data-tree="0" onclick="selectTree(0)">All A are B. All B are C.<br><span style="opacity: 0.7;">Therefore — all A are C?</span></button>
+                <button class="tree-option" data-tree="1" onclick="selectTree(1)">No birds are fish. All fish breathe water.<br><span style="opacity: 0.7;">Therefore — some birds breathe water?</span></button>
+                <button class="tree-option" data-tree="2" onclick="selectTree(2)">All cats are animals. Some animals are not cats.<br><span style="opacity: 0.7;">Are these compatible?</span></button>
+              </div>
+              <div class="tree-display" id="treeDisplay"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 4: Claude Shannon
+      ════════════════════════════════════════════════════════════ -->
+      <section class="section" id="s4">
+        <div class="section-header">
+          <div class="section-eyebrow">// the bridge builder</div>
+          <h1 class="section-title">Claude Shannon</h1>
+          <p class="section-subtitle">Shannon did two impossible things: he proved Boole's algebra could design electrical circuits, and he invented the mathematical theory of information itself. Every digital network alive today runs on both.</p>
+        </div>
+        <div class="section-body cols-2">
+          <div class="content-col">
+            <div class="person-meta">
+              <div class="person-avatar">S</div>
+              <div class="person-info">
+                <div class="name">Claude Elwood Shannon</div>
+                <div class="dates">1916–2001 · MIT &amp; Bell Labs</div>
+              </div>
+            </div>
+
+            <p class="intro-text">In 1937, as a 21-year-old MIT master's student, Shannon proved that Boolean algebra maps directly onto electrical relay circuits — meaning any logical operation Boole could describe, an engineer could build. In 1948, his paper <em>A Mathematical Theory of Communication</em> defined the bit and established the theoretical limits of information transmission.</p>
+
+            <div class="accordion" id="acc4a">
+              <div class="accordion-header" onclick="toggleAccordion('acc4a')">
+                <div class="accordion-icon">b</div>
+                <div class="accordion-title">What is a "bit"? — Shannon coined the term</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Shannon defined a <em>bit</em> (binary digit) as the fundamental unit of information — the answer to a single yes/no question. It connects directly back to Boole: <code>0</code> or <code>1</code>, false or true.</p>
+                  <p>A bit doesn't care what it physically represents. It can be a voltage, a magnetic field, a pulse of light, a hole in a punch card. <em>The abstraction is what made digital technology universal.</em></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc4b">
+              <div class="accordion-header" onclick="toggleAccordion('acc4b')">
+                <div class="accordion-icon">~</div>
+                <div class="accordion-title">Signal and noise — the fundamental problem</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Any channel that carries information also carries noise — random interference that corrupts the signal. Shannon's key insight: you can <em>always</em> find a way to encode information so the receiver can perfectly reconstruct it, as long as the signal is stronger than the noise.</p>
+                  <p>This theorem underpins every cell phone call, every Wi-Fi packet, every streaming video — and every error-correcting code that makes reliable digital storage possible.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion" id="acc4c">
+              <div class="accordion-header" onclick="toggleAccordion('acc4c')">
+                <div class="accordion-icon">⚡</div>
+                <div class="accordion-title">Boole + circuits = the digital age</div>
+                <div class="accordion-chevron">▼</div>
+              </div>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Shannon's 1937 thesis showed a circuit with a switch is equivalent to a logical proposition. Two switches in series = AND. Two switches in parallel = OR. An inverted switch = NOT.</p>
+                  <p>This meant hardware could be designed using <em>algebra</em>, not intuition — and the same logical analysis could optimize circuits automatically. It's why modern chip design uses formal verification tools built on the logic Boole wrote down in 1847.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="widget-panel" id="encoderWidget">
+              <div class="widget-title">// interactive: bits encode messages</div>
+              <p class="widget-desc">Coming next chunk — toggle 2 bits, watch them encode 4 distinct messages. Shannon's insight made tangible.</p>
+              <div class="widget-placeholder">
+                <div class="ph-title">// awaiting wire-up</div>
+                n bits → 2ⁿ possible messages
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════════
+           SECTION 5: The Through-Line
+      ════════════════════════════════════════════════════════════ -->
+      <section class="section" id="s5">
+        <div class="section-header">
+          <div class="section-eyebrow">// the intellectual chain</div>
+          <h1 class="section-title">The Through-Line</h1>
+          <p class="section-subtitle">From a schoolteacher's algebra book in 1847 to AI systems reasoning through millions of propositions per second — the chain of ideas is remarkably unbroken. Click each node to expand it.</p>
+        </div>
+        <div class="section-body cols-3-2">
+          <div class="content-col">
+            <div class="timeline" id="timeline">
+              <div class="timeline-item open" onclick="toggleTimeline(this)">
+                <div class="timeline-year">1847</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">The Mathematical Analysis of Logic <span class="tl-person">Boole</span></div>
+                  <div class="timeline-body"><div class="timeline-body-inner">Boole publishes his first book showing that logical relationships are expressible as algebraic equations, with <code>0</code> and <code>1</code> as operands. <em>Deduction becomes symbol manipulation</em> — the conceptual seed of all that follows.</div></div>
+                </div>
+              </div>
+              <div class="timeline-item" onclick="toggleTimeline(this)">
+                <div class="timeline-year">1896</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Symbolic Logic <span class="tl-person">Carroll</span></div>
+                  <div class="timeline-body"><div class="timeline-body-inner">Charles Dodgson (Lewis Carroll) publishes <em>Symbolic Logic</em>, containing Carroll diagrams, the Method of Trees, binary resolution, and unit preference strategies. His work is largely ignored — he's known as a children's author, not a logician.</div></div>
+                </div>
+              </div>
+              <div class="timeline-item" onclick="toggleTimeline(this)">
+                <div class="timeline-year">1937</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Boolean Algebra = Relay Circuits <span class="tl-person">Shannon</span></div>
+                  <div class="timeline-body"><div class="timeline-body-inner">Shannon's MIT master's thesis proves Boole's algebra maps exactly onto electrical relay circuits. <em>Logic becomes buildable.</em> This paper is sometimes called "the most important master's thesis of the 20th century."</div></div>
+                </div>
+              </div>
+              <div class="timeline-item" onclick="toggleTimeline(this)">
+                <div class="timeline-year">1948</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">A Mathematical Theory of Communication <span class="tl-person">Shannon</span></div>
+                  <div class="timeline-body"><div class="timeline-body-inner">Shannon defines the bit, establishes the theoretical maximum information capacity of any channel (Shannon's theorem), and creates the mathematical foundation for all digital communication. <em>The Information Age begins as an equation.</em></div></div>
+                </div>
+              </div>
+              <div class="timeline-item" onclick="toggleTimeline(this)">
+                <div class="timeline-year">1955</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Semantic Tableaux <span class="tl-person">Beth</span></div>
+                  <div class="timeline-body"><div class="timeline-body-inner">Dutch logician E.W. Beth publishes his method of Semantic Tableaux — a systematic tree-based proof procedure. Researchers later realize it's identical to what Carroll did in 1896. <em>Beth reinvented the wheel without knowing Carroll's wheel existed.</em></div></div>
+                </div>
+              </div>
+              <div class="timeline-item" onclick="toggleTimeline(this)">
+                <div class="timeline-year">1965+</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Automated Theorem Proving &amp; Prolog <span class="tl-person">Robinson · Kowalski</span></div>
+                  <div class="timeline-body"><div class="timeline-body-inner">Binary resolution — Carroll's "underscoring" rule — becomes the engine of automated theorem provers. Prolog (1972) builds a programming language entirely on it. Modern AI reasoning, SAT solvers, and formal verification all trace their lineage here.</div></div>
+                </div>
+              </div>
+              <div class="timeline-item" onclick="toggleTimeline(this)">
+                <div class="timeline-year">1985</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Carroll's Puzzles, Run Through AI <span class="tl-person">Lusk &amp; Overbeek</span></div>
+                  <div class="timeline-body"><div class="timeline-body-inner">Ewing Lusk and Ross Overbeek adapt one of Carroll's original logical puzzle problems to run through an automated reasoning program — a century after Carroll devised it. <em>The AI solves it the same way Carroll did, step for step.</em></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-col">
+            <div class="callout">
+              <p><strong>The tragedy and the vindication:</strong> Carroll's logical innovations were ignored because the world saw him only as the author of <em>Alice in Wonderland</em>. His <em>Symbolic Logic</em> was treated as an amateur's curiosity. Only in the 20th century did computing catch up to ideas he'd fully worked out in the 1890s.</p>
+            </div>
+
+            <div class="chain-box">
+              <div class="chain-label">// the clean chain</div>
+              <div class="chain-row"><span class="who gold">Boole</span> algebraized logic — made deduction symbolic and mechanical</div>
+              <div class="chain-arrow">↓</div>
+              <div class="chain-row"><span class="who mint">Carroll</span> built tree proofs, binary resolution, search heuristics</div>
+              <div class="chain-arrow">↓</div>
+              <div class="chain-row"><span class="who gold">Shannon</span> wired Boole's algebra into circuits + defined information</div>
+              <div class="chain-arrow">↓</div>
+              <div class="chain-row"><span class="who mint">Today</span> every computer, AI, and network runs on all three</div>
+            </div>
+
+            <div class="quote-box">
+              <span class="qb-label">// rapaport's note</span>
+              "Several of the methods Dodgson used in his <em>Symbolic Logic</em> contain kernels of concepts and techniques that have been employed in automatic theorem proving beginning in the twentieth century."
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Section navigation
+    const navLinks = document.querySelectorAll('nav a[data-section]');
+    const sections = document.querySelectorAll('.section');
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.dataset.section;
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        sections.forEach(s => s.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    // Accordion toggle
+    function toggleAccordion(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
+
+    // Timeline toggle
+    function toggleTimeline(el) {
+      el.classList.toggle('open');
+    }
+
+    // ── Bit flipper widget ───────────────────────────────
+    const bitState = [0,0,0,0,0,0,0,0];
+    const bitRow = document.getElementById('bitRow');
+    const ctrlNames = ['NUL','SOH','STX','ETX','EOT','ENQ','ACK','BEL','BS','TAB','LF','VT','FF','CR','SO','SI','DLE','DC1','DC2','DC3','DC4','NAK','SYN','ETB','CAN','EM','SUB','ESC','FS','GS','RS','US'];
+
+    bitState.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'bit-btn';
+      btn.textContent = '0';
+      btn.addEventListener('click', () => {
+        bitState[i] = bitState[i] ? 0 : 1;
+        btn.textContent = bitState[i];
+        btn.classList.toggle('on', !!bitState[i]);
+        updateBitDisplay();
+      });
+      bitRow.appendChild(btn);
+    });
+
+    function updateBitDisplay() {
+      const bin = bitState.join('');
+      const dec = parseInt(bin, 2);
+      document.getElementById('bitBinary').textContent = bin;
+      document.getElementById('bitDecimal').textContent = dec;
+      let ch;
+      if (dec < 32) ch = ctrlNames[dec];
+      else if (dec === 127) ch = 'DEL';
+      else if (dec < 127) ch = "'" + String.fromCharCode(dec) + "'";
+      else ch = '— (extended)';
+      document.getElementById('bitChar').textContent = ch;
+    }
+    updateBitDisplay();
+
+    // ── Gate simulator widget ─────────────────────────────
+    let gateA = false, gateB = false, currentGate = 'AND';
+
+    const gateShapes = {
+      AND: '<path class="gate-shape" d="M 95 12 L 130 12 A 23 23 0 0 1 130 58 L 95 58 Z"/>',
+      OR:  '<path class="gate-shape" d="M 95 12 Q 110 35 95 58 Q 130 58 153 35 Q 130 12 95 12 Z"/>',
+      XOR: '<path class="gate-shape" d="M 95 12 Q 110 35 95 58 Q 130 58 153 35 Q 130 12 95 12 Z"/><path class="wire" d="M 88 12 Q 103 35 88 58" stroke="var(--gold)" stroke-width="1.5" fill="none"/>',
+      NOT: '<path class="gate-shape" d="M 95 12 L 95 58 L 145 35 Z"/><circle class="gate-shape" cx="152" cy="35" r="5"/>'
+    };
+
+    const gateLabels = {
+      AND: '<text x="113" y="38" class="gate-label" text-anchor="middle">&amp;</text>',
+      OR:  '<text x="120" y="38" class="gate-label" text-anchor="middle">≥1</text>',
+      XOR: '<text x="120" y="38" class="gate-label" text-anchor="middle">=1</text>',
+      NOT: '<text x="113" y="38" class="gate-label" text-anchor="middle">1</text>'
+    };
+
+    function toggleGateInput(inp) {
+      if (inp === 'A') {
+        gateA = !gateA;
+        document.getElementById('gateA').classList.toggle('true', gateA);
+        document.getElementById('gateAVal').textContent = gateA ? '1' : '0';
+      } else {
+        gateB = !gateB;
+        document.getElementById('gateB').classList.toggle('true', gateB);
+        document.getElementById('gateBVal').textContent = gateB ? '1' : '0';
+      }
+      updateGate();
+    }
+
+    function selectGate(gate) {
+      currentGate = gate;
+      document.querySelectorAll('.gate-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.gate === gate);
+      });
+      updateGate();
+    }
+
+    function computeGate() {
+      switch (currentGate) {
+        case 'AND': return gateA && gateB;
+        case 'OR':  return gateA || gateB;
+        case 'XOR': return gateA !== gateB;
+        case 'NOT': return !gateA;
+      }
+    }
+
+    function updateGate() {
+      const result = computeGate();
+      const a = gateA ? 1 : 0, b = gateB ? 1 : 0, r = result ? 1 : 0;
+
+      // Render gate body
+      document.getElementById('gateBody').innerHTML = gateShapes[currentGate] + gateLabels[currentGate];
+
+      // Wire B is hidden/dim for NOT
+      const wireB = document.getElementById('wireB');
+      const gateBToggle = document.getElementById('gateB');
+      if (currentGate === 'NOT') {
+        wireB.style.opacity = '0.2';
+        gateBToggle.style.opacity = '0.4';
+        gateBToggle.style.pointerEvents = 'none';
+      } else {
+        wireB.style.opacity = '1';
+        gateBToggle.style.opacity = '1';
+        gateBToggle.style.pointerEvents = 'auto';
+      }
+
+      // Live wires
+      document.getElementById('wireA').classList.toggle('live', gateA);
+      wireB.classList.toggle('live', gateB && currentGate !== 'NOT');
+      document.getElementById('wireOut').classList.toggle('live', result);
+
+      // Output panel
+      const out = document.getElementById('gateOutput');
+      out.classList.toggle('true', result);
+      document.getElementById('gateOutVal').textContent = r;
+
+      // Equation text
+      let eq;
+      if (currentGate === 'NOT') eq = `NOT ${a} = ${r} (${result ? 'TRUE' : 'FALSE'})`;
+      else eq = `${a} ${currentGate} ${b} = ${r} (${result ? 'TRUE' : 'FALSE'})`;
+      document.getElementById('gateOutEq').textContent = eq;
+    }
+    updateGate();
+
+    // ── Truth tree widget ─────────────────────────────────
+    const trees = [
+      {
+        question: 'Test the syllogism: "All A are B. All B are C. ∴ All A are C."',
+        steps: [
+          { type: 'premise',       tag: 'PREMISE 1',   text: 'All A are B  <code>(A → B)</code>' },
+          { type: 'premise',       tag: 'PREMISE 2',   text: 'All B are C  <code>(B → C)</code>' },
+          { type: 'branch',        tag: 'REDUCTIO',    text: 'Assume the conclusion is false: there exists some <code>x</code> in A but not in C.' },
+          { type: 'derive',        tag: 'STEP',        text: 'From P1: x is in A, so x must be in B.' },
+          { type: 'derive',        tag: 'STEP',        text: 'From P2: x is in B, so x must be in C.' },
+          { type: 'contradiction', tag: 'CONTRADICTION', text: 'But we assumed x is <em>not</em> in C. ✗ Impossible.' }
+        ],
+        result: { kind: 'valid', label: 'VALID SYLLOGISM', text: 'The assumption breaks. Therefore: All A are C is proven.' }
+      },
+      {
+        question: 'Test: "No birds are fish. All fish breathe water. ∴ Some birds breathe water."',
+        steps: [
+          { type: 'premise',       tag: 'PREMISE 1',   text: 'No birds are fish  <code>(Bird → ¬Fish)</code>' },
+          { type: 'premise',       tag: 'PREMISE 2',   text: 'All fish breathe water  <code>(Fish → BreathesWater)</code>' },
+          { type: 'branch',        tag: 'TEST',        text: 'Try to find a bird that breathes water using only these premises.' },
+          { type: 'derive',        tag: 'STEP',        text: 'P1 tells us nothing positive about birds — only what they aren\'t.' },
+          { type: 'derive',        tag: 'STEP',        text: 'P2 only tells us about fish — and birds are not fish.' },
+          { type: 'derive',        tag: 'STEP',        text: 'No chain of reasoning connects "Bird" to "BreathesWater".' }
+        ],
+        result: { kind: 'invalid', label: 'INVALID INFERENCE', text: 'The conclusion is not entailed by the premises. The argument fails.' }
+      },
+      {
+        question: 'Are these statements compatible? "All cats are animals. Some animals are not cats."',
+        steps: [
+          { type: 'premise',       tag: 'STATEMENT 1', text: 'All cats are animals  <code>(Cat → Animal)</code>' },
+          { type: 'premise',       tag: 'STATEMENT 2', text: 'Some animals are not cats  <code>(∃x: Animal(x) ∧ ¬Cat(x))</code>' },
+          { type: 'branch',        tag: 'WITNESS',     text: 'Pick such an animal — call it <code>x</code> (e.g. a dog).' },
+          { type: 'derive',        tag: 'CHECK',       text: 'x is an Animal ✓ and x is not a Cat ✓. Both consistent with statement 2.' },
+          { type: 'derive',        tag: 'CHECK',       text: 'Statement 1 only constrains cats — it says nothing about non-cats like x.' },
+          { type: 'derive',        tag: 'CHECK',       text: 'No tree branch closes. No contradiction surfaces.' }
+        ],
+        result: { kind: 'valid', label: 'CONSISTENT', text: 'The statements coexist peacefully — they describe different parts of the animal kingdom.' }
+      }
+    ];
+
+    let currentTree = 0;
+
+    function selectTree(idx) {
+      currentTree = idx;
+      document.querySelectorAll('.tree-option').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+      });
+      renderTree();
+    }
+
+    function renderTree() {
+      const t = trees[currentTree];
+      const d = document.getElementById('treeDisplay');
+      let html = `<div class="tree-question">${t.question}</div>`;
+      t.steps.forEach((s, i) => {
+        const indent = (s.type === 'derive') ? 'indent-1' : '';
+        html += `
+          <div class="tree-step ${s.type} ${indent}" style="animation-delay: ${i * 0.08}s">
+            <div class="step-num">${i + 1}</div>
+            <div class="step-body">
+              <div class="step-tag">${s.tag}</div>
+              <div class="step-text">${s.text}</div>
+            </div>
+          </div>`;
+      });
+      const r = t.result;
+      html += `
+        <div class="tree-result ${r.kind === 'valid' ? 'valid' : 'invalid'}" style="animation-delay: ${t.steps.length * 0.08 + 0.1}s">
+          <span class="result-label">${r.label}</span>
+          ${r.text}
+        </div>`;
+      d.innerHTML = html;
+      // Reset scroll
+      d.scrollTop = 0;
+    }
+    renderTree();
+
+    // ── Background binary decoration ─────────────────────
+    const bgBinary = document.getElementById('bgBinary');
+    let bg = '';
+    for (let i = 0; i < 14; i++) {
+      let row = '';
+      for (let j = 0; j < 90; j++) {
+        row += Math.random() > 0.5 ? '1' : '0';
+        row += ' ';
+      }
+      bg += `<div style="position: absolute; top: ${(i/14)*100}%; left: 0; white-space: nowrap;">${row}</div>`;
+    }
+    bgBinary.innerHTML = bg;
+  </script>
+</body>
+</html>

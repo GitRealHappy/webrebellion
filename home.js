@@ -13,31 +13,38 @@
   const cardMarkup = STORE.products.map((product) => {
     const tbaClass = product.isTba ? " is-tba" : "";
     const unavailableClass = product.isUnavailable ? " is-unavailable" : "";
+
     const titleHtml = product.isTba
-      ? `<h3><span class="text-blur-illegible" aria-hidden="true">${escapeHtml(product.title)}</span><span class="sr-only">${escapeHtml(product.title)}</span></h3>`
-      : `<h3>${escapeHtml(product.title)}</h3>`;
-    const thumbHtml = product.isTba
-      ? `<p><span class="text-blur-illegible" aria-hidden="true">${escapeHtml(product.thumbnailLabel)}</span><span class="sr-only">${escapeHtml(product.thumbnailLabel)}</span></p>`
-      : `<p>${escapeHtml(product.thumbnailLabel)}</p>`;
+      ? `<h3 class="card-title"><span class="text-blur-illegible" aria-hidden="true">${escapeHtml(product.title)}</span><span class="sr-only">${escapeHtml(product.title)}</span></h3>`
+      : `<h3 class="card-title">${escapeHtml(product.title)}</h3>`;
+
+    const idHtml = product.isTba
+      ? `<span class="card-id"><span class="text-blur-illegible" aria-hidden="true">${escapeHtml(product.thumbnailLabel)}</span><span class="sr-only">${escapeHtml(product.thumbnailLabel)}</span></span>`
+      : `<span class="card-id">${escapeHtml(product.thumbnailLabel)}</span>`;
+
+    const statusLabel = product.isUnavailable ? (product.isTba ? "Locked" : "Standby") : "Active";
 
     const ctaHtml = product.isUnavailable
       ? (product.substackUrl
-          ? `<a class="btn btn-ghost" href="${escapeAttr(product.substackUrl)}" target="_blank" rel="noopener noreferrer">Get notified on Substack</a>`
-          : `<span class="btn btn-ghost btn-locked" role="button" aria-disabled="true">Coming soon</span>`)
-      : `<a class="btn btn-ghost" href="product.html?id=${encodeURIComponent(product.id)}" aria-label="View details for ${escapeAttr(product.title)}">View details</a>`;
+          ? `<a class="btn-ghost" href="${escapeAttr(product.substackUrl)}" target="_blank" rel="noopener noreferrer">Notify me →</a>`
+          : product.isTba
+            ? `<span class="btn-locked" role="button" aria-disabled="true">[ Encrypted ]</span>`
+            : `<span class="btn-locked" role="button" aria-disabled="true">[ Standby ]</span>`)
+      : (product.externalUrl
+          ? `<a class="btn-ghost" href="${escapeAttr(product.externalUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeAttr(product.title)} (opens in new tab)">Open →</a>`
+          : `<a class="btn-ghost" href="product.html?id=${encodeURIComponent(product.id)}" aria-label="View details for ${escapeAttr(product.title)}">View →</a>`);
 
     return `
       <article class="product-card${tbaClass}${unavailableClass}">
-        <div class="thumb">
-          ${thumbHtml}
-        </div>
-        <div class="card-body">
-          ${titleHtml}
-          <p class="description">${escapeHtml(product.shortDescription)}</p>
-          <p class="price">${escapeHtml(product.price)}</p>
-          <div class="card-actions">
-            ${ctaHtml}
-          </div>
+        <header class="card-head">
+          ${idHtml}
+          <span class="card-status"><span class="dot" aria-hidden="true"></span>${escapeHtml(statusLabel)}</span>
+        </header>
+        ${titleHtml}
+        <p class="card-desc">${escapeHtml(product.shortDescription)}</p>
+        <div class="card-foot">
+          <span class="card-price">${escapeHtml(product.price)}</span>
+          ${ctaHtml}
         </div>
       </article>
     `;
