@@ -5,8 +5,8 @@ window.STORE = {
     {
       id: "boolean-mode",
       title: "Boolean Mode",
-      shortDescription: "A free field primer on thinking in true/false. The logic substrate beneath every prompt, every system, every rebellion.",
-      longDescription: "Boolean Mode is an introductory computer-science primer on thinking in true and false. Free, open, and the logic substrate underneath every prompt you will ever write.",
+      shortDescription: "Just for fun: a plain-language tour of how we bridged natural language and binary code — the gap between how humans think and how machines do.",
+      longDescription: "Boolean Mode is our just-for-fun explanation of how natural language and binary code got connected. Somewhere between George Boole scribbling algebra and a transistor switching on, human thought got translated into machine logic. This free interactive tour walks that whole arc — no prior experience needed.",
       price: "$0",
       videoUrl: null,
       stripeUrl: "#",
