@@ -66,9 +66,11 @@ window.STORE = {
       price: "$27",
       videoUrl: "https://www.youtube.com/embed/ysz5S6PUM-U",
       stripeUrl: "https://buy.stripe.com/your-tao-ebook-link",
+      substackUrl: "https://substack.com/@unblockedcarver",
       thumbnailLabel: "MOD-03 // CODEX",
       isTba: false,
-      isUnavailable: true,
+      isUnavailable: false,
+      comingSoon: true,
       features: [
         "How to chain prompts without losing thread",
         "When to constrain vs. when to expand scope",

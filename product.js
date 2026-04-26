@@ -55,11 +55,14 @@
 
   const featureMarkup = product.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join("");
 
-  const ctaBlock = product.isUnavailable
-    ? (product.substackUrl
-        ? `<a class="btn-primary spec-cta" href="${escapeAttr(product.substackUrl)}" target="_blank" rel="noopener noreferrer">Notify on uplink →</a>`
-        : `<span class="btn-locked spec-cta" role="button" aria-disabled="true">[ ${product.isTba ? "Encrypted" : "Standby"} ]</span>`)
-    : `<a class="btn-primary spec-cta" href="${escapeAttr(product.stripeUrl)}" target="_blank" rel="noopener noreferrer">Acquire module →</a>`;
+  const ctaBlock = product.comingSoon
+    ? `<span class="btn-locked spec-cta" role="button" aria-disabled="true">[ Coming soon ]</span>
+       <p class="cta-subscribe"><a href="${escapeAttr(product.substackUrl)}" target="_blank" rel="noopener noreferrer">Subscribe to be the first to know →</a></p>`
+    : product.isUnavailable
+      ? (product.substackUrl
+          ? `<a class="btn-primary spec-cta" href="${escapeAttr(product.substackUrl)}" target="_blank" rel="noopener noreferrer">Notify on uplink →</a>`
+          : `<span class="btn-locked spec-cta" role="button" aria-disabled="true">[ ${product.isTba ? "Encrypted" : "Standby"} ]</span>`)
+      : `<a class="btn-primary spec-cta" href="${escapeAttr(product.stripeUrl)}" target="_blank" rel="noopener noreferrer">Acquire module →</a>`;
 
   target.innerHTML = `
     <article class="product-detail">

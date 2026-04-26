@@ -743,6 +743,19 @@ p { margin: 0; }
   margin-top: 0.5rem;
 }
 
+.cta-subscribe {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.cta-subscribe a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.cta-subscribe a:hover {
+  text-decoration: underline;
+}
+
 /* 404 / not-found card */
 .not-found {
   padding: 2rem;
