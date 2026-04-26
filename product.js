@@ -40,18 +40,26 @@
     ? `<h1 class="detail-title"><span class="text-blur-illegible" aria-hidden="true">${escapeHtml(product.title)}</span><span class="sr-only">${escapeHtml(product.title)}</span></h1>`
     : `<h1 class="detail-title">${escapeHtml(product.title)}</h1>`;
 
-  const mediaBlock = product.videoUrl
-    ? `<div class="video-shell">
-         <iframe
-           src="${escapeAttr(product.videoUrl)}"
-           title="${escapeAttr(product.title)} demo video"
-           loading="lazy"
-           referrerpolicy="strict-origin-when-cross-origin"
-           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-           allowfullscreen>
-         </iframe>
-       </div>`
-    : `<div class="video-shell empty" role="img" aria-label="Video not yet available">// Transmission pending</div>`;
+  const isRemoteVideo = /^https?:\/\//i.test(product.videoUrl || "");
+  const mediaBlock = !product.videoUrl
+    ? `<div class="video-shell empty" role="img" aria-label="Video not yet available">// Transmission pending</div>`
+    : isRemoteVideo
+      ? `<div class="video-shell">
+           <iframe
+             src="${escapeAttr(product.videoUrl)}"
+             title="${escapeAttr(product.title)} demo video"
+             loading="lazy"
+             referrerpolicy="strict-origin-when-cross-origin"
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+             allowfullscreen>
+           </iframe>
+         </div>`
+      : `<div class="video-shell">
+           <video controls playsinline title="${escapeAttr(product.title)} demo video">
+             <source src="${escapeAttr(product.videoUrl)}" type="video/quicktime">
+             Your browser does not support embedded video.
+           </video>
+         </div>`;
 
   const featureMarkup = product.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join("");
 
