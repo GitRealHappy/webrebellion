@@ -8,7 +8,7 @@ window.STORE = {
       shortDescription: "A prompt sequence that compiles a deployable site in a single session. No frameworks to learn, no monthly hosting bills. You ship; you own.",
       longDescription: "A highly efficient prompt sequence engineered for speed and clarity. Non-developers design, build, and deploy functional websites that look good on desktop and mobile. No hosting fees, no waiting weeks to ship. A subscription to Claude Code or Cursor is recommended for maximal use of The One Hour Web Designer.",
       price: "$47",
-      videoUrl: "https://www.youtube.com/embed/owT1I27X-6M?si=lJ02XByKFWW7nTXt",
+      videoUrl: "https://www.youtube.com/embed/6bkNRnsaoho?si=HTszk73tb8CumkfI",
       stripeUrl: "https://buy.stripe.com/5kQeV64NK0vl7MZ19t6oo0a",
       thumbnailLabel: "MOD-01 // BUILDER",
       isTba: false,
@@ -23,8 +23,8 @@ window.STORE = {
     {
       id: "purpose-driven-value-creator",
       title: "The Purpose-Driven Value Creator",
-      shortDescription: "A prompt that prompts you. Lock in offer, proof, and narrative before a single line of code — every page selling the same clear promise.",
-      longDescription: "A prompt that prompts you. Align your offer, proof, and narrative so every page sells the same clear promise — before you write a single line of code.",
+      shortDescription: "A prompt that prompts you. Lock in offer, proof, and narrative before you write a single line of code, so every page communicates your unique value proposition.",
+      longDescription: "A prompt that prompts you. Align your offer, proof, and narrative before you write a single line of code, so every page communicates your unique value proposition.",
       price: "$47",
       videoUrl: "https://www.youtube.com/embed/Mli0AExdcHM",
       stripeUrl: "https://buy.stripe.com/fZu00cdkg91R8R3g4n6oo0b",
@@ -34,14 +34,14 @@ window.STORE = {
       isUnavailable: true,
       features: [
         "Discovering your unique value proposition",
-        "Positioning and objection prompts before build",
-        "Section-by-section copy scaffolding with Claude Code",
+        "Positioning and objection handling prompts before build",
+        "Section-by-section copy scaffolding with Claude Code or Cursor",
         "CTA and proof placement without template fatigue"
       ]
     },
     {
       id: "tao-of-prompt-ebook",
-      title: "The Tao of Prompt (e-book)",
+      title: "The Tao of Prompting (e-book)",
       shortDescription: "Field manual for prompt sequences, constraints, and revision loops. The grammar of context, written down.",
       longDescription: "A written field guide to thinking in prompt sequences, constraints, and revision loops. Become fluent in the grammar of context.",
       price: "$27",
