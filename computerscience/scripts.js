@@ -2,18 +2,25 @@
   const yearNode = document.getElementById("year");
   if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 
-  // ---- Section nav (tabs) ----
-  const navLinks = document.querySelectorAll(".cs-nav a[data-section]");
+  // ---- Section nav (tabs) — works for sidebar AND chip strip ----
+  const navLinks = document.querySelectorAll("[data-section]");
   const sections = document.querySelectorAll(".cs-section");
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const target = link.dataset.section;
-      navLinks.forEach((l) => l.classList.remove("active"));
-      link.classList.add("active");
+      navLinks.forEach((l) =>
+        l.classList.toggle("active", l.dataset.section === target)
+      );
       sections.forEach((s) => s.classList.remove("active"));
       const next = document.getElementById(target);
       if (next) next.classList.add("active");
+      const activeChip = document.querySelector(
+        `.cs-chip-strip a[data-section="${target}"]`
+      );
+      if (activeChip) {
+        activeChip.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });

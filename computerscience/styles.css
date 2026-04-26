@@ -4,28 +4,6 @@
    chrome-header, cylinder, buttons).
    ================================================================ */
 
-/* ------ Mobile notice banner ------ */
-
-.mobile-notice {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  background: rgba(255, 200, 60, 0.08);
-  border: 1px solid rgba(255, 200, 60, 0.3);
-  border-radius: 6px;
-  color: #f5d06a;
-  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  padding: 0.5rem 0.9rem;
-  align-self: flex-start;
-}
-
-.mobile-notice-icon {
-  opacity: 0.75;
-  flex-shrink: 0;
-}
-
 /* ------ Page shell ------ */
 
 .cs-page {
@@ -985,13 +963,144 @@ code {
    Mobile
    ================================================================ */
 
+/* hide the animated backdrop for tablets and phones */
 @media (max-width: 720px) {
-  .cs-page { padding: 5rem 1rem 4rem; gap: 1.5rem; }
-  .cs-hero { padding: 1.6rem 1.1rem; }
-  .cs-section { padding: 1.4rem 1rem; }
-  .accordion-header { grid-template-columns: auto 1fr auto; }
-  .accordion-badge { display: none; }
-  .gate-output { grid-template-columns: 1fr; gap: 0.4rem; }
+  .cylinder-stage { display: none; }
+}
+
+/* hide chip strip on desktop/tablet */
+.cs-chip-strip { display: none; }
+
+@media (max-width: 640px) {
+  /* ---- Chip strip ---- */
+  .cs-chip-strip {
+    display: block;
+    position: sticky;
+    top: 56px;
+    z-index: 40;
+    background: rgba(5, 8, 15, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--panel-stroke);
+    padding: 0.4rem env(safe-area-inset-right) 0.4rem env(safe-area-inset-left);
+  }
+  .cs-chip-strip ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0.75rem;
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cs-chip-strip ul::-webkit-scrollbar { display: none; }
+  .cs-chip-strip a {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    padding: 0.55rem 0.85rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border: 1px solid var(--panel-stroke);
+    border-radius: 999px;
+    background: rgba(5, 8, 15, 0.55);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all var(--t) var(--ease);
+  }
+  .cs-chip-strip a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .cs-chip-strip a.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(92, 225, 255, 0.12);
+    box-shadow: 0 0 14px var(--accent-glow);
+  }
+  .cs-chip-strip .chip-num { color: var(--accent); font-size: 0.7rem; }
+  .cs-chip-strip a.active .chip-num { color: var(--text); }
+
+  /* hide desktop sidebar */
+  .cs-sidebar { display: none; }
+
+  /* page rhythm */
+  .cs-page { padding: 4.75rem 0.9rem 3.5rem; gap: 1.25rem; }
+  .cs-hero { padding: 1.4rem 1rem; }
+  .cs-hero h1 { font-size: clamp(1.65rem, 8vw, 2.1rem); }
+  .cs-hero p  { font-size: 0.95rem; }
+  .cs-section { padding: 1.2rem 0.95rem; }
+  .section-title { font-size: 1.45rem; }
+  .section-subtitle { font-size: 0.95rem; }
+
+  /* widget panels */
+  .widget-panel { padding: 1rem 0.85rem 1.1rem; }
+  .widget-desc  { font-size: 0.88rem; }
+
+  /* bit flipper: 4×2 instead of 8×1 */
+  .bit-row { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+  .bit-btn { padding: 1rem 0; font-size: 1.35rem; min-height: 48px; }
+  .bit-result { grid-template-columns: 1fr; gap: 0.55rem; padding: 0.75rem; }
+  .bit-result .val { font-size: 1.1rem; }
+
+  /* gate selector: 2×2 wrap */
+  .gate-selector { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .gate-btn { padding: 0.85rem 0.5rem; font-size: 0.82rem; min-height: 44px; }
+  .gate-toggle { padding: 0.9rem; min-height: 44px; }
+  .toggle-val { font-size: 1.5rem; }
+
+  /* gate SVG: legible labels */
+  .gate-visual { padding: 0.5rem; }
+  .gate-label  { font-size: 14px; }
+  .pin-label   { font-size: 11px; }
+
+  /* gate output stack */
+  .gate-output { grid-template-columns: 1fr; gap: 0.4rem; padding: 0.75rem 0.85rem; }
   .gate-output .out-eq { justify-self: start; }
-  .timeline-item { grid-template-columns: 1fr; }
+  .gate-output .out-val { font-size: 1.5rem; }
+
+  /* truth tree */
+  .tree-option { font-size: 0.8rem; padding: 0.85rem; min-height: 44px; }
+  .tree-display { max-height: 22rem; padding: 0.75rem; }
+  .tree-step { padding: 0.5rem 0.55rem; gap: 0.55rem; }
+  .tree-step.indent-1 { margin-left: 0.75rem; }
+  .step-text { font-size: 0.82rem; }
+  .step-num  { width: 20px; height: 20px; font-size: 0.66rem; }
+
+  /* accordion: bigger touch row */
+  .accordion-header {
+    grid-template-columns: auto 1fr auto;
+    padding: 0.95rem 0.85rem;
+    min-height: 56px;
+  }
+  .accordion-badge { display: none; }
+  .accordion-title { font-size: 0.94rem; }
+  .accordion-content { padding: 0 0.85rem 0.95rem; }
+
+  /* timeline single column */
+  .timeline { padding-left: 1.25rem; }
+  .timeline-item { grid-template-columns: 1fr; padding: 0.75rem; min-height: 56px; }
+  .timeline-year { font-size: 0.78rem; margin-bottom: 0.25rem; }
+  .timeline-title { font-size: 0.92rem; }
+
+  /* misc */
+  .carroll-diagram { max-width: 100%; }
+  .chain-box, .quote-box, .callout { font-size: 0.88rem; }
+  .cs-upsell { padding: 1.25rem 1rem; }
+
+  body, .cs-page { overflow-x: hidden; }
+}
+
+/* very narrow phones */
+@media (max-width: 375px) {
+  .cs-chip-strip a { font-size: 0.72rem; padding: 0.55rem 0.7rem; }
+  .bit-btn { font-size: 1.2rem; }
+  .gate-label { font-size: 13px; }
+  .section-title { font-size: 1.3rem; }
 }
