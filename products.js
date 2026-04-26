@@ -8,7 +8,7 @@ window.STORE = {
       shortDescription: "A prompt sequence that compiles a deployable site in a single session. No frameworks to learn, no monthly hosting bills. You ship; you own.",
       longDescription: "A highly efficient prompt sequence engineered for speed and clarity. Non-developers design, build, and deploy functional websites that look good on desktop and mobile. No hosting fees, no waiting weeks to ship. A subscription to Claude Code or Cursor is recommended for maximal use of The One Hour Web Designer.",
       price: "$47",
-      videoUrl: "https://www.youtube.com/embed/6bkNRnsaoho?si=HTszk73tb8CumkfI",
+      videoUrl: "https://www.youtube.com/embed/6bkNRnsaoho?si=AiJc-ZLl-9fqz4yg",
       stripeUrl: "https://buy.stripe.com/5kQeV64NK0vl7MZ19t6oo0a",
       thumbnailLabel: "MOD-01 // BUILDER",
       isTba: false,
