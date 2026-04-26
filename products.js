@@ -5,8 +5,8 @@ window.STORE = {
     {
       id: "one-hour-web-designer",
       title: "The One-Hour Web-Designer",
-      shortDescription: "A prompt sequence that compiles a deployable site in a single session. No frameworks to learn, no monthly hosting bills. You ship; you own.",
-      longDescription: "A highly efficient prompt sequence engineered for speed and clarity. Non-developers design, build, and deploy functional websites that look good on desktop and mobile. No hosting fees, no waiting weeks to ship. A subscription to Claude Code or Cursor is recommended for maximal use of The One Hour Web Designer.",
+      shortDescription: "Buy it once. It lives on your machine. No ongoing subscription, no direct guidance required. The barrier to entry is now so low that the system can carry you through it.",
+      longDescription: "This used to cost clients hundreds of dollars in direct tutoring. The tools have caught up to the point where that is no longer necessary. The One-Hour Web-Designer is a prompt system you purchase once and it intelligently lives on your machine, adapting with you as the technology accelerates. You will use it alongside whatever AI tools you choose, paying only if you want something like Claude Code running at full power. No frameworks to learn. No waiting weeks to ship. You build; you own.",
       price: "$47",
       videoUrl: "https://www.youtube.com/embed/6bkNRnsaoho?si=AiJc-ZLl-9fqz4yg",
       stripeUrl: "https://buy.stripe.com/5kQeV64NK0vl7MZ19t6oo0a",
@@ -14,10 +14,11 @@ window.STORE = {
       isTba: false,
       isUnavailable: false,
       features: [
-        "Design and deploy a complete site in a single session",
-        "No prior coding experience required — Claude handles the structure",
+        "Purchase once; the system lives on your machine with no subscription",
+        "Works with Claude Code, Cursor, or any AI tool of your choosing",
+        "No prior coding experience required; the prompts carry the structure",
         "Covers CLI, GitHub, and DNS so you stay in control of your own stack",
-        "Mobile-ready output with zero monthly hosting cost"
+        "Engineered to evolve with the technology so it stays useful over time"
       ]
     },
     {
