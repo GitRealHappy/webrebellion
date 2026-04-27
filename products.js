@@ -22,6 +22,7 @@ window.STORE = {
     },
     {
       id: "one-hour-web-designer",
+      isFeatured: true,
       title: "The One-Hour Web-Designer",
       shortDescription: "Buy it once. It lives on your machine. No ongoing subscription, no direct guidance required. The barrier to entry is now so low that the system can carry you through it.",
       longDescription: "This used to cost clients hundreds of dollars in direct tutoring. The tools have caught up to the point where that is no longer necessary. The One-Hour Web-Designer is a prompt system you purchase once and it intelligently lives on your machine, adapting with you as the technology accelerates. You will use it alongside whatever AI tools you choose, paying only if you want something like Claude Code running at full power. No frameworks to learn. No waiting weeks to ship. You build; you own.",
