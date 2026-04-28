@@ -330,7 +330,7 @@ p { margin: 0; }
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 /* ================================================================
@@ -484,6 +484,7 @@ p { margin: 0; }
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  color: var(--text-muted);
 }
 .card-status .dot {
   width: 6px;
@@ -493,9 +494,12 @@ p { margin: 0; }
   box-shadow: 0 0 8px var(--accent-glow);
 }
 
-.product-card.is-unavailable .card-id { color: var(--signal-off); }
+.product-card.is-unavailable .card-id { color: #6B7FA8; }
+.product-card.is-unavailable .card-status {
+  color: var(--text-muted);
+}
 .product-card.is-unavailable .card-status .dot {
-  background: var(--signal-off);
+  background: #6B7FA8;
   box-shadow: none;
 }
 
