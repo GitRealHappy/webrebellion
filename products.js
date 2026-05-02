@@ -24,21 +24,26 @@ window.STORE = {
       id: "one-hour-web-designer",
       isFeatured: true,
       title: "The One-Hour Web-Designer",
-      shortDescription: "Buy it once. It lives on your machine. No ongoing subscription, no direct guidance required. The barrier to entry is now so low that the system can carry you through it.",
-      longDescription: "This used to cost clients hundreds of dollars in direct tutoring. The tools have caught up to the point where that is no longer necessary. The One-Hour Web-Designer is a prompt system you purchase once and it intelligently lives on your machine, adapting with you as the technology accelerates. You will use it alongside whatever AI tools you choose, paying only if you want something like Claude Code running at full power. No frameworks to learn. No waiting weeks to ship. You build; you own.",
-      price: "$47",
+      shortDescription: "A complete system for designing, building, and deploying a real website by directing AI — not writing code yourself. Twenty-nine mega-prompts. One folder on your machine. No subscription, no platform tax.",
+      longDescription: "WordPress turns into a part-time job. Squarespace bills you forever for a site you'll never own. And freestyling with ChatGPT looks fine until the third revision unravels everything that worked an hour ago. The One-Hour Web-Designer is a different bet: a guided system of mega-prompts that turn Claude Code into a calm, opinionated coach — walking you from a blank idea to a live website on your own domain, with a memory file for every project so you can come back tomorrow and pick up exactly where you left off. You don't learn HTML. You learn to direct the AI, which is the skill that actually matters now. The whole system is a folder on your machine — twenty-nine markdown files, no subscription, no login, no platform tax. Buy it once. Own it. Keep using it as the tools evolve.",
+      price: "$99",
       videoUrl: "https://www.youtube.com/embed/6bkNRnsaoho?si=AiJc-ZLl-9fqz4yg",
       stripeUrl: "https://buy.stripe.com/5kQeV64NK0vl7MZ19t6oo0a",
       thumbnailLabel: "MOD-01 // BUILDER",
       isTba: false,
       isUnavailable: false,
       features: [
-        "Purchase once; the system lives on your machine with no subscription",
-        "Works with Claude Code, Cursor, or any AI tool of your choosing",
-        "No prior coding experience required; the prompts carry the structure",
-        "Covers CLI, GitHub, and DNS so you stay in control of your own stack",
-        "Engineered to evolve with the technology so it stays useful over time"
-      ]
+        "29 mega-prompts (16,000+ words) that turn Claude Code into a calm, opinionated web design coach",
+        "A six-step build flow — from a blank idea to a live site on your own domain",
+        "Persistent project memory: every site has a state file Claude reads on session start, so you never lose your place",
+        "Hard guardrails on the AI — no scope creep, no architectural detours, no token waste",
+        "Guided walkthroughs for Stripe checkout, contact forms, and mobile-responsive design — included, ready when you are",
+        "Buy once, own forever. Works with Claude Code or Cursor. No subscription, no platform tax."
+      ],
+      testimonial: {
+        quote: "Highly recommend this! Jesse James Carver helped out big time with learning how to design websites!",
+        attribution: "Sam Elsner"
+      }
     },
     {
       id: "purpose-driven-value-creator",

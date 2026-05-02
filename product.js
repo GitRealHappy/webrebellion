@@ -55,6 +55,13 @@
 
   const featureMarkup = product.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join("");
 
+  const testimonialBlock = product.testimonial
+    ? `<figure class="testimonial">
+         <blockquote>${escapeHtml(product.testimonial.quote)}</blockquote>
+         <figcaption>— ${escapeHtml(product.testimonial.attribution)}</figcaption>
+       </figure>`
+    : "";
+
   const ctaBlock = product.comingSoon
     ? `<span class="btn-locked spec-cta" role="button" aria-disabled="true">[ Coming soon ]</span>
        <p class="cta-subscribe"><a href="${escapeAttr(product.substackUrl)}" target="_blank" rel="noopener noreferrer">Subscribe to be the first to know →</a></p>`
@@ -73,6 +80,7 @@
       ${offlineBanner}
       ${titleBlock}
       <p class="detail-desc">${escapeHtml(product.longDescription)}</p>
+      ${testimonialBlock}
       <div class="detail-body">
         ${mediaBlock}
         <aside class="spec-sheet">
