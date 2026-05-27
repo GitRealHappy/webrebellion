@@ -15,8 +15,12 @@ What this user already knows. Updated only when the user confirms a new skill or
 | Has deployed a site before | unknown | — |
 | Owns a custom domain | unknown | — |
 | Has a Stripe account | unknown | — |
+| Doing paid client work | unknown | — |
+| Has a business entity (LLC / sole prop / Ltd) | unknown | — |
+| Has a client contract template | unknown | — |
+| Has an invoicing tool set up | unknown | — |
 
-Status values: `unknown`, `no`, `yes`.
+Status values: `unknown`, `no`, `yes`. The four client-work rows only matter once the user opts into the `08_CLIENT_WORK/` track — see `CLAUDE.md` for when client mode applies.
 
 ---
 

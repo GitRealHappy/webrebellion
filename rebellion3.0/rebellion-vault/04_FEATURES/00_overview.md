@@ -23,7 +23,15 @@ If the user is still scaffolding or hasn't deployed yet, gently push payment/for
 | To accept payments / sell something | `01_stripe_payments.md` |
 | To collect email signups or messages | `02_forms_and_email.md` |
 | The site to work on phones, or to add images | `03_responsive_and_assets.md` |
-| Analytics | (Out of scope for now — defer to Discord) |
+| To show up in Google / link previews / meta tags | `04_seo_basics.md` |
+| A favicon / homescreen icon | `05_favicons_and_icons.md` |
+| To make the site accessible / pass Lighthouse a11y | `06_accessibility.md` |
+| The site to be faster / pass Core Web Vitals | `07_performance.md` |
+| To track visitors / add analytics | `08_analytics.md` |
+| To let a non-technical client edit the site | `09_cms_handoff.md` |
+| Custom email at their domain (hi@yoursite.com) | `10_domain_email.md` |
+| A privacy policy, terms, or cookie banner | `11_legal_pages.md` |
+| A baseline design system (type / spacing / color) | `12_design_system_lite.md` |
 | A blog | (Possible but heavyweight — defer or use a static-blog generator post-rebellion) |
 
 ---
@@ -54,9 +62,17 @@ Add one thing at a time. Test it live. Move on.
 
 For most learners, this is a sane order to add features:
 
-1. **Custom domain** (covered in `03_BUILD_FLOW/05_custom_domain.md`)
-2. **Responsive polish** (`03_responsive_and_assets.md`)
-3. **Contact form / email collection** (`02_forms_and_email.md`)
-4. **Payments** (`01_stripe_payments.md`)
+1. **Responsive polish** (`03_responsive_and_assets.md`)
+2. **SEO basics + favicons** (`04_seo_basics.md`, `05_favicons_and_icons.md`)
+3. **Design system lite** if the site has more than a couple of pages (`12_design_system_lite.md`)
+4. **Accessibility pass** (`06_accessibility.md`)
+5. **Custom domain** (covered in `03_BUILD_FLOW/05_custom_domain.md`)
+6. **Email at the domain** (`10_domain_email.md`) — once the domain is live
+7. **Contact form / email collection** (`02_forms_and_email.md`)
+8. **Legal pages** if collecting data or payments (`11_legal_pages.md`)
+9. **Analytics** (`08_analytics.md`)
+10. **Performance pass** (`07_performance.md`) — once there's real content to measure
+11. **Payments** (`01_stripe_payments.md`)
+12. **CMS handoff** (`09_cms_handoff.md`) — only if a non-technical owner will edit
 
 Don't impose the order — but if they're picking what to do next and don't know, suggest along these lines.

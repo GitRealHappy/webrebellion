@@ -79,6 +79,23 @@ Then create the project state file (template from `00_GUIDE/03_state_management.
 Scaffold the HTML structure.
 ```
 
+If the user has signalled this is **client work** (see `08_CLIENT_WORK/00_overview.md`), append the optional `## Client` block to the state file:
+
+```markdown
+## Client
+- **Name**: <client name>
+- **Contact**: <email / phone>
+- **Intake call**: ◯
+- **Contract signed**: ◯
+- **Deposit received**: ◯
+- **Midpoint paid**: ◯
+- **Final invoice paid**: ◯
+- **Deadlines**: <date or "none">
+- **Retainer**: ◯ (or "<tier>, $X/mo, started <date>")
+```
+
+Only include this block on client projects. For personal projects, leave it out — it adds noise.
+
 Then update the active project pointer:
 
 ```

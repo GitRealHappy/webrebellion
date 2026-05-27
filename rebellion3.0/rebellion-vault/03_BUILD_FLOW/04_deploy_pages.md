@@ -86,7 +86,7 @@ Tell the user. Open it:
 
 Suggest celebrating and posting in the Discord:
 
-> Worth a post in the Discord — folks love seeing first deploys: https://discord.gg/vGnMSxBsj
+> Worth a post in the Discord — folks love seeing first deploys: https://discord.gg/pqRcUDPtG
 
 ---
 

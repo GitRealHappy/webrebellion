@@ -70,6 +70,7 @@ rebellion-vault/
 ├── 05_TROUBLESHOOTING/      ← when things break
 ├── 06_VIDEOS.md             ← every video link, in one place
 ├── 07_PROJECTS/             ← your actual websites live here
+├── 08_CLIENT_WORK/          ← opt-in track for paid client work
 └── _ARCHIVE/                ← previous version of the vault, for reference
 ```
 
@@ -99,6 +100,10 @@ To switch: just say "switch to my-portfolio" (or whatever name).
 - Custom domains (DNS setup)
 - Stripe Payment Links and Stripe MCP for selling things
 - Simple form handling (Formspree, mailto, etc.)
+- SEO basics, favicons, accessibility, performance
+- Privacy-friendly analytics, legal pages, simple CMS handoff
+- Professional email at your domain
+- A baseline design system (type, spacing, color tokens)
 
 ## What's out of scope
 
@@ -109,12 +114,16 @@ To switch: just say "switch to my-portfolio" (or whatever name).
 
 These aren't forbidden — just **post-rebellion**. Get good at shipping first.
 
+## Client work (opt-in)
+
+If you want to do this for paying clients, there's an opt-in `08_CLIENT_WORK/` track covering intake, contracts, pricing, invoicing, handoff, and retainers. It's not part of the default learner path — ask Claude to switch into client mode when you're ready.
+
 ---
 
 ## When you're stuck
 
 - **First**: tell Claude what's happening. It can usually help.
-- **If it's outside scope**: bring it to the community on **Discord**: https://discord.gg/vGnMSxBsj
+- **If it's outside scope**: bring it to the community on **Discord**: https://discord.gg/pqRcUDPtG
 - **If you want JJ specifically**: tag him in the Discord.
 
 ---

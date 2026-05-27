@@ -120,8 +120,10 @@ Always test in test mode first. Then switch the dashboard to live mode and use t
 
 ## Compliance basics (don't skip)
 
-- **Privacy policy / terms** — most countries require these for taking payments. Stripe links to a basic generator, or use a free one (e.g., termsfeed.com).
-- **Refund policy** — visible somewhere on the site, even if it's "no refunds."
+Once you're taking money, you need a privacy policy, terms, and a visible refund policy. Full walkthrough in `11_legal_pages.md` — covers the generators, the cookie-banner question, and what GDPR/CCPA actually requires.
+
+Stripe-specific reminders:
+- **Refund policy** — must be visible on the site (footer link, terms page, or checkout). Even "all sales final" counts; what you can't do is leave it ambiguous.
 - **Tax** — Stripe Tax can handle this if you're selling internationally. For domestic-only side projects, your country's threshold may exempt you. Not legal advice — check.
 
 If the user asks "do I need an LLC / business license / tax ID?" — defer to Discord. Out of scope here.

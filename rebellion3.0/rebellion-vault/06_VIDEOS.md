@@ -1,8 +1,18 @@
 # Videos
 
-Single source of truth for every instructional video. All links are private (unlisted) YouTube — only people with the link can view.
+Single source of truth for every instructional video. All links will be private (unlisted) YouTube — only people with the link can view.
 
 When other markdown files reference a video, they use the **key** (e.g., `VIDEO:ssh-setup`). Claude looks up the URL here.
+
+---
+
+## Current status: no videos linked yet
+
+**As of right now, none of the entries below have URLs filled in.** Every `URL:` field is still a `<!-- TODO -->` placeholder. JJ hasn't recorded/published the walkthroughs.
+
+This is **fine** — the written modules under `02_BASICS/`, `03_BUILD_FLOW/`, `04_FEATURES/`, and `05_TROUBLESHOOTING/` are designed to be complete on their own. Claude should never gate progress on a video being available. See the "Videos (currently unavailable)" section of `CLAUDE.md` for the behavior rules.
+
+If you (the user) are reading this and want video walkthroughs: ask in the Discord (https://discord.gg/pqRcUDPtG) so JJ knows which ones are most needed.
 
 ---
 
