@@ -1,68 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Web Rebellion — local-first AI systems with persistent memory. Build, own, and keep your tooling as the tech evolves.">
-  <title>The Web Rebellion // Locally Own Your Intelligent Machinery</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TODO: confirm title and description -->
+  <title>The One Hour Web Designer | Build websites clients will pay for</title>
+  <meta name="description" content="A course on starting a one-person web design agency with Claude, the AI assistant, doing the building. For people who already use Claude, and for busy people who know AI is powerful.">
+  <meta property="og:title" content="The One Hour Web Designer | Build websites clients will pay for">
+  <meta property="og:description" content="Start a one-person web design agency. Claude builds. You learn to direct it, find clients and look after them.">
+  <!-- TODO: add a 1200x630 image at images/share.jpg -->
+  <!-- <meta property="og:image" content="images/share.jpg"> -->
+  <meta name="theme-color" content="#151515">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+  <script>document.documentElement.classList.add("js")</script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="chrome-header">
-    <div class="nav-wrap">
-      <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true"></span>
-        The Web Rebellion
-      </a>
-      <nav class="chrome-nav">
-        <a href="#modules">Modules</a>
-        <a class="nav-cta" href="#modules">Enter</a>
-      </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="sidebar"><span class="visually-hidden">Menu</span><span class="menu-bars" aria-hidden="true"></span></button>
+      <a class="wordmark" href="#top"><span class="wordmark-mark" aria-hidden="true"></span>The One Hour Web Designer</a>
+      <a class="button button--small button--primary" href="https://jesse.eden.so/start-your-web-agency?checkout=direct">Get the course</a>
     </div>
   </header>
 
-  <div class="cylinder-stage" aria-hidden="true">
-    <div class="cylinder" id="cylinder"></div>
+  <div class="shell">
+    <div class="scrim" hidden></div>
+    <nav class="sidebar" id="sidebar" aria-label="On this page">
+      <p class="sidebar-label">Overview</p>
+      <ul>
+        <li><a href="#top">Start here</a></li>
+        <li><a href="#why">Why now</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#plan">Your first 30 days</a></li>
+        <li><a href="#praise">What people say</a></li>
+        <li><a href="#plain">In plain English</a></li>
+        <li><a href="#for-you">Who it's for</a></li>
+        <li><a href="#curriculum">What you learn</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a href="#about">About Jesse</a></li>
+      </ul>
+      <p class="sidebar-label">Contact</p>
+      <ul>
+        <li><a href="#ask">Get the course</a></li>
+        <li><a href="#fine-print">Fine print</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Start a one-person web design agency</p>
+        <h1 id="hero-title">Build websites clients will pay for. Let Claude do the building.</h1>
+        <p class="lede">The One Hour Web Designer is a step-by-step course for busy, computer-comfortable people who want to start a web design side business. No coding. About one hour a day for 30 days.</p>
+        <div class="actions">
+          <a class="button button--primary" href="#plan">See the 30-day plan</a>
+          <a class="button" href="https://jesse.eden.so/start-your-web-agency?checkout=direct">Get the course</a>
+        </div>
+        <p class="price"><strong>$99 now.</strong> Soon to be $199.</p>
+        <p class="byline">A course by <a href="#about">Jesse James Carver</a></p>
+        <ul class="ticks">
+          <li>No coding required</li>
+          <li>Built for beginners</li>
+          <li>Works with Claude, the AI assistant</li>
+        </ul>
+        <!-- TODO: hero image. A real screenshot of a finished site in the preview, or a photo of Jesse. -->
+        <!-- HIDDEN until a real image exists. Restore this block:
+        <figure class="image-slot image-slot- -wide">
+          <figcaption>Image to come: a finished site, built with Claude</figcaption>
+        </figure>
+        -->
+      </section>
+
+      <section class="block" id="why" aria-labelledby="why-title">
+        <h2 id="why-title">You know AI is powerful. Your week is already full.</h2>
+        <div class="prose">
+          <p>You have seen what AI can do. But your job, your family and your calendar leave little room to figure out how to turn that into something real. So the idea stays in a drawer: a side business, a skill that is yours, another source of income.</p>
+          <p>Meanwhile, plenty of local cafes, tradespeople and shops still run on an old website, or none at all. Most of them are not waiting for a large agency. They are waiting for someone to ask.</p>
+          <p class="pull">A gold rush, and a shortage of shovels.</p>
+          <p>The tools exist. Until recently, a good website took a small team: a designer, a developer, a writer, a manager. For simple sites, that can now be one person directing an AI. What has been missing is a clear path for a beginner. That is what this course is.</p>
+        </div>
+      </section>
+
+      <section class="block" id="how" aria-labelledby="how-title">
+        <h2 id="how-title">How it works</h2>
+        <p class="section-lede">You do the thinking. Claude does the typing. Your guide keeps you moving.</p>
+        <ol class="cards">
+          <li class="card">
+            <!-- TODO: swap the icon band for a real image if wanted -->
+            <div class="card-media card-media--brown">
+              <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14h44v30H10z"/><path d="M24 54h16M32 44v10"/><path d="M20 26h24M20 34h14"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>1. Learn the few words that matter</h3>
+              <p>You will not learn to code. You learn the plain-English words to tell Claude what you want, and how to check what it made.</p>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-media card-media--green">
+              <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="12" width="48" height="40" rx="4"/><path d="M8 22h48"/><path d="M26 32l-6 6 6 6M38 32l6 6-6 6"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>2. Build real sites with Claude</h3>
+              <p>Claude writes the code and puts your site online. You steer, preview it, and ask for changes until it is right.</p>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-media card-media--clay">
+              <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18h44v28H10z"/><path d="M10 20l22 16 22-16"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>3. Reach the businesses that need you</h3>
+              <p>Pick a niche, find local businesses, and get help with outreach, pricing, proposals and follow-up.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block" id="plan" aria-labelledby="plan-title">
+        <h2 id="plan-title">Your first 30 days</h2>
+        <p class="section-lede">The pace the course is designed around: about one hour a day for 30 days.</p>
+        <ol class="plan">
+          <li>
+            <span class="plan-when">Days 1 to 3</span>
+            <div><h3>Set up and learn to direct Claude</h3><p>Install your tools and connect them. Learn how to ask Claude for what you want in plain English.</p></div>
+          </li>
+          <li>
+            <span class="plan-when">Days 4 to 7</span>
+            <div><h3>Build your first site</h3><p>Make a first section of your own portfolio with Claude, choose a look, and put your first site live.</p></div>
+          </li>
+          <li>
+            <span class="plan-when">Weeks 2 and 3</span>
+            <div><h3>Start talking to businesses</h3><p>Choose a niche, build a list of local businesses, and begin reaching out. This is the step that leads to a first client.</p></div>
+          </li>
+          <li>
+            <span class="plan-when">By day 30</span>
+            <div><h3>The foundations of an agency</h3><p>A live portfolio, a way to price and propose work, a client tracker, and outreach under way. A base to keep building on.</p></div>
+          </li>
+        </ol>
+        <p class="note">This is the plan, not a promise. Your pace will vary, and nothing guarantees a client or an income. What the plan gives you is a clear next step every day.</p>
+      </section>
+
+      <section class="block" id="praise" aria-labelledby="praise-title">
+        <h2 id="praise-title" class="visually-hidden">What people say</h2>
+        <figure class="testimonial">
+          <blockquote>
+            <p>Highly recommend this! Jesse James Carver helped out big time with learning how to design websites!</p>
+          </blockquote>
+          <figcaption>Sam Elsner</figcaption>
+        </figure>
+      </section>
+
+      <section class="block" id="plain" aria-labelledby="plain-title">
+        <h2 id="plain-title">In plain English</h2>
+        <p class="section-lede">Three names you will see, and what each one does.</p>
+        <ul class="cards">
+          <li class="card">
+            <div class="card-media card-media--brown">
+              <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="12" width="48" height="40" rx="4"/><path d="M8 22h48"/><path d="M26 32l-6 6 6 6M38 32l6 6-6 6"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Claude</h3>
+              <p>An AI assistant made by Anthropic. Here it works on your own computer, inside the Claude desktop app, where it writes and publishes your websites. It is the builder.</p>
+              <p class="meta">Runs on your computer</p>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-media card-media--green">
+              <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h30l8 8v40H14z"/><path d="M44 8v8h8"/><path d="M22 28h24M22 36h24M22 44h14"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Eden</h3>
+              <p>A workspace app (eden.so) for notes, research and courses. The course runs inside it as a chat guide that teaches the lessons and helps with clients, pricing and proposals. It is the coach.</p>
+              <p class="meta">Runs at eden.so</p>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-media card-media--clay">
+              <svg viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="22"/><path d="M40 24l-6 16-10 0 6-16z" transform="rotate(20 32 32)"/><circle cx="32" cy="32" r="2"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>The One Hour Web Designer</h3>
+              <p>The course that connects the two. Eden teaches you the business. Claude builds the sites. One folder on your computer keeps it all together.</p>
+              <p class="meta">Course &middot; step by step</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" id="for-you" aria-labelledby="for-title">
+        <h2 id="for-title">Who it's for</h2>
+        <div class="split">
+          <article class="panel">
+            <h3>You already use Claude</h3>
+            <p>You know what it can do in a chat. This shows you what happens when you point it at a real business problem: a live website for a real client, with the pricing, contracts and follow-up that make it a trade.</p>
+          </article>
+          <article class="panel">
+            <h3>You are busy, and AI-curious</h3>
+            <p>You know AI is powerful but your current work leaves little room to explore it. If you are comfortable with a computer, you do not need to be a programmer. The course runs one clear step at a time, so you can build a second line of work alongside the first.</p>
+          </article>
+        </div>
+        <p class="note">Bigger builds, such as online shops and members' areas, still call for more skill. The course shows you where that line is and how to stay on the right side of it.</p>
+      </section>
+
+      <section class="block" id="curriculum" aria-labelledby="curriculum-title">
+        <h2 id="curriculum-title">What you learn</h2>
+        <ol class="rows">
+          <li><span class="row-title">Setting up your tools</span><span class="row-meta">Module 1</span></li>
+          <li><span class="row-title">Talking to Claude</span><span class="row-meta">Module 2</span></li>
+          <li><span class="row-title">Design taste without design school</span><span class="row-meta">Module 4</span></li>
+          <li><span class="row-title">Your first live site</span><span class="row-meta">Module 5</span></li>
+          <li><span class="row-title">Choosing a niche and finding clients</span><span class="row-meta">Module 9</span></li>
+          <li><span class="row-title">Pricing and proposals</span><span class="row-meta">Module 11</span></li>
+          <li><span class="row-title">Contracts, invoices and getting paid</span><span class="row-meta">Module 12</span></li>
+        </ol>
+        <div class="panel panel--spaced">
+          <h3>What you need</h3>
+          <ul class="plain-list">
+            <li>A Mac or Windows computer</li>
+            <li>A paid Claude plan (Claude Pro) for the desktop app's Code tab</li>
+            <li>An Eden account, where the course runs</li>
+            <li>A free GitHub account</li>
+          </ul>
+          <p class="note note--flat">Prices change. Check each service's own page for what it costs today.</p>
+        </div>
+      </section>
+
+      <section class="block" id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Do I need to know how to code?</summary>
+            <p>No. Claude writes the code. You learn to describe what you want, check the result, and ask for changes.</p>
+          </details>
+          <details>
+            <summary>Is one hour a day really enough?</summary>
+            <p>It is the pace the first 30 days are built around. Setting up your tools can take more than one sitting, so you spread it over a few days. Your speed will vary.</p>
+          </details>
+          <details>
+            <summary>Will I get clients?</summary>
+            <p>Nobody can honestly promise that, and this course does not. What it gives you is a system: pick a niche, find local businesses, reach out, follow up, and track every attempt. It measures what you control, which is how many conversations you start.</p>
+          </details>
+          <details>
+            <summary>What does it cost?</summary>
+            <p>The checkout page shows the current price of the course. Claude, Eden and GitHub each have their own plans too. Check their pages for current prices.</p>
+          </details>
+          <details>
+            <summary>I use Claude, but never to build things. Is this for me?</summary>
+            <p>Yes. If you are comfortable chatting with Claude, you already have the first skill. The course adds the building and the business.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="block" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About the author</h2>
+        <div class="author">
+          <!-- TODO: replace the monogram with a real photo of Jesse (images/jesse.jpg) -->
+          <div class="author-photo" aria-hidden="true">JC</div>
+          <div>
+            <h3>Jesse James Carver</h3>
+            <p>Jesse wrote this course. He is the founder of The Living Internet Alliance and writes the Social Abundance essays. His store at jesse.eden.so has his other courses and coaching.</p>
+            <p><a class="button" href="https://jesse.eden.so" rel="noopener">Visit jesse.eden.so</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="ask" aria-labelledby="ask-title">
+        <div class="cta">
+          <h2 id="ask-title">Ready to start?</h2>
+          <p>Get The One Hour Web Designer and take your first step today. Have a question first? Write to <a href="mailto:jesse@thelivinginternet.com">Jesse</a>.</p>
+          <p class="price"><strong>$99 now.</strong> Soon to be $199.</p>
+          <p><a class="button button--primary" href="https://jesse.eden.so/start-your-web-agency?checkout=direct">Get the course</a></p>
+        </div>
+      </section>
+
+      <footer class="footer" id="fine-print">
+        <p><strong>Fine print.</strong> No website can promise you clients, income or a timeline, and this one does not. Nothing here is a guarantee or a typical result. The One Hour Web Designer was written by Jesse James Carver. It runs on Eden but is not made or endorsed by Eden, and Claude is a product of Anthropic, which has no connection to this course. Jesse is an Eden affiliate and may earn a commission on some Eden purchases, at no extra cost to you.</p>
+        <p>Support and feedback: <a href="mailto:jesse@thelivinginternet.com">jesse@thelivinginternet.com</a> &middot; &copy; 2026 Jesse James Carver</p>
+      </footer>
+    </main>
   </div>
-
-  <main class="overlay">
-    <section class="hero glass-panel">
-      <p class="eyebrow">System // Online</p>
-      <h1>Your own intelligent machinery.</h1>
-      <p class="hero-sub">
-        A guided system that turns Claude Code into a calm, opinionated web design coach — and walks you from a blank page to a real website on your own domain. No platform. No subscription. The whole thing lives in a folder on your machine, and remembers exactly where you left off.
-      </p>
-      <a class="btn-primary" href="product.html?id=one-hour-web-designer">Get the system → $99</a>
-      <div class="hero-meta">
-        <span>v3.0</span><span aria-hidden="true">·</span>
-        <span>Local-first</span><span aria-hidden="true">·</span>
-        <span>Persistent memory</span>
-      </div>
-    </section>
-
-    <section class="modules glass-panel" id="modules">
-      <header class="section-head">
-        <p class="eyebrow">Modules // 06</p>
-        <h2>Self-contained systems.</h2>
-        <p class="section-sub">Take them home. Run them locally. Keep what they remember.</p>
-        <p class="section-sub">Built to run inside Claude Code or Cursor — and to keep working as the tooling evolves.</p>
-      </header>
-      <div id="product-grid" class="product-grid" aria-live="polite"></div>
-    </section>
-  </main>
-
-  <footer class="chrome-footer glass-panel">
-    <div class="footer-wrap">
-      <p>© <span id="year"></span> The Web Rebellion</p>
-      <p>JJC</p>
-    </div>
-  </footer>
-
-  <script src="products.js"></script>
-  <script src="home.js"></script>
-  <script src="cylinder.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

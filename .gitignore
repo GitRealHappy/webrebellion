@@ -1,0 +1,11 @@
+# Never commit these
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.docx
+*.xlsx
+node_modules/
