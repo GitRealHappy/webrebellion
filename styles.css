@@ -315,3 +315,8 @@ img.author-photo { object-position: 35% 30%; }
   .definitions > div, .costs > div { grid-template-columns: 16rem 1fr; gap: var(--space-4); }
 }
 .trio .panel strong { display: inline; font-family: inherit; font-size: inherit; margin: 0; color: var(--color-accent); font-weight: 600; }
+
+/* sidebar: lightly highlight the section being read */
+.sidebar a { transition: background 0.15s ease, color 0.15s ease; }
+.sidebar a[aria-current="location"] { background: rgb(255 255 255 / 0.075); color: var(--color-accent); }
+.sidebar a[aria-current="location"]:hover { text-decoration: none; }
