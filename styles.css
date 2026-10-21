@@ -320,3 +320,11 @@ img.author-photo { object-position: 35% 30%; }
 .sidebar a { transition: background 0.15s ease, color 0.15s ease; }
 .sidebar a[aria-current="location"] { background: rgb(255 255 255 / 0.075); color: var(--color-accent); }
 .sidebar a[aria-current="location"]:hover { text-decoration: none; }
+
+/* hero: how the work divides up */
+.flow { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-2); max-width: var(--measure); }
+.flow li { padding: var(--space-3) var(--space-4); background: var(--color-surface); border-radius: var(--radius-s); border-left: 3px solid var(--color-accent); }
+.flow strong { color: var(--color-accent); font-weight: 600; }
+@media (min-width: 48rem) {
+  .flow { grid-template-columns: repeat(3, 1fr); max-width: none; }
+}
