@@ -59,11 +59,12 @@
         <p class="kicker">The tools moved faster than the market</p>
         <h1 id="hero-title">Build websites for real businesses. <em>Let Claude write the code.</em></h1>
         <p class="lede">Find a local business that needs a website, build it with AI, and handle the job from the first call to the final invoice. You don't have to know how to code.</p>
+        <p class="pace-pill"><span class="pace-dot" aria-hidden="true"></span>Designed around one focused hour a day, for 30 days</p>
         <div class="actions">
           <a class="button" href="https://jesse.eden.so/start-your-web-agency?checkout=direct">Get the course for $99</a>
           <a class="button button--quiet" href="#how">See how it works</a>
         </div>
-        <p class="price-note"><b>$99 once.</b> 14-day full refund, no conditions. 250 Eden credits included. Claude Pro is separate, about $20 a month. The credits are for the course chat in Eden; the course itself runs in Claude.</p>
+        <p class="price-note"><b>$99 once.</b> Full refund if you ask within 14 days of buying, no conditions. 250 Eden credits included (<a href="#what-is-eden">what Eden is</a>). Claude Pro is separate, about $20 a month.</p>
         <p class="byline">A course by <a href="#about">Jesse James Carver</a></p>
       </div>
 
@@ -76,7 +77,7 @@
               <div class="pane-head"><span class="dot" aria-hidden="true"></span>Claude · web-agency<span class="pill">Example session</span></div>
               <div class="chat">
                 <p class="you">The bakery wants their hours and a catering form up front.</p>
-                <p class="claude"><small>Claude</small>Got it. I'm moving the hours into the hero and adding a catering form that emails the owner. Preview on the right. Check it at phone width before we publish.</p>
+                <p class="claude"><small>Claude</small>Got it. I'm moving the hours into the hero and adding a catering form that emails the owner. The preview is ready. Check it at phone width before we publish.</p>
                 <p class="you">Make the button say "Order catering".</p>
                 <p class="claude"><small>Claude</small>Done. Saved a checkpoint.</p>
               </div>
@@ -84,9 +85,34 @@
             <div class="bench-pane bench-preview">
               <div class="pane-head">Preview<span class="pill">Example site</span></div>
               <div class="mini-site" aria-hidden="true">
-                <div class="mini-nav"><b>Harbour Street Bakery</b><span>Open today 7 to 3</span></div>
-                <div class="mini-hero"><span class="mini-h">Bread worth the early alarm.</span><span class="mini-p">Sourdough, pastries and catering for small events.</span><span class="mini-btn">Order catering</span></div>
-                <div class="mini-rows"><span></span><span></span></div>
+                <div class="ms-nav">
+                  <span class="ms-logo"><span class="ms-logo-mark">H</span>Harbour Street Bakery</span>
+                  <span class="ms-links"><span>Menu</span><span>Catering</span><span>Visit</span></span>
+                  <span class="ms-open"><i></i>Open today 7 to 3</span>
+                </div>
+                <div class="ms-hero">
+                  <div class="ms-copy">
+                    <span class="ms-eyebrow">Sourdough · Pastry · Catering</span>
+                    <span class="ms-h">Bread worth the early alarm.</span>
+                    <span class="ms-p">Baked overnight on Harbour Street. Order catering for small events, or come in before the sourdough sells out.</span>
+                    <span class="ms-btns"><span class="ms-btn">Order catering</span><span class="ms-btn ms-btn--ghost">Today's menu</span></span>
+                  </div>
+                  <div class="ms-photo">
+                    <svg viewBox="0 0 200 150"><defs><radialGradient id="crust" cx="45%" cy="35%" r="70%"><stop offset="0" stop-color="#e2a65f"/><stop offset=".6" stop-color="#b8743a"/><stop offset="1" stop-color="#7d4a22"/></radialGradient></defs><rect width="200" height="150" fill="#d9c7a7"/><rect y="104" width="200" height="46" fill="#8a6a46"/><rect y="104" width="200" height="4" fill="#6f5235"/><ellipse cx="100" cy="98" rx="74" ry="16" fill="#5a3f26" opacity=".35"/><path d="M28 98 C28 52 68 34 100 34 C132 34 172 52 172 98 Z" fill="url(#crust)"/><path d="M62 70 Q100 50 138 70 M70 84 Q100 66 130 84" stroke="#f3dfb8" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/><circle cx="160" cy="34" r="10" fill="#f6efe2" opacity=".6"/></svg>
+                  </div>
+                </div>
+                <div class="ms-menu">
+                  <span class="ms-menu-title">Today's bakes</span>
+                  <span class="ms-item"><b>Country sourdough</b><em>$9</em></span>
+                  <span class="ms-item"><b>Cardamom bun</b><em>$4.50</em></span>
+                  <span class="ms-item"><b>Almond croissant</b><em>$5</em></span>
+                </div>
+                <div class="ms-form">
+                  <span class="ms-field">Event date</span>
+                  <span class="ms-field">Guests</span>
+                  <span class="ms-btn">Send request</span>
+                </div>
+                <div class="ms-foot">12 Harbour Street · Tue to Sun, 7am to 3pm</div>
               </div>
             </div>
           </div>
@@ -181,7 +207,7 @@
           <article>
             <span class="trio-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v4h4M8 12h8M8 16h5"/></svg></span>
             <h3>The course in Eden</h3>
-            <p>Where you read the short lessons and find the templates. It also holds the method Claude follows, which Claude reads for free.</p>
+            <p>Eden is a workspace app for notes, research and online courses, at eden.so. This course lives there: you read the short lessons and copy the templates in Eden, and it holds the method Claude follows, which Claude reads for free.</p>
           </article>
           <article>
             <span class="trio-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5M15 15l1.5 1.5L19 14"/></svg></span>
@@ -228,7 +254,10 @@
           <li><span class="stop" aria-hidden="true"></span><h3>Find and close clients</h3><p>A niche, a list of local businesses, outreach scripts, follow-ups, pricing and a written proposal.</p></li>
           <li><span class="stop" aria-hidden="true"></span><h3>Deliver</h3><p>Agreement, invoice, delivery checklist and handoff document. When you're ready, monthly care plans for clients who want ongoing help.</p></li>
         </ol>
-        <p class="note">A suggested pace is about one hour a day for 30 days. Your own pace will vary.</p>
+        <div class="pace-callout reveal">
+          <p class="pace-big">1 hour a day <span>&times;</span> 30 days</p>
+          <p>The course is designed so that about one focused hour a day for 30 days takes you through all 14 lessons, and leaves you able to take on and deliver a simple site for a paying client. That's the design, not a promise: your pace will vary, and finding the client is up to the conversations you start.</p>
+        </div>
       </div>
     </section>
 
@@ -290,16 +319,17 @@
         <h2 id="faq-title">Questions</h2>
         <div class="faq">
           <details><summary>Do I need to know how to code?</summary><p>No. Claude writes the code. You learn to describe what you want, check the result and ask for changes.</p></details>
-          <details><summary>Does "One Hour" mean I can build a site in an hour?</summary><p>No. It's the name of the course. An hour a day is a pace that makes room for the work. Setup, revisions and client projects take as long as they take.</p></details>
+          <details><summary>Does "One Hour" mean I can build a site in an hour?</summary><p>No. It's the name of the course. One focused hour a day for about 30 days is the pace the 14 lessons are designed around. Setup, revisions and client projects take as long as they take.</p></details>
           <details><summary>Will I get clients?</summary><p>I can't promise that, and neither can anyone else. The course gives you a process: pick a niche, find businesses, reach out, follow up and track every attempt. You control how many conversations you start.</p></details>
           <details><summary>I use Claude, but never to build things. Is this for me?</summary><p>Yes. If you can chat with Claude, you have what you need to begin. The course adds the building and the business, and Claude coaches you through both.</p></details>
           <details><summary>What if the sites look obviously AI-generated?</summary><p>You pick from three design directions with previews before anything gets built, and the kit includes a checklist for catching generic design. You'll learn what to look for.</p></details>
           <details><summary>What if a client asks for something I can't build?</summary><p>Claude helps you decide whether to scope it down, bring in a partner or refer it. Bigger builds like online shops and members' areas take more skill, and the course shows you where that line is.</p></details>
           <details><summary>Will I hit Claude's usage limits?</summary><p>You might. Claude Pro has a limit that resets every five hours and a weekly one. The course works on Sonnet by default and keeps each session to one task. If you reach a limit, nothing is lost, and the message tells you when it resets.</p></details>
+          <details id="what-is-eden"><summary>What is Eden, and why do I need it?</summary><p>Eden (eden.so) is a workspace app for notes, research and online courses. This course is sold and hosted there. You read the lessons and templates in Eden, your Agency Status dashboard and client notes live there, and Claude connects to it to read the course. A free Eden account is enough; the course includes 250 credits for the course chat. The course is written by Jesse, not by Eden.</p></details>
           <details><summary>What's the Eden chat for, if Claude does the coaching?</summary><p>Setup help before Claude is working, and quick questions when you're away from your computer.</p></details>
           <details><summary>Is the contract and invoice material legal advice?</summary><p>No. It's general information and templates. Have a professional review anything you rely on.</p></details>
           <details><summary>Are the prices in the course what I should charge?</summary><p>They're examples for working through the lessons. They aren't typical results or a promise of what clients will pay.</p></details>
-          <details><summary>What if I don't like it?</summary><p>You get a full refund within 14 days, no conditions. Email <a href="mailto:jesse@thelivinginternet.com">jesse@thelivinginternet.com</a>.</p></details>
+          <details><summary>What if I don't like it?</summary><p>Ask for a refund within 14 days of buying and you get your money back in full, no conditions. Email <a href="mailto:jesse@thelivinginternet.com">jesse@thelivinginternet.com</a>.</p></details>
         </div>
       </div>
     </section>
@@ -309,7 +339,7 @@
         <h2 id="ask-title">Ready to start?</h2>
         <p>Get the course, read Start here (five minutes), then follow Module 1 to set up Claude. If you get stuck before Claude is working, the course chat in Eden helps.</p>
         <a class="button button--big" href="https://jesse.eden.so/start-your-web-agency?checkout=direct">Get the course for $99</a>
-        <p class="price-note">$99 once. 14-day full refund. Questions first? Write to <a href="mailto:jesse@thelivinginternet.com">jesse@thelivinginternet.com</a>.</p>
+        <p class="price-note">$99 once. Full refund if you ask within 14 days of buying. Questions first? Write to <a href="mailto:jesse@thelivinginternet.com">jesse@thelivinginternet.com</a>.</p>
       </div>
     </section>
 
@@ -339,7 +369,7 @@
   </footer>
 
   <div class="buybar" aria-hidden="true">
-    <span><b>$99</b> once · 14-day refund</span>
+    <span><b>$99</b> once · refund within 14 days</span>
     <a class="button button--small" href="https://jesse.eden.so/start-your-web-agency?checkout=direct" tabindex="-1">Get the course</a>
   </div>
 
