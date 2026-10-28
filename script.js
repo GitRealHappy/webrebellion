@@ -76,4 +76,34 @@
   // 5. On phones, costs start collapsed to the one-line total.
   var costs = document.querySelector('.cost-details');
   if (costs && phone.matches) costs.removeAttribute('open');
+
+  // 6. Real example: on phones a button opens the whole screenshot; on larger screens it drifts down slowly on hover until the visitor scrolls.
+  var view = document.getElementById('showcase-view');
+  var toggle = document.querySelector('.browser-toggle');
+  if (view && toggle) {
+    function syncToggle() { toggle.hidden = !phone.matches; if (!phone.matches) view.classList.remove('open'); }
+    toggle.addEventListener('click', function () {
+      var open = view.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.textContent = open ? 'Show less' : 'Show the whole page';
+      if (!open) view.scrollIntoView({ block: 'nearest' });
+    });
+    if (phone.addEventListener) phone.addEventListener('change', syncToggle);
+    syncToggle();
+
+    var drifting = false, touched = false;
+    function drift() {
+      if (!drifting || touched) return;
+      view.scrollTop += 1.2;
+      if (view.scrollTop + view.clientHeight < view.scrollHeight - 1) window.requestAnimationFrame(drift);
+    }
+    view.addEventListener('mouseenter', function () {
+      if (phone.matches || reduce.matches || touched) return;
+      drifting = true; window.requestAnimationFrame(drift);
+    });
+    view.addEventListener('mouseleave', function () { drifting = false; });
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (type) {
+      view.addEventListener(type, function () { touched = true; drifting = false; }, { passive: true });
+    });
+  }
 })();
