@@ -405,6 +405,8 @@ a { color: inherit; text-underline-offset: 0.2em; }
   .route.swipe > li { flex-basis: 70%; padding: 2.25rem 0 0; }
   .route.swipe > li::after { left: 1.85rem; right: calc(var(--space-4) * -1 + 0.4rem); top: 0.85rem; bottom: auto; width: auto; height: 1px; }
   .trio.swipe > article, .versus.swipe > div { display: flex; flex-direction: column; }
+  /* why pay: stacked, so the second column (the argument) is never hidden off-screen */
+  .versus.swipe { display: grid; gap: var(--space-5); overflow: visible; margin-inline: 0; padding: 0; scroll-snap-type: none; }
   .section h2 { margin-bottom: var(--space-4); }
   .section-lede { margin-top: calc(var(--space-2) * -1); }
   .subhead { margin-top: var(--space-6); }
