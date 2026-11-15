@@ -81,9 +81,10 @@
   var view = document.getElementById('showcase-view');
   var toggle = document.querySelector('.browser-toggle');
   if (view && toggle) {
-    function syncToggle() { toggle.hidden = !phone.matches; if (!phone.matches) view.classList.remove('open'); }
+    function syncToggle() { toggle.hidden = false; }
     toggle.addEventListener('click', function () {
       var open = view.classList.toggle('open');
+      offset = 0; shot.style.transform = '';
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.textContent = open ? 'Show less' : 'Show the whole page';
       if (!open) view.scrollIntoView({ block: 'nearest' });
@@ -91,18 +92,21 @@
     if (phone.addEventListener) phone.addEventListener('change', syncToggle);
     syncToggle();
 
-    var drifting = false, touched = false;
+    var drifting = false, touched = false, offset = 0;
+    var shot = view.querySelector('img');
     function drift() {
-      if (!drifting || touched) return;
-      view.scrollTop += 1.2;
-      if (view.scrollTop + view.clientHeight < view.scrollHeight - 1) window.requestAnimationFrame(drift);
+      if (!drifting || touched || view.classList.contains('open')) return;
+      var max = shot.offsetHeight - view.clientHeight;
+      offset = Math.min(offset + 1.2, Math.max(max, 0));
+      shot.style.transform = 'translateY(' + (-offset) + 'px)';
+      if (offset < max) window.requestAnimationFrame(drift);
     }
     view.addEventListener('mouseenter', function () {
       if (phone.matches || reduce.matches || touched) return;
       drifting = true; window.requestAnimationFrame(drift);
     });
     view.addEventListener('mouseleave', function () { drifting = false; });
-    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (type) {
+    ['touchstart', 'mousedown'].forEach(function (type) {
       view.addEventListener(type, function () { touched = true; drifting = false; }, { passive: true });
     });
   }

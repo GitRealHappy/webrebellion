@@ -308,6 +308,11 @@ a { color: inherit; text-underline-offset: 0.2em; }
 .browser { margin: 0; min-width: 0; display: grid; gap: 0; }
 .browser .pane-head { background: #0E1114; border-radius: 12px 12px 0 0; }
 .browser-view { height: 34rem; overflow-y: auto; overscroll-behavior: contain; background: #000; scrollbar-width: thin; scrollbar-color: var(--color-line) transparent; }
+/* never trap the page scroll: the frame doesn't scroll itself; a button opens the whole page */
+.js .browser-view { overflow: hidden; overflow: clip; }
+.js .browser-view img { will-change: transform; }
+.js .browser-view.open { height: auto; }
+.js .hint-scroll { display: none; }
 .browser-view:focus-visible { outline: 2px solid var(--color-accent); outline-offset: -2px; }
 .browser-view img { display: block; width: 100%; height: auto; }
 .browser-hint { display: flex; align-items: center; justify-content: center; gap: var(--space-3); padding: 0.7rem 1rem 0.2rem; font-size: 0.8rem; color: var(--color-muted); }
@@ -431,9 +436,7 @@ a { color: inherit; text-underline-offset: 0.2em; }
   .buybar b { font-stretch: 125%; font-weight: 600; font-size: 1.15rem; color: var(--color-text); }
   .footer { padding-bottom: 7rem; }
 
-  .js .browser-view { height: 24rem; overflow: hidden; }
-  .js .browser-view.open { height: auto; }
-  .js .hint-scroll { display: none; }
+  .js .browser-view { height: 24rem; }
   .browser { padding: 8px; }
 }
 
