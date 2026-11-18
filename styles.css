@@ -120,6 +120,14 @@ a { color: inherit; text-underline-offset: 0.2em; }
 .price-note a { color: var(--color-text); }
 .byline { font-size: var(--step--1); color: var(--color-muted); margin: 0; }
 
+/* Proof strip: compact real example just below the hero */
+.proof-strip { padding-block: var(--space-4); background: var(--color-surface); border-block: 1px solid var(--color-line); }
+.proof-strip-inner { display: flex; align-items: center; gap: var(--space-4); }
+.proof-strip img { flex: none; width: 72px; height: 110px; object-fit: cover; object-position: top; border-radius: var(--radius-s); border: 1px solid var(--color-line); }
+.proof-strip p { margin: 0; color: var(--color-muted); max-width: 44rem; }
+.proof-strip b { color: var(--color-text); font-weight: 600; }
+.proof-strip a { color: var(--color-text); white-space: nowrap; }
+
 /* the console (signature): steel bezel, smoked-glass screens */
 .bench { margin: var(--space-6) 0 0; }
 .bench-frame, .browser {
