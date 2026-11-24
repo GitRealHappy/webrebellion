@@ -110,4 +110,43 @@
       view.addEventListener(type, function () { touched = true; drifting = false; }, { passive: true });
     });
   }
+
+  // 7. Black Friday sale. The page is written at full price; this block applies the sale only while the visitor's clock is before the end.
+  // End: midnight Mountain Time at the end of Black Friday, Nov 27 2026 (MST, UTC-7) = Nov 28 00:00 -07:00.
+  var SALE_END = Date.parse('2026-11-28T00:00:00-07:00');
+  var SALE_PRICE = '$99.50';
+  var priceEls = Array.prototype.slice.call(document.querySelectorAll('[data-price]'));
+  var saleBoxes = Array.prototype.slice.call(document.querySelectorAll('[data-sale]'));
+  var saleOn = false;
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+  function setSale(on) {
+    if (on === saleOn) return;
+    saleOn = on;
+    priceEls.forEach(function (el) {
+      var full = el.getAttribute('data-full');
+      if (full === null) { full = el.textContent; el.setAttribute('data-full', full); }
+      if (!on) { el.textContent = full; return; }
+      if (el.getAttribute('data-price') === 'strike') {
+        el.textContent = '';
+        var was = document.createElement('s'); was.className = 'was'; was.textContent = full;
+        var now = document.createElement('span'); now.className = 'now'; now.textContent = SALE_PRICE;
+        el.appendChild(was); el.appendChild(now);
+      } else { el.textContent = SALE_PRICE; }
+    });
+    saleBoxes.forEach(function (box) { box.hidden = !on; });
+  }
+  function tickSale() {
+    var left = SALE_END - Date.now();
+    if (left <= 0) { setSale(false); return false; }
+    setSale(true);
+    var s = Math.floor(left / 1000);
+    var parts = { d: Math.floor(s / 86400), h: pad(Math.floor(s % 86400 / 3600)), m: pad(Math.floor(s % 3600 / 60)), s: pad(s % 60) };
+    saleBoxes.forEach(function (box) {
+      Object.keys(parts).forEach(function (k) { var u = box.querySelector('[data-unit="' + k + '"]'); if (u) u.textContent = parts[k]; });
+    });
+    return true;
+  }
+  if (tickSale()) {
+    var saleTimer = window.setInterval(function () { if (!tickSale()) window.clearInterval(saleTimer); }, 1000);
+  }
 })();

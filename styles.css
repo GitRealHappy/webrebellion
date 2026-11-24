@@ -118,6 +118,21 @@ a { color: inherit; text-underline-offset: 0.2em; }
 .price-note { font-size: var(--step--1); color: var(--color-muted); max-width: 36rem; margin: 0; }
 .price-note b { color: var(--color-text); font-weight: 600; }
 .price-note a { color: var(--color-text); }
+
+/* Black Friday sale (shown by script.js only while the sale is running) */
+.was { color: var(--color-text); opacity: 0.8; font-size: 1.45em; font-weight: 600; line-height: 1; text-decoration: none; position: relative; display: inline-block; margin-right: 0.3em; }
+.was::after { content: ""; position: absolute; left: -6%; width: 112%; top: 50%; height: 0.1em; margin-top: -0.05em; background: var(--color-accent); border-radius: 1em; transform: rotate(-22deg); }
+.now { color: var(--color-accent); font-size: 1.45em; font-weight: 700; line-height: 1; }
+.hero .price-note:has(.was) { font-size: var(--step-0); }
+.sale { display: grid; gap: var(--space-2); padding: var(--space-3) var(--space-4); border-radius: var(--radius); border: 1px solid var(--color-accent); background: var(--color-surface); max-width: 36rem; }
+.sale[hidden] { display: none; }
+.sale p { margin: 0; }
+.sale-head { font-size: var(--step-1); line-height: 1.2; }
+.sale-sub { font-size: var(--step--1); color: var(--color-muted); }
+.countdown { display: flex; flex-wrap: wrap; gap: var(--space-3); font-family: var(--mono); font-size: var(--step--1); color: var(--color-muted); }
+.countdown b { display: block; font-size: var(--step-3); line-height: 1.1; color: var(--color-text); font-variant-numeric: tabular-nums; }
+.sale--center { margin: var(--space-4) auto; text-align: center; }
+.sale--center .countdown { justify-content: center; }
 .byline { font-size: var(--step--1); color: var(--color-muted); margin: 0; }
 
 /* Proof strip: compact real example just below the hero */
@@ -490,3 +505,9 @@ a { color: inherit; text-underline-offset: 0.2em; }
   .ms-item:nth-of-type(n+3) { display: none; }
   .ms-menu { margin-bottom: 0.9rem; }
 }
+
+.button [data-price] { display: contents; }
+.closing .sale { background: var(--color-bg); max-width: 34rem; }
+.closing .sale p { margin: 0; max-width: none; }
+.closing .sale-head { color: var(--color-text); }
+.closing .sale .sale-sub, .closing .sale .countdown { color: var(--color-muted); }
